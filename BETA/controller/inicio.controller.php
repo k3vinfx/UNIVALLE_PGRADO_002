@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Tu Aplicación</title>
-</head>
-<body>
+
 <?php
-//Se incluye el modelo donde conectará el controlador.
+//Se incluye el modelo donde conectará el controlador..........
 
 require_once 'model/inicio.php';
 
@@ -93,7 +83,7 @@ class InicioController{
     public function GuardarPago(){
         $pvd = new inicio();
 
-        $pvd->dato1 = $_POST['cliente_id'];
+        $pvd->dato1 = $_POST['Cliente_Id'];
         
         if(isset($_FILES['archivo1']) && $_FILES['archivo1']['error'] == 0){
             $archivo1 = $_FILES['archivo1'];
@@ -168,12 +158,12 @@ class InicioController{
         $pvd->dato4_edad = filter_input(INPUT_POST, 'edad', FILTER_SANITIZE_STRING);
         $pvd->dato5_celular = filter_input(INPUT_POST, 'celular', FILTER_SANITIZE_STRING);
         $pvd->dato6_sexo = filter_input(INPUT_POST, 'sexo', FILTER_SANITIZE_STRING);
-        $pvd->dato7_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+        $pvd->dato7_email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'pass2', FILTER_SANITIZE_STRING);
         $pvd->dato8_pass2 = password_hash($password, PASSWORD_DEFAULT);
     
         $pvd->dato9_compania = filter_input(INPUT_POST, 'compania', FILTER_SANITIZE_STRING);
-        $pvd->dato10_estadia = $_REQUEST['estadia']; 
+ 
        
 
         $entrada1 = isset($_POST['entrada1']) ? 1 : 0;
@@ -187,12 +177,9 @@ class InicioController{
     
         //Registro al modelo proveedor.
 
-        if($this->model->CorreoExiste($pvd->dato7_email)){
-            echo "El correo ya está registrado.";
-            return;
-        }else{
-            $this->model->Registrar($pvd);
-        }
+       
+        $this->model->Registrar($pvd);
+        
         $pvd->dato_id = $this->model->ObtenerCel(filter_input(INPUT_POST, 'celular', FILTER_SANITIZE_STRING));
         $valor = $pvd->dato_id;
             
@@ -209,8 +196,38 @@ class InicioController{
         exit(); // Siempre usa exit después de un header de redirección.
     }
     
+    public function CorreoGET(){
+        
+                
+        if (isset($_POST['action'])) {
+            $action = $_POST['action'];
+            
+            // Verificar la acción específica
+            if ($action === 'CorreoExiste') {
+                // Obtener el valor enviado en la solicitud
+                $valor = $_POST['valor'];
+                
+                // Asegurándonos de que la propiedad model esté correctamente configurada y accesible
+                if(isset($this->model)) {
+                    // Llamar al método CorreoExiste con el valor
+                    $result = $this->model->CorreoExiste($valor);
+                    
+                    // Devolver los datos como JSON
+                    echo json_encode($result);
+                    exit; // Asegurarse de que no se envíe ninguna otra salida
+                } else {
+                    // Manejo de error si model no está seteado
+                    echo json_encode(['error' => 'Model no está definido.']);
+                }
+            }
+        }
 
 
+       
+    }
+
+
+   
     public function Logeo(){
         session_start();
         // Crear una instancia de la clase inicio

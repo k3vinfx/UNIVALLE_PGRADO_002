@@ -184,8 +184,8 @@
                         <div class="form-group">
                         <label for="contacto">Ubicacion de la Alternativa</label>
                         <input type="text" placeholder="Ingrese ubicacion de la alternativa" name="ubicacion" id="ubicacion" class="form-control">
+                        <input type="text"  name="latlong" id="latlong" class="form-control"> 
                     </div>
-
                     <div class="form-group">
                         <label for="direccion">Descripcion</label>
                         <input type="text" placeholder="Ingrese Direccion" name="descripcion" id="descripcion" class="form-control">
@@ -237,20 +237,26 @@
         var currentMarker;
 
         map.on('click', (e)=>{
-        var lat = e.latlng.lat;
-        var lng = e.latlng.lng;
+        var lat = Number(e.latlng.lat.toFixed(6));
+        var lng = Number(e.latlng.lng.toFixed(6));
         if (currentMarker) {
             map.removeLayer(currentMarker);
         }
         currentMarker = L.marker(e.latlng).addTo(map);
-   
+        
         gcs.reverse().latlng(e.latlng).run((err, res)=>{
             if(err) return;
           //  alert(res.latlng);
 
-            document.getElementById("text1").value = lat;
+         //   document.getElementById("text1").value = lat;
             document.getElementById("text2").value = lng;
-  
+
+       
+            let latLngStr = e.latlng;
+
+          //  let latLngStr = "LatLng(-16.485331, -68.119304)";
+            document.getElementById("text1").value = lat;
+            document.getElementById("latlong").value = lat + "," + lng ;
           //  currentMarker = L.marker(res.latlng).addTo(map).bindPopup(res.address.Match_addr).openPopup();
           //  currentMarker.bindPopup(res.address.Match_addr).openPopup();
           var popupContent = "";

@@ -1,5 +1,13 @@
 <?php
+
+
+
 require_once 'model/database.php';
+
+$model = new inicio();
+
+
+
 class inicio
 {
 
@@ -30,6 +38,16 @@ class inicio
 			die($e->getMessage());
 		}
 	}
+	public function CorreoExiste($valor){
+        try {
+            $stmt = $this->pdo->prepare("SELECT Cliente_Id, Cliente_Email FROM clientes WHERE Cliente_Email = ?");
+			$stmt->execute(array($valor));
+           // return $stmt->fetch() !== false;
+			return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 	public function MenuLista()
 	{
 		try
@@ -242,15 +260,7 @@ class inicio
             die($e->getMessage());
         }
     }
-    public function CorreoExiste($email){
-        try {
-            $stmt = $this->pdo->prepare("SELECT 1 FROM clientes WHERE Cliente_Email = ?");
-            $stmt->execute([$email]);
-            return $stmt->fetch() !== false;
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
-    }
+
     
 	public function Registrar(inicio $data)
 	{
@@ -266,10 +276,9 @@ class inicio
 				Cliente_Sexo,
                 Cliente_Email,
                 Cliente_Password,
-                Cliente_Compania,
-                Cliente_Estadia
+                Cliente_Compania
                 )
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -282,8 +291,7 @@ class inicio
 					$data->dato6_sexo,
                     $data->dato7_email,
 					$data->dato8_pass2,
-					$data->dato9_compania,
-                    $data->dato10_estadia
+					$data->dato9_compania
                 )
 			);
             $idCliente = $this->pdo->lastInsertId();

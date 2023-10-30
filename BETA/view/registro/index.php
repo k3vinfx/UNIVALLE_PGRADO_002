@@ -143,7 +143,325 @@
         margin-left: 5px;
     }
   </style>
-  
+
+<!-- Luego SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#email1').on('change', function(){
+         
+            var valorSeleccionado = $("#email1").val();
+         
+            $.ajax({
+                url: '?c=inicio&a=CorreoGET',
+                method: 'POST',
+                data: {
+                    
+                    action: 'CorreoExiste',
+                    valor: valorSeleccionado
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log('Respuesta del servidorss:', data);
+                    $.each(data, function (key, value) {
+                        if (value.Cliente_Id!=null){
+                            Swal.fire('Correo Electronico' , 'Error, usuario ya existe registrado con este correo intete otro porfavor', 'error');
+                          //$('#email1').text('');
+                            $("#email1").val('');
+                        }else{
+                      
+                        }
+                  
+                    });
+             
+                },
+                error: function (xhr, status, error) {     
+                console.log('Ha ocurrido un error:');
+                console.log('Status:', status);
+                console.log('Error:', error);
+                console.log('XHR:', xhr);
+                console.log('Código de estado HTTP:', xhr.status);
+                console.log('Texto de estado HTTP:', xhr.statusText);
+                console.log('Respuesta del servidor:', xhr.responseText);
+               }   
+            });
+
+     
+    });
+
+    const selectEdad = document.getElementById('edad');
+
+        for(let i = 15; i <= 90; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.text = i + ' años';
+            selectEdad.appendChild(option);
+        }
+
+        const paises = [
+        "Afganistán",
+        "Albania",
+        "Alemania",
+        "Andorra",
+        "Angola",
+        "Antigua y Barbuda",
+        "Arabia Saudita / Arabia Saudí",
+        "Argelia",
+        "Argentina",
+        "Armenia",
+        "Australia",
+        "Austria",
+        "Azerbaiyán",
+        "Bahamas",
+        "Bangladés",
+        "Barbados",
+        "Baréin",
+        "Bélgica",
+        "Belice",
+        "Bielorrusia",
+        "Benín",
+        "Birmania / Myanmar",
+        "Bolivia",
+        "Bosnia y Herzegovina / Bosnia-Herzegovina",
+        "Botsuana",
+        "Brasil",
+        "Brunei Darussalam",
+        "Bulgaria",
+        "Burkina Faso",
+        "Burundi",
+        "Bután",
+        "Cabo Verde",
+        "Camboya",
+        "Camerún",
+        "Canadá",
+        "Catar",
+        "República Centroafricana",
+        "Chad",
+        "República Checa / Chequia",
+        "Chile",
+        "China",
+        "Chipre",
+        "Colombia",
+        "Comoras",
+        "República del Congo",
+        "República Democrática del Congo",
+        "Corea del Norte",
+        "Corea del Sur",
+        "Costa de Marfil",
+        "Costa Rica",
+        "Croacia",
+        "Cuba",
+        "Dinamarca",
+        "Dominica",
+        "República Dominicana",
+        "Ecuador",
+        "Egipto",
+        "El Salvador",
+        "Emiratos Árabes Unidos",
+        "Eritrea",
+        "Eslovaquia",
+        "Eslovenia",
+        "España",
+        "Estados Unidos",
+        "Estonia",
+        "Etiopía",
+        "Filipinas",
+        "Finlandia",
+        "Fiyi",
+        "Francia",
+        "Gabón",
+        "Gambia",
+        "Georgia",
+        "Ghana",
+        "Granada",
+        "Grecia",
+        "Guatemala",
+        "Guinea",
+        "Guinea-Bisáu",
+        "Guinea Ecuatorial",
+        "Guyana",
+        "Haití",
+        "Honduras",
+        "Hungría",
+        "India",
+        "Indonesia",
+        "Irak",
+        "Irán",
+        "Irlanda",
+        "Islandia",
+        "Israel",
+        "Italia",
+        "Jamaica",
+        "Japón",
+        "Jordania",
+        "Kazajistán",
+        "Kenia",
+        "Kirguistán",
+        "Kiribati",
+        "Kuwait",
+        "Laos",
+        "Lesoto",
+        "Letonia",
+        "Líbano",
+        "Liberia",
+        "Libia",
+        "Liechtenstein",
+        "Lituania",
+        "Luxemburgo",
+        "Macedonia del Norte",
+        "Madagascar",
+        "Malasia",
+        "Malaui",
+        "Maldivas",
+        "Mali / Malí",
+        "Malta",
+        "Marruecos",
+        "Islas Marshall",
+        "Mauricio",
+        "Mauritania",
+        "México",
+        "Micronesia",
+        "Moldavia",
+        "Mónaco",
+        "Mongolia",
+        "Montenegro",
+        "Mozambique",
+        "Namibia",
+        "Nauru",
+        "Nepal",
+        "Nicaragua",
+        "Níger",
+        "Nigeria",
+        "Noruega",
+        "Nueva Zelanda / Nueva Zelandia",
+        "Omán",
+        "Países Bajos",
+        "Pakistán",
+        "Palaos",
+        "Palestina",
+        "Panamá",
+        "Papúa Nueva Guinea",
+        "Paraguay",
+        "Perú",
+        "Polonia",
+        "Portugal",
+        "Reino Unido",
+        "Ruanda",
+        "Rumania / Rumanía",
+        "Rusia",
+        "Islas Salomón",
+        "Samoa",
+        "San Cristóbal y Nieves",
+        "San Marino",
+        "San Vicente y las Granadinas",
+        "Santa Lucía",
+        "Santo Tomé y Príncipe",
+        "Senegal",
+        "Serbia",
+        "Seychelles",
+        "Sierra Leona",
+        "Singapur",
+        "Siria",
+        "Somalia",
+        "Sri Lanka",
+        "Suazilandia / Esuatini",
+        "Sudáfrica",
+        "Sudán",
+        "Sudán del Sur",
+        "Suecia",
+        "Suiza",
+        "Surinam",
+        "Tailandia",
+        "Tanzania",
+        "Tayikistán",
+        "Timor Oriental",
+        "Togo",
+        "Tonga",
+        "Trinidad y Tobago",
+        "Túnez",
+        "Turkmenistán",
+        "Turquía",
+        "Tuvalu",
+        "Ucrania",
+        "Uganda",
+        "Uruguay",
+        "Uzbekistán",
+        "Vanuatu",
+        "Ciudad del Vaticano",
+        "Venezuela",
+        "Vietnam",
+        "Yemen",
+        "Yibuti",
+        "Zambia",
+        "Zimbabue",
+        // ... (puedes agregar todos los países que necesites aquí)
+    ];
+
+    const selectPais = document.getElementById('pais');
+
+    for(let i = 0; i < paises.length; i++) {
+        const option = document.createElement('option');
+        option.value = paises[i];
+        option.text = paises[i];
+        selectPais.appendChild(option);
+    }
+
+    document.getElementById('frm-principal-neurona').addEventListener('submit', function(e){
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+        var checkedCount = Array.prototype.slice.call(checkboxes).filter(x => x.checked).length;
+        var pass1 = document.getElementById('pass1').value;
+        var pass2 = document.getElementById('pass2').value;
+      
+        console.log(checkboxes);
+
+        if (!document.getElementById('nombres').value.trim() || 
+            !document.getElementById('apellidos').value.trim() ||
+            !document.getElementById('pais').value.trim() ||
+            !document.getElementById('email1').value.trim() ||
+            !document.getElementById('celular').value ||
+            !document.getElementById('pass1').value.trim() ||
+            !document.getElementById('pass2').value.trim() ||
+            !document.getElementById('edad').value.trim()) {
+         
+            e.preventDefault(); // prevent form from SUBMITting
+            Swal.fire('Campos Incompletos', 'Por favor, llene todos los campos', 'error');
+
+        }
+        
+        var upperCaseChars = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+
+        var errorMessage = "";
+        // Comprobaciones de las validaciones
+
+        if (pass1 !== pass2) {
+            errorMessage = 'Las contraseñas no coinciden.';
+        } 
+       
+         if(errorMessage !== "") {
+            e.preventDefault(); // Prevenir la sumisión del formulario
+            Swal.fire('Error en Contraseñas', errorMessage, 'error');
+            return;
+        }
+
+        if (document.getElementById('sexo').value == 0 ||
+            document.getElementById('compania').value == 0 ||
+            document.getElementById('estadia').value == 0) {
+            e.preventDefault(); // prevent form from SUBMITting
+            Swal.fire('Selecciones Faltantes', 'Por favor, selecciona todas las opciones desplegables', 'error');
+        }
+        
+        if(!checkedOne || checkedCount < 3){
+            e.preventDefault(); // prevent form from SUBMITting
+            Swal.fire('Selecciones Insuficientes', 'Por favor, selecciona al menos 3 casillas de interés', 'error');
+         }
+    });
+});
+</script>
+
   </head>
   <body>
 
@@ -165,7 +483,7 @@
             </div>
             </br>
             <div class="signup-form">
-                <form id="frm-principal-neurona" action="?c=inicio&a=GuardarPago" class="register-form" method="post">
+                <form id="frm-principal-neurona" action="?c=inicio&a=Guardar" class="register-form" method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -178,11 +496,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="pais" class="required">País</label>
-                                <input type="text" name="pais" id="pais" class="form-control" />
+                                <select name="pais" id="pais" class="form-select">
+                                    <option value="0">Selecciona su Pais</option>
+                                    <!-- Las opciones de edad se generarán dinámicamente con JavaScript -->
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="email" class="required">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" />
+                                <label  class="required">Email</label>
+                                <input type="email" name="email1" id="email1" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label for="celular" class="required">Celular</label>
@@ -198,7 +519,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="edad" class="required">Edad</label>
-                                <input type="text" name="edad" id="edad" class="form-control" />
+                                <select name="edad" id="edad" class="form-select">
+                                    <option value="0">Selecciona tu edad</option>
+                                    <!-- Las opciones de edad se generarán dinámicamente con JavaScript -->
+                                </select>
+
+                              
                             </div>
                          
                         </div>
@@ -226,23 +552,8 @@
                                      <!-- Agrega más opciones aquí -->
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="estadia" class="fw-bold">Selecciona el tiempo que te quedarás</label>
-                                <select id="estadia" name="estadia" class="form-select">
-                                    <option value="0">Selecciona el tiempo de estadia </option>
-                                    <option value="1">Entre 1 a 5 días</option> 
-                                    <option value="2">Entre 1 a 2 semanas</option>
-                                    <option value="3">Entre 3 a 4 semanas</option> 
-                                    <option value="4">Entre 1 a 2 meses</option>
-                                    <option value="5">Entre 2 a 3 meses</option> 
-                                    <option value="6">Entre 3 a 6 meses</option>
-                                    <option value="7">Entre 6 a 12 meses</option> 
-                              
-                                    <!-- Agrega más opciones aquí -->
-                                </select>
-                            </div>
-                            <br>
-                            <hr class="my-2">
+                          
+                                                        <br>                            <hr class="my-2">
                             <h6><strong>Selecciona al menos 3 casillas de gustos de interés que quieres conocer en La Paz</strong></h6>
                             <br>
                             <div class="form-check">
@@ -311,7 +622,7 @@
                             
                         </div>
                     </div>
-    </br></br>
+                    </br></br>
                     <div class="form-submit text-center">
                         <input type="submit" value="Registrar" class="btn btn-primary" id="submit" name="submit" />
                         <input type="reset" value="Reiniciar" class="btn btn-secondary" id="reset" name="reset" />
@@ -320,68 +631,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-  
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() { 
-        
-    document.getElementById('frm-principal-neurona').addEventListener('submit', function(e){
-        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
-        var checkedCount = Array.prototype.slice.call(checkboxes).filter(x => x.checked).length;
-        var pass1 = document.getElementById('pass1').value;
-        var pass2 = document.getElementById('pass2').value;
-      
-        console.log(checkboxes);
-
-        if (!document.getElementById('nombres').value.trim() || 
-            !document.getElementById('apellidos').value.trim() ||
-            !document.getElementById('pais').value.trim() ||
-            !document.getElementById('email').value.trim() ||
-            !document.getElementById('celular').value ||
-            !document.getElementById('pass1').value.trim() ||
-            !document.getElementById('pass2').value.trim() ||
-            !document.getElementById('edad').value.trim()) {
-         
-            e.preventDefault(); // prevent form from SUBMITting
-            Swal.fire('Campos Incompletos', 'Por favor, llene todos los campos', 'error');
-
-        }
-        
-        var upperCaseChars = /[A-Z]/g;
-        var numbers = /[0-9]/g;
-
-        var errorMessage = "";
-        // Comprobaciones de las validaciones
-
-        if (pass1 !== pass2) {
-            errorMessage = 'Las contraseñas no coinciden.';
-        } 
-       
-         if(errorMessage !== "") {
-            e.preventDefault(); // Prevenir la sumisión del formulario
-            Swal.fire('Error en Contraseñas', errorMessage, 'error');
-            return;
-        }
-
-        if (document.getElementById('sexo').value == 0 ||
-            document.getElementById('compania').value == 0 ||
-            document.getElementById('estadia').value == 0) {
-            e.preventDefault(); // prevent form from SUBMITting
-            Swal.fire('Selecciones Faltantes', 'Por favor, selecciona todas las opciones desplegables', 'error');
-        }
-        
-        if(!checkedOne || checkedCount < 3){
-            e.preventDefault(); // prevent form from SUBMITting
-            Swal.fire('Selecciones Insuficientes', 'Por favor, selecciona al menos 3 casillas de interés', 'error');
-         }
-    });
-});
-</script>
 
 
     <!-- Agrega tus scripts personalizados aquí -->
