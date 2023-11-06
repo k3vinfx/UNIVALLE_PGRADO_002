@@ -76,28 +76,8 @@ class AlternativaController{
     public function Guardar(){
 
         $pvd = new alternativa();
-
-        $archivo = $_FILES['archivo'];
-
-        // Verifica si se subió correctamente el archivo
-        if ($archivo['error'] === UPLOAD_ERR_OK) {
-            // Accede a la información del archivo
-            $nombreArchivo = $archivo['name'];
-            $tipoArchivo = $archivo['type'];
-            $tamanioArchivo = $archivo['size'];
-            $rutaTemporal = $archivo['tmp_name'];
-
-            // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
-            // Por ejemplo:
-            $nuevaRuta = "img/" . $nombreArchivo;
-            move_uploaded_file($rutaTemporal, $nuevaRuta);
-
-            // Asigna la ruta del archivo a tu objeto o modelo
-            $pvd->archivo = $nuevaRuta;
-        } else {
-            // Manejar errores de carga de archivos si es necesario
-            echo "Error al subir el archivo.";
-        }
+        $pvd_img = new alternativa();
+   
 
         //Captura de los datos del formulario (vista).
         $pvd->titulo = $_REQUEST['titulo'];
@@ -106,12 +86,128 @@ class AlternativaController{
         $pvd->costo = $_REQUEST['costo'];
         $pvd->descripcion = $_REQUEST['descripcion'];
         $pvd->estado = $_REQUEST['estado'];
-        $pvd->archivo = $nuevaRuta;
-
-
-        //Registro al modelo proveedor.
+        $pvd->latlong = $_REQUEST['latlong'];
+            //Registro al modelo proveedor.
         $this->model->Registrar($pvd);
-     
+
+
+
+       
+        $archivo1 = $_FILES['img1'];
+
+        // Verifica si se subió correctamente el archivo
+        if ($archivo1['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+           // $nombreArchivo = $archivo1['name'];
+           // $tipoArchivo = $archivo1['type'];
+           // $tamanioArchivo = $archivo1['size'];
+           // $rutaTemporal = $archivo1['tmp_name'];
+            $nombreOriginal = pathinfo($archivo1['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo1['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo1['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_01_' .  time() . '.' . $extensionArchivo;
+            // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            // Por ejemplo:
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $pvd_img->archivo1 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+
+        $archivo2 = $_FILES['img2'];
+
+        // Verifica si se subió correctamente el archivo
+        if ($archivo2['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+            $nombreOriginal = pathinfo($archivo2['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo2['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo2['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_02_' .  time() . '.' . $extensionArchivo;
+              // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            // Por ejemplo:
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $pvd_img->archivo2 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+
+        $archivo3 = $_FILES['img3'];
+        // Verifica si se subió correctamente el archivo
+        if ($archivo3['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+            $nombreOriginal = pathinfo($archivo3['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo3['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo3['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_03_' .  time() . '.' . $extensionArchivo;
+              // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            // Por ejemplo:
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $pvd_img->archivo3 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+        $archivo4 = $_FILES['img4'];
+        // Verifica si se subió correctamente el archivo
+        if ($archivo4['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+            $nombreOriginal = pathinfo($archivo4['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo4['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo4['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_04_' .  time() . '.' . $extensionArchivo;
+              // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            // Por ejemplo:
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $pvd_img->archivo4 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+
+        $archivo5 = $_FILES['img5'];
+        // Verifica si se subió correctamente el archivo
+        if ($archivo5['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+            $nombreOriginal = pathinfo($archivo5['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo5['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo5['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_05_' .  time() . '.' . $extensionArchivo;
+              // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            // Por ejemplo:
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $pvd_img->archivo5 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+
+        $this->model->Registrar_img($pvd_img);
+
         header('Location: index.php?c=alternativa&a=NuevoIN');
         //header() es usado para enviar encabezados HTTP sin formato.
         //"Location:" No solamente envía el encabezado al navegador, sino que

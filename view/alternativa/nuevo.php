@@ -149,7 +149,47 @@
                         <label for="telefono">Precio</label>
                         <input type="number" step="5" placeholder="Ingrese el Precio de la Alternativa" name="costo" id="costo" class="form-control" min="0" max="1000">
                     </div>
-             
+                    <div class="form-group">
+                    <label id="lb_entrada_1">Carge Imagenes del Alternativa</label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                        Cargar Imagenes
+                        </button>
+                        </div>
+                        <div class="modal" id="myModal1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Imagenes</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="text1">Imagenes1:</label>
+                                <input type="file" class="form-control" id="img1" name="img1" class="form-control mb-2" >  
+                                <div id="file-info1" class="mt-2"></div>
+                                <label for="textx1">Imagenes2:</label>
+                                <input type="file" class="form-control" id="img2" name="img2" class="form-control mb-2" >  
+                                <div id="file-info2" class="mt-2"></div>
+                                <label for="text1">Imagenes3:</label>
+                                <input type="file" class="form-control" id="img3" name="img3" class="form-control mb-2" > 
+                                <div id="file-info3" class="mt-2"></div>
+                                <label for="text1">Imagenes4:</label>
+                                <input type="file" class="form-control" id="img4" name="img4" class="form-control mb-2" > 
+                                <div id="file-info4" class="mt-2"></div> 
+                                <label for="text1">Imagenes5:</label>
+                                <input type="file" class="form-control" id="img5" name="img5" class="form-control mb-2" >  
+                                <div id="file-info5" class="mt-2"></div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                         
+                        </div>
+                        </div>
+                       
+                    </div>
+
 
              
                     <div class="form-group">
@@ -184,7 +224,7 @@
                         <div class="form-group">
                         <label for="contacto">Ubicacion de la Alternativa</label>
                         <input type="text" placeholder="Ingrese ubicacion de la alternativa" name="ubicacion" id="ubicacion" class="form-control">
-                        <input type="text"  name="latlong" id="latlong" class="form-control"> 
+                        <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
                     </div>
                     <div class="form-group">
                         <label for="direccion">Descripcion</label>
@@ -197,16 +237,7 @@
                         <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="control-label">Images</label>
-                        <div class="custom-file">
-                        <input type="hidden" name="meta_data" id="meta_data" class="form-control">
-                 
-                        <input type="file" class="form-control" id="archivo" name="archivo" multiple>      
-                          <label class="custom-file-label" for="archivo">Escoje un Archivo de Imagen o Varias Imagenes</label>
-                        </div>
-                        <div id="file-info" class="mt-2"></div>
-                    </div>
+               
         
 
                     <input type="submit" value="Guardar Alternativa" class="btn btn-primary">
@@ -283,8 +314,56 @@
 
             });
         });
+        // Objeto para mantener el registro de los archivos seleccionados
+        var archivosSeleccionados = {};
+        function esExtensionValida(nombreArchivo) {
+            // Define las extensiones de archivo permitidas
+            var extensionesPermitidas = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            
+            // Comprueba si la extensión del archivo actual está permitida
+            return extensionesPermitidas.test(nombreArchivo);
+        }
 
-        $('#archivo').on('change', function() {
+
+                
+        function actualizarRegistroYUI(inputElement, infoElementId) {
+            var files = $(inputElement)[0].files;
+            var fileInfo = "";
+
+            if (files.length > 0) {
+                var archivo = files[0].name;
+
+                // Verificar si el archivo tiene una extensión de imagen válida
+                if (!esExtensionValida(archivo)) {
+                    fileInfo = "Formato no permitido. Seleccione un archivo de imagen (.jpg, .jpeg, .png, .gif).";
+                    $(inputElement).val(''); // Limpiar el input file
+                } else if (Object.values(archivosSeleccionados).includes(archivo)) {
+                    // Comprobar si el archivo ya ha sido seleccionado en otro input
+                    fileInfo = "Este archivo ya ha sido seleccionado.";
+                    $(inputElement).val(''); // Deseleccionar el archivo actual
+                } else {
+                    // Actualizar el registro con el nuevo archivo
+                    var inputId = $(inputElement).attr('id');
+                    archivosSeleccionados[inputId] = archivo;
+                    fileInfo = `Archivo seleccionado: ${archivo}`;
+                }
+            } else {
+                fileInfo = "No se ha seleccionado ningún archivo.";
+            }
+
+            $('#' + infoElementId).html(fileInfo); // Actualizar la interfaz de usuario
+        }
+
+        // Manejadores de eventos para los cambios de archivos
+        $('#img1').on('change', function() { actualizarRegistroYUI(this, 'file-info1'); });
+        $('#img2').on('change', function() { actualizarRegistroYUI(this, 'file-info2'); });
+        $('#img3').on('change', function() { actualizarRegistroYUI(this, 'file-info3'); });
+        $('#img4').on('change', function() { actualizarRegistroYUI(this, 'file-info4'); });
+        $('#img5').on('change', function() { actualizarRegistroYUI(this, 'file-info5'); });
+
+
+
+        $('#img1').on('change', function() {
             var files = $(this)[0].files;
             var fileInfo = "";
             var jsonFiles = []; 
@@ -292,26 +371,74 @@
             if (files.length === 0) { 
                 fileInfo = "No se ha seleccionado ningún archivo.";
             } else {
-                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;
-                for (var i = 0; i < files.length; i++) {
-                    fileInfo += `- ${files[i].name}<br>`;
-                    jsonFiles.push({
+            //    for (var i = 0; i < files.length; i++) {
+            //       fileInfo += `- ${files[i].name}<br>`;
+            //        jsonFiles.push({
+            //          id: i,
+            //          data: files[i].name
+            //         });
+            //       fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;     
+            //    }
+            //  var jsonFilesString = JSON.stringify(jsonFiles); // Convertir el array de objetos a una cadena JSON
+            //  document.getElementById("meta_data").value = jsonFilesString;
+            //  var visualName = "Imagen_Seleccionada_" + new Date().getTime();
+            //  fileInfo = `Se ha seleccionado el archivo:<br><strong>${visualName}</strong>`;
+            //  console.log(jsonFilesString);
 
-                        id: i,
-                        data: files[i].name
-                    });
-
-                }
-                var jsonFilesString = JSON.stringify(jsonFiles); // Convertir el array de objetos a una cadena JSON
-            
-                document.getElementById("meta_data").value = jsonFilesString;
-
-               console.log(jsonFilesString);
-
+                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;     
             }
-
-            $('#file-info').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
+            $('#file-info1').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
         });
+        $('#img2').on('change', function() {
+            var files = $(this)[0].files;
+            var fileInfo = "";
+            var jsonFiles = []; 
+            
+            if (files.length === 0) { 
+                fileInfo = "No se ha seleccionado ningún archivo.";
+            } else {
+                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;     
+            }
+            $('#file-info2').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
+        });
+        $('#img3').on('change', function() {
+            var files = $(this)[0].files;
+            var fileInfo = "";
+            var jsonFiles = []; 
+            
+            if (files.length === 0) { 
+                fileInfo = "No se ha seleccionado ningún archivo.";
+            } else {
+                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;     
+            }
+            $('#file-info3').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
+        });
+        $('#img4').on('change', function() {
+            var files = $(this)[0].files;
+            var fileInfo = "";
+            var jsonFiles = []; 
+            
+            if (files.length === 0) { 
+                fileInfo = "No se ha seleccionado ningún archivo.";
+            } else {
+                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;     
+            }
+            $('#file-info4').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
+        });
+        $('#img5').on('change', function() {
+            var files = $(this)[0].files;
+            var fileInfo = "";
+            var jsonFiles = []; 
+            
+            if (files.length === 0) { 
+                fileInfo = "No se ha seleccionado ningún archivo.";
+            } else {
+                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;     
+            }
+            $('#file-info5').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
+        });
+
+
 
         $('#myModal').on('shown.bs.modal', function () {
                 map.invalidateSize();
@@ -330,6 +457,23 @@
           }
 
         });
+
+        // Obtiene el botón que abre el modal
+        var modal = document.getElementById("myModal1");
+
+        // Obtiene el botón que abre el modal
+
+
+        $('#saveChangesButtonImg').on('click', function(e) {
+            e.preventDefault(); // Esto evita que el botón realice su acción por defecto.
+            // Aquí iría el código para manejar los cambios, como validar y guardar los datos.
+            
+            // Para cerrar el modal manualmente si todo está correcto:
+             $('#myModal1').modal('hide');
+             $('.modal-backdrop').remove();
+             $('body').removeClass('modal-open'); // Esto devuelve el scroll al body si se había quitado.
+        });
+
 
         var modal = document.getElementById("myModal");
 

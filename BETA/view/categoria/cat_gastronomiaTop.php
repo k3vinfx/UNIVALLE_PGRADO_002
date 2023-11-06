@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos ...</h1>
+  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos </h1>
 
   <!-- Agregar título con color diferente -->
   <div class="row align-items-center">
@@ -49,50 +49,55 @@
     </div>
   </div>
   <!-- Tabla de datos -->
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered" id="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Código </th>
-      
-                  <th>Atractivo</th>
-                  <th>Imagen</th>
-  
 
-                  <th>Acciones del Nodo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach($this->model->MenuLista1() as $r): ?>
-                  <tr>
-                    <td><?php echo $r->Recomendacion_id; ?></td>
-                    <td><?php echo $r->Recomendacion_titulo; ?></td>
-                    <td>
-                      <a href="<?php echo $r->Recomendacion_ruta_carga; ?>" class="popup-link">
-                          <img src="<?php echo $r->Recomendacion_ruta_carga; ?>" width="200"/>
-                      </a>
-                  </td>
-                    <td>
-                      <a href="?c=principal&a=Crud_Aux&Neurona_Id=<?php echo $r->Recomendacion_id; ?>" class="btn btn-success"><i class='fas fa-edit'></i>Registrar</a>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
+
+  
+ <div class="row">
+    <div class="col-lg-8 mx-auto">
+
+      <!-- List group-->
+      <ul class="list-group shadow">
+
+        <!-- list group item-->
+        <li class="list-group-item">
+          <!-- Custom content-->
+          <?php foreach($this->model->MenuLista1() as $r): ?>
+          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+            <div class="media-body order-2 order-lg-1">
+              <h5 class="mt-0 font-weight-bold mb-2">ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?> </h5>
+              <p class="font-italic text-muted mb-0 small"><?php echo $r->TITULO; ?></p>
+              <div class="d-flex align-items-center justify-content-between mt-1">
+                <h6 class="font-weight-bold my-2">Gastos del lugar / $120.00</h6>
+                <ul class="list-inline small">
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                </ul>
+              </div>
+
+
+            </div><img src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250" class="ml-lg-5 order-1 order-lg-2">
           </div>
-        </div>
-      </div>
+          <!-- End -->
+        </li>
+        <!-- End -->
+        <?php endforeach; ?>
+
+        <!-- End -->
+
+
+      </ul>
+      <!-- End -->
     </div>
   </div>
 </div>
 
-<!-- /.container-fluid -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Incluir CSS para Magnific Popup -->
+ 
+</div>
+
+<!-- /.container-fluid --><!-- Incluir CSS para Magnific Popup -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 
 <!-- Incluir JS para Magnific Popup -->

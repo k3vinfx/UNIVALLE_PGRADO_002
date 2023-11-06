@@ -103,7 +103,7 @@ if ($row_empresa > 0) {
 						<i class="fa fa-bars"></i>
 					</button>
 					<div class="input-group">
-						<h6> Usuario :  <?php echo $_SESSION['session_email']?></h6>
+						<h6> Usuario : </h6>
 			
 		
 			
@@ -124,7 +124,7 @@ if ($row_empresa > 0) {
 							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="#">
 									<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-									<?php echo $_SESSION['session_email']?>
+								
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="salir.php">

@@ -195,6 +195,38 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
+	public function Registrar_img(alternativa $data)
+	{
+		try
+		{
+			$entrada_2 = "0"; // Asigna null si no se proporciona un valor
+			
+		    	$ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+			 	$sql = "INSERT INTO recomendacion_img 
+				(Recomendacion_FK,
+				Recomendacion_img1,
+				Recomendacion_img2,
+				Recomendacion_img3,
+				Recomendacion_img4,
+				Recomendacion_img5
+ 				)
+		        VALUES (?, ?, ?, ?, ?, ?)";
+				$this->pdo->prepare($sql)
+				->execute([
+					$ultimoIdInsertado,
+					$data->archivo1,
+					$data->archivo2,
+					$data->archivo3,
+					$data->archivo4,
+					$data->archivo5
+
+				]);			
+			
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
 	public function Registrar(alternativa $data)
 	{
@@ -205,10 +237,6 @@ class alternativa
 			} else {
 				$entrada_2 = "0"; // Asigna null si no se proporciona un valor
 			}
-	
-		
-			
-	
 			    $entrada_3 = "current_timestamp()";
 				$sql = "INSERT INTO recomendacion 
 				(Recomendacion_titulo,
@@ -216,7 +244,7 @@ class alternativa
 				Recomendacion_categoria,
 				Recomendacion_costo,
 				Recomendacion_descripcion,
-				Recomendacion_ruta_carga,
+				Recomendacion_latlong,
  				Recomendacion_estado)
 		        VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -228,13 +256,12 @@ class alternativa
                     $data->categoria,
 					$entrada_2,
 					$data->descripcion,
-					$data->archivo,
+					$data->latlong,
 					$data->estado
 
                 )
-
-				
 			);
+			$_SESSION['ultimoIdInsertado'] = $this->pdo->lastInsertId();
 		} catch (Exception $e)
 		{
 			die($e->getMessage());

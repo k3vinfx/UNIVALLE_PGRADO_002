@@ -52,8 +52,21 @@ class categoria
 		{
 
 			$result = array();
-			$stm = $this->pdo->prepare("SELECT *
-			FROM recomendacion 
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		ORDER BY
+			a.Recomendacion_id DESC;
 			");
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_OBJ);
