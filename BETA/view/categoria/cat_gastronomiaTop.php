@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos </h1>
+  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos C...</h1>
 
   <!-- Agregar título con color diferente -->
   <div class="row align-items-center">
@@ -50,36 +50,56 @@
   </div>
   <!-- Tabla de datos -->
 
-
+<br>
   
  <div class="row">
-    <div class="col-lg-8 mx-auto">
+
+    <div class="col-lg-12 mx-auto">
 
       <!-- List group-->
-      <ul class="list-group shadow">
+      <ul class="list-group shadow mx-auto">
 
         <!-- list group item-->
         <li class="list-group-item">
           <!-- Custom content-->
           <?php foreach($this->model->MenuLista1() as $r): ?>
-          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-            <div class="media-body order-2 order-lg-1">
-              <h5 class="mt-0 font-weight-bold mb-2">ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?> </h5>
-              <p class="font-italic text-muted mb-0 small"><?php echo $r->TITULO; ?></p>
-              <div class="d-flex align-items-center justify-content-between mt-1">
-                <h6 class="font-weight-bold my-2">Gastos del lugar / $120.00</h6>
-                <ul class="list-inline small">
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                </ul>
-              </div>
+
+<div class="container mt-10 mb-8">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-12">
+            <div class="row p-2 bg-white border rounded mt-2">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250" ></div>
+                <div class="col-md-6 mt-1">
+                    <h5>ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
+                    <div class="d-flex flex-row">
+                        <div class="ratings mr-2">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i></div><span>123</span>
+                    </div>
+                    <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
+                    <p class="text-justify para mb-2">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br>
+                    </p> 
+                    </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">Bs 13.99</h4>
+                    </div>
+                    <h6 class="text-success">Gastos minimo en el lugar</h6>
+                    <div class="d-flex flex-column mt-4">
+                      <button class="btn btn-primary btn-sm mt-2" type="button">Agregar Vicita</button> 
+                     <button class="btn btn-danger btn-sm mt-2" type="button">Ver Mapa</button> 
+                     <button class="btn btn-secondary btn-sm mt-2" type="button">Ver Imagenes</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-            </div><img src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250" class="ml-lg-5 order-1 order-lg-2">
-          </div>
           <!-- End -->
         </li>
         <!-- End -->
@@ -97,7 +117,9 @@
  
 </div>
 
-<!-- /.container-fluid --><!-- Incluir CSS para Magnific Popup -->
+<!-- /.container-fluid -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Incluir CSS para Magnific Popup -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 
 <!-- Incluir JS para Magnific Popup -->
