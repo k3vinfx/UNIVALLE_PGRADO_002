@@ -91,8 +91,35 @@
                     <h6 class="text-success">Gastos minimo en el lugar</h6>
                     <div class="d-flex flex-column mt-4">
                       <button class="btn btn-primary btn-sm mt-2" type="button">Agregar Vicita</button> 
-                     <button class="btn btn-danger btn-sm mt-2" type="button">Ver Mapa</button> 
-                     <button class="btn btn-secondary btn-sm mt-2" type="button">Ver Imagenes</button></div>
+                      <button class="btn btn-danger btn-sm mt-2" type="button" data-toggle="modal" data-target="#myModal-<?php echo $r->ID; ?>">Ver Mapa</button> 
+                      <button class="btn btn-secondary btn-sm mt-2" type="button">Ver Imagenes</button></div>
+
+                      <div class="modal" id="myModal-<?php echo $r->ID; ?>">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Coordenadas</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="text1">LatLong:</label>
+                                <input type="text" id="text1" class="form-control mb-2" value="<?php echo $r->ID; ?>/<?php echo $r->TITULO?>" ></input>
+                          
+                             
+                            </div>
+                  
+                            <div id="map" style="height: 300px;"></div>
+                            </div>
+                             </div>
+                      </div>
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
