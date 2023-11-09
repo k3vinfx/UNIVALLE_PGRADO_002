@@ -19,60 +19,58 @@
     integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
     crossorigin=""></script>
 
+    <style>
+#slider{
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    overflow:hidden;
+    background-color: black;
+}
+/*Valores de las imagenes*/
+#slider img{
+    margin: 10 auto;
+    -moz-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    opacity: 0;
+}
+/*Para que la primera imagen este activa al inicio*/
+#slider img:nth-child(1){
+    opacity: 1;
+}
+
+table{
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    overflow:hidden;
+    background-color: white;
+    border: 0;
+}
+
+#izquierda{
+    text-align: right;
+}
+#derecha{
+    text-align: left;
+}
+</style>
+
+
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos</h1>
+  <h1 class="h4 mb-2 text-gray-800">Mapa de ubicación / </h1>
 
   <!-- Agregar título con color diferente -->
-  <div class="row align-items-center">
-    <div class="col-sm-3"> <!-- Dividir el espacio en dos columnas -->
-      <div class="card bg-info text-white">
-        <div class="card-body">
-          <h7 class="card-title">Tipo de lugar:</h7>
-          <!-- Agregar cuadro de selección (select box) para el tipo de lugar -->
-          <select class="form-control">
-            <option value="baratos">Lugares Baratos</option>
-            <option value="normales">Lugares Normales</option>
-            <option value="caros">Lugares Caros</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4"> <!-- Dividir el espacio en dos columnas -->
-      <div class="card bg-info text-white">
-        <div class="card-body">
-          <h7 class="card-title">¿Con quién irás?</h7>
-          <!-- Agregar cuadro de selección (select box) para con quién irás -->
-          <select class="form-control">
-            <option value="solo">Solo</option>
-            <option value="con_amigo">Con 1 amigo</option>
-            <option value="con_pareja">Con mi pareja</option>
-            <option value="con_familia">Con mi familia</option>
-          </select>
-        </div>
-      </div>
-    </div>
 
-  <div class="col-sm-4"> <!-- Dividir el espacio en dos columnas -->
-      <div class="card bg-info text-white">
-        <div class="card-body">
-          <h7 class="card-title">¿Horario?</h7>
-          <!-- Agregar cuadro de selección (select box) para con quién irás -->
-          <select class="form-control">
-            <option value="solo">Mañana</option>
-            <option value="con_amigo">Tarde</option>
-            <option value="con_pareja">Noche</option>
-  
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Tabla de datos -->
 
-<br>
+
   
  <div class="row">
 
@@ -86,12 +84,44 @@
           <!-- Custom content-->
           <?php foreach($this->model->MenuLista1() as $r): ?>
 
+
+            <div id="map" style="height: 300px;"></div>
+
+
+
+
 <div class="container mt-10 mb-8">
     <div class="d-flex justify-content-center row">
         <div class="col-md-12">
             <div class="row p-2 bg-white border rounded mt-2">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250" ></div>
-                <div class="col-md-6 mt-1">
+
+
+
+                <div class="col-md-4 mt-1">
+                <div id="slider">
+		<img src="<?php echo $r->CARGA1; ?>" alt="">
+		<img src="img/2.jpg" alt="">
+        <img src="<?php echo $r->CARGA1; ?>" alt="">
+		<img src="img/4.jpg" alt="">
+        <img src="<?php echo $r->CARGA1; ?>" alt="">
+
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td id="izquierda">
+					<input type="button" value="anterior" id="izquierda">
+				</td>
+				<td id="derecha">
+					<input type="button" value="siguiente" id="derecha">
+				</td>
+			</tr>
+		</table>
+	</div>
+                
+                
+</div>
+                <div class="col-md-4 mt-1" >
                     <h5>ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
                     <div class="d-flex flex-row">
                         <div class="ratings mr-2">
@@ -114,21 +144,30 @@
                     <div class="d-flex flex-column mt-4">
                       <button class="btn btn-primary btn-sm mt-2" type="button">Agregar Vicita</button> 
 
-
-                      <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->ID; ?>"class="btn btn-danger btn-sm mt-2"><i class='fas fa-edit'></i> Ver Mapa y Imagenes</a>         
+                    
+                      <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->Neurona_Id; ?>"class="btn btn-success"><i class='fas fa-edit'></i>Entrenar / Editar</a>         
        
-                      </div>
-
-                      
-  
-
-                 
+                
 
 
-
-
-
-
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Coordenadas</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="text1">LatLong:</label>
+                                <input type="text" id="text1" class="form-control mb-2" value="<?php echo $r->ID; ?>/<?php echo $r->TITULO?>" ></input>
+                          
+                             
+                            </div>
+                  
+                            <div id="map" style="height: 300px;"></div>
+                            </div>
+                             </div>
+                                  </div>
 
                             </div>
                         </div>
@@ -168,12 +207,10 @@
 <script>
     $(document).ready(function(){ 
 
+    
 
-      $('#x21').on('click', function() { 
-        
-        alert('ID: ');
-      
-      });
+
+
 
         var map = L.map('map').setView([-16.489689,-68.119293], 15);
 
@@ -275,6 +312,94 @@
 
         // Función para guardar los cambios
        
+       /*Contador inicializado en cero*/
+        var contador=0;
+
+  
+       // var obj=document.getElementById('slider');
+      //  var obj2=obj.getElementsByTagName('img');
+
+      //  var contador = 0;
+       var obj2 = $('#slider img'); // Suponiendo que tienes un div con id="slider" que contiene las imágenes
+
+        // Asignar evento de clic al botón con id="derecha"
+        $('#derecha').on('click', function() {
+            obj2.eq(contador).css('opacity', 0); // Ocultar la imagen actual
+            if (contador < 6) {
+                contador++;
+            } else {
+                contador = 0;
+            }
+            obj2.eq(contador).css('opacity', 1); // Mostrar la siguiente imagen
+            console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+        });
+
+        $('#izquierda').on('click', function() {
+               obj2[contador].style.opacity=0;
+                if (contador!=0) 
+                {
+                    contador--;
+                    obj2[contador].style.opacity=1;
+                }
+                else
+                {
+                    contador=obj2.length-1;
+                    obj2[contador].style.opacity=1;
+                }
+            });
+
+        
+        function cambiarManual(sentido)
+        {
+            if (sentido=="DER") {
+                obj2[contador].style.opacity=0;
+                if (contador<6) 
+                {
+                    contador++;
+                    obj2[contador].style.opacity=1;
+                    console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+                }
+                else
+                {
+                    contador=0;
+                    obj2[contador].style.opacity=1;
+                    console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+                }
+            }
+            else if (sentido=="IZQ") 
+            {
+                obj2[contador].style.opacity=0;
+                if (contador!=0) 
+                {
+                    contador--;
+                    obj2[contador].style.opacity=1;
+                }
+                else
+                {
+                    contador=obj2.length-1;
+                    obj2[contador].style.opacity=1;
+                }
+            }
+        }
+
+        function cambiarImg(){	        
+
+            if(contador==obj2.length){
+                for(var i=0; i<obj2.length; i++){
+                    obj2[i].style.opacity='0';
+                    contador--;
+                }
+                obj2[contador].style.opacity='1';
+            }
+            else
+            {
+                obj2[contador].style.opacity='1';
+                contador++;
+            }
+            
+        }
+
+
 
         $("#frm-nuevo").submit(function(){
             return $(this).validate();

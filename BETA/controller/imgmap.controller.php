@@ -1,26 +1,26 @@
 <?php
 //Se incluye el modelo donde conectará el controlador.
 
-require_once 'model/categoria.php';
+require_once 'model/imgmap.php';
 
-class CategoriaController{
+class ImgMap{
 
     private $model;
 
     //Creación del modelo
     public function __CONSTRUCT(){
-       $this->model = new categoria();
+       $this->model = new imgmap();
 
     }
 
     //Llamado plantilla principal
-    public function Index_1(){
+    public function Index(){
         //require_once 'view/header.php';
 
   
         require_once 'view/categoria/header.php';
        // require_once 'view/categoria/menu.php';
-        require_once 'view/categoria/cat_gastronomiaTop.php';
+        require_once 'view/imgmap/ver.php';
         require_once 'view/categoria/footerx.php';
       //  require_once 'view/footerx.php';
        // require_once 'view/footerx.php';
@@ -35,17 +35,5 @@ class CategoriaController{
         require_once 'view/login_session/footerx.php';
        // require_once 'view/footerx.php';
     }
-
-    public function Crud_Aux(){
-        $pvd = new categoria();
-
-        if(isset($_REQUEST['ver_id'])){
-            $pvd = $this->model->Obtener($_REQUEST['ver_id']);
-        }
-        require_once 'view/categoria/header.php';      
-        require_once 'view/categoria/ver_imgmap.php';
-        require_once 'view/footerx.php';
-    }
-
 
 }
