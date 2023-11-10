@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2023 a las 11:38:00
+-- Tiempo de generación: 10-11-2023 a las 04:58:18
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -186,6 +186,27 @@ INSERT INTO `interes_cliente` (`id_InteresCliente`, `id_interes_atracciones`, `i
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `itinerario_cliente`
+--
+
+CREATE TABLE `itinerario_cliente` (
+  `Itinerario_Id` int(10) NOT NULL,
+  `Itinerario_fk_cliente` int(10) NOT NULL,
+  `Itinerario_fk_recom` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `itinerario_cliente`
+--
+
+INSERT INTO `itinerario_cliente` (`Itinerario_Id`, `Itinerario_fk_cliente`, `Itinerario_fk_recom`) VALUES
+(1, 28, 2),
+(2, 27, 2),
+(3, 28, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `lista_reservas`
 --
 
@@ -347,7 +368,12 @@ INSERT INTO `recomendacion` (`Recomendacion_id`, `Recomendacion_titulo`, `Recome
 (20, 'gg', 'Calle Velasco, Villa Copacabana, Nuestra Señora de La Paz', 1, 30, 'gg', '-16.491337,-68.118142', 1, '2023-11-02 22:20:51'),
 (21, 'PILA Z', 'Iglesia Católica', 2, 10, 'pila z1', '-16.48592,-68.122377', 0, '2023-11-05 22:38:59'),
 (22, 'ZZ', 'Calle Inca Sebastían Acosta, Villa Copacabana, Nuestra Señora de La Paz', 1, 10, 'AAA', '-16.486854,-68.117031', 1, '2023-11-06 00:43:52'),
-(23, 'ZZZZ', 'Pasaje Emiliano Cortez, Miraflores, Nuestra Señora de La Paz', 1, 10, 'ZZ', '-16.488253,-68.124538', 1, '2023-11-06 00:45:19');
+(23, 'ZZZZ', 'Pasaje Emiliano Cortez, Miraflores, Nuestra Señora de La Paz', 1, 10, 'ZZ', '-16.488253,-68.124538', 1, '2023-11-06 00:45:19'),
+(24, 'Plaza Triangular', 'Calle Nicaragua, Miraflores Bajo, Nuestra Señora de La Paz', 1, 10, 'Planza en forma triangular donde existe una estacion de teleferico Blanco', '-16.504253,-68.120951', 1, '2023-11-06 20:45:20'),
+(25, 'zyz', 'Calle Ernesto Gutierrez, Miraflores, Nuestra Señora de La Paz', 1, 10, 'zxyz', '-16.487909,-68.120555', 1, '2023-11-07 22:58:37'),
+(26, 'ghaha', 'Avenida Abel Iturralde, Miraflores, Nuestra Señora de La Paz', 1, 10, 'ewqe', '-16.488362,-68.124157', 1, '2023-11-07 23:04:29'),
+(27, 'prueba1', 'Mayor de San Genaro', 1, 10, 'prueba 1', '-16.488291,-68.120746', 1, '2023-11-08 20:25:16'),
+(28, 'puerba2', 'Calle 3, Alto Miraflores, Nuestra Señora de La Paz', 1, 10, 'puerba2 puerba2 puerba2 puerba2 puerba2 puerba2 puerba2 puerba2 puerba2 puerba2 puerba2', '-16.481275,-68.126188', 1, '2023-11-09 21:08:39');
 
 -- --------------------------------------------------------
 
@@ -378,7 +404,12 @@ INSERT INTO `recomendacion_img` (`Recomdacion_Img_Id`, `Recomendacion_FK`, `Reco
 (5, 19, 'img/23_01_1699245919.jpg', 'img/descarga2_1698977105.jpg', 'img/descarga2_1698977105.jpg', 'img/descarga2_1698977105.jpg', 'img/descarga2_1698977105.jpg', 1),
 (6, 20, 'img/23_01_1699245919.jpg', 'img/20_1698978051.jpg', 'img/20_1698978051.jpg', 'img/20_1698978051.jpg', 'img/20_1698978051.jpg', 1),
 (7, 21, 'img/21_01_1699238339.jpg', 'img_destinos/21_02_1699238339.jpg', 'img_destinos/21_03_1699238339.jpg', 'img_destinos/21_04_1699238339.jpg', 'img_destinos/21_05_1699238339.jpg', 1),
-(8, 23, 'img/23_01_1699245919.jpg', 'BETA/img/23_02_1699245919.jpg', 'BETA/img/23_03_1699245919.jpg', 'BETA/img/23_04_1699245919.jpg', 'BETA/img/23_05_1699245919.png', 1);
+(8, 23, 'img/23_01_1699245919.jpg', 'BETA/img/23_02_1699245919.jpg', 'BETA/img/23_03_1699245919.jpg', 'BETA/img/23_04_1699245919.jpg', 'BETA/img/23_05_1699245919.png', 1),
+(9, 24, 'img/24_01_1699317920.jpg', 'img/24_02_1699317920.jpg', 'img/24_03_1699317920.jpg', 'img/24_04_1699317920.jpg', 'img/24_05_1699317920.png', 1),
+(10, 25, 'beta/img/25_01_1699412317.jpg', 'beta/img/25_02_1699412317.jpg', 'beta/img/25_03_1699412317.jpg', 'beta/img/25_04_1699412317.jpg', 'beta/img/25_05_1699412317.jpg', 1),
+(11, 26, 'img/26_01_1699412669.jpg', 'img/26_02_1699412669.jpg', 'img/26_03_1699412669.jpg', 'img/26_04_1699412669.jpg', 'img/26_05_1699412669.jpg', 1),
+(12, 27, 'img/27_01_1699489516.jpg', 'img/27_02_1699489516.jpg', 'img/27_03_1699489516.jpg', 'img/27_04_1699489516.jpg', 'img/27_05_1699489516.jpg', 1),
+(13, 28, 'img/28_01_1699578519.jpg', 'img/28_02_1699578519.jpg', 'img/28_03_1699578519.jpg', 'img/28_04_1699578519.jpg', 'img/28_05_1699578519.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -430,6 +461,12 @@ ALTER TABLE `entrada`
 --
 ALTER TABLE `interes_cliente`
   ADD PRIMARY KEY (`id_InteresCliente`);
+
+--
+-- Indices de la tabla `itinerario_cliente`
+--
+ALTER TABLE `itinerario_cliente`
+  ADD PRIMARY KEY (`Itinerario_Id`);
 
 --
 -- Indices de la tabla `neurona`
@@ -502,6 +539,12 @@ ALTER TABLE `interes_cliente`
   MODIFY `id_InteresCliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT de la tabla `itinerario_cliente`
+--
+ALTER TABLE `itinerario_cliente`
+  MODIFY `Itinerario_Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `neurona`
 --
 ALTER TABLE `neurona`
@@ -529,13 +572,13 @@ ALTER TABLE `pesos`
 -- AUTO_INCREMENT de la tabla `recomendacion`
 --
 ALTER TABLE `recomendacion`
-  MODIFY `Recomendacion_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Recomendacion_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `recomendacion_img`
 --
 ALTER TABLE `recomendacion_img`
-  MODIFY `Recomdacion_Img_Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Recomdacion_Img_Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
