@@ -22,8 +22,12 @@
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos</h1>
+  <h1 class="h4 mb-2 text-gray-800">Los mejores 10 lugares Gastronómicos  </h1>
 
+  <input type="hidden" name="correo" id = "correo"  value=" <?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>">
+            
+
+			
   <!-- Agregar título con color diferente -->
   <div class="row align-items-center">
     <div class="col-sm-3"> <!-- Dividir el espacio en dos columnas -->
@@ -78,59 +82,46 @@
 
     <div class="col-lg-12 mx-auto">
 
-      <!-- List group-->
-      <ul class="list-group shadow mx-auto">
-
-        <!-- list group item-->
-        <li class="list-group-item">
+    
           <!-- Custom content-->
           <?php foreach($this->model->MenuLista1() as $r): ?>
 
-<div class="container mt-10 mb-8">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-12">
-            <div class="row p-2 bg-white border rounded mt-2">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250" ></div>
-                <div class="col-md-6 mt-1">
-                    <h5>ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
-                    <div class="d-flex flex-row">
-                        <div class="ratings mr-2">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i></div><span>123</span>
-                    </div>
-                    <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                    <p class="text-justify para mb-2">
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br>
-                    </p> 
-                    </div>
-                  <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                    <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">Bs 13.99</h4>
-                    </div>
-                    <h6 class="text-success">Gastos minimo en el lugar</h6>
-                    <div class="d-flex flex-column mt-4">
-                      <button class="btn btn-primary btn-sm mt-2" type="button">Agregar Vicita</button> 
+          <div class="container mt-10 mb-8">
+              <div class="d-flex justify-content-center row">
+                  <div class="col-md-12">
+                      <div class="row p-2 bg-white border rounded mt-2">
+                          <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250" ></div>
+                          <div class="col-md-6 mt-1">
 
+                          <!-- ANALISIS DE IA -->
 
-                      <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->ID; ?>"class="btn btn-danger btn-sm mt-2"><i class='fas fa-edit'></i> Ver Mapa y Imagenes</a>         
+                                  <h5>ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
+                                  <div class="d-flex flex-row">
+                                      <div class="ratings mr-2">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i></div><span>Calificación</span>
+                                  </div>
+                                  <div class="mt-1 mb-1 spec-1"><span>Descripción</span><span class="dot"></span></div>
+                                  <p class="text-justify para mb-2">
+                                  <?php echo $r->DESCRIPCION; ?> <br><br>
+                                  </p> 
+                                  </div>
+                                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                  <div class="d-flex flex-row align-items-center">
+                                      <h4 class="mr-1">Bs <?php echo $r->COSTO; ?>.00</h4>
+                                  </div>
+                                  <h6 class="text-success">Gastos minimo en el lugar</h6>
+                                  <div class="d-flex flex-column mt-4">
+                             
+                                  <button onclick="confirmarAgregarVisita('<?php echo $r->ID; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
+                                  <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->ID; ?>"class="btn btn-danger btn-sm mt-2"><i class='fas fa-edit'></i> Ver Mapa y Imagenes</a>         
        
-                      </div>
+                                </div>
 
-                      
-  
-
-                 
-
-
-
-
-
-
-
-                            </div>
+                     
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -164,114 +155,56 @@
 <!-- Incluir JS para Magnific Popup -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    $(document).ready(function(){ 
-
-
-      $('#x21').on('click', function() { 
-        
-        alert('ID: ');
-      
-      });
-
-        var map = L.map('map').setView([-16.489689,-68.119293], 15);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        var gcs = L.esri.Geocoding.geocodeService();
-        var currentMarker;
-
-        map.on('click', (e)=>{
-        var lat = Number(e.latlng.lat.toFixed(6));
-        var lng = Number(e.latlng.lng.toFixed(6));
-        if (currentMarker) {
-            map.removeLayer(currentMarker);
-        }
-        currentMarker = L.marker(e.latlng).addTo(map);
-        
-        gcs.reverse().latlng(e.latlng).run((err, res)=>{
-            if(err) return;
-          //  alert(res.latlng);
-
-         //   document.getElementById("text1").value = lat;
-            document.getElementById("text2").value = lng;
-
-       
-            let latLngStr = e.latlng;
-
-          //  let latLngStr = "LatLng(-16.485331, -68.119304)";
-            document.getElementById("text1").value = lat;
-            document.getElementById("latlong").value = lat + "," + lng ;
-          //  currentMarker = L.marker(res.latlng).addTo(map).bindPopup(res.address.Match_addr).openPopup();
-          //  currentMarker.bindPopup(res.address.Match_addr).openPopup();
-          var popupContent = "";
-          var inputContent = "";
-            if (res.address.Match_addr) {
-                popupContent += res.address.Match_addr + "<br>";
-             //   popupContentInfo += res.address.Match_addr ;
-            }
-            if (res.address.Street) {
-                popupContent += "Calle: " + res.address.Street + "<br>";
-                inputContent += "Calle: " + res.address.Street + ", ";
-  
-            }
-            if (res.address.Neighborhood) {
-                popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
-           //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
-       }
-            // ... (puedes agregar más detalles aquí)
-
-            // Mostrar la información en el popup
-            currentMarker.bindPopup(popupContent).openPopup();
-
-            document.getElementById("text3").value = res.address.Match_addr;
-
-            });
-        });
-   
-
-
-                
-  
     
+               // window.location.href = "?c=producto&a=Eliminar&idProducto=" + idProducto;
+      
+
+               function confirmarAgregarVisita(idProducto, idEmail) {
+                Swal.fire({
+                  title: '¿Está seguro de Agregar Visita?',
+                  text: "Esta acción registrará su visita",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, agregarla',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    // Aquí realizarías la llamada AJAX a tu servidor para agregar la visita
+                    $.ajax({
+                      url: '?c=categoria&a=Crud_Aux_Registrar', // Asegúrate de que esta es la URL correcta
+                      type: 'POST',
+                      data: { idProducto: idProducto, idEmail: idEmail }, // Pasa ambos ID y EMAIL como parte de los datos
+                      success: function(response) {
+                        // Si todo va bien, muestra el swal de éxito
+                        Swal.fire(
+                          '¡Agregado!',
+                          'La visita ha sido agregada exitosamente.',
+                          'success'
+                        );
+                      },
+                      error: function(xhr, status, error) {
+                        // Manejo del error
+                        Swal.fire(
+                          'Error',
+                          'Hubo un problema al agregar la visita, por favor intente nuevamente.',
+                          'error'
+                        );
+                      }
+                    });
+                  }
+                });
+              }
 
 
-        $('#myModal').on('shown.bs.modal', function () {
-                map.invalidateSize();
-            });
 
-       
-
-        // Obtiene el botón que abre el modal
-        var modal = document.getElementById("myModal1");
-
-        // Obtiene el botón que abre el modal
-
-
-
-
-        var modal = document.getElementById("myModal");
-
-            // Obtiene el botón que abre el modal
-            var btn = document.getElementById("openModalButton");
-
-            // Obtiene el elemento <span> que cierra el modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // Cuando el usuario hace clic en el botón, abre el modal 
         
-            // Cuando el usuario hace clic en <span> (x), cierra el modal
-        
 
-            // Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
+
+    $(document).ready(function(){ 
 
         // Función para guardar los cambios
        
@@ -281,4 +214,3 @@
         });
     })
 </script>
-

@@ -22,7 +22,7 @@
     <style>
 #slider{
     margin: 0 auto;
-    width: 300px;
+    width: 310px;
     height: 300px;
     overflow:hidden;
     background-color: black;
@@ -64,65 +64,70 @@ table{
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h1 class="h4 mb-2 text-gray-800">Mapa de ubicación / </h1>
+  <h1 class="h4 mb-2 text-gray-800">Mapa de ubicación / <?php echo $pvd->nombre;?> </h1>
 
   <!-- Agregar título con color diferente -->
 
   <!-- Tabla de datos -->
 
-
+  <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
+                        </div>
   
  <div class="row">
 
-    <div class="col-lg-12 mx-auto">
+    <div class="col-lg-14 mx-auto">
 
       <!-- List group-->
-      <ul class="list-group shadow mx-auto">
-
         <!-- list group item-->
-        <li class="list-group-item">
+      
           <!-- Custom content-->
-          <?php foreach($this->model->MenuLista1() as $r): ?>
+     
 
 
             <div id="map" style="height: 300px;"></div>
 
 
-
-
-<div class="container mt-10 mb-8">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-12">
-            <div class="row p-2 bg-white border rounded mt-2">
+           <div class="container mt-14 lg-14 mb-4">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-12">
+                        <div class="row p-5 bg-white border rounded mt-1">
 
 
 
-                <div class="col-md-4 mt-1">
-                <div id="slider">
-		<img src="<?php echo $r->CARGA1; ?>" alt="">
-		<img src="img/2.jpg" alt="">
-        <img src="<?php echo $r->CARGA1; ?>" alt="">
-		<img src="img/4.jpg" alt="">
-        <img src="<?php echo $r->CARGA1; ?>" alt="">
+                            <div class="col-md-6 mt-1">
+                            <div id="slider">
+                            <img src="<?php echo $pvd->img1; ?>" alt="">
+                            <img src="<?php echo $pvd->img2; ?>" alt="">
+                            <img src="<?php echo $pvd->img3; ?>" alt="">
+                            <img src="<?php echo $pvd->img4; ?>" alt="">
+                            <img src="<?php echo $pvd->img5; ?>" alt="">
 
-	</div>
-	<div>
-		<table>
-			<tr>
-				<td id="izquierda">
-					<input type="button" value="anterior" id="izquierda">
-				</td>
-				<td id="derecha">
-					<input type="button" value="siguiente" id="derecha">
-				</td>
-			</tr>
-		</table>
-	</div>
-                
-                
-</div>
-                <div class="col-md-4 mt-1" >
-                    <h5>ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
+                        </div>
+                        <div>
+                            <br>
+                            <table>
+                                <tr>
+                                    <td id="izquierda">
+                                        <input type="button" value="anterior" id="izquierda">
+                                    </td>
+                                    <td id="derecha">
+                                        <input type="button" value="siguiente" id="derecha">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                                    
+                                    
+                    </div>
+
+                  <div class="align-items-right align-content-left col-md-5 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">Bs <?php echo $pvd->costo; ?>.00</h4>
+                    </div>
+                    <h6 class="text-success">Gastos minimo en el lugar</h6>
+
+                    <h5>Lugar: <?php echo $pvd->titulo; ?> </h5>
                     <div class="d-flex flex-row">
                         <div class="ratings mr-2">
                           <i class="fa fa-star"></i>
@@ -130,47 +135,22 @@ table{
                           <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i></div><span>123</span>
                     </div>
-                    <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                    <p class="text-justify para mb-2">
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br>
-                    </p> 
-                    </div>
-                  <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                    <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">Bs 13.99</h4>
-                    </div>
-                    <h6 class="text-success">Gastos minimo en el lugar</h6>
-                    <div class="d-flex flex-column mt-4">
-                      <button class="btn btn-primary btn-sm mt-2" type="button">Agregar Vicita</button> 
 
-                    
-                      <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->Neurona_Id; ?>"class="btn btn-success"><i class='fas fa-edit'></i>Entrenar / Editar</a>         
+                    <p class="text-justify para mb-2">
+                    <?php echo $pvd->descrip; ?>
+
+                     </p> 
+                    <div class="d-flex flex-column mt-4">
+                     
+
+                      <button onclick="confirmarAgregarVisita('<?php echo $pvd->idFK; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
+                                 
+                      <a href="?c=categoria&a=Index_1"class="btn btn-success btn-sm mt-2"><i class='fas fa-edit'></i>Regresar</a>         
        
                 
 
 
-                      <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Coordenadas</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <label for="text1">LatLong:</label>
-                                <input type="text" id="text1" class="form-control mb-2" value="<?php echo $r->ID; ?>/<?php echo $r->TITULO?>" ></input>
-                          
-                             
-                            </div>
-                  
-                            <div id="map" style="height: 300px;"></div>
-                            </div>
-                             </div>
-                                  </div>
-
-                            </div>
-                        </div>
+         
                     </div>
                 </div>
             </div>
@@ -179,7 +159,7 @@ table{
           <!-- End -->
         </li>
         <!-- End -->
-        <?php endforeach; ?>
+
 
         <!-- End -->
 
@@ -190,7 +170,7 @@ table{
   </div>
 </div>
 
- 
+</div>
 </div>
 
 <!-- /.container-fluid -->
@@ -205,45 +185,71 @@ table{
 
 
 <script>
+  function confirmarAgregarVisita(idProducto, idEmail) {
+                Swal.fire({
+                  title: '¿Está seguro de Agregar Visita?',
+                  text: "Esta acción registrará su visita",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, agregarla',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    // Aquí realizarías la llamada AJAX a tu servidor para agregar la visita
+                    $.ajax({
+                      url: '?c=categoria&a=Crud_Aux_Registrar', // Asegúrate de que esta es la URL correcta
+                      type: 'POST',
+                      data: { idProducto: idProducto, idEmail: idEmail }, // Pasa ambos ID y EMAIL como parte de los datos
+                      success: function(response) {
+                        // Si todo va bien, muestra el swal de éxito
+                        Swal.fire(
+                          '¡Agregado!',
+                          'La visita ha sido agregada exitosamente.',
+                          'success'
+                        );
+                      },
+                      error: function(xhr, status, error) {
+                        // Manejo del error
+                        Swal.fire(
+                          'Error',
+                          'Hubo un problema al agregar la visita, por favor intente nuevamente.',
+                          'error'
+                        );
+                      }
+                    });
+                  }
+                });
+              }
+
+
     $(document).ready(function(){ 
 
-    
+        var valorPorDefecto = $('#ubicacion').val();
 
 
+       var latLng = valorPorDefecto.split(',');
+        var map = L.map('map').setView([parseFloat(latLng[0]), parseFloat(latLng[1])], 15); 
+       // -14.256619,-69.707772
+       // var map = L.map('map').setView([valorPorDefecto], 15);
 
+       var gcs = L.esri.Geocoding.geocodeService();
 
-        var map = L.map('map').setView([-16.489689,-68.119293], 15);
+       var marker = L.marker([parseFloat(latLng[0]), parseFloat(latLng[1])]).addTo(map); 
 
+       
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var gcs = L.esri.Geocoding.geocodeService();
-        var currentMarker;
 
-        map.on('click', (e)=>{
-        var lat = Number(e.latlng.lat.toFixed(6));
-        var lng = Number(e.latlng.lng.toFixed(6));
-        if (currentMarker) {
-            map.removeLayer(currentMarker);
-        }
-        currentMarker = L.marker(e.latlng).addTo(map);
-        
-        gcs.reverse().latlng(e.latlng).run((err, res)=>{
+      
+        //https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
+          
+        gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
             if(err) return;
-          //  alert(res.latlng);
-
-         //   document.getElementById("text1").value = lat;
-            document.getElementById("text2").value = lng;
-
-       
-            let latLngStr = e.latlng;
-
-          //  let latLngStr = "LatLng(-16.485331, -68.119304)";
-            document.getElementById("text1").value = lat;
-            document.getElementById("latlong").value = lat + "," + lng ;
-          //  currentMarker = L.marker(res.latlng).addTo(map).bindPopup(res.address.Match_addr).openPopup();
-          //  currentMarker.bindPopup(res.address.Match_addr).openPopup();
+         
           var popupContent = "";
           var inputContent = "";
             if (res.address.Match_addr) {
@@ -262,18 +268,24 @@ table{
             // ... (puedes agregar más detalles aquí)
 
             // Mostrar la información en el popup
-            currentMarker.bindPopup(popupContent).openPopup();
+            marker.bindPopup(popupContent).openPopup();
 
             document.getElementById("text3").value = res.address.Match_addr;
 
             });
-        });
-   
 
 
-                
-  
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
         $('#myModal').on('shown.bs.modal', function () {
@@ -290,25 +302,8 @@ table{
 
 
 
-        var modal = document.getElementById("myModal");
-
-            // Obtiene el botón que abre el modal
-            var btn = document.getElementById("openModalButton");
-
-            // Obtiene el elemento <span> que cierra el modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // Cuando el usuario hace clic en el botón, abre el modal 
-        
-            // Cuando el usuario hace clic en <span> (x), cierra el modal
-        
-
-            // Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
+      
+      
 
         // Función para guardar los cambios
        

@@ -26,7 +26,9 @@ body {
 	background-position: top;
 	background-repeat: repeat-x;
 
-  
+
+
+
 }</style>
 <body>
   <div class="slider" style="width: 80%; margin: auto;">
@@ -73,7 +75,8 @@ body {
   <div class="container" style="margin-top: 100px">
     <div class="row">
       <div class="row" style="margin-bottom: -20px">
-        <h4 class="underline white-text bold center">Categorias</h4>
+        <h4 class="underline white-text bold center">Categorias </h4>
+
       </div>  
       <div class="row hoverable">
         <div class="col hoverable">

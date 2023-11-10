@@ -46,6 +46,69 @@ class categoria
 			die($e->getMessage());
 		}
 	}
+	
+	public function IdGetEmail($valor)
+	{
+		try
+		{
+			
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT Cliente_Id FROM clientes WHERE Cliente_Email=?");
+
+		$stm->execute(array($valor));
+		return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+
+	}
+
+	public function VerificarEmail($email) {
+        try {
+            // Preparar la consulta SQL
+            $sql = "SELECT Cliente_Id FROM clientes WHERE Cliente_Email=?";
+            $stmt = $this->pdo->prepare($sql);
+            
+            // Ejecutar la consulta con el correo electrónico como parámetro
+            $stmt->execute([$email]);
+            
+            // Obtener el resultado de la consulta
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            // Verificar si se encontró un resultado
+            if ($resultado) {
+                // Devolver el hash de la contraseña
+                return $resultado['Cliente_Id'];
+            } 
+        } catch (Exception $e) {
+            // Manejar cualquier excepción que pueda ocurrir durante la consulta
+            die($e->getMessage());
+        }
+    }
+
+	public function RegistrarItinerario(categoria $data)
+	{
+		try
+		{
+			 	$sql = "INSERT INTO itinerario_cliente 
+				(Itinerario_fk_cliente,
+				Itinerario_fk_recom
+ 				)
+		        VALUES (?, ?)";
+				$this->pdo->prepare($sql)
+				->execute([
+    				$data->dato1,
+					$data->dato2
+				]);			
+			
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+
 	public function MenuLista1()
 	{
 		try
@@ -75,32 +138,6 @@ class categoria
 			die($e->getMessage());
 		}
 	}
-
-	public function Obtener($id)
-	{
-	  try
-	  {
-		$stm = $this->pdo->prepare("SELECT 
-									  Categoria_id,
-									  Categoria_nombre,
-									  Categoria_descripcion,
-									  Categoria_estado,
-									  CASE 
-										WHEN Categoria_estado = 1 THEN 'ACTIVO'
-										WHEN Categoria_estado <> 1 THEN 'INACTIVO'
-									  END estado
-									FROM categoria
-									WHERE Categoria_id = ?");
-		$stm->execute(array($id));
-		return $stm->fetch(PDO::FETCH_OBJ);
-	  } catch (Exception $e)
-	  {
-		die($e->getMessage());
-	  }
-	}
-
-	
-	
     public function ListarEntrenamiento()
 	{
 		try
@@ -117,6 +154,34 @@ class categoria
 			die($e->getMessage());
 		}
 	}
+
+	public function Obtener($id)
+	{
+	  try
+	  {
+		$stm = $this->pdo->prepare("SELECT a.Recomendacion_FK as idFK,	
+		a.Recomendacion_Img1 as img1,	
+		a.Recomendacion_Img2 as img2,				
+		a.Recomendacion_Img3 as img3,					
+		a.Recomendacion_Img4 as img4,				
+		a.Recomendacion_Img5 as img5,	
+		b.Recomendacion_ubicacion_tour as nombre,
+		b.Recomendacion_titulo as titulo,
+		b.Recomendacion_descripcion as descrip,
+		b.Recomendacion_costo as costo,
+		b.Recomendacion_latlong as latlong
+		FROM recomendacion_img a
+		INNER JOIN recomendacion b ON b.Recomendacion_id = a.Recomendacion_FK
+		WHERE a.Recomendacion_FK =?");
+		$stm->execute(array($id));
+		return $stm->fetch(PDO::FETCH_OBJ);
+	  } catch (Exception $e)
+	  {
+		die($e->getMessage());
+	  }
+	}
+
+
 
     
     

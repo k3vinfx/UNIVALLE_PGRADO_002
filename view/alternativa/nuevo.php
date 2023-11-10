@@ -237,16 +237,7 @@
                         <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="control-label">Images</label>
-                        <div class="custom-file">
-                        <input type="hidden" name="meta_data" id="meta_data" class="form-control">
-                 
-                        <input type="file" class="form-control" id="archivo" name="archivo" multiple>      
-                          <label class="custom-file-label" for="archivo">Escoje un Archivo de Imagen o Varias Imagenes</label>
-                        </div>
-                        <div id="file-info" class="mt-2"></div>
-                    </div>
+               
         
 
                     <input type="submit" value="Guardar Alternativa" class="btn btn-primary">
@@ -448,21 +439,6 @@
         });
 
 
-        
-        $('#archivo').on('change', function() {
-            var files = $(this)[0].files;
-            var fileInfo = "";
-            var jsonFiles = []; 
-            
-            if (files.length === 0) { 
-                fileInfo = "No se ha seleccionado ningún archivo.";
-            } else {
-                fileInfo = `Se han seleccionado ${files.length} archivo(s):<br>`;
-              
-            }
-
-            $('#file-info').html(fileInfo); // Actualizar el contenido del elemento con la información del archivo
-        });
 
         $('#myModal').on('shown.bs.modal', function () {
                 map.invalidateSize();
