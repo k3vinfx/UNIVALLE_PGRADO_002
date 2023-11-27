@@ -1,36 +1,6 @@
 <?php
 
 include "assets/includes/functions.php";
-/*include "../conexion.php";
-// datos Empresa
-$nit = '';s
-$nombre_empresa = '';
-$razonSocial = '';
-$emailEmpresa = '';
-$telEmpresa = '';
-$dirEmpresa = '';
-
-
-$query_empresa = mysqli_query($conexion, "SELECT * FROM configuracion");
-$row_empresa = mysqli_num_rows($query_empresa);
-if ($row_empresa > 0) {
-	if ($infoEmpresa = mysqli_fetch_assoc($query_empresa)) {
-		$nit = $infoEmpresa['nit'];
-		$nombre_empresa = $infoEmpresa['nombre'];
-		$razonSocial = $infoEmpresa['razon_social'];
-		$telEmpresa = $infoEmpresa['telefono'];
-		$emailEmpresa = $infoEmpresa['email'];
-		$dirEmpresa = $infoEmpresa['direccion'];
-
-	}
-}*/
-//$query_data = mysqli_query($conexion, "CALL data();");
-//$result_data = mysqli_num_rows($query_data);
-//if ($result_data > 0) {
-//	$data = mysqli_fetch_assoc($query_data);
-//}
-
-
 
 ?>
 
@@ -87,31 +57,27 @@ if ($row_empresa > 0) {
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
-		<?php include_once "view/categoria/menu.php"; ?>
+		<?php include_once "view/itinerario/menu.php"; ?>
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 		
 			<!-- Main Content -->
 			<div id="content">
 				<!-- Topbar -->
-				
-
-    
+	  
 				<nav class="navbar navbar-expand navbar-light bg-secondary text-white topbar mb-4 static-top shadow">
 					<!-- Sidebar Toggle (Topbar) -->
 					<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
 						<i class="fa fa-bars"></i>
 					</button>
-
-
+						
 					<div class="input-group">
-
-					    <a href="index.php?c=inicio&a=Login_Session" class="btn btn-danger">
+				
+						<a href="index.php?c=itinerario" class="btn btn-danger">
 								<img src="atras.png" alt="Ir Atras" style="height: 20px; width: 20px;"> IR ATRAS
 						</a>
 
-						<h6> &nbsp;&nbsp; Usuario :  <?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?> </h6>		
-			
+						 <h6> &nbsp;&nbsp; Usuario :  <?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?> </h6>		
 			
 						<p class="ml-auto"><strong>La Paz,  </strong><?php echo fechaPeru(); ?></p>
 					</div>

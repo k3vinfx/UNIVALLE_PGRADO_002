@@ -38,9 +38,8 @@ class alternativa
 			$result = array();
 			$stm = $this->pdo->prepare("SELECT a.Recomendacion_id as ID, a.Recomendacion_titulo AS TITULO,
 			 b.Categoria_nombre AS categorias, a.Recomendacion_costo  AS COSTO ,
-			 a.Recomendacion_estado AS ESTADO, a.Recomendacion_descripcion as DESCRIPCION, 
-			 a.Recomendacion_ruta_carga AS CARGA,
-			 a.Recomendacion_fecha_creacion AS FECHA
+			 a.Recomendacion_estado AS ESTADO, a.Recomendacion_descripcion as DESCRIPCION,
+	    	 a.Recomendacion_fecha_creacion AS FECHA
 			FROM recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id;");
 			$stm->execute();

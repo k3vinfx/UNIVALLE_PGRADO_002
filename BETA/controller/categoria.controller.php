@@ -29,7 +29,10 @@ class CategoriaController{
   
         require_once 'view/categoria/header.php';
        // require_once 'view/categoria/menu.php';
+       
         require_once 'view/categoria/cat_gastronomiaTop.php';
+
+
         require_once 'view/categoria/footerx.php';
       //  require_once 'view/footerx.php';
        // require_once 'view/footerx.php';
@@ -38,7 +41,6 @@ class CategoriaController{
     public function Index1(){
         //require_once 'view/header.php';
 
-  
         require_once 'view/header.php';
         require_once 'view/inicio/inicio.php';
         require_once 'view/login_session/footerx.php';
@@ -53,7 +55,7 @@ class CategoriaController{
         if(isset($_REQUEST['ver_id'])){
             $pvd = $this->model->Obtener($_REQUEST['ver_id']);
         }
-        require_once 'view/categoria/header.php';      
+        require_once 'view/categoria/header2.php';      
         require_once 'view/categoria/ver_imgmap.php';
         require_once 'view/footerx.php';
     }
@@ -78,7 +80,25 @@ class CategoriaController{
 
 
     }
+    public function Crud_Aux_Buscar_Balancear(){
+        $pvd = new categoria();
+   
 
+        $email = filter_input(INPUT_POST, 'dato_entrada1', FILTER_SANITIZE_STRING);
+        // Usar filter_input para limpiar las entradas del usuario
+        $verActivo = $this->model->VerificarEmail($email);
+
+        $pvd->dato1 = filter_input(INPUT_POST, 'idProducto', FILTER_SANITIZE_STRING);
+        $pvd->dato2 = $verActivo;
+
+    
+        //Registro al modelo proveedor.
+
+       
+        $this->model->RegistrarItinerario($pvd);
+
+
+    }
 
 
 

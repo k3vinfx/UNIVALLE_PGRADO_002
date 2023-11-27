@@ -136,12 +136,25 @@ table{
                       <button onclick="confirmarAgregarVisita('<?php echo $pvd->idFK; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
                                  
                       <a href="?c=categoria&a=Index_1"class="btn btn-success btn-sm mt-2"><i class='fas fa-edit'></i>Regresar</a>         
+       
+                
+
+
+         
                     </div>
                 </div>
             </div>
-            <!-- End -->
-         </li>
-       </ul>
+
+
+          <!-- End -->
+        </li>
+        <!-- End -->
+
+
+        <!-- End -->
+
+
+      </ul>
       <!-- End -->
     </div>
   </div>

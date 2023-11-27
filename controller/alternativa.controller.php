@@ -23,8 +23,6 @@ class AlternativaController{
         require_once 'view/footerx.php';
     }
 
-
-
     public function Entrenar(){
         $pvd = new alternativa();
 

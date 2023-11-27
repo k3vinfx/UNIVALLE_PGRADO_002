@@ -1,3 +1,5 @@
+
+
 <?php
 require_once 'model/database.php';
 class categoria
@@ -92,8 +94,10 @@ class categoria
 		try
 		{
 			 	$sql = "INSERT INTO itinerario_cliente 
-				(Itinerario_fk_cliente,
-				Itinerario_fk_recom
+				(
+					Itinerario_fk_recom,
+					Itinerario_fk_cliente
+		
  				)
 		        VALUES (?, ?)";
 				$this->pdo->prepare($sql)
@@ -107,6 +111,57 @@ class categoria
 			die($e->getMessage());
 		}
 	}
+
+	public function MenuLista2()
+	{
+		try
+		{
+
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT 
+				clie.id_interes_atracciones ,
+				atra.nombre_interes ,
+				cat.Categoria_nombre, 
+				rec.Recomendacion_titulo ,
+				neu.Neurona_Entrada_1_FK AS PERSONA ,  pes.Peso_01  as peso1,
+				neu.Neurona_Entrada_2_FK AS COMP,  pes.Peso_02 as peso2,
+				neu.Neurona_Entrada_3_FK AS HORARIO,  pes.Peso_03 as peso3, 
+				neu.Neurona_Entrada_4_FK AS EDAD,  pes.Peso_04 as peso4 ,
+				neu.Neurona_Entrada_5_FK AS GASTO,  pes.Peso_05 as peso5, 
+				neu.Neurona_Entrada_6_FK AS SEXO, pes.Peso_06 as peso6,
+							CASE  
+								WHEN cli.Cliente_Edad >= 18 AND cli.Cliente_Edad <= 21 THEN '1'
+								WHEN cli.Cliente_Edad >= 22 AND cli.Cliente_Edad <= 24 THEN '2'
+								WHEN cli.Cliente_Edad >= 25 AND cli.Cliente_Edad <= 29 THEN '3'
+								WHEN cli.Cliente_Edad >= 30 AND cli.Cliente_Edad <= 34 THEN '4'
+								WHEN cli.Cliente_Edad >= 35 AND cli.Cliente_Edad <= 39 THEN '5'
+								WHEN cli.Cliente_Edad >= 40 AND cli.Cliente_Edad <= 44 THEN '6'
+								WHEN cli.Cliente_Edad >= 45 AND cli.Cliente_Edad <= 49 THEN '7'
+								WHEN cli.Cliente_Edad >= 50 AND cli.Cliente_Edad <= 59 THEN '8'
+								WHEN cli.Cliente_Edad >= 60 AND cli.Cliente_Edad <= 90 THEN '9'
+								
+							END AS Edad
+				
+				FROM
+					clientes cli
+					INNER JOIN interes_cliente clie ON clie.id_InteresCliente = cli.Cliente_Id
+					INNER JOIN interes_atracciones atra ON atra.id_interes = clie.id_interes_atracciones
+					INNER JOIN categoria cat ON cat.Categoria_interes = atra.id_interes
+					INNER JOIN recomendacion rec ON rec.Recomendacion_categoria = cat.Categoria_id
+					INNER JOIN neurona neu ON neu.Neurona_Id_Recomendacion_FK = rec.Recomendacion_id
+					INNER JOIN pesos pes ON pes.Pesos_Fk_Neurona = neu.Neurona_Id
+					
+
+					where cli.Cliente_Id = 2 AND neu.Neurona_Entrada_1_FK=1 AND cli.Cliente_Sexo=neu.Neurona_Entrada_6_FK");
+					$stm->execute();
+					return $stm->fetchAll(PDO::FETCH_OBJ);
+				} catch (Exception $e)
+				{
+					die($e->getMessage());
+				}
+	}
+
+
 
 
 	public function MenuLista1()
@@ -138,6 +193,11 @@ class categoria
 			die($e->getMessage());
 		}
 	}
+
+
+
+
+
     public function ListarEntrenamiento()
 	{
 		try

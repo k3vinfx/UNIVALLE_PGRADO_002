@@ -8,6 +8,7 @@
 		<h1 class="h3 mb-0 text-gray-800">Alternativa</h1>
 		<a href="registro_cliente.php" class="btn btn-primary">Nuevo</a>
 	</div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 	<div class="row">
 		<div class="col-lg-12">
@@ -35,7 +36,17 @@
             <td><?php echo $r->ID; ?></td>
             <td><?php echo $r->TITULO; ?></td>
             <td><?php echo $r->categorias; ?></td>
-            <td><?php echo $r->ESTADO; ?></td>
+            <td>
+
+            <?php $estado = $r->ESTADO;
+
+            $nombre = $estado ? 'Activo' : 'Inactivo';
+            $color = $estado ? 'success' : 'danger';
+            ?>
+
+            <i class="<?php echo $icono; ?> text-<?php echo $color; ?>" style="font-family: Arial;">  <?php echo $nombre; ?> </i>
+
+            </td>
             <td><?php echo $r->FECHA; ?></td>
 
           

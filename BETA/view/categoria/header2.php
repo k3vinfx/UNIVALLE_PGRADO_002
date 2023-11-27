@@ -106,7 +106,7 @@ if ($row_empresa > 0) {
 
 					<div class="input-group">
 
-					    <a href="index.php?c=inicio&a=Login_Session" class="btn btn-danger">
+					    <a href="index.php?c=categoria&a=Index_1" class="btn btn-danger">
 								<img src="atras.png" alt="Ir Atras" style="height: 20px; width: 20px;"> IR ATRAS
 						</a>
 

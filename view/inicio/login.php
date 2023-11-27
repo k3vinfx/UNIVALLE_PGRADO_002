@@ -192,7 +192,7 @@ canvas{
         <img src="assets/img/etreva_travel.jpg"  >
           </div>
         <div class="text-center mt-4 name">
-           SISTEMA RED NEURONA RECURENTE 
+           SISTEMA RED NEURONA RECURENTE ...
         </div>
 </BR>
         <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">

@@ -89,13 +89,13 @@ class principal
 				WHEN a.Neurona_Entrada_4_FK = 9 THEN '60 - 70'
 			END AS Edad,
 						 CASE             
-				WHEN a.Neurona_Entrada_5_FK = 1 THEN '0$ - 50$'
-				WHEN a.Neurona_Entrada_5_FK = 2 THEN '50$ - 150$'
-				WHEN a.Neurona_Entrada_5_FK = 3 THEN '150$ - 250$'
-				WHEN a.Neurona_Entrada_5_FK = 4 THEN '250$ - 300$'  
-				WHEN a.Neurona_Entrada_5_FK = 5 THEN '300$ - 500$'
-				WHEN a.Neurona_Entrada_5_FK = 6 THEN '500$ - 700$'
-				WHEN a.Neurona_Entrada_5_FK = 7 THEN '700$ - 1000$'
+				WHEN a.Neurona_Entrada_5_FK = 1 THEN '0$ - 50Bs'
+				WHEN a.Neurona_Entrada_5_FK = 2 THEN '50Bs - 150Bs'
+				WHEN a.Neurona_Entrada_5_FK = 3 THEN '150Bs - 250Bs'
+				WHEN a.Neurona_Entrada_5_FK = 4 THEN '250Bs - 300Bs'  
+				WHEN a.Neurona_Entrada_5_FK = 5 THEN '300Bs - 500Bs'
+				WHEN a.Neurona_Entrada_5_FK = 6 THEN '500Bs - 700Bs'
+				WHEN a.Neurona_Entrada_5_FK = 7 THEN '700Bs - 1000Bs'
 	
 			END AS Costo ,
 			 a.Neurona_Entrenada as Entrenada

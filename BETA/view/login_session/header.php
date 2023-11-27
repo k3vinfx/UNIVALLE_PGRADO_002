@@ -42,21 +42,7 @@
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         
-        <li class="black" id="search-bar">
-          <form action="product_catalogue.php">
-            <div class="white-text row" style="padding-left: 20px;">
-              <input type="text" name="query" placeholder="Busca alguna recomendacion turistica..."
-                class="input-field white-text col s10 autocomplete" id="autocomplete-input"
-                value="<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>"
-                style="font-size: 14px; z-index: 5050;"
-              />
-              <button value='<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>' 
-                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px">
-                <i class='material-icons'>search</i>
-              </button>
-            </div>
-          </form>
-        </li>
+  
         <?php
           if (isset($_SESSION["Member"]))
           { ?>
@@ -75,7 +61,7 @@
           {
             echo(
               "
-              <li><a class='inteses' href='?c=inicio&a=Registrar'>Itinerario</a></li>
+              <li><a class='inteses' href='?c=itinerario'>Itinerario</a></li>
               <li><a class='inteses' href='?c=inicio&a=Registrar'>Intereses</a></li>
               <li><a class='ayuda' href='?c=inicio&a=Login'>Ayuda</a></li>
               <li><a class='salir' href='?c=inicio&a=Login'>Salir</a></li>
