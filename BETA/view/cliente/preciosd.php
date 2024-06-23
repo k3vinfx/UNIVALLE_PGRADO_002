@@ -1,171 +1,181 @@
 
 <style>
 
-.container {
+    /* Estilos globales para todos los botones */
+        [type=button], [type=reset], [type=submit], button {
+            -webkit-appearance: button;
+            background-color: blue; /* Cambia este color al que prefieras */
+            background-image: none;
+            color: white; /* Color del texto en los botones */
+            border: none; /* Elimina cualquier borde predeterminado */
+            padding: 10px 20px; /* Añade un poco de relleno para que los botones se vean mejor */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            border-radius: 5px; /* Añade bordes redondeados */
+            font-weight: bold; /* Hace que el texto sea negrita */
+        }
 
-    flex: 0 1 auto;
-    grid-column: 2;
-    border-radius: 20px; /* Border radius more prominent */    
-    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5); /* Bigger shadow for a floating effect */
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 1000px;
-    margin-left: 5%;
-    margin-top: 2%;
-    background-image: linear-gradient(to bottom right, #ececec, #fbfbfb);
-}
+        [type=button]:hover, [type=reset]:hover, [type=submit]:hover, button:hover {
+            background-color: orange; /* Cambia este color al que prefieras para el hover */
+        }
 
+        /* Específicos para el color y diseño del formulario */
+        .btn-primary {
+            background-color: blue; /* Cambia este color al que prefieras */
+            color: white;
+            border-radius: 10px; /* Rounder buttons */
+            font-weight: bold; /* Bold text on button */
+        }
 
-h2 {
-    color: #4F46E5;
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-align: center; 
-    font-weight: 700;
-}
+        .btn-primary:hover {
+            background-color: orange; /* Cambia este color al que prefieras para el hover */
+        }
 
-.form-control {
-border: none;
-border-bottom: 1px solid #ccc;
-padding-left: 0;
-padding-right: 0;
-border-radius: 0;
-background: none; }
-.form-control:active, .form-control:focus {
-outline: none;
--webkit-box-shadow: none;
-box-shadow: none;
-border-color: #000; }
+        .btn-secondary {
+            background-color: #CBD5E1;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #000;
+        }
+        .container {
+            flex: 0 1 auto;
+            grid-column: 2;
+            border-radius: 20px;
+            box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 1000px;
+            margin-left: 5%;
+            margin-top: 2%;
+            background-image: linear-gradient(to bottom right, #ececec, #fbfbfb);
+        }
 
+        h2 {
+            color: #4F46E5;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
 
-.btn-primary {
-    /*...*/
-    border-radius: 10px; /* Rounder buttons */
-    font-weight: bold; /* Bold text on button */
-    /*...*/
-}
+        .form-control {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding-left: 0;
+            padding-right: 0;
+            border-radius: 0;
+            background: none;
+        }
 
-.btn-primary:hover {
-    background-color: #3730A3;
-}
+        .form-control:active, .form-control:focus {
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-color: #000;
+        }
 
-.btn-secondary {
-    background-color: #CBD5E1;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #000;
-}
+        .form-submit {
+            margin-top: 10px;
+        }
 
-.form-submit {
-    margin-top: 10px;
-}
-/* Other CSS styles... */
+        /* Responsive Design */
+        @media only screen and (max-width: 1200px) {
+            body {
+                grid-template-columns: 1fr;
+            }
 
-/* Responsive Design */
-@media only screen and (max-width: 1200px) {
-    body {
-        grid-template-columns: 1fr; /* change grid to single column */
-    }
+            .container {
+                margin-left: 15%;
+            }
+        }
 
-    .container {
-        margin-left: 15%;
-    }
-}
+        @media only screen and (max-width: 992px) {
+            body {
+                grid-template-columns: 1fr;
+            }
 
-@media only screen and (max-width: 992px) {
-    body {
-        grid-template-columns: 1fr; /* change grid to single column */
-    }
+            .container {
+                margin-left: 10%;
+            }
+        }
 
-    .container {
-        margin-left: 10%;
-    }
-}
+        @media only screen and (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+            }
 
-@media only screen and (max-width: 768px) {
-    body {
-        grid-template-columns: 1fr; /* change grid to single column */
-    }
+            .container {
+                padding: 20px;
+                margin-left: 5%;
+            }
 
-    .container {
-        padding: 20px;
-        margin-left: 5%; /* reduce margin-left */
-    }
+            h2 {
+                font-size: 24px;
+            }
+        }
 
-    h2 {
-        font-size: 24px;
-    }
-}
+        @media only screen and (max-width: 576px) {
+            body {
+                grid-template-columns: 1fr;
+            }
 
-@media only screen and (max-width: 576px) {
-    body {
-        grid-template-columns: 1fr; /* change grid to single column */
-    }
+            .container {
+                padding: 15px;
+                margin-left: 0;
+                max-width: none;
+            }
 
-    .container {
-        padding: 15px;
-        margin-left: 0; /* remove margin-left */
-        max-width: none; /* remove max-width */
-    }
+            h2 {
+                font-size: 22px;
+            }
+        }
 
-    h2 {
-        font-size: 22px;
-    }
-}
+        label.required::after {
+            content: '*';
+            color: #FF4B5C;
+            margin-left: 5px;
+        }
 
+        main {
+            margin: 0;
+            height: 100vh;
+            background: radial-gradient(circle, blue, fuchsia, red);
+            overflow: scroll;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-label.required::after {
-    content: '*';
-    color: #FF4B5C;
-    margin-left: 5px;
-}
-main {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(circle, blue, fuchsia, red);
-    overflow: scroll; /* Esta línea puede estar causando el problema */
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+        @media only screen and (min-width: 300px) and (max-width: 600px) {
+            main {
+                height: 330vh;
+            }
+        }
 
-}
+        @media only screen and (min-width: 700px) and (max-width: 900px) {
+            main {
+                height: 300vh;
+            }
+        }
 
-@media only screen and (min-width: 300px) and (max-width: 600px) { 
-    main {
+        .custom-file-upload {
+            display: inline-block;
+            background: indigo;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
+        .custom-file-upload:hover {
+            background: darkindigo;
+        }
 
-        height: 330vh;
-        /* Código específico para pantallas entre 601px y 1024px (ej. tabletas) */
-    }
-}
-@media only screen and (min-width: 700px) and (max-width: 900px) { 
-    main {
-
-
-        height: 300vh;
-        /* Código específico para pantallas entre 601px y 1024px (ej. tabletas) */
-    }
-}
-
-  .custom-file-upload {
-    display: inline-block;
-    background: indigo;
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  .custom-file-upload:hover {
-    background: darkindigo;
-  }
-
-  input[type="file"] {
-    display: none; /* Hide the default input */
-  }
-</style>
+        input[type="file"] {
+            display: none;
+        }
+    </style>
 
 
 <!DOCTYPE html>
@@ -212,10 +222,10 @@ if(isset($_SESSION['Cliente_Id'])) {
 </head>
 
 
-<div class="container">
+
 <form action="?c=inicio&a=GuardarPago" method="post"  autocomplete="off"class="card-body p-2" enctype="multipart/form-data" id="fupForm">
 <body class="relative font-inter antialiased">
-<input type="hidden" name="cliente_id" id="cliente_id" value="<?php echo htmlspecialchars($clienteId); ?>">
+<input type="text" name="cliente_idx" id="cliente_idx" value="<?php echo htmlspecialchars($clienteId); ?>">
     <main class="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
 
 
@@ -278,8 +288,9 @@ if(isset($_SESSION['Cliente_Id'])) {
                                     <span>100 diferentes recomendaciones de alternativas turisticas</span>
                                 </li>
                             </ul>
-                            <input type="submit" name="submit" class="btn btn-primary submitBtn" value="Registrar"/>
+                            <input type="submit" name="submit" class="btn btn-primary" value="Registrar"/>
                         </div>
+                        
                     </div>
 
                     <!-- Pricing tab 2 -->
@@ -333,7 +344,7 @@ if(isset($_SESSION['Cliente_Id'])) {
                                 </li>
                                
                             </ul>
-                            <input type="submit" name="submit" class="btn btn-primary submitBtn" value="Registrar"/>
+                            <input type="submit" name="submit" class="btn btn-primary" value="Registrar"/>
                         </div>
                     
 
@@ -388,7 +399,7 @@ if(isset($_SESSION['Cliente_Id'])) {
                                 </li>
                 
                             </ul>
-                            <input type="submit" name="submit" class="btn btn-primary submitBtn" value="Registrar"/>
+                            <input type="submit" name="submit" class="btn btn-primary" value="Registrar.."/>
                         </div>
                      
                     </div>
@@ -405,7 +416,7 @@ if(isset($_SESSION['Cliente_Id'])) {
     </body>
     <!-- Banner with links -->
     </form> 
-    </div>
+
 
 </html>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

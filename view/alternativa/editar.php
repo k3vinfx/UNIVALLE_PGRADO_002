@@ -259,11 +259,11 @@
                         </div>
                     </div>
 
-                
+                x
         
 
                     <input type="submit" value="Editar Alternativa" class="btn btn-primary">
-                    <a href="?c=principal" class="btn btn-danger">Regresar</a>
+                    <a href="?c=alternativa" class="btn btn-danger">Regresar</a>
                 </form>
             </div>
         </div>

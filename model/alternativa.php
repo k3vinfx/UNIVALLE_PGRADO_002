@@ -39,6 +39,7 @@ class alternativa
 			$stm = $this->pdo->prepare("SELECT a.Recomendacion_id as ID, a.Recomendacion_titulo AS TITULO,
 			 b.Categoria_nombre AS categorias, a.Recomendacion_costo  AS COSTO ,
 			 a.Recomendacion_estado AS ESTADO, a.Recomendacion_descripcion as DESCRIPCION,
+			 a.Recomendacion_categoria AS ID_CAT ,
 	    	 a.Recomendacion_fecha_creacion AS FECHA
 			FROM recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id;");
@@ -96,8 +97,185 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
-	
+	public function ListarEntrenamientoCriterio_1()
+	{
+		try
+		{
+			$result = array();
 
+			$stm = $this->pdo->prepare("SELECT 
+			cri.Criterio_id, 
+			cri.Criterio_nombre, 
+			cri.Criterio_categoria, 
+			cri.Criterio_tipificador,
+			(
+				SELECT 
+					SUM(1)
+				FROM 
+					mvc_php.criterio_rnn crt1 
+				INNER JOIN 
+					mvc_php.neurona nue ON crt1.Criterio_tipificador = nue.Neurona_Entrada_2_FK
+				WHERE 
+					crt1.Criterio_categoria = 'Personas' 
+					AND crt1.Criterio_tipificador = cri.Criterio_tipificador
+			) AS Contador,
+			(
+				SELECT 
+					nue.Neurona_Id
+				FROM 
+					mvc_php.neurona nue
+				INNER JOIN 
+					mvc_php.criterio_rnn crt2 ON crt2.Criterio_tipificador = nue.Neurona_Entrada_2_FK
+				WHERE 
+					crt2.Criterio_categoria = 'Personas' 
+					AND crt2.Criterio_tipificador = cri.Criterio_tipificador
+				LIMIT 1  -- Asegura que solo devuelve un resultado, ajusta según la lógica de negocio
+			) AS Id_tipo
+		FROM 
+			mvc_php.criterio_rnn cri
+		WHERE 
+			cri.Criterio_categoria = 'Personas'");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function ListarEntrenamientoCriterio_2()
+	{
+		try
+		{
+			$result = array();
+
+			$stm = $this->pdo->prepare("SELECT 
+			cri.Criterio_id, 
+			cri.Criterio_nombre, 
+			cri.Criterio_categoria, 
+			cri.Criterio_tipificador,
+			(SELECT 
+				SUM(1)
+			 FROM 
+				mvc_php.criterio_rnn crt 
+			 INNER JOIN 
+				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_3_FK
+			 WHERE 
+				crt.Criterio_categoria = 'Sexo' 
+				AND crt.Criterio_tipificador = cri.Criterio_tipificador
+			) AS Contador
+		FROM 
+			mvc_php.criterio_rnn cri
+		   where         cri.Criterio_categoria = 'Sexo'");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function ListarEntrenamientoCriterio_3()
+	{
+		try
+		{
+			$result = array();
+
+			$stm = $this->pdo->prepare("SELECT 
+			cri.Criterio_id, 
+			cri.Criterio_nombre, 
+			cri.Criterio_categoria, 
+			cri.Criterio_tipificador,
+			(SELECT 
+				SUM(1)
+			 FROM 
+				mvc_php.criterio_rnn crt 
+			 INNER JOIN 
+				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_4_FK
+			 WHERE 
+				crt.Criterio_categoria = 'Horario' 
+				AND crt.Criterio_tipificador = cri.Criterio_tipificador
+			) AS Contador
+		FROM 
+			mvc_php.criterio_rnn cri
+		   where         cri.Criterio_categoria = 'Horario'");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function ListarEntrenamientoCriterio_4()
+	{
+		try
+		{
+			$result = array();
+
+			$stm = $this->pdo->prepare("SELECT 
+			cri.Criterio_id, 
+			cri.Criterio_nombre, 
+			cri.Criterio_categoria, 
+			cri.Criterio_tipificador,
+			(SELECT 
+				SUM(1)
+			 FROM 
+				mvc_php.criterio_rnn crt 
+			 INNER JOIN 
+				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_5_FK
+			 WHERE 
+				crt.Criterio_categoria = 'Edades' 
+				AND crt.Criterio_tipificador = cri.Criterio_tipificador
+			) AS Contador
+		FROM 
+			mvc_php.criterio_rnn cri
+		   where         cri.Criterio_categoria = 'Edades'");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function ListarEntrenamientoCriterio_5()
+	{
+		try
+		{
+			$result = array();
+
+			$stm = $this->pdo->prepare("SELECT 
+			cri.Criterio_id, 
+			cri.Criterio_nombre, 
+			cri.Criterio_categoria, 
+			cri.Criterio_tipificador,
+			(SELECT 
+				SUM(1)
+			 FROM 
+				mvc_php.criterio_rnn crt 
+			 INNER JOIN 
+				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_6_FK
+			 WHERE 
+				crt.Criterio_categoria = 'Costo' 
+				AND crt.Criterio_tipificador = cri.Criterio_tipificador
+			) AS Contador
+		FROM 
+			mvc_php.criterio_rnn cri
+		   where         cri.Criterio_categoria = 'Costo'");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 	public function ObtenerX($idX)
 	{
 		try
@@ -147,6 +325,35 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
+	public function Desactivar($data)
+	{
+		try
+		{
+			$stm = $this->pdo
+        ->prepare("UPDATE recomendacion SET Recomendacion_estado = 0 WHERE recomendacion.Recomendacion_id = ?");
+
+			$stm->execute(array($data));
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function Activar($data)
+	{
+		try
+		{
+			$stm = $this->pdo
+        ->prepare("UPDATE recomendacion SET Recomendacion_estado = 1 WHERE recomendacion.Recomendacion_id = ?");
+
+			$stm->execute(array($data));
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+
 
 	public function Eliminar($data)
 	{

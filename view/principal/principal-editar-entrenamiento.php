@@ -12,7 +12,7 @@
     <!-- Content Row -->
     <div class="row">
         
-        <div class="col-lg-8 m-auto">
+        <div class="col-lg-12 m-auto">
             <div class="card-header bg-primary text-white">
             Alternativa
             </div>
@@ -25,6 +25,7 @@
                <input type="hidden" name="entrada_1" value="1" />
             
                </br>
+               <div class="row">
                <div class="form-row col-md-12">
                   <div class="form-group col-md-4">
                       <label id="lb_entrada_1">Compañia</label>
@@ -69,7 +70,7 @@
                     </div>  
                     
                  
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                 
                     <label for="inputEmail4">Edad</label>
                    
@@ -91,7 +92,7 @@
                    
                 
                 </div>
-                <div class="form-group col-md-2">  
+                <div class="form-group col-md-3">  
                     <label id="lb_entrada_1">Costo</label>
                     <select class="custom-select selevt"  >
                         <option   value="0"><?php echo $pvd->Costo; ?></opcion>
@@ -107,46 +108,62 @@
                     }
                     ?>
                     </select>
-                </div>  
+                  </div>  
 
-               </div>                
-      
-               <div class="form-row col-md-12">
-                  <div class="form-group col-md-2">  
-                    <label id="lb_entrada_1">Sexo</label>
-                    <select class="custom-select selevt"  >
-                        <option   value="0"><?php echo $pvd->Sexo; ?></opcion>
-                        
-                    </select>
-                    <select class="custom-select selevt" name="entrada_6" id="entrada_6">
-                    <option value="0">Seleccione</option>
-                    <?php
-                    for ($i = 20; $i <= 95; $i += 5) {
-                        $valor = $i / 100; // Divide por 100 para obtener el valor decimal
-                        $valor_formateado = number_format($valor, 2); // Formatea el valor con dos decimales
-                        echo "<option value=\"$valor_formateado\">$valor_formateado</option>";
-                    }
-                    ?>
-                    </select>
-                </div> 
-                </div> 
+                  </div>  
+                  </div>  
+               <div class="row">
+                   <div class="form-group col-md-4">
+
+                        <label id="lb_entrada_1">Sexo</label>
+                        <select class="custom-select selevt">
+                            <option value="0"><?php echo $pvd->Sexo; ?></option>
+                        </select>
+                        <select class="custom-select selevt" name="entrada_6" id="entrada_6">
+                            <option value="0">Seleccione</option>
+                            <?php
+                            for ($i = 20; $i <= 95; $i += 5) {
+                                $valor = $i / 100; // Divide por 100 para obtener el valor decimal
+                                $valor_formateado = number_format($valor, 2); // Formatea el valor con dos decimales
+                                echo "<option value=\"$valor_formateado\">$valor_formateado</option>";
+                            }
+                            ?>
+                        </select>
                    
-                </br>
+                    </div>
+
+                   <div class="form-group col-md-4">
+              
+                        <label id="lb_entrada_2">Respuesta del Entrenamiento</label>
+                        <select class="custom-select selevt" name="entrada_7" id="entrada_7">
+                            <option value="0">Seleccione</option>
+                            <?php
+                            for ($i = 20; $i <= 95; $i += 5) {
+                                $valor = $i / 100; // Divide por 100 para obtener el valor decimal
+                                $valor_formateado = number_format($valor, 2); // Formatea el valor con dos decimales
+                                echo "<option value=\"$valor_formateado\">$valor_formateado</option>";
+                            }
+                            ?>
+                        </select>
+                  
+                     </div>
+                </div>
+
+
+      
+              
+
+             
+                   
+            
                 <div class="text-center">
                 <button class="btn btn-success">Actualizar</button>
             </div>
-            </br>      
-                     </div>
-          
-
-
-
-
-
-
-    </form>
-    </div>
-        </div>
+          </div>
+   
+       </form>
+       </div>
+     </div>
     </div>
 
 

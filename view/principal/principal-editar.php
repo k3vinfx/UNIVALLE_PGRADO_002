@@ -206,14 +206,10 @@
                     <label id="lb_entrada_3">Selecione el Horario</label>
                     <select class="custom-select selevt" name="entrada_3" id="entrada_3" >
                     <option value="0">Seleccion </opcion>
-                    <option value="1">6:00 - 9:00</option>
-                    <option value="2">9:00 - 12:00</option>
-                    <option value="3">12:00 - 15:00</option>
-                    <option value="4">15:00 - 18:00</option>
-                    <option value="5">18:00 - 21:00</option>
-                    <option value="6">21:00 - 24:00</option>
-                    <option value="7">1:00 - 3:00</option>
-                    <option value="8">3:00 - 6:00</option>
+                    <option value="1">MAÑANA</option>
+                    <option value="2">MEDIO DIA</option>
+                    <option value="3">TARDE</option>
+                    <option value="4">NOCHE</option>
                     </select>                 
                     </div>  
 
@@ -238,14 +234,11 @@
                     <label id="lb_entrada_1">Selecione el Costo</label>
                     <select class="custom-select selevt" name="entrada_5" id="entrada_5" >
                     <option value="0">Seleccion </opcion>
-                    <option value="1">0$ - 50$</option>
-                    <option value="2">50$ - 150$</option>
-                    <option value="3">150$ - 250$</option>
-                    <option value="4">250$ - 300$</option>
-                    <option value="5">300$ - 500$</option>
-                    <option value="6">500$ - 700$</option>
-                    <option value="7">700$ - 1000$</option>
-           
+                    <option value="1">Muy Económico</option>
+                    <option value="2">Económico</option>
+                    <option value="3">Moderado</option>
+                    <option value="4">Alto</option>
+                    <option value="5">Muy Alto</option>
                     </select>                 
                     </div> 
 

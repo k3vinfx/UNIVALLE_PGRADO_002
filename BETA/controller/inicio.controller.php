@@ -25,7 +25,10 @@ class InicioController{
        // require_once 'view/footerx.php';
     }
     public function Login_Session(){
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
         //require_once 'view/header.php';
         $clienteId = $_SESSION['Cliente_Id'];
         $clienteEdad = $_SESSION['Cliente_Edad'];
@@ -70,6 +73,16 @@ class InicioController{
        // require_once 'view/footerx.php';
     }
 
+    public function LoginError(){
+        //require_once 'view/header.php';
+
+  
+       // require_once 'view/registro/header.php';
+        require_once 'view/login/indexLoginError.php';
+       // require_once 'view/header.php';
+       // require_once 'view/footerx.php';
+    }
+
     public function LoginFaltaPagar(){
         //require_once 'view/header.php';
 
@@ -83,7 +96,7 @@ class InicioController{
     public function GuardarPago(){
         $pvd = new inicio();
 
-        $pvd->dato1 = $_POST['Cliente_Id'];
+        $pvd->dato1 = $_POST['cliente_idx'];
         
         if(isset($_FILES['archivo1']) && $_FILES['archivo1']['error'] == 0){
             $archivo1 = $_FILES['archivo1'];
@@ -339,7 +352,20 @@ class InicioController{
           
             } else {
                 // La contraseña es incorrecta
-                echo "La contraseña es incorrecta.";
+              //  echo "La contraseña es incorrecta.";
+
+              header('Location: index.php?c=inicio&a=LoginError');
+              
+                
+              ?> 
+
+<script>
+
+         </script>       
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+             <?php
             }
         } else {
             echo "Datos de inicio de sesión no válidos.";

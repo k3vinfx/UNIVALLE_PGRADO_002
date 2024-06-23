@@ -9,36 +9,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Custom CSS -->
   <style>
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
     body {
     
         display: grid;
         grid-template-columns: 1fr 3fr;
         
-        background-color:   #fac8bb;
+        background: 
+        url('view/login/images/bg_2.jpg') no-repeat left top,
+        linear-gradient(135deg, #0250c5, #d43f8d, #f09d51, #0250c5) no-repeat;
+        background-size: 32% 100%, cover;  /* La primera entrada es para la imagen, la segunda para el gradiente */
+   /* Esto ayuda a mezclar mejor la imagen y el gradiente */
+        background-repeat: no-repeat;  /* Asegura que el gradiente no se repita */
         font-family: 'Poppins', sans-serif;
-
-        background-image: url('view/login/images/bg_2.jpg');
-        background-size:  28% 100% ;
-        background-position: left top;
-        background-repeat: no-repeat;
+        margin-left: 25%;
+        height: 100vh;  /* Asegura que el cuerpo cubra toda la altura de la ventana */
+        margin: 0;
+        padding: 0;
     }
 
-    .container {
+    .container_1 {
 
         flex: 0 1 auto;
         grid-column: 2;
         border-radius: 20px; /* Border radius more prominent */    
         box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5); /* Bigger shadow for a floating effect */
         border-radius: 10px;
-        padding: 30px;
-        max-width: 1000px;
-        margin-left: 5%;
+        padding: 60px;
+        max-width: 400px;
+        margin-left: 25%;
         margin-top: 2%;
         background-image: linear-gradient(to bottom right, #ececec, #fbfbfb);
     }
 
-    
+    .container_2 {
+
+      flex: 0 1 auto;
+      grid-column: 2;
+      border-radius: 20px; /* Border radius more prominent */    
+      box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5); /* Bigger shadow for a floating effect */
+      border-radius: 10px;
+      padding: 60px;
+      max-width: 400px;
+      margin-left: 25%;
+      margin-top: 2%;
+      background-image: linear-gradient(to bottom right, #ececec, #fbfbfb);
+      }
+    .container_3 {
+
+        flex: 0 1 auto;
+        grid-column: 2;
+        border-radius: 20px; /* Border radius more prominent */    
+        box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5); /* Bigger shadow for a floating effect */
+        border-radius: 10px;
+        padding: 60px;
+        max-width: 400px;
+        margin-left: 25%;
+        margin-top: 2%;
+        background-image: linear-gradient(to bottom right, #ececec, #fbfbfb);
+     }
+
     h2 {
         color: #4F46E5;
         font-size: 28px;
@@ -87,11 +117,12 @@
     /* Responsive Design */
     @media only screen and (max-width: 1200px) {
         body {
-            grid-template-columns: 1fr; /* change grid to single column */
+          /* change grid to single column */
+          margin-left: 25%;
         }
 
-        .container {
-            margin-left: 15%;
+        .container_1 {
+            margin-left: 5%;
         }
     }
 
@@ -100,7 +131,7 @@
             grid-template-columns: 1fr; /* change grid to single column */
         }
 
-        .container {
+        .container_1 {
             margin-left: 10%;
         }
     }
@@ -110,7 +141,7 @@
             grid-template-columns: 1fr; /* change grid to single column */
         }
 
-        .container {
+        .container_1 {
             padding: 20px;
             margin-left: 5%; /* reduce margin-left */
         }
@@ -125,7 +156,7 @@
             grid-template-columns: 1fr; /* change grid to single column */
         }
 
-        .container {
+        .container_1 {
             padding: 15px;
             margin-left: 0; /* remove margin-left */
             max-width: none; /* remove max-width */
@@ -436,7 +467,11 @@
 
         var errorMessage = "";
         // Comprobaciones de las validaciones
+        var formValidated = false; // Variable de control
 
+            // Resto de tu código de validación...
+
+         if (!formValidated) {
         if (pass1 !== pass2) {
             errorMessage = 'Las contraseñas no coinciden.';
         } 
@@ -448,8 +483,8 @@
         }
 
         if (document.getElementById('sexo').value == 0 ||
-            document.getElementById('compania').value == 0 ||
-            document.getElementById('estadia').value == 0) {
+            document.getElementById('compania').value == 0 
+           ) {
             e.preventDefault(); // prevent form from SUBMITting
             Swal.fire('Selecciones Faltantes', 'Por favor, selecciona todas las opciones desplegables', 'error');
         }
@@ -458,41 +493,53 @@
             e.preventDefault(); // prevent form from SUBMITting
             Swal.fire('Selecciones Insuficientes', 'Por favor, selecciona al menos 3 casillas de interés', 'error');
          }
+
+       
+                // Tus condiciones de validación...
+                if (checkedCount > 2) {
+                        e.preventDefault();
+                        Swal.fire('Registro exitoso', 'Por favor, al volver a ingresar debe cancelar 1 subscripción para completar su registro', 'success')
+                        .then((result) => {
+                            if (result.isConfirmed || result.isDismissed) {
+                                formularioValidado = true; // Marcar el formulario como validado
+                                document.getElementById('frm-principal-neurona').submit(); // Reenvía el formulario
+                            }
+                        });
+                    } else {
+                        e.preventDefault(); // Prevenir el envío si no pasa las validaciones
+                        // Mostrar mensajes de validación correspondientes
+                    }
+            }
+
+
+
+         
     });
 });
 </script>
 
   </head>
   <body>
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
- 
-    <div class="container">
-        <div class="signup-content">
-            <div class="signup-img">
-
-                <div class="signup-img-content">
-                   <h2>Regístrate ahora</h2>
-                   <hr class="my-2">
-
+    <div class="container_1">
+        <form id="frm-principal-neurona" action="?c=inicio&a=Guardar" class="register-form" method="post">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <div class="signup-img-content">
+                        <h2>Regístrate ahora</h2>
+                        <hr class="my-2">
+                    </div>
                 </div>
-            </div>
-            </br>
-            <div class="signup-form">
-                <form id="frm-principal-neurona" action="?c=inicio&a=Guardar" class="register-form" method="post">
+                <br>
+                <div class="signup-form">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="nombres" class="required">Nombres</label>
-                                <input type="text" name="nombres" id="nombres" class="form-control" />
+                                <input type="text" name="nombres" id="nombres" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label for="apellidos" class="required">Apellidos</label>
-                                <input type="text" name="apellidos" id="apellidos" class="form-control" />
+                                <input type="text" name="apellidos" id="apellidos" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label for="pais" class="required">País</label>
@@ -502,138 +549,200 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label  class="required">Email</label>
-                                <input type="email" name="email1" id="email1" class="form-control" />
+                                <label class="required">Email</label>
+                                <input type="email" name="email1" id="email1" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label for="celular" class="required">Celular</label>
-                                <input type="number" name="celular" id="celular" class="form-control" />
+                                <input type="number" name="celular" id="celular" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label for="pass1" class="required">Contraseña</label>
-                                <input type="password" name="pass1" id="pass1" class="form-control" />
+                                <input type="password" name="pass1" id="pass1" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label for="pass2" class="required">Repita Contraseña</label>
-                                <input type="password" name="pass2" id="pass2" class="form-control" />
+                                <input type="password" name="pass2" id="pass2" class="form-control" required />
                             </div>
-                            <div class="form-group">
-                                <label for="edad" class="required">Edad</label>
-                                <select name="edad" id="edad" class="form-select">
-                                    <option value="0">Selecciona tu edad</option>
-                                    <!-- Las opciones de edad se generarán dinámicamente con JavaScript -->
-                                </select>
-
-                              
-                            </div>
-                         
-                        </div>
-                        <div class="col-md-4">
-        
-                
-                        <div class="form-group">
-                                <label for="sexo"  class="fw-bold">Género</label>
-                                <select name="sexo" id="sexo" class="form-select">
-                                    <option value="0">Selecciona tu género</option>
-                                    <option value="1">Masculino</option> 
-                                    <option value="2">Femenino</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="compania" class="fw-bold">Visita con Compañía o Solo</label>
-                                    <select name="compania" id="compania" class="form-select">
-                                    <option value="0">Selecciona solo o con compañía</option>
-                                    <option value="1">Solo</option> 
-                                    <option value="2">En Pareja(Espos@ , Novio@)</option>
-                                    <option value="3">Con Amigos</option>
-                                    <option value="4">Con Familiares</option>
-                                    <option value="5">Con Hijos y Sin Espos@</option>
-                                    <option value="6">Con Hijos y Con Espos@</option> 
-                                     <!-- Agrega más opciones aquí -->
-                                </select>
-                            </div>
-                          
-                                                        <br>                            <hr class="my-2">
-                            <h6><strong>Selecciona al menos 3 casillas de gustos de interés que quieres conocer en La Paz</strong></h6>
-                            <br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada1" id="entrada1" value="1">
-                                <label class="form-check-label" for="entrada1">Lugares para sacar fotografías únicas para subirlas a tus redes</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada2" id="entrada2" value="2">
-                                <label class="form-check-label" for="entrada2">Diversión y aventura</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada3" id="entrada3" value="3">
-                                <label class="form-check-label" for="entrada3">Gastronomia Tipica y local</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada4" id="entrada4" value="4">
-                                <label class="form-check-label" for="entrada4">Gastronomia Internacional al estilo PACEÑO</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada5" id="entrada5" value="5">
-                                <label class="form-check-label" for="entrada5">Cultural y Historia</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada6" id="entrada6" value="6">
-                                <label class="form-check-label" for="entrada6">Museos</label>
-                            </div>
-                        </div>
-          
-
-                        <div class="col-md-4">
-                    
-                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada8" id="entrada8" value="7">
-                                <label class="form-check-label" for="entrada8">Vida Nocturna</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada9" id="entrada9" value="8">
-                                <label class="form-check-label" for="entrada9">Murales de Arte Urbano  </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada10" id="entrada10" value="9">
-                                <label class="form-check-label" for="entrada10">Pasajes y Calles</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada11" id="entrada11" value="10">
-                                <label class="form-check-label" for="entrada11">Aretesanias Locales</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada12" id="entrada12" value="11">
-                                <label class="form-check-label" for="entrada12">Musica Urbana</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada13" id="entrada13" value="12">
-                                <label class="form-check-label" for="entrada13">Musica Rock</label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="entrada14" id="entrada14" value="13">
-                                <label class="form-check-label" for="entrada14">Musica Folcklorica</label>
-                            </div>
-                        
-
-
-
-                            <!-- Agrega más casillas de verificación aquí -->
-                            
                         </div>
                     </div>
-                    </br></br>
+                    <br><br>
                     <div class="form-submit text-center">
-                        <input type="submit" value="Registrar" class="btn btn-primary" id="submit" name="submit" />
-                        <input type="reset" value="Reiniciar" class="btn btn-secondary" id="reset" name="reset" />
+                        <button type="button" class="btn btn-primary" id="submitx1">Siguiente</button>
                     </div>
-                </form>
+                </div>
+            </div>
+   
+    </div>
+    <div class="container_2" style="display: none;">
+        <div class="signup-content">
+            <div class="signup-img">
+                <div class="signup-img-content">
+                    <h2>Datos Personales</h2>
+                    <hr class="my-2">
+                </div>
+            </div>
+            <br>
+            <div class="signup-form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="edad" class="required">Edad</label>
+                            <select name="edad" id="edad" class="form-select">
+                                <option value="0">Selecciona tu edad</option>
+                                <!-- Las opciones de edad se generarán dinámicamente con JavaScript -->
+                            </select>                      
+                        </div> 
+                        <div class="form-group">
+                            <label for="sexo" class="fw-bold">Género</label>
+                            <select name="sexo" id="sexo" class="form-select">
+                                <option value="0">Selecciona tu género</option>
+                                <option value="1">Masculino</option> 
+                                <option value="2">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="compania" class="fw-bold">Visita con Compañía o Solo</label>
+                            <select name="compania" id="compania" class="form-select">
+                                <option value="0">Selecciona solo o con compañía</option>
+                                <option value="1">Solo</option> 
+                                <option value="2">En Pareja(Espos@ , Novio@)</option>
+                                <option value="3">Con Amigos</option>
+                                <option value="4">Con Familiares</option>
+                                <option value="5">Con Hijos y Sin Espos@</option>
+                                <option value="6">Con Hijos y Con Espos@</option> 
+                                <!-- Agrega más opciones aquí -->
+                            </select>
+                        </div>
+                        <hr class="my-2">
+                        <h6><strong>Selecciona al menos 3 casillas de gustos de interés que quieres conocer en La Paz</strong></h6>
+                        <br> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada1" id="entrada1" value="1">
+                            <label class="form-check-label" for="entrada1">Lugares para sacar fotografías únicas para subirlas a tus redes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada2" id="entrada2" value="2">
+                            <label class="form-check-label" for="entrada2">Diversión y aventura</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada3" id="entrada3" value="3">
+                            <label class="form-check-label" for="entrada3">Gastronomia Tipica y local</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada4" id="entrada4" value="4">
+                            <label class="form-check-label" for="entrada4">Gastronomia Internacional</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada5" id="entrada5" value="5">
+                            <label class="form-check-label" for="entrada5">Cultural y Historia</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada6" id="entrada6" value="6">
+                            <label class="form-check-label" for="entrada6">Museos</label>
+                        </div>          
+                    </div>                        
+                </div>
+                <div class="form-submit text-center">
+                    <button type="button" class="btn btn-primary" id="submitx2">Siguiente</button>
+                </div>
             </div>
         </div>
     </div>
+    <div class="container_3" style="display: none;">
+        <div class="signup-content">
+            <div class="signup-img">
+                <div class="signup-img-content">
+                    <h2>Datos Personales</h2>
+                    <hr class="my-2">
+                </div>
+            </div>
+            <br>
+            <div class="signup-form">
+                <div class="row">
+                    <h6><strong>Selecciona al menos 3 casillas de gustos de interés que quieres conocer en La Paz</h6>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada7" id="entrada7" value="7">
+                            <label class="form-check-label" for="entrada7">Vida Nocturna</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada8" id="entrada8" value="8">
+                            <label class="form-check-label" for="entrada8">Murales de Arte Urbano</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada9" id="entrada9" value="9">
+                            <label class="form-check-label" for="entrada9">Pasajes y Calles</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada10" id="entrada10" value="10">
+                            <label class="form-check-label" for="entrada10">Aretesanias Locales</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada11" id="entrada11" value="11">
+                            <label class="form-check-label" for="entrada11">Musica Urbana</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada12" id="entrada12" value="12">
+                            <label class="form-check-label" for="entrada12">Musica Rock</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="entrada13" id="entrada13" value="13">
+                            <label class="form-check-label" for="entrada13">Musica Folcklorica</label>
+                        </div>
+                    </div>    
+                </div>    
+            </div>
+            <br><br>
+            <div class="form-submit text-center">
+                <button type="submit" class="btn btn-primary" id="submitx3" name="submitx3">Enviar</button>
+            </div>
+            
+        </div>
+        </form>
+    </div>
 
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Convierte el texto ingresado en los inputs a mayúsculas
+            $('input[type="text"]').on('input', function() {
+                $(this).val($(this).val().toUpperCase());
+            });
 
-    <!-- Agrega tus scripts personalizados aquí -->
+            // Muestra la siguiente sección al hacer clic en el botón "Siguiente" de la primera sección
+            $('#submitx1').on('click', function() {
+                $('.container_1').hide();
+                $('.container_2').show();
+                $('.container_3').hide();
+            });
+
+            // Muestra la siguiente sección al hacer clic en el botón "Siguiente" de la segunda sección
+            $('#submitx2').on('click', function() {
+                $('.container_2').hide();
+                $('.container_3').show();
+            });
+
+            // Valida y envía el formulario al hacer clic en el botón "Enviar"
+            $('#frm-principal-neurona').on('submit', function(event) {
+                var pass1 = $('#pass1').val();
+                var pass2 = $('#pass2').val();
+                if (pass1 !== pass2) {
+                    event.preventDefault();
+                    Swal.fire('Error', 'Las contraseñas no coinciden.', 'error');
+                    return false;
+                }
+
+                // Aquí puedes agregar más validaciones si es necesario
+
+                // Permitir el envío del formulario
+                return true;
+            });
+        });
+    </script>
 </body>
-<br><br>
 </html>

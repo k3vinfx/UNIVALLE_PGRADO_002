@@ -11,14 +11,14 @@ class AlternativaController{
 
     //Llamado plantilla alternativa
     public function Index(){
-       require_once 'view/alternativa/header.php';
+       require_once 'view/header.php';
        require_once 'view/alternativa/alternativa.php';
        require_once 'view/footerx.php';
     } 
     public function NuevoEntrenamiento(){
         $pvd = new alternativa();
 
-        require_once 'view/alternativa/header.php';
+        require_once 'view/header.php';
         require_once 'view/alternativa/alternativa-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -26,7 +26,7 @@ class AlternativaController{
     public function Entrenar(){
         $pvd = new alternativa();
 
-        require_once 'view/alternativa/header.php';
+        require_once 'view/header.php';
         require_once 'view/alternativa/entrenar.php';
         require_once 'view/footerx.php';
     }
@@ -37,17 +37,29 @@ class AlternativaController{
         if(isset($_REQUEST['Recomendacion_id'])){
             $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
         }
-        require_once 'view/alternativa/header.php';      
+        require_once 'view/header.php';      
         require_once 'view/alternativa/editar.php';
         require_once 'view/footerx.php';
     }
+
+    public function Crud_Brain(){
+        $pvd = new alternativa();
+
+        if(isset($_REQUEST['Recomendacion_id'])){
+            $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
+        }
+        require_once 'view/header.php';      
+        require_once 'view/alternativa/alternativa_brain.php';
+        require_once 'view/footerx.php';
+    }
+
     public function Crud_Aux(){
         $pvd = new alternativa();
 
         if(isset($_REQUEST['Neurona_Id'])){
             $pvd = $this->model->Obtener($_REQUEST['Neurona_Id']);
         }
-        require_once 'view/alternativa/header.php';      
+        require_once 'view/header.php';      
         require_once 'view/alternativa/alternativa-editar-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -57,7 +69,7 @@ class AlternativaController{
         $alert = '<div class="alert alert-primary" role="alert">
                          Registrado
                     </div>';
-        require_once 'view/alternativa/header.php';
+        require_once 'view/header.php';
         require_once 'view/alternativa/nuevo.php';
         require_once 'view/footerx.php';
     }
@@ -65,7 +77,7 @@ class AlternativaController{
     public function Nuevo(){
         $pvd = new alternativa();
       
-        require_once 'view/alternativa/header.php';
+        require_once 'view/header.php';
         require_once 'view/alternativa/nuevo.php';
         require_once 'view/footerx.php';
     }
@@ -234,11 +246,43 @@ class AlternativaController{
         header('Location: index.php?c=alternativa');
     }
 
-    public function Eliminar(){
-        $this->model->Eliminar($_REQUEST['Recomendacion_id']);
-        header('Location: index.php?c=alternativa');
-        $alert = '<div class="alert alert-danger" role="alert">
-                         Eliminado
-                    </div>';
+
+
+    public function Estado_Activar(){
+        $recomendacion_id = $_REQUEST['Recomendacion_id'];
+        $this->model->Activar($recomendacion_id);
+    
+        // Puedes enviar cualquier dato adicional que desees en la respuesta
+        $response = array(
+            'success' => true,
+            'message' => 'Recomendación activada exitosamente',
+            'recomendacion_id' => $recomendacion_id
+        );
+    
+        // Devuelve la respuesta como un objeto JSON
+        echo json_encode($response);
+       
     }
+    public function Estado_Desactivar(){
+  
+
+   
+      $recomendacion_id = $_REQUEST['Recomendacion_id'];
+      $this->model->Desactivar($recomendacion_id);
+  
+      // Puedes enviar cualquier dato adicional que desees en la respuesta
+      $response = array(
+          'success' => true,
+          'message' => 'Recomendación desactivada exitosamente',
+          'recomendacion_id' => $recomendacion_id
+      );
+  
+      // Devuelve la respuesta como un objeto JSON
+      echo json_encode($response);
+
+    }
+
+
+
+
 }

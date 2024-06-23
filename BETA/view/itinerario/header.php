@@ -77,7 +77,7 @@ include "assets/includes/functions.php";
 								<img src="atras.png" alt="Ir Atras" style="height: 20px; width: 20px;"> IR ATRAS
 						</a>
 
-						 <h6> &nbsp;&nbsp; Usuario :  <?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?> </h6>		
+						 <h6> &nbsp; Usuario :  <?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?> </h6>		
 			
 						<p class="ml-auto"><strong>La Paz,  </strong><?php echo fechaPeru(); ?></p>
 					</div>

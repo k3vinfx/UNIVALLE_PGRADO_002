@@ -79,8 +79,8 @@ body {
         <div class="col hoverable">
           <a href="product_catalogue.php?category=0" class="hoverable">
             <div class="selectable-card hoverable" style="width: 300px; margin: 50px;">
-                <img class="hoverable" src="static/images/category_1.gif"/>
-              <h5 class="white-text center bold hoverable">Gatronmia</h5>
+                <img class="hoverable" src="static/images/front1.jpg"/>
+              <h5 class="white-text center bold hoverable">Gastronomia</h5>
             </div>
           </a>
         </div>

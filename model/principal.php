@@ -4,16 +4,17 @@ if (isset($_POST['action'])) {
     $action = $_POST['action'];
     
     // Verificar la acción específica
-    if ($action === 'MenuTipoRecomendacionGet') {
+    if ($action === 'MenuTipoRecomendacionNombreGet') {
         // Obtener el valor enviado en la solicitud
         $valor = $_POST['valor'];
         
         // Llamar al método MenuTipoRecomendacionGet con el valor
-        $result = $model->MenuTipoRecomendacionGet($valor);
+        $result = $model->MenuTipoRecomendacionNombreGet($valor);
         
         // Devolver los datos como JSON
         echo json_encode($result);
     }
+	
 }
 
 class principal
@@ -62,9 +63,9 @@ class principal
 			CASE               
 				WHEN a.Neurona_Entrada_2_FK = 1 THEN 'Solitario'
 				WHEN a.Neurona_Entrada_2_FK = 2 THEN 'Pareja'
-				WHEN a.Neurona_Entrada_2_FK = 3 THEN 'Familia con Hijos Menores'
-				WHEN a.Neurona_Entrada_2_FK = 4 THEN 'Familia con Hijos Mayores'  
-				WHEN a.Neurona_Entrada_2_FK = 5 THEN 'Grupo de Amigos'
+				WHEN a.Neurona_Entrada_2_FK = 3 THEN 'Pareja Gay'
+				WHEN a.Neurona_Entrada_2_FK = 4 THEN 'Pareja Lesbiana'  
+				WHEN a.Neurona_Entrada_2_FK = 5 THEN 'Amigo'
 			END AS Cantidad_Personas,
 			CASE               
 				WHEN a.Neurona_Entrada_3_FK = 1 THEN '6:00 - 9:00'
@@ -89,15 +90,12 @@ class principal
 				WHEN a.Neurona_Entrada_4_FK = 9 THEN '60 - 70'
 			END AS Edad,
 						 CASE             
-				WHEN a.Neurona_Entrada_5_FK = 1 THEN '0$ - 50Bs'
-				WHEN a.Neurona_Entrada_5_FK = 2 THEN '50Bs - 150Bs'
-				WHEN a.Neurona_Entrada_5_FK = 3 THEN '150Bs - 250Bs'
-				WHEN a.Neurona_Entrada_5_FK = 4 THEN '250Bs - 300Bs'  
-				WHEN a.Neurona_Entrada_5_FK = 5 THEN '300Bs - 500Bs'
-				WHEN a.Neurona_Entrada_5_FK = 6 THEN '500Bs - 700Bs'
-				WHEN a.Neurona_Entrada_5_FK = 7 THEN '700Bs - 1000Bs'
-	
-			END AS Costo ,
+				WHEN a.Neurona_Entrada_5_FK = 1 THEN 'Muy Economico'
+				WHEN a.Neurona_Entrada_5_FK = 2 THEN 'Economico'
+				WHEN a.Neurona_Entrada_5_FK = 3 THEN 'Moderado'
+				WHEN a.Neurona_Entrada_5_FK = 4 THEN 'Alto'  
+				WHEN a.Neurona_Entrada_5_FK = 5 THEN 'Muy Alto'
+				END AS Costo ,
 			 a.Neurona_Entrenada as Entrenada
 		   FROM neurona a 
 		INNER JOIN categoria c ON a.Neurona_Entrada_1_FK = c.Categoria_id;");
@@ -114,7 +112,7 @@ class principal
 		try
 		{
 			$result = array();
-			$stm = $this->pdo->prepare("SELECT * FROM entrada WHERE Entrada_Id<6;");
+			$stm = $this->pdo->prepare("SELECT * FROM entrada WHERE Entrada_Id<5;");
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		} catch (Exception $e)
@@ -173,12 +171,36 @@ class principal
 		{
 			
 			$result = array();
-			$stm = $this->pdo->prepare("SELECT Recomendacion_id,Recomendacion_titulo FROM recomendacion WHERE Recomendacion_categoria=?");
+			$stm = $this->pdo->prepare("SELECT Recomendacion_id,Recomendacion_titulo FROM mvc_php.recomendacion WHERE Recomendacion_categoria=?");
 
 		$stm->execute(array($valor));
 		return $stm->fetchAll(PDO::FETCH_OBJ);
 		} catch (Exception $e)
 		{
+			die($e->getMessage());
+		}
+
+	}
+	public function MenuTipoRecomendacionNombreGet($valor)
+	{
+	
+	
+		try
+		{
+			$stm = $this->pdo->prepare("SELECT Recomendacion_id, Recomendacion_titulo FROM mvc_php.recomendacion WHERE Recomendacion_titulo = ?");
+	    	$stm->execute([$valor]);
+			$result = $stm->fetchAll(PDO::FETCH_OBJ);
+			  // Agregando el valor para depuración
+			  $response = [
+				'data' => $result,
+				'debug' => 'Valor enviado: ' . $valor
+			];
+	
+			//echo '<script>console.log("Valor enviado: ' . htmlspecialchars($valor, ENT_QUOTES) . '");</script>';
+		 // Solo para debug
+		   return json_encode($response); 
+		} catch (Exception $e) {
+			error_log("Error: " . $e->getMessage());
 			die($e->getMessage());
 		}
 
@@ -326,45 +348,12 @@ class principal
 	{
 		try
 		{					
-			$result = array();
-			$stm = $this->pdo->prepare("SELECT * FROM pesos WHERE Pesos_Fk_Neurona = ?");
-			$stm->execute(array($data->Neurona_Id));
-			
-			// Comprueba si se encontraron registros
-			$rowCount = $stm->rowCount();
-			
-			if ($rowCount > 0) {
-				// Se encontraron registros, realiza el proceso A
-				// ...
-
-				$sql = "UPDATE pesos 
-						SET Peso_01 = ?, 
-						Peso_02 = ?,
-						Peso_03 = ?,
-						Peso_04 = ?,
-						Peso_05 = ?,
-						Peso_06 = ?
-        		WHERE Pesos_Fk_Neurona = ?";
-				$this->pdo->prepare($sql)->execute(
-					array(
-						$data->entrada_1,
-						$data->entrada_2,
-						$data->entrada_3,
-						$data->entrada_4,
-						$data->entrada_5,
-						$data->entrada_6,
-						$data->Neurona_Id
-					)
-				);
-				return false; 
-			   
-			} else {
-				// No se encontraron registros, realiza el proceso B
+					// No se encontraron registros, realiza el proceso B
 				// ...
 				$sql = "INSERT INTO pesos 
-				(Pesos_Fk_Neurona,	Peso_01,
-				Peso_02,Peso_03,Peso_04,Peso_05,Peso_06)
-				VALUES (?, ?, ? ,?, ?, ?, ?)";
+				(Pesos_Fk_Neurona,Peso_01,Peso_02,
+				Peso_03,Peso_04,Peso_05,Peso_06,Peso_7_out)
+				VALUES (?, ?, ? ,?, ?, ?, ?, ?)";
 					$this->pdo->prepare($sql)
 					->execute(
 					   array(
@@ -374,18 +363,43 @@ class principal
 						   $data->entrada_3,
 						   $data->entrada_4,
 						   $data->entrada_5,
-						   $data->entrada_6
+						   $data->entrada_6,
+						   $data->entrada_7
 					   )
 				   );
 				 return true; 
 			}
-		}
 			catch (Exception $e)
 			{
 				die($e->getMessage());
 			}
+
+			
 		
 	}
+
+	public function ActualizarEstadoEntrenado($data)
+	{
+		try
+		{
+			$aux=1;
+			$sql = "UPDATE neurona SET
+	    	Neurona_Entrenada        = ?
+			WHERE Neurona_Id  = ?";
+
+			$this->pdo->prepare($sql)
+			     ->execute(
+				    array( 
+						$aux,
+						$data->Neurona_Id
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 
 	public function Actualizar($data)
 	{
@@ -451,7 +465,7 @@ class principal
                     $data->NeuronaEntrada_1,
                     $data->NeuronaEntrada_2,
 					$data->NeuronaEntrada_3,
-                    $data->NeuronaEntr5ada_4,
+                    $data->NeuronaEntrada_4,
 					$data->NeuronaEntrada_5,
         			$NeuronaEstado
 

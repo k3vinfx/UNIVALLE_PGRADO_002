@@ -20,13 +20,6 @@
     crossorigin=""></script>
 
 <style>
-
-
-
-
-
-
-
   
 </style>
 
@@ -36,9 +29,9 @@
 <div class="container-fluid">
   <!-- Page Heading -->
   <h4 class="h4 mb-1 text-gray-700">Lugares Gastronómicos </h4>
+  <input type="hidden" name="correo" id="correo" value="<?php echo trim(htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8')); ?>">
 
-  <input type="hidden" name="correo" id = "correo"  value=" <?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>">
-            
+             
 
      <div class="container-fluid">
         <div class="row">
@@ -49,25 +42,26 @@
               </h5>
               <div class="input-group mb-4">
               <select name="precio" id="precio"  class="form-select-outline-secondary">
-                  <option value="precio_1">Lugares Baratos</option>
-                  <option value="precio_2">Lugares Normales</option>
-                  <option value="precio_3">Lugares Caros</option>
+                    <option value="1">Muy Económico</option>
+                    <option value="2">Económico</option>
+                    <option value="3">Moderado</option>
+                    <option value="4">Premium</option>
                 </select>
                 <select name="compania" id="compania"  class="form-select-outline-secondary">
-                  <option value="compania_1">Ir solo al lugar</option>
-                  <option value="compania_2">Ir con 1 amigo</option>
-                  <option value="compania_3">Ir con pareja</option>
-                  <option value="compania_4">Ir con familia</option>
+                  <option value="1">Visita Individual</option>
+                  <option value="2">Visita con un Amigo</option>
+                  <option value="3">Visita con un Pareja</option>
+                  <option value="4">Salida Familiar o en Grupo</option>
                 </select>
                 <select name="horario" id="horario"  class="form-select-outline-secondary">
-                  <option value="horario_1">Ir en la mañana</option>
-                  <option value="horario_2">Ir en la tarde</option>
-                  <option value="horario_3">Ir en la noche</option>
+                  <option value="1">Ir en la mañana</option>
+                  <option value="2">Ir en la tarde</option>
+                  <option value="3">Ir en la noche</option>
                 </select>
                 <input type="text" class="form-control" placeholder="Nombre del lugar"  name="textoX" id="textoX"   aria-label="Nombre del lugar">
-                <button class="btn btn-secondary" type="button" id="buscar_lugar">Buscar</button>
+                <button  onclick="buscar_DatosEnviados()" class="btn btn-secondary" type="button" id="buscar_lugar">Buscar</button>
 
-                <button onclick="buscar_DatosEnviados('<?php echo $r->ID; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
+                
               </div>
             </div>
           </div>
@@ -83,17 +77,21 @@
   <!-- Tabla de datos -->
 
 
-
-  <div class="row">
+  <div class="row" name="resultadosCont" id="resultadosCont" >
   <div class="col-lg-12 mx-auto">
     <?php 
+     $contador = 0;
     $index = 0; // Initialize index for zebra striping
     foreach($this->model->MenuLista1() as $r): 
       // Determine the background color based on even/odd index
       $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
+
+  
+      $contador = $contador +1;
     ?>
-    <!-- Custom content -->
-    <div class="container mt-10 mb-8">
+    <!-- Custom content    -->
+
+    <div  class="container mt-10 mb-8">
       <div class="d-flex justify-content-center row">
         <div class="col-md-12">
           <!-- Apply zebra striping style here -->
@@ -127,8 +125,9 @@
         </div>
       </div>
    
-    </div>
-    </div>
+      </div>
+     </div>
+  
     </div>
     <?php 
     $index++; // Increment index after each row
@@ -158,60 +157,177 @@
     const net = new brain.NeuralNetwork();
 const data = [
 
-    <?php foreach ($this->model->MenuLista2() as $dato): ?>
+    <?php foreach ($this->model->MenuLista3() as $dato): ?>
     {
         input: {
-            persona: <?php echo $dato->PERSONA; ?>, X
-            comp: <?php echo $dato->COMP; ?>, X
-            horario: <?php echo $dato->HORARIO; ?>,
-            edad: <?php echo $dato->EDAD; ?>,
-            gasto: <?php echo $dato->GASTO; ?>,
-            sexo: <?php echo $dato->SEXO; ?>,
+            persona: <?php echo $dato->peso1; ?>, 
+            comp: <?php echo $dato->peso2; ?>, 
+            horario: <?php echo $dato->peso3; ?>,
+            edad: <?php echo $dato->peso4; ?>,
+            gasto: <?php echo $dato->peso5; ?>,
+            sexo: <?php echo $dato->peso6; ?>,
             // ... otros valores ...+
         },
-        output: { resultadoEsperado: 1 } // Ajustar según tus datos
+        output: { resultadoEsperado: <?php echo $dato->peso7; ?> } // Ajustar según tus datos
     },
     <?php endforeach; ?>
 ];
+
 net.train(data);
-const output = net.run({ persona: 1 });
+
+// necesito los datos de la persona y un barrido por descendente de busqueda 1 x 1
+// del entrenamiento y buscar y scar el dato en el entrenamiento
+/*
+function Predecir() {
+    const Nuevo_dato1 = parseFloat(document.getElementById('estornudos').value);
+    const Nuevo_dato2 = parseFloat(document.getElementById('escalosfrios').value);
+    const Nuevo_dato3 = parseFloat(document.getElementById('fiebre').value);
+    // Realizar una predicción
+    // PONER LA SALIDA EN SQL OUTPUT
+    // META LOS DATOS Q TENGA EN PAPEL
+    // RESULTADO ESPERADO 
+    // REDUNDANCIA DE DATOS
+    // ESTAN AGRUPADO POR GRUPO
+    // MAXIO MINIMO DE ERROR 0.5 EPS
+    const output = net.run({ estornudo: Nuevo_dato1, FIBRE:Nuevo_dato2  , escalosfrios:Nuevo_dato3  });
+
+    const predictionResult = document.getElementById('result');
+    predictionResult.textContent = 'Resultado de la predicción: ' + JSON.stringify(output);
+
+    console.log('Resultado de la predicción:', output);
+
+}*/
+
+const output = net.run({ COMP: 0.30 });
 
 
-console.log('Resultado de la predicción:', output);
+//const predictionResult = document.getElementById('result');
+ // const predictionResult.textContent = 'Resultado de la predicción: ' + JSON.stringify(output);
+
+console.log('Resultado de la predicción:', JSON.stringify(output));
 var valor = $('#campoEjemplo').val();
 
 
 
                // window.location.href = "?c=producto&a=Eliminar&idProducto=" + idProducto;
       
-               function buscar_DatosEnviados(dato_entrada1, dato_entrada2, dato_entrada3, dato_email) {
+               function buscar_DatosEnviados() {
                 // contrastar respuesta con 3 datos de entrada y contrastar con los datos que el usuario tiene por defecto y luego recomendar ... 
-
-
-
-
-                $.ajax({
-                      url: '?c=categoria&a=Crud_Aux_Registrar', // Asegúrate de que esta es la URL correcta
+               var precio = $('#precio').val();
+               var compania = $('#compania').val();
+               var horario = $('#horario').val();
+               var correo = $('#correo').val().trim();
+               var aux_D = 0;
+               
+               $.ajax({
+                      url: '?c=categoria&a=Solicitud_Busqueda_Input',
                       type: 'POST',
-                       data: { dato_entrada1: idProducto, dato_entrada2: idEmail }, // Pasa ambos ID y EMAIL como parte de los datos
-
+                      data: { correo: correo, dato1_compania: compania, dato2_precio: precio, dato3_horario: horario },
                       success: function(response) {
-                        // Si todo va bien, muestra el swal de éxito
-                        Swal.fire(
-                          '¡Agregado!',
-                          'La visita ha sido agregada exitosamente.',
-                          'success'
-                        );
+                          console.log('Respuesta del servidor:', response);
+                          var info = JSON.parse(response);
+                          var resultadosContainer = $('#resultadosCont'); 
+                          // Variable para realizar seguimiento de las solicitudes AJAX                    
+                          var requests = [];
+                          
+                          resultadosContainer.empty();  
+
+                          for (var i = 0; i < info.length; i++) {
+                              var aux = info[i].id_recomen;
+                              aux_D = aux_D +1;
+                              // Crea una función para hacer la solicitud AJAX de detalles
+                              var request = $.ajax({
+                                  url: '?c=categoria&a=ObtenerRecomendacionPorID',
+                                  type: 'POST',
+                                  async: false, // Hacer la solicitud de forma sincrónica
+                                  data: { aux: aux },
+                                  success: function(response) {
+                                    console.log('Respuesta del servidor 3:', response);
+                                    var info = JSON.parse(response);
+
+                                    var resultadoDiv = $('<div>').addClass('container mt-10 mb-8');
+                                    var innerDiv = $('<div>').addClass('d-flex justify-content-center row');
+                                    var contentDiv = $('<div>').addClass('col-md-12');
+
+                                    // Estilo de cebra
+                                    var bgColor = info.index % 2 === 0 ? '#f0f0f0' : '#dcdae8';
+                                    var rowDiv = $('<div>').addClass('row p-2 border rounded mt-2').css('background-color', bgColor);
+
+                                    // Columna de la imagen
+                                    var imageColDiv = $('<div>').addClass('col-md-3 mt-1');
+                                    var imagen = $('<img>').addClass('img-fluid img-responsive rounded product-image')
+                                                          .attr('src', info.CARGA1)
+                                                          .attr('alt', 'Imagen no disponible')
+                                                          .attr('width', '250');
+                                    imageColDiv.append(imagen);
+
+                                    // Columna de detalles
+                                    var detailsColDiv = $('<div>').addClass('col-md-6 mt-1');
+                                    detailsColDiv.append($('<h5>').text('ID: ' + info.ID + '/' + info.TITULO));
+
+                                    // Calificaciones
+                                    var ratingsDiv = $('<div>').addClass('d-flex flex-row');
+                                    var starsDiv = $('<div>').addClass('ratings mr-2');
+                                    for (var i = 0; i < 4; i++) { // Asumiendo 4 estrellas como ejemplo
+                                        starsDiv.append($('<i>').addClass('fa fa-star'));
+                                    }
+                                    ratingsDiv.append(starsDiv);
+                                    ratingsDiv.append($('<span>').text('Calificación'));
+                                    detailsColDiv.append(ratingsDiv);
+
+                                    // Descripción
+                                    detailsColDiv.append($('<div>').addClass('mt-1 mb-1 spec-1').html('<span>Descripción</span><span class="dot"></span>'));
+                                    detailsColDiv.append($('<p>').addClass('text-justify para mb-2').text(info.DESCRIB));
+
+                                    // Columna de acciones
+                                    var actionColDiv = $('<div>').addClass('col-md-3 mt-1 border-left');
+                                    actionColDiv.append($('<button>').text('Agregar Visita').on('click', function() {
+                                        confirmarAgregarVisita(info.ID, info.clienteEmail);
+                                    }));
+
+                                   // Enlace 'Ver Mapa y Imágenes'
+                                    var link = $('<a>')
+                                        .attr('href', '?c=categoria&a=Crud_Aux&ver_id=' + info.ID)
+                                        .addClass('btn btn-danger btn-sm mt-2')
+                                        .html('<i class="fas fa-edit"></i> Ver Mapa y Imágenes');
+                                    actionColDiv.append(link);
+                                    // Agrega aquí los botones y enlaces como en el código anterior
+
+                                    // Agregar columnas a la fila
+                                    rowDiv.append(imageColDiv, detailsColDiv, actionColDiv);
+
+                                    // Agregar todo al DOM
+                                    contentDiv.append(rowDiv);
+                                    innerDiv.append(contentDiv);
+                                    resultadoDiv.append(innerDiv);
+                                    $('#resultadosCont').append(resultadoDiv);
+                           
+                                  },
+                                  error: function(xhr, status, error) {
+                                      console.error(error);
+                                  }
+                              });
+                              requests.push(request);
+                          }
+                          console.log('res:',aux_D);
+
+                       //   for (var i = 0; i < aux_D; i++) {
+                        
+                     // }
+
+
+                          // Esperar a que todas las solicitudes AJAX se completen
+                          $.when.apply(null, requests).done(function() {
+                              console.log('Todas las solicitudes AJAX se han completado.');
+                          });
                       },
                       error: function(xhr, status, error) {
-                        // Manejo del error
-                        Swal.fire(
-                          'Error',
-                          'Hubo un problema al agregar la visita, por favor intente nuevamente.',
-                          'error'
-                        );
+                          console.error(error);
                       }
-                    });
+                  });
+           
+           
+
               }
                function confirmarAgregarVisita(idProducto, idEmail) {
                 Swal.fire({
@@ -251,11 +367,6 @@ var valor = $('#campoEjemplo').val();
                 });
               }
 
-
-
-
-
-        
 
 
     $(document).ready(function(){ 

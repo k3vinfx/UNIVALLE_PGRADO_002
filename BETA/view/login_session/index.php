@@ -82,8 +82,8 @@ body {
         <div class="col hoverable">
           <a href="?c=categoria&a=Index_1" class="hoverable">
             <div class="selectable-card hoverable" style="width: 300px; margin: 50px;">
-                <img class="hoverable" src="static/images/category_1.gif"/>
-              <h5 class="white-text center bold hoverable">Gatronmia</h5>
+                <img class="hoverable" src="static/images/front1.jpg"/>
+              <h5 class="white-text center bold hoverable">Gastronomia</h5>
             </div>
           </a>
         </div>
@@ -91,7 +91,7 @@ body {
         <div class="col">
           <a href="product_catalogue.php?category=1">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/category_3.jpg"/>
+                <img src="./static/images/front2.jpg"/>
               <h5 class="white-text center bold" >Pubs - Bares</h5>
             </div>
           </a>
@@ -100,7 +100,7 @@ body {
         <div class="col">
           <a href="product_catalogue.php?category=2">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/category_3.jpg"/>
+                <img src="./static/images/front3.jpg"/>
               <h5 class="white-text center bold">Museos - Historia</h5>
             </div>
           </a>
@@ -110,7 +110,7 @@ body {
         <div class="col">
           <a href="product_catalogue.php?category=2">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/category_3.jpg"/>
+                <img src="./static/images/front4.jpg"/>
               <h5 class="white-text center bold">Aventura</h5>
             </div>
           </a>
@@ -120,7 +120,7 @@ body {
         <div class="col">
           <a href="product_catalogue.php?category=2">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/category_3.jpg"/>
+                <img src="./static/images/front5.jpg"/>
               <h5 class="white-text center bold">Diversión</h5>
             </div>
           </a>
@@ -138,7 +138,7 @@ body {
         <div class="col">
           <a href="product_catalogue.php?category=2">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/category_3.jpg"/>
+                <img src="./static/images/front6.jpg"/>
               <h5 class="white-text center bold">Tiendas Artesanales</h5>
             </div>
           </a>
@@ -146,12 +146,20 @@ body {
         <div class="col">
           <a href="product_catalogue.php?category=2">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/category_3.jpg"/>
+                <img src="./static/images/front7.jpg"/>
               <h5 class="white-text center bold">Pasarlo en Familia o con algun acompañante</h5>
             </div>
           </a>
-
       </div>
+      <div class="col">
+          <a href="product_catalogue.php?category=2">
+            <div class="selectable-card" style="width: 300px; margin: 50px;">
+                <img src="./static/images/front8.jpg"/>
+              <h5 class="white-text center bold">Fiestas Festivas por Temporada</h5>
+            </div>
+          </a>
+      </div>
+
     </div>
   </div>
 
@@ -174,12 +182,12 @@ body {
       <h5 class="white-text center">Alternativas Turisticas</h5>
     </div>
     <div class="grid">
-      <h1 class="count red-text text-darken-4 bold center">8</h1>
-      <h5 class="white-text center">Categorias</h5>
+      <h1 class="count red-text text-darken-4 bold center">9</h1>
+      <h5 class="white-text center">Categorias Novedosas</h5>
     </div>
     <div class="grid">
       <h1 class="count red-text text-darken-4 bold center">100</h1>
-      <h5 class="white-text center">% Satisfacion garantizada</h5>
+      <h5 class="white-text center">% Satisfacion Garantizada</h5>
     </div>
   </div>
 

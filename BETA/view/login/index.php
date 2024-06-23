@@ -56,7 +56,7 @@
                 
                 <div class="">
 
-                <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Registrate</a>
+                <a href="?c=inicio&a=Registrar" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Registrate</a>
                 </div>
               </form>
             </div>
