@@ -45,8 +45,7 @@
                 </div>
                 
                 <div class="d-sm-flex mb-5 align-items-center">
-                 
-                  <span class="ml-auto"><a href="#" class="forgot-pass">Olvidaste tu Clave</a></span> 
+                    <a href="./restablecer.php">Olvidé mi contraseña</a> <br> 
                 </div>
 
                 <input type="submit" value="Ingresa" class="btn btn-block py-2 btn-primary">
