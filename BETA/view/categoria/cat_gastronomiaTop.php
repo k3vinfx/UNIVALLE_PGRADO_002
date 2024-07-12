@@ -48,13 +48,14 @@
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                       <label class="form-check-label" for="exampleRadios1">
-                          Radio por defecto
+                          Busqueda por tipo de lugar
                       </label>
                   </div>
+                    &nbsp;&nbsp;&nbsp;
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                       <label class="form-check-label" for="exampleRadios2">
-                          Segundo radio por defecto
+                          Busqueda por nombre de lugar
                       </label>
                   </div>
                </div>
