@@ -49,7 +49,7 @@
               </h5>
               <div class="input-group mb-4">
               <select name="precio" id="precio"  class="form-select-outline-secondary">
-                    <option value="1">Muy Económico</option>
+                    <option value="1">Muy Económico..</option>
                     <option value="2">Económico</option>
                     <option value="3">Moderado</option>
                     <option value="4">Premium</option>
