@@ -55,7 +55,7 @@
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                       <label class="form-check-label" for="exampleRadios2">
-                      &nbsp; Busqueda por nombre de lugar
+                      Busqueda por nombre de lugar
                       </label>
                   </div>
                </div>
