@@ -45,7 +45,7 @@
                 </h5>
                
                  <div class="d-flex align-items-center mt-4">
-                  <div class="form-check me-4">
+                  <div class="form-check me-3">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                       <label class="form-check-label" for="exampleRadios1">
                           Radio por defecto
