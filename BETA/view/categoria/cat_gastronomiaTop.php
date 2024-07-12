@@ -183,22 +183,42 @@ $(document).ready(function() {
 
 
     $('#Radios1').on('change', function() {
-  
-        toggleFields();
+      if ($(this).is(':checked')) {
+            $('#Radios2').prop('checked', false);
+            toggleFields1();
+        }
 
         console.log("precionado 1");
     });
+    $('#Radios2').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('#Radios1').prop('checked', false);
+            toggleFields2();
+            console.log("Radios2 seleccionado, Radios1 deseleccionado");
+        }
+    });
 
 
-    function toggleFields() {
+    function toggleFields1() {
         if ($('#Radios1').is(':checked')) {
             $('#precio').hide();
             $('#compania').hide();
             $('#horario').hide();
-        } else {
-            $('#textoX').hide();
-        }
+            $('#textoX').show();
+        } 
+
+       
+        
     }
+    function toggleFields2() {
+        if ($('#Radios2').is(':checked')) {
+            $('#precio').show();
+            $('#compania').show();
+            $('#horario').show();
+            $('#textoX').hide();
+        } 
+    }
+
 
     console.log('script cargado');
     const net = new brain.NeuralNetwork();
