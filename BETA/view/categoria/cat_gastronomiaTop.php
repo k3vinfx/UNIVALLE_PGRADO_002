@@ -178,7 +178,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 <script>
-    $('input[name="exampleRadios"]').change(function() {
+    $('input[name="Radios1"]').change(function() {
         toggleFields();
     });
 
