@@ -178,7 +178,9 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 <script>
-    $('input[name="Radios1"]').change(function() {
+
+$('#Radios1').on('change', function() {
+  
         toggleFields();
 
         console.log("precionado 1");
