@@ -43,7 +43,7 @@
               <h5 class="card-title"> <!-- Changed 'h7' to 'h5' for proper HTML heading level -->
                 <i class="fa fa-search" style="font-size: 20px;"></i> ¿Dónde quieres ir?
               
-              <div class="form-check">
+           
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                 <label class="form-check-label" for="exampleRadios1">
                   Radio por defecto
@@ -53,7 +53,7 @@
                 <label class="form-check-label" for="exampleRadios2">
                   Segundo radio por defecto
                 </label>
-              </div>
+          
               </h5>
 
               
