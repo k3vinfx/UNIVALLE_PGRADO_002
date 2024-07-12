@@ -34,15 +34,8 @@
              
 
      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 col-md card bg-info text-white"> <!-- 'col-12' for small screens, 'col-md' for medium to larger screens -->
-            <div class="card-body">
-              <h5 class="card-title"> <!-- Changed 'h7' to 'h5' for proper HTML heading level -->
-                <i class="fa fa-search" style="font-size: 20px;"></i> ¿Dónde quieres ir?
-              </h5>
-              <div class="input-group mb-4">
 
-              <nav>
+             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Inicio</button>
                   <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Perfil</button>
@@ -54,6 +47,17 @@
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
               </div>
+
+        <div class="row">
+          
+          <div class="col-12 col-md card bg-info text-white"> <!-- 'col-12' for small screens, 'col-md' for medium to larger screens -->
+            <div class="card-body">
+              <h5 class="card-title"> <!-- Changed 'h7' to 'h5' for proper HTML heading level -->
+                <i class="fa fa-search" style="font-size: 20px;"></i> ¿Dónde quieres ir?
+              </h5>
+              <div class="input-group mb-4">
+
+      
 
               <select name="precio" id="precio"  class="form-select-outline-secondary">
                     <option value="1">Muy Económico</option>
