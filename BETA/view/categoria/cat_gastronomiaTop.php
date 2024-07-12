@@ -43,9 +43,9 @@
               <h5 class="card-title"> <!-- Changed 'h7' to 'h5' for proper HTML heading level -->
                 <i class="fa fa-search" style="font-size: 20px;"></i> ¿Dónde quieres ir?
                 </h5>
-           
-                <div class="d-flex align-items-center mt-3">
-                  <div class="form-check me-3">
+                </br>
+                 <div class="d-flex align-items-center mt-4">
+                  <div class="form-check me-4">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                       <label class="form-check-label" for="exampleRadios1">
                           Radio por defecto
