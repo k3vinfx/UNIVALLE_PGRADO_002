@@ -42,7 +42,7 @@
             <div class="card-body">
               <h5 class="card-title"> <!-- Changed 'h7' to 'h5' for proper HTML heading level -->
                 <i class="fa fa-search" style="font-size: 20px;"></i> ¿Dónde quieres ir?
-              </h5>
+              
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                 <label class="form-check-label" for="exampleRadios1">
@@ -54,12 +54,14 @@
                   Segundo radio por defecto
                 </label>
               </div>
+              </h5>
+
               
               <div class="input-group mb-4">
 
       
 
-              <select name="precio" id="precio"  class="form-select-outline-secondary">
+                <select name="precio" id="precio"  class="form-select-outline-secondary">
                     <option value="1">Muy Económico</option>
                     <option value="2">Económico</option>
                     <option value="3">Moderado</option>
