@@ -46,14 +46,14 @@
                
                  <div class="d-flex align-items-center mt-2">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                      <input class="form-check-input" type="radio" name="Radios1" id="Radios1" value="option1" checked>
                       <label class="form-check-label" for="exampleRadios1">
                           Busqueda por tipo de lugar&nbsp;
                       </label>
                   </div>
                     &nbsp;&nbsp;&nbsp;
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                      <input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="option2">
                       <label class="form-check-label" for="exampleRadios2">
                       Busqueda por nombre de lugar
                       </label>
@@ -178,6 +178,21 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 <script>
+    $('input[name="exampleRadios"]').change(function() {
+        toggleFields();
+    });
+
+
+    function toggleFields() {
+        if ($('#Radios1').is(':checked')) {
+            $('#precio').hide();
+            $('#compania').hide();
+            $('#horario').hide();
+        } else {
+            $('#textoX').hide();
+        }
+    }
+
     console.log('script cargado');
     const net = new brain.NeuralNetwork();
 const data = [
