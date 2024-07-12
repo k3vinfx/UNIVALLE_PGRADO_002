@@ -180,6 +180,8 @@
 <script>
     $('input[name="Radios1"]').change(function() {
         toggleFields();
+
+        console.log("precionado 1");
     });
 
 
