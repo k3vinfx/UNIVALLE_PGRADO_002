@@ -185,7 +185,7 @@ $(document).ready(function() {
     $('#Radios1').on('change', function() {
       if ($(this).is(':checked')) {
             $('#Radios2').prop('checked', false);
-            toggleFields1();
+            toggleFields2();
         }
 
         console.log("precionado 1");
@@ -193,7 +193,7 @@ $(document).ready(function() {
     $('#Radios2').on('change', function() {
         if ($(this).is(':checked')) {
             $('#Radios1').prop('checked', false);
-            toggleFields2();
+            toggleFields1();
             console.log("Radios2 seleccionado, Radios1 deseleccionado");
         }
     });
