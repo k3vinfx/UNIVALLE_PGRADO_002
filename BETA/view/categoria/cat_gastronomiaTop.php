@@ -46,14 +46,14 @@
                
                  <div class="d-flex align-items-center mt-2">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="Radios1" id="Radios1" value="option1" checked>
+                      <input class="form-check-input" type="radio" name="Radios1" id="Radios1" >
                       <label class="form-check-label" for="exampleRadios1">
                           Busqueda por tipo de lugar&nbsp;
                       </label>
                   </div>
                     &nbsp;&nbsp;&nbsp;
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="Radios2" id="Radios2" value="option2">
+                      <input class="form-check-input" type="radio" name="Radios2" id="Radios2" >
                       <label class="form-check-label" for="exampleRadios2">
                       Busqueda por nombre de lugar
                       </label>
@@ -178,8 +178,11 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 <script>
+$(document).ready(function() {
 
-$('#Radios1').on('change', function() {
+
+
+    $('#Radios1').on('change', function() {
   
         toggleFields();
 
@@ -199,7 +202,7 @@ $('#Radios1').on('change', function() {
 
     console.log('script cargado');
     const net = new brain.NeuralNetwork();
-const data = [
+  const data = [
 
     <?php foreach ($this->model->MenuLista3() as $dato): ?>
     {
@@ -215,9 +218,9 @@ const data = [
         output: { resultadoEsperado: <?php echo $dato->peso7; ?> } // Ajustar según tus datos
     },
     <?php endforeach; ?>
-];
+  ];
 
-net.train(data);
+   net.train(data);
 
 // necesito los datos de la persona y un barrido por descendente de busqueda 1 x 1
 // del entrenamiento y buscar y scar el dato en el entrenamiento
@@ -412,14 +415,6 @@ var valor = $('#campoEjemplo').val();
               }
 
 
-
-    $(document).ready(function(){ 
-
-        // Función para guardar los cambios
-       
-
-        $("#frm-nuevo").submit(function(){
-            return $(this).validate();
-        });
-    })
+});
+  
 </script>
