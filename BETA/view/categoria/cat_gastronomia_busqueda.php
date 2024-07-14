@@ -35,7 +35,7 @@
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h4 class="h4 mb-1 text-gray-700">Lugares Gastronómicos.. </h4>
+  <h4 class="h4 mb-1 text-gray-700">Lugares Gastronómicos. </h4>
   <input type="text" name="correo" id="correo" value="<?php echo trim(htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8')); ?>">
 
              
@@ -155,6 +155,23 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 <script>
+  $(document).ready(function() {
+
+    function toggleFields() {
+        if ($('#Radios1').is(':checked')) {
+            $('#compania').hide();
+            $('#horario').hide();
+            $('#precio').hide();
+      
+
+            console.log("Campos ocultos");
+        } else {
+            $('#additionalFields').show();
+            console.log("Campos mostrados");
+        }
+    }
+
+
     console.log('script cargado');
     const net = new brain.NeuralNetwork();
 const data = [
@@ -309,19 +326,9 @@ var valor = $('#campoEjemplo').val();
               }
 
 
-
+ });
 
 
         
 
-
-    $(document).ready(function(){ 
-
-        // Función para guardar los cambios
-       
-
-        $("#frm-nuevo").submit(function(){
-            return $(this).validate();
-        });
-    })
 </script>
