@@ -65,7 +65,7 @@
               <option value="3">Ir en la noche</option>
             </select>
             <input type="text" class="form-control" placeholder="Nombre del lugar" name="textoX" id="textoX" aria-label="Nombre del lugar">
-            <button onclick="buscar_DatosEnviados()" class="btn btn-secondary" type="button" id="buscar_lugar">Buscar</button>
+            <button onclick="buscarDatosEnviados()" class="btn btn-secondary" type="button" id="buscar_lugar">Buscar</button>
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@ $(document).ready(function() {
 
   net.train(data);
 
-  function buscar_DatosEnviados() {
+  function buscarDatosEnviados() {
     var precio = $('#precio').val();
     var compania = $('#compania').val();
     var horario = $('#horario').val();
