@@ -97,7 +97,7 @@
             <div class="row p-2 border rounded mt-2" style="<?php echo $bgColor; ?>">
               <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250"></div>
               <div class="col-md-6 mt-1">
-                <h5>ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
+                <h5 class="tituloLugar">ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
                 <div class="d-flex flex-row">
                   <div class="ratings mr-2">
                     <i class="fa fa-star"></i>
