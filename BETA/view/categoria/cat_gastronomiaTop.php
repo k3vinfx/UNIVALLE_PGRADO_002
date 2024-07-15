@@ -82,6 +82,7 @@
   </div>
 
   <div class="row" name="resultadosCont" id="resultadosCont">
+    <div class="col-lg-12 mx-auto" id="originalResults">
     <div class="col-lg-12 mx-auto">
       <?php 
       $contador = 0;
@@ -278,6 +279,8 @@ function confirmarAgregarVisita(idProducto, idEmail) {
 }
 
 $(document).ready(function() {
+  var originalResults = $('#resultadosCont').html();
+
   function toggleFields1() {
     if ($('#Radios1').is(':checked')) {
       $('#precio').hide();
