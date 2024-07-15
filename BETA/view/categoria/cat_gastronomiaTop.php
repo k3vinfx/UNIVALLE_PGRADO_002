@@ -342,7 +342,9 @@ $(document).ready(function() {
     if ($(this).is(':checked')) {
       $('#Radios1').prop('checked', false);
       $('#Radios2').prop('checked', false);
-      $('#textoX').show();
+
+      toggleFields1();
+     
       $('#resultadosCont').html(originalResults);
       console.log("Radios3 seleccionado, mostrando todos los resultados");
     }
@@ -354,7 +356,7 @@ $(document).ready(function() {
   });
 
   // Inicialmente ocultar los campos si el radio button 'Radios1' está seleccionado
-  toggleFields1();
+
 
   console.log('script cargado');
   const net = new brain.NeuralNetwork();
