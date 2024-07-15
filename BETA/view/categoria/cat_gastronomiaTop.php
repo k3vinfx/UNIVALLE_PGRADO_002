@@ -318,6 +318,8 @@ $(document).ready(function() {
     var searchText = $(this).val().toLowerCase();
     $('.resultadoFila').each(function() {
       var tituloLugar = $(this).find('.tituloLugar').text().toLowerCase();
+   
+      console.log("buscando..",tituloLugar);
       if (tituloLugar.includes(searchText)) {
         $(this).show();
       } else {
