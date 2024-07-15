@@ -342,8 +342,11 @@ $(document).ready(function() {
     if ($(this).is(':checked')) {
       $('#Radios1').prop('checked', false);
       $('#Radios2').prop('checked', false);
-
-      toggleFields1();
+      $('#precio').hide();
+      $('#compania').hide();
+      $('#horario').hide();
+      $('#textoX').show();
+   
      
       $('#resultadosCont').html(originalResults);
       console.log("Radios3 seleccionado, mostrando todos los resultados");
