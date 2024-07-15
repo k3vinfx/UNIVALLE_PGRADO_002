@@ -301,6 +301,7 @@ $(document).ready(function() {
       $('#compania').hide();
       $('#horario').hide();
       $('#textoX').show();
+      $('#Radios1').prop('checked', true);
   function toggleFields1() {
     if ($('#Radios1').is(':checked')) {
       $('#precio').hide();
