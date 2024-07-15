@@ -40,11 +40,19 @@
             </div>
             &nbsp;&nbsp;&nbsp;
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="Radios1" id="Radios2">
+              <input class="form-check-input" type="radio" name="Radios2" id="Radios2">
               <label class="form-check-label" for="Radios2">
-                Busqueda por tipo de lugar
+                Busqueda por tipo de lugar (I.A.)
               </label>
             </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Radios3" id="Radios3">
+              <label class="form-check-label" for="Radios3">
+                Ver Todo
+              </label>
+            </div>
+
           </div>
           <div class="input-group mb-4" id="additionalFields">
             <select name="precio" id="precio" class="form-select-outline-secondary">
@@ -133,6 +141,8 @@
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 
 <script>
+
+  
 function buscarDatosEnviados() {
   var precio = $('#precio').val();
   var compania = $('#compania').val();
@@ -301,6 +311,19 @@ $(document).ready(function() {
     }
   });
 
+
+  $('#textoX').on('input', function() {
+    var searchText = $(this).val().toLowerCase();
+    $('.resultadoFila').each(function() {
+      var tituloLugar = $(this).find('.tituloLugar').text().toLowerCase();
+      if (tituloLugar.includes(searchText)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  });
+  
   // Inicialmente ocultar los campos si el radio button 'Radios1' está seleccionado
   toggleFields1();
 
