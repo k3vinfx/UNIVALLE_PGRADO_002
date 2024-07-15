@@ -133,6 +133,139 @@
 <script src="https://unpkg.com/brain.js@2.0.0-beta.18/dist/browser.js"></script>
 
 <script>
+function buscarDatosEnviados() {
+  var precio = $('#precio').val();
+  var compania = $('#compania').val();
+  var horario = $('#horario').val();
+  var correo = $('#correo').val().trim();
+  var aux_D = 0;
+
+  $.ajax({
+    url: '?c=categoria&a=Solicitud_Busqueda_Input',
+    type: 'POST',
+    data: { correo: correo, dato1_compania: compania, dato2_precio: precio, dato3_horario: horario },
+    success: function(response) {
+      console.log('Respuesta del servidor:', response);
+      var info = JSON.parse(response);
+      var resultadosContainer = $('#resultadosCont');
+      var requests = [];
+
+      resultadosContainer.empty();
+
+      for (var i = 0; i < info.length; i++) {
+        var aux = info[i].id_recomen;
+        aux_D++;
+
+        var request = $.ajax({
+          url: '?c=categoria&a=ObtenerRecomendacionPorID',
+          type: 'POST',
+          async: false,
+          data: { aux: aux },
+          success: function(response) {
+            console.log('Respuesta del servidor 3:', response);
+            var info = JSON.parse(response);
+
+            var resultadoDiv = $('<div>').addClass('container mt-10 mb-8');
+            var innerDiv = $('<div>').addClass('d-flex justify-content-center row');
+            var contentDiv = $('<div>').addClass('col-md-12');
+
+            var bgColor = info.index % 2 === 0 ? '#f0f0f0' : '#dcdae8';
+            var rowDiv = $('<div>').addClass('row p-2 border rounded mt-2').css('background-color', bgColor);
+
+            var imageColDiv = $('<div>').addClass('col-md-3 mt-1');
+            var imagen = $('<img>').addClass('img-fluid img-responsive rounded product-image')
+                                  .attr('src', info.CARGA1)
+                                  .attr('alt', 'Imagen no disponible')
+                                  .attr('width', '250');
+            imageColDiv.append(imagen);
+
+            var detailsColDiv = $('<div>').addClass('col-md-6 mt-1');
+            detailsColDiv.append($('<h5>').text('ID: ' + info.ID + '/' + info.TITULO));
+
+            var ratingsDiv = $('<div>').addClass('d-flex flex-row');
+            var starsDiv = $('<div>').addClass('ratings mr-2');
+            for (var j = 0; j < 4; j++) {
+              starsDiv.append($('<i>').addClass('fa fa-star'));
+            }
+            ratingsDiv.append(starsDiv);
+            ratingsDiv.append($('<span>').text('Calificación'));
+            detailsColDiv.append(ratingsDiv);
+
+            detailsColDiv.append($('<div>').addClass('mt-1 mb-1 spec-1').html('<span>Descripción</span><span class="dot"></span>'));
+            detailsColDiv.append($('<p>').addClass('text-justify para mb-2').text(info.DESCRIB));
+
+            var actionColDiv = $('<div>').addClass('col-md-3 mt-1 border-left');
+            actionColDiv.append($('<button>').text('Agregar Visita').on('click', function() {
+              confirmarAgregarVisita(info.ID, info.clienteEmail);
+            }));
+
+            var link = $('<a>')
+              .attr('href', '?c=categoria&a=Crud_Aux&ver_id=' + info.ID)
+              .addClass('btn btn-danger btn-sm mt-2')
+              .html('<i class="fas fa-edit"></i> Ver Mapa y Imágenes');
+            actionColDiv.append(link);
+
+            rowDiv.append(imageColDiv, detailsColDiv, actionColDiv);
+
+            contentDiv.append(rowDiv);
+            innerDiv.append(contentDiv);
+            resultadoDiv.append(innerDiv);
+            resultadosContainer.append(resultadoDiv);
+          },
+          error: function(xhr, status, error) {
+            console.error(error);
+          }
+        });
+        requests.push(request);
+      }
+
+      console.log('res:', aux_D);
+
+      $.when.apply(null, requests).done(function() {
+        console.log('Todas las solicitudes AJAX se han completado.');
+      });
+    },
+    error: function(xhr, status, error) {
+      console.error(error);
+    }
+  });
+}
+
+function confirmarAgregarVisita(idProducto, idEmail) {
+  Swal.fire({
+    title: '¿Está seguro de Agregar Visita?',
+    text: "Esta acción registrará su visita",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, agregarla',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: '?c=categoria&a=Crud_Aux_Registrar',
+        type: 'POST',
+        data: { idProducto: idProducto, idEmail: idEmail },
+        success: function(response) {
+          Swal.fire(
+            '¡Agregado!',
+            'La visita ha sido agregada exitosamente.',
+            'success'
+          );
+        },
+        error: function(xhr, status, error) {
+          Swal.fire(
+            'Error',
+            'Hubo un problema al agregar la visita, por favor intente nuevamente.',
+            'error'
+          );
+        }
+      });
+    }
+  });
+}
+
 $(document).ready(function() {
   function toggleFields1() {
     if ($('#Radios1').is(':checked')) {
@@ -190,138 +323,5 @@ $(document).ready(function() {
   ];
 
   net.train(data);
-
-  function buscarDatosEnviados() {
-    var precio = $('#precio').val();
-    var compania = $('#compania').val();
-    var horario = $('#horario').val();
-    var correo = $('#correo').val().trim();
-    var aux_D = 0;
-
-    $.ajax({
-      url: '?c=categoria&a=Solicitud_Busqueda_Input',
-      type: 'POST',
-      data: { correo: correo, dato1_compania: compania, dato2_precio: precio, dato3_horario: horario },
-      success: function(response) {
-        console.log('Respuesta del servidor:', response);
-        var info = JSON.parse(response);
-        var resultadosContainer = $('#resultadosCont');
-        var requests = [];
-
-        resultadosContainer.empty();
-
-        for (var i = 0; i < info.length; i++) {
-          var aux = info[i].id_recomen;
-          aux_D++;
-
-          var request = $.ajax({
-            url: '?c=categoria&a=ObtenerRecomendacionPorID',
-            type: 'POST',
-            async: false,
-            data: { aux: aux },
-            success: function(response) {
-              console.log('Respuesta del servidor 3:', response);
-              var info = JSON.parse(response);
-
-              var resultadoDiv = $('<div>').addClass('container mt-10 mb-8');
-              var innerDiv = $('<div>').addClass('d-flex justify-content-center row');
-              var contentDiv = $('<div>').addClass('col-md-12');
-
-              var bgColor = info.index % 2 === 0 ? '#f0f0f0' : '#dcdae8';
-              var rowDiv = $('<div>').addClass('row p-2 border rounded mt-2').css('background-color', bgColor);
-
-              var imageColDiv = $('<div>').addClass('col-md-3 mt-1');
-              var imagen = $('<img>').addClass('img-fluid img-responsive rounded product-image')
-                                    .attr('src', info.CARGA1)
-                                    .attr('alt', 'Imagen no disponible')
-                                    .attr('width', '250');
-              imageColDiv.append(imagen);
-
-              var detailsColDiv = $('<div>').addClass('col-md-6 mt-1');
-              detailsColDiv.append($('<h5>').text('ID: ' + info.ID + '/' + info.TITULO));
-
-              var ratingsDiv = $('<div>').addClass('d-flex flex-row');
-              var starsDiv = $('<div>').addClass('ratings mr-2');
-              for (var i = 0; i < 4; i++) {
-                starsDiv.append($('<i>').addClass('fa fa-star'));
-              }
-              ratingsDiv.append(starsDiv);
-              ratingsDiv.append($('<span>').text('Calificación'));
-              detailsColDiv.append(ratingsDiv);
-
-              detailsColDiv.append($('<div>').addClass('mt-1 mb-1 spec-1').html('<span>Descripción</span><span class="dot"></span>'));
-              detailsColDiv.append($('<p>').addClass('text-justify para mb-2').text(info.DESCRIB));
-
-              var actionColDiv = $('<div>').addClass('col-md-3 mt-1 border-left');
-              actionColDiv.append($('<button>').text('Agregar Visita').on('click', function() {
-                confirmarAgregarVisita(info.ID, info.clienteEmail);
-              }));
-
-              var link = $('<a>')
-                .attr('href', '?c=categoria&a=Crud_Aux&ver_id=' + info.ID)
-                .addClass('btn btn-danger btn-sm mt-2')
-                .html('<i class="fas fa-edit"></i> Ver Mapa y Imágenes');
-              actionColDiv.append(link);
-
-              rowDiv.append(imageColDiv, detailsColDiv, actionColDiv);
-
-              contentDiv.append(rowDiv);
-              innerDiv.append(contentDiv);
-              resultadoDiv.append(innerDiv);
-              resultadosContainer.append(resultadoDiv);
-            },
-            error: function(xhr, status, error) {
-              console.error(error);
-            }
-          });
-          requests.push(request);
-        }
-
-        console.log('res:', aux_D);
-
-        $.when.apply(null, requests).done(function() {
-          console.log('Todas las solicitudes AJAX se han completado.');
-        });
-      },
-      error: function(xhr, status, error) {
-        console.error(error);
-      }
-    });
-  }
-
-  function confirmarAgregarVisita(idProducto, idEmail) {
-    Swal.fire({
-      title: '¿Está seguro de Agregar Visita?',
-      text: "Esta acción registrará su visita",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, agregarla',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        $.ajax({
-          url: '?c=categoria&a=Crud_Aux_Registrar',
-          type: 'POST',
-          data: { idProducto: idProducto, idEmail: idEmail },
-          success: function(response) {
-            Swal.fire(
-              '¡Agregado!',
-              'La visita ha sido agregada exitosamente.',
-              'success'
-            );
-          },
-          error: function(xhr, status, error) {
-            Swal.fire(
-              'Error',
-              'Hubo un problema al agregar la visita, por favor intente nuevamente.',
-              'error'
-            );
-          }
-        });
-      }
-    });
-  }
 });
 </script>
