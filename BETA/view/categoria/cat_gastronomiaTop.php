@@ -48,14 +48,14 @@
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="Radios1" id="Radios1" >
                       <label class="form-check-label" for="exampleRadios1">
-                          Busqueda por tipo de lugar&nbsp;
+                          Busqueda por nombre de lugar&nbsp;
                       </label>
                   </div>
                     &nbsp;&nbsp;&nbsp;
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="Radios2" id="Radios2" >
                       <label class="form-check-label" for="exampleRadios2">
-                      Busqueda por nombre de lugar
+                      Busqueda por tipo de lugar
                       </label>
                   </div>
                </div>
