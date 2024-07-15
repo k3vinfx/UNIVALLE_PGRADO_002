@@ -331,7 +331,15 @@ $(document).ready(function() {
       console.log("Radios2 seleccionado, Radios1 deseleccionado");
     }
   });
-
+  
+  $('#Radios3').on('change', function() {
+    if ($(this).is(':checked')) {
+      $('#Radios1').prop('checked', false);
+      $('#Radios2').prop('checked', false);
+      $('#resultadosCont').html(originalResults);
+      console.log("Radios3 seleccionado, mostrando todos los resultados");
+    }
+  });
 
   $('#textoX').on('input', function() {
   var searchText = $(this).val();
