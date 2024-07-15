@@ -47,6 +47,23 @@
               <h5 class="card-title"> <!-- Changed 'h7' to 'h5' for proper HTML heading level -->
                 <i class="fa fa-search" style="font-size: 20px;"></i> ¿Dónde quieres ir?
               </h5>
+
+              <div class="d-flex align-items-center mt-2">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Radios1" id="Radios1" >
+                      <label class="form-check-label" for="exampleRadios1">
+                          Busqueda por tipo de lugar&nbsp;
+                      </label>
+                  </div>
+                    &nbsp;&nbsp;&nbsp;
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Radios2" id="Radios2" >
+                      <label class="form-check-label" for="exampleRadios2">
+                      Busqueda por nombre de lugar
+                      </label>
+                  </div>
+               </div>
+               
               <div class="input-group mb-4">
               <select name="precio" id="precio"  class="form-select-outline-secondary">
                     <option value="1">Muy Económico..</option>
