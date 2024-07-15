@@ -72,6 +72,7 @@
               <option value="2">Ir en la tarde</option>
               <option value="3">Ir en la noche</option>
             </select>
+            
             <input type="text" class="form-control" placeholder="Nombre del lugar" name="textoX" id="textoX" aria-label="Nombre del lugar">
             <button onclick="buscarDatosEnviados()" class="btn btn-secondary" type="button" id="buscar_lugar">Buscar</button>
           </div>
@@ -90,7 +91,7 @@
         $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
         $contador++;
       ?>
-      <div class="container mt-10 mb-8">
+         <div class="container mt-10 mb-8 resultadoFila">
         <div class="d-flex justify-content-center row">
           <div class="col-md-12">
             <div class="row p-2 border rounded mt-2" style="<?php echo $bgColor; ?>">
@@ -313,6 +314,7 @@ $(document).ready(function() {
 
 
   $('#textoX').on('input', function() {
+    console.log("datos entra..");
     var searchText = $(this).val().toLowerCase();
     $('.resultadoFila').each(function() {
       var tituloLugar = $(this).find('.tituloLugar').text().toLowerCase();
@@ -323,7 +325,7 @@ $(document).ready(function() {
       }
     });
   });
-  
+
   // Inicialmente ocultar los campos si el radio button 'Radios1' está seleccionado
   toggleFields1();
 
