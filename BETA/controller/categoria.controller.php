@@ -16,7 +16,7 @@ class CategoriaController{
     }
 
     
-    //Llamado plantilla principal
+    //Llamado plantilla principal Gatronomia 
     public function Index_1(){
         //require_once 'view/header.php';
         session_start();
@@ -36,6 +36,20 @@ class CategoriaController{
         require_once 'view/categoria/footerx.php';
       //  require_once 'view/footerx.php';
        // require_once 'view/footerx.php';
+    }
+
+    //Llamado plantilla principal Pub Bares 
+    public function Index_2(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_pubBaresTop.php';
+        require_once 'view/categoria/footerx.php';
     }
 
     public function Index_por_busqueda_RNN(){

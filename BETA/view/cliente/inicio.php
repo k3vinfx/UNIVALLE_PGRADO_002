@@ -154,7 +154,7 @@ body {
 
   <div class="section" style="margin-top: 100px;">
     <div class="wide-container">
-      <h3 class="white-text center">Recomendaciones segun nuetra IA para ustedes</h3>
+      <h3 class="white-text center">Recomendaciones segun nuestra IA para ustedes</h3>
       <h5 class="white-text center">
         Nosotros <b class="orange-text">Etreva- Travel</b>, Creamos un sistema de recomendaciones de alternativas turisticas con toda nuestra experiencia.
       </h5>

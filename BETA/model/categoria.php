@@ -289,6 +289,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 1
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
