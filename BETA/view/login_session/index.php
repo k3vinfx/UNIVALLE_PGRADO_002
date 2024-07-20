@@ -98,7 +98,7 @@ body {
         </div>
 
         <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_3">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front3.jpg"/>
               <h5 class="white-text center bold">Museos - Historia</h5>
@@ -108,7 +108,7 @@ body {
 
 
         <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_4">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front4.jpg"/>
               <h5 class="white-text center bold">Aventura</h5>
@@ -118,7 +118,7 @@ body {
 
         
         <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_5">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front5.jpg"/>
               <h5 class="white-text center bold">Diversión</h5>
@@ -127,7 +127,7 @@ body {
         </div>
 
         <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_6">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/category_3.jpg"/>
               <h5 class="white-text center bold">Plazas y Lugares de Interes</h5>
@@ -136,7 +136,7 @@ body {
         </div>
 
         <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_7">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front6.jpg"/>
               <h5 class="white-text center bold">Tiendas Artesanales</h5>
@@ -144,7 +144,7 @@ body {
           </a>
         </div>
         <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_8">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front7.jpg"/>
               <h5 class="white-text center bold">Pasarlo en Familia o con algun acompañante</h5>
@@ -152,7 +152,7 @@ body {
           </a>
       </div>
       <div class="col">
-          <a href="product_catalogue.php?category=2">
+          <a href="?c=categoria&a=Index_9">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front8.jpg"/>
               <h5 class="white-text center bold">Fiestas Festivas por Temporada</h5>

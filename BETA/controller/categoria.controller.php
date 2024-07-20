@@ -14,8 +14,7 @@ class CategoriaController{
        $this->model = new categoria();
 
     }
-
-    
+   
     //Llamado plantilla principal Gatronomia 
     public function Index_1(){
         //require_once 'view/header.php';
@@ -28,14 +27,8 @@ class CategoriaController{
         $clienteEmail = $_SESSION['Cliente_Email'];
   
         require_once 'view/categoria/header.php';
-       // require_once 'view/categoria/menu.php';
-       
         require_once 'view/categoria/cat_gastronomiaTop.php';
-
-
         require_once 'view/categoria/footerx.php';
-      //  require_once 'view/footerx.php';
-       // require_once 'view/footerx.php';
     }
 
     //Llamado plantilla principal Pub Bares 
@@ -52,6 +45,98 @@ class CategoriaController{
         require_once 'view/categoria/footerx.php';
     }
 
+
+    public function Index_3(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_museosHistoriaTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+
+    public function Index_4(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_aventuraTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+
+    public function Index_5(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_diversionTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+
+    public function Index_6(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_plazasLugaresInteresTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+
+    public function Index_7(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_tiendasArtesanalesTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+
+    public function Index_8(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_familiarTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+
+    public function Index_9(){
+        session_start();
+        $clienteId = $_SESSION['Cliente_Id'];
+        $clienteEdad = $_SESSION['Cliente_Edad'];
+        $clienteCelular = $_SESSION['Cliente_Celular'];
+        $clienteSexo = $_SESSION['Cliente_Sexo'];
+        $clienteEmail = $_SESSION['Cliente_Email'];
+   
+        require_once 'view/categoria/header.php';
+        require_once 'view/categoria/cat_fiestasTemporadaTop.php';
+        require_once 'view/categoria/footerx.php';
+    }
+    
     public function Index_por_busqueda_RNN(){
         //require_once 'view/header.php';
         session_start();
@@ -75,8 +160,7 @@ class CategoriaController{
 
 
     public function Index1(){
-        //require_once 'view/header.php';
-
+    
         require_once 'view/header.php';
         require_once 'view/inicio/inicio.php';
         require_once 'view/login_session/footerx.php';
