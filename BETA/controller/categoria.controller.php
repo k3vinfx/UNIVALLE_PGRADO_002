@@ -218,6 +218,8 @@ class CategoriaController{
         $pvd->compania = filter_input(INPUT_POST, 'dato1_compania', FILTER_SANITIZE_STRING);
         $pvd->precio = filter_input(INPUT_POST, 'dato2_precio', FILTER_SANITIZE_STRING);
         $pvd->horario = filter_input(INPUT_POST, 'dato3_horario', FILTER_SANITIZE_STRING);
+        $pvd->categoria = filter_input(INPUT_POST, 'dato4_cat', FILTER_SANITIZE_STRING);
+       
         $pvd->edad = $this->model->VerificarEdad($email);  
         $pvd->sexo = $this->model->VerificarSexo($email);
 

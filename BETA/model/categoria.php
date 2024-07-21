@@ -678,6 +678,8 @@ class categoria
 			AND Neurona_Entrada_4_FK = :horario
 			AND Neurona_Entrada_5_FK = :edad
 			AND Neurona_Entrada_6_FK = :costo
+			AND Neurona_Categoria_id_FK = :cat;
+
 
 			");
 			$stm->execute(array(
@@ -685,7 +687,8 @@ class categoria
 				':sexo' => $valor,
 				':horario' => $data->horario,
 				':edad' => $data->edad,
-				':costo' => $data->precio
+				':costo' => $data->precio,
+				':cat' => $data->categoria
 			));
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		} 
