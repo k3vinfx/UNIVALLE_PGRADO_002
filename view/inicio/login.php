@@ -1,6 +1,3 @@
-<?php
-$alert = '';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,244 +11,279 @@ $alert = '';
 
   <title>INICIO Design</title>
 
-  <!-- Custom fonts for this template-->
-     <!--  <link href="sistema/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
-  <!-- Custom styles for this template-->
-  <!-- <link href="sistema/css/sb-admin-2.min.css" rel="stylesheet">-->
-  
-  
+  <!-- Importing fonts from Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style media="screen">
+    /* Reseting background: #ecf0f3;*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-/* Importing fonts from Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #183e95;
+      overflow: hidden;
+    }
 
-/* Reseting background: #ecf0f3;*/
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
-}
+    .wrapper {
+      position: absolute;
+      max-width: 350px;
+      min-height: 500px;
+      margin: auto; /* Centrado horizontal y verticalmente */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 40px 30px 30px 30px;
+      background-color: #ecf0f3;
+      border-radius: 15px;
+      box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+      z-index: 1; /* Asegura que esté encima de las partículas */
+    }
 
-html, body{
+    .logo {
+      width: 80px;
+      margin: auto;
+    }
 
-margin:0px;
-padding: 0px;
-background: #ecf0f3;
+    .logo img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0px 0px 3px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7, -8px -8px 15px #fff;
+    }
 
-background-image: url("sistema/img/bg.jpg");
-width: 100%;
-height:100%;
+    .wrapper .name {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1.3px;
+      padding-left: 10px;
+      color: #555;
+    }
 
+    .wrapper .form-field input {
+      width: 100%;
+      display: block;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 1.2rem;
+      color: #666;
+      padding: 10px 15px 10px 10px;
+    }
 
-position: relative;
+    .wrapper .form-field {
+      padding-left: 10px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+    }
 
-background-position: center center;
+    .wrapper .form-field .fas {
+      color: #555;
+    }
 
-background-size:cover;
-background-attachment: fixed;
+    .wrapper .btn {
+      box-shadow: none;
+      width: 100%;
+      height: 40px;
+      background-color: #03A9F4;
+      color: #fff;
+      border-radius: 25px;
+      box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+      letter-spacing: 1.3px;
+    }
 
-background-repeat: no-repeat;
-background-size: contain;
-}
+    .wrapper .btn:hover {
+      background-color: #039BE5;
+    }
 
-.wrapper {
-  position: absolute;
-  max-width: 350px;
-  min-height: 500px;
-  margin: auto; /* Centrado horizontal y verticalmente */
-  top: 10%; /* Si quieres que esté pegado en la parte superior */
-  bottom: 20%; /* Si quieres que esté pegado en la parte inferior */
-  left: 0; /* Si quieres que esté pegado en la parte izquierda */
-  right: 0; /* Si quieres que esté pegado en la parte derecha */
-  padding: 40px 30px 30px 30px;
-  background-color: #ecf0f3;
-  border-radius: 15px;
-  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+    .wrapper a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: #03A9F4;
+    }
 
-}
+    .wrapper a:hover {
+      color: #039BE5;
+    }
 
-.logo {
-width: 80px;
-margin: auto;
-}
+    @media (max-width: 380px) {
+      .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px;
+      }
+    }
 
-.logo img {
-width: 100%;
-height: 80px;
-object-fit: cover;
-border-radius: 50%;
-box-shadow: 0px 0px 3px #5f5f5f,
-0px 0px 0px 5px #ecf0f3,
-8px 8px 15px #a7aaa7,
--8px -8px 15px #fff;
-}
-
-.wrapper .name {
-font-weight: 600;
-font-size: 1.4rem;
-letter-spacing: 1.3px;
-padding-left: 10px;
-color: #555;
-}
-
-.wrapper .form-field input {
-width: 100%;
-display: block;
-border: none;
-outline: none;
-background: none;
-font-size: 1.2rem;
-color: #666;
-padding: 10px 15px 10px 10px;
-/* border: 1px solid red; */
-}
-
-.wrapper .form-field {
-padding-left: 10px;
-margin-bottom: 20px;
-border-radius: 20px;
-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-
-.wrapper .form-field .fas {
-color: #555;
-}
-
-.wrapper .btn {
-box-shadow: none;
-width: 100%;
-height: 40px;
-background-color: #03A9F4;
-color: #fff;
-border-radius: 25px;
-box-shadow: 3px 3px 3px #b1b1b1,
--3px -3px 3px #fff;
-letter-spacing: 1.3px;
-}
-
-.wrapper .btn:hover {
-background-color: #039BE5;
-}
-
-.wrapper a {
-text-decoration: none;
-font-size: 0.8rem;
-color: #03A9F4;
-}
-
-.wrapper a:hover {
-color: #039BE5;
-}
-
-@media(max-width: 380px) {
-.wrapper {
-margin: 30px 20px;
-padding: 40px 15px 15px 15px;
-}
-}
-
-
-
-canvas{
-  display:block;
-  vertical-align:bottom;
-}
-
-
-
-#particles-js{
-  width: 100%;
-  height: 100%;
-  background-color: #183e95;
-  background-image: url('');
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-
-
-</style>
-  
-  
-  
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  </style>
 
 </head>
 
-<!--    <canvas data-processing-sources="infinite-arboretum.js"></canvas> -->
 <body>
-
-      
-
- 
-      
-
-
-        <div class="wrapper">
-        <div class="logo">
-        <img src="assets/img/etreva_travel.jpg"  >
-          </div>
-        <div class="text-center mt-4 name">
-           SISTEMA RED NEURONA RECURENTE ...
-        </div>
-</BR>
-        <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
-     <?php echo isset($alert) ? $alert : ""; ?>
-    
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input type="text" class="form-control" placeholder="CorreoElectronico" name="CorreoElectronico" value="<?php echo $login->CorreoElectronico; ?>">
-        </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" class="form-control" placeholder="clave" name="Contrasena" value="<?php echo $login->Contrasena; ?>">
-               </div>
-               <button type="submit" >Iniciar</button>
-    
-        <div class="text-center fs-6">
-            <a href="#">Forget password?</a> or <a type="submit">Sign up</a>
-        </div>
+  <div id="particles-js"></div>
+  <div class="wrapper">
+    <div class="logo">
+      <img src="assets/img/etreva_logo.jpg">
     </div>
-
+    <div class="text-center mt-4 name">
+      SISTEMA RED NEURONA RECURRENTE ...
+    </div>
+    </br>
+    <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
+      <?php echo isset($alert) ? $alert : ""; ?>
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-user"></span>
+        <input type="text" class="form-control" placeholder="CorreoElectronico" name="CorreoElectronico" value="<?php echo $login->CorreoElectronico; ?>">
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        <input type="password" class="form-control" placeholder="clave" name="Contrasena" value="<?php echo $login->Contrasena; ?>">
+      </div>
+      <button type="submit" class="btn mt-3">Iniciar</button>
+      <a href="#">Forget password?</a>
     </form>
-<div id="particles-js"></div>
+  </div>
 
-</div>
-<script src="particles.js"></script>
-<script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('particles.js loaded - callback');
+    });
 
+    $(document).ready(function() {
+      $("#frm-login").submit(function() {
+        return $(this).validate();
+      });
+    });
+  </script>
 
-    <script>
-    $(document).ready(function(){
-        $("#frm-login").submit(function(){
-            return $(this).validate();
-        });
-
-    })
-
-    /* ---- particles.js config ---- */
-
-    
-  var count_particles, stats, update;
-  stats = new Stats;
-  stats.setMode(0);
-  stats.domElement.style.position = 'absolute';
-  stats.domElement.style.left = '0px';
-  stats.domElement.style.top = '0px';
-  document.body.appendChild(stats.domElement);
-  count_particles = document.querySelector('.js-count-particles');
-  update = function() {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-</script>
-
-
-
+  <!-- particles.js config -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>

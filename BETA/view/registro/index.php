@@ -573,8 +573,8 @@
                 </div>
             </div>
    
-    </div>
-    <div class="container_2" style="display: none;">
+      </div>
+      <div class="container_2" style="display: none;">
         <div class="signup-content">
             <div class="signup-img">
                 <div class="signup-img-content">
@@ -648,8 +648,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container_3" style="display: none;">
+       </div>
+      <div class="container_3" style="display: none;">
         <div class="signup-content">
             <div class="signup-img">
                 <div class="signup-img-content">
