@@ -141,7 +141,7 @@
       <img src="assets/img/etreva_logo.jpg">
     </div>
     <div class="text-center mt-4 name">
-       RED NEURONAL RECURRENTE ...
+  RED NEURONA RECURRENTE ...
     </div>
     </br>
     <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
@@ -177,10 +177,10 @@
     particlesJS("particles-js", {
       "particles": {
         "number": {
-          "value": 90,
+          "value": 80,
           "density": {
             "enable": true,
-            "value_area": 900
+            "value_area": 800
           }
         },
         "color": {
@@ -223,7 +223,7 @@
         },
         "line_linked": {
           "enable": true,
-          "distance": 50,
+          "distance": 150,
           "color": "#ffffff",
           "opacity": 0.4,
           "width": 1
