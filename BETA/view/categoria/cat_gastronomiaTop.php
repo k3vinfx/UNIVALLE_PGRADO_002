@@ -151,7 +151,11 @@ function buscarDatosEnviados() {
     var horario = $('#horario').val();
     var correo = $('#correo').val().trim();
     var aux_D = 0;
-    
+    console.log("Datos enviados Busqueda>>",
+            "\nPrecio:", precio,
+            "\nCompañía:", compania,
+            "\nHorario:", horario,
+            "\nCorreo:", correo);
     $.ajax({
       url: '?c=categoria&a=Solicitud_Busqueda_Input',
       type: 'POST',
