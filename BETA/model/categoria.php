@@ -289,7 +289,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 1
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 1
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -319,7 +319,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 2
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 2
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -350,7 +350,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 3
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 3
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -380,7 +380,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 4
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 4
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -410,7 +410,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 5
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 5
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -440,7 +440,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 6
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 6
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -470,7 +470,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 7
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 7
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -500,7 +500,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 8
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 8
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
@@ -530,7 +530,7 @@ class categoria
 			recomendacion a
 			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
 			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
-		WHERE a.Recomendacion_categoria = 9
+		WHERE a.Recomendacion_estado= 1 AND a.Recomendacion_categoria = 9
 		ORDER BY
 			a.Recomendacion_id DESC;
 			");
