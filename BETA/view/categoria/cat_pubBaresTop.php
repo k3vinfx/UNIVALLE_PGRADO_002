@@ -151,7 +151,7 @@ function buscarDatosEnviados() {
     var horario = $('#horario').val();
     var correo = $('#correo').val().trim();
     var aux_D = 0;
-    var aux_cat = 1;
+    var aux_cat = 2;
     console.log("Datos enviados Busqueda>>",
             "\nPrecio:", precio,
             "\nCompañía:", compania,
