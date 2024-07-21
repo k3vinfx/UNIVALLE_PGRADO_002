@@ -141,7 +141,7 @@
       <img src="assets/img/etreva_logo.jpg">
     </div>
     <div class="text-center mt-4 name">
-      RED NEURONAL RECURRENTE 
+       RED NEURONAL RECURRENTE ...
     </div>
     </br>
     <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
@@ -154,7 +154,8 @@
         <span class="fas fa-key"></span>
         <input type="password" class="form-control" placeholder="clave" name="Contrasena" value="<?php echo $login->Contrasena; ?>">
       </div>
-   
+      <button type="submit" class="btn mt-3">Iniciar</button>
+     
     </form>
   </div>
 
