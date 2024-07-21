@@ -177,10 +177,10 @@
     particlesJS("particles-js", {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 90,
           "density": {
             "enable": true,
-            "value_area": 800
+            "value_area": 900
           }
         },
         "color": {
@@ -223,7 +223,7 @@
         },
         "line_linked": {
           "enable": true,
-          "distance": 150,
+          "distance": 50,
           "color": "#ffffff",
           "opacity": 0.4,
           "width": 1
