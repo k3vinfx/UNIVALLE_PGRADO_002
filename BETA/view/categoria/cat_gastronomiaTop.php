@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h4 class="h4 mb-1 text-gray-700">Museos & Historia ... </h4>
+  <h4 class="h4 mb-1 text-gray-700">Gastronomia.. </h4>
   <input type="hidden" name="correo" id="correo" value="<?php echo trim(htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8')); ?>">
 
   <div class="container-fluid">

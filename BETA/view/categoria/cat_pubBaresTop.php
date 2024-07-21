@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h4 class="h4 mb-1 text-gray-700">Pub & Bares ..</h4>
+  <h4 class="h4 mb-1 text-gray-700">Pub.. </h4>
   <input type="hidden" name="correo" id="correo" value="<?php echo trim(htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8')); ?>">
 
   <div class="container-fluid">
@@ -364,7 +364,7 @@ $(document).ready(function() {
   console.log('script cargado');
   const net = new brain.NeuralNetwork();
   const data = [
-    <?php foreach ($this->model->MenuLista_2() as $dato): ?>
+    <?php foreach ($this->model->MenuLista_3() as $dato): ?>
     {
       input: {
         persona: <?php echo $dato->peso1; ?>, 
