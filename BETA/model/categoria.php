@@ -193,7 +193,7 @@ class categoria
 		}
 	}
 
-	public function MenuLista3()
+	public function MenuListaNeurona()
 	{
 		try
 		{

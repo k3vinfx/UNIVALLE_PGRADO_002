@@ -151,7 +151,7 @@ function buscarDatosEnviados() {
     var horario = $('#horario').val();
     var correo = $('#correo').val().trim();
     var aux_D = 0;
-
+    console.log("datos enviados Busqueda>>","\nprecio:"precio,"\ncompania:",compania,"\nhorario:",horario,"\ncorreo:",correo);
     $.ajax({
       url: '?c=categoria&a=Solicitud_Busqueda_Input',
       type: 'POST',
@@ -364,7 +364,7 @@ $(document).ready(function() {
   console.log('script cargado');
   const net = new brain.NeuralNetwork();
   const data = [
-    <?php foreach ($this->model->MenuLista3() as $dato): ?>
+    <?php foreach ($this->model->MenuListaNeurona() as $dato): ?>
     {
       input: {
         persona: <?php echo $dato->peso1; ?>, 
