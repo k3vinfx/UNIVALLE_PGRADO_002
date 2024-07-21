@@ -270,7 +270,7 @@ class categoria
 
 
 
-	public function MenuLista1()
+	public function MenuLista_1()
 	{
 		try
 		{
@@ -331,9 +331,216 @@ class categoria
 		}
 	}
 
+	public function MenuLista_3()
+	{
+		try
+		{
 
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 3
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function MenuLista_4()
+	{
+		try
+		{
 
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 4
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function MenuLista_5()
+	{
+		try
+		{
 
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 5
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function MenuLista_6()
+	{
+		try
+		{
+
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 6
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function MenuLista_7()
+	{
+		try
+		{
+
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 7
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function MenuLista_8()
+	{
+		try
+		{
+
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 8
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function MenuLista_9()
+	{
+		try
+		{
+
+			$result = array();
+			$stm = $this->pdo->prepare("SELECT
+			a.Recomendacion_id AS ID,
+			a.Recomendacion_titulo AS TITULO,
+			b.Categoria_nombre AS categorias,
+			a.Recomendacion_costo AS COSTO,
+			a.Recomendacion_estado AS ESTADO,
+			a.Recomendacion_descripcion AS DESCRIPCION,
+			c.Recomendacion_Img1 AS CARGA1,
+			a.Recomendacion_fecha_creacion AS FECHA
+		FROM
+			recomendacion a
+			INNER JOIN categoria b ON a.Recomendacion_categoria = b.Categoria_id
+			INNER JOIN recomendacion_img c ON a.Recomendacion_id = c.Recomendacion_FK
+		WHERE a.Recomendacion_categoria = 9
+		ORDER BY
+			a.Recomendacion_id DESC;
+			");
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 	public function MenuListaBusqueda()
 	{
 		try

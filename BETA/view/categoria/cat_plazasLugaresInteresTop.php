@@ -364,7 +364,7 @@ $(document).ready(function() {
   console.log('script cargado');
   const net = new brain.NeuralNetwork();
   const data = [
-    <?php foreach ($this->model->MenuLista3() as $dato): ?>
+    <?php foreach ($this->model->MenuLista_6() as $dato): ?>
     {
       input: {
         persona: <?php echo $dato->peso1; ?>, 
