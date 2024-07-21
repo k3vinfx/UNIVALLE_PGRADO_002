@@ -87,7 +87,7 @@
       <?php 
       $contador = 0;
       $index = 0; // Initialize index for zebra striping
-      foreach($this->model->MenuLista_2() as $r): 
+      foreach($this->model->MenuLista_1() as $r): 
         // Determine the background color based on even/odd index
         $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
         $contador++;
@@ -364,7 +364,7 @@ $(document).ready(function() {
   console.log('script cargado');
   const net = new brain.NeuralNetwork();
   const data = [
-    <?php foreach ($this->model->MenuLista_3() as $dato): ?>
+    <?php foreach ($this->model->MenuLista3() as $dato): ?>
     {
       input: {
         persona: <?php echo $dato->peso1; ?>, 
