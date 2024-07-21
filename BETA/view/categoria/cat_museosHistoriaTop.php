@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h4 class="h4 mb-1 text-gray-700">Museos & Historia ... </h4>
+  <h4 class="h4 mb-1 text-gray-700">Museos & Historia.. </h4>
   <input type="hidden" name="correo" id="correo" value="<?php echo trim(htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8')); ?>">
 
   <div class="container-fluid">
@@ -87,7 +87,7 @@
       <?php 
       $contador = 0;
       $index = 0; // Initialize index for zebra striping
-      foreach($this->model->MenuLista_2() as $r): 
+      foreach($this->model->MenuLista_3() as $r): 
         // Determine the background color based on even/odd index
         $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
         $contador++;
@@ -151,11 +151,18 @@ function buscarDatosEnviados() {
     var horario = $('#horario').val();
     var correo = $('#correo').val().trim();
     var aux_D = 0;
-
+    var aux_cat = 3;
+    console.log("Datos enviados Busqueda>>",
+            "\nPrecio:", precio,
+            "\nCompañía:", compania,
+            "\nHorario:", horario,
+            "\nCorreo:", correo,
+            "\nCategoria:", aux_cat,
+          );
     $.ajax({
       url: '?c=categoria&a=Solicitud_Busqueda_Input',
       type: 'POST',
-      data: { correo: correo, dato1_compania: compania, dato2_precio: precio, dato3_horario: horario },
+      data: { correo: correo, dato1_compania: compania, dato2_precio: precio, dato3_horario: horario, dato4_cat:aux_cat },
       success: function(response) {
         console.log('Respuesta del servidor:', response);
         var info = JSON.parse(response);
@@ -364,7 +371,7 @@ $(document).ready(function() {
   console.log('script cargado');
   const net = new brain.NeuralNetwork();
   const data = [
-    <?php foreach ($this->model->MenuLista_3() as $dato): ?>
+    <?php foreach ($this->model->MenuListaNeurona() as $dato): ?>
     {
       input: {
         persona: <?php echo $dato->peso1; ?>, 
