@@ -156,7 +156,9 @@ function buscarDatosEnviados() {
             "\nPrecio:", precio,
             "\nCompañía:", compania,
             "\nHorario:", horario,
-            "\nCorreo:", correo);
+            "\nCorreo:", correo,
+            "\nCategoria:", aux_cat,
+          );
     $.ajax({
       url: '?c=categoria&a=Solicitud_Busqueda_Input',
       type: 'POST',
