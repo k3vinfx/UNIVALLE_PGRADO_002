@@ -112,9 +112,9 @@ class alternativa
 				SELECT 
 					SUM(1)
 				FROM 
-					mvc_php.criterio_rnn crt1 
+					criterio_rnn crt1 
 				INNER JOIN 
-					mvc_php.neurona nue ON crt1.Criterio_tipificador = nue.Neurona_Entrada_2_FK
+					neurona nue ON crt1.Criterio_tipificador = nue.Neurona_Entrada_2_FK
 				WHERE 
 					crt1.Criterio_categoria = 'Personas' 
 					AND crt1.Criterio_tipificador = cri.Criterio_tipificador
@@ -123,16 +123,16 @@ class alternativa
 				SELECT 
 					nue.Neurona_Id
 				FROM 
-					mvc_php.neurona nue
+					neurona nue
 				INNER JOIN 
-					mvc_php.criterio_rnn crt2 ON crt2.Criterio_tipificador = nue.Neurona_Entrada_2_FK
+					criterio_rnn crt2 ON crt2.Criterio_tipificador = nue.Neurona_Entrada_2_FK
 				WHERE 
 					crt2.Criterio_categoria = 'Personas' 
 					AND crt2.Criterio_tipificador = cri.Criterio_tipificador
 				LIMIT 1  -- Asegura que solo devuelve un resultado, ajusta según la lógica de negocio
 			) AS Id_tipo
 		FROM 
-			mvc_php.criterio_rnn cri
+			criterio_rnn cri
 		WHERE 
 			cri.Criterio_categoria = 'Personas'");
 			$stm->execute();
@@ -158,15 +158,15 @@ class alternativa
 			(SELECT 
 				SUM(1)
 			 FROM 
-				mvc_php.criterio_rnn crt 
+				criterio_rnn crt 
 			 INNER JOIN 
-				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_3_FK
+				neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_3_FK
 			 WHERE 
 				crt.Criterio_categoria = 'Sexo' 
 				AND crt.Criterio_tipificador = cri.Criterio_tipificador
 			) AS Contador
 		FROM 
-			mvc_php.criterio_rnn cri
+			criterio_rnn cri
 		   where         cri.Criterio_categoria = 'Sexo'");
 			$stm->execute();
 
@@ -191,15 +191,15 @@ class alternativa
 			(SELECT 
 				SUM(1)
 			 FROM 
-				mvc_php.criterio_rnn crt 
+				criterio_rnn crt 
 			 INNER JOIN 
-				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_4_FK
+				neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_4_FK
 			 WHERE 
 				crt.Criterio_categoria = 'Horario' 
 				AND crt.Criterio_tipificador = cri.Criterio_tipificador
 			) AS Contador
 		FROM 
-			mvc_php.criterio_rnn cri
+			criterio_rnn cri
 		   where         cri.Criterio_categoria = 'Horario'");
 			$stm->execute();
 
@@ -224,15 +224,15 @@ class alternativa
 			(SELECT 
 				SUM(1)
 			 FROM 
-				mvc_php.criterio_rnn crt 
+				criterio_rnn crt 
 			 INNER JOIN 
-				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_5_FK
+				neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_5_FK
 			 WHERE 
 				crt.Criterio_categoria = 'Edades' 
 				AND crt.Criterio_tipificador = cri.Criterio_tipificador
 			) AS Contador
 		FROM 
-			mvc_php.criterio_rnn cri
+			criterio_rnn cri
 		   where         cri.Criterio_categoria = 'Edades'");
 			$stm->execute();
 
@@ -257,15 +257,15 @@ class alternativa
 			(SELECT 
 				SUM(1)
 			 FROM 
-				mvc_php.criterio_rnn crt 
+				criterio_rnn crt 
 			 INNER JOIN 
-				mvc_php.neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_6_FK
+				neurona nue ON crt.Criterio_tipificador = nue.Neurona_Entrada_6_FK
 			 WHERE 
 				crt.Criterio_categoria = 'Costo' 
 				AND crt.Criterio_tipificador = cri.Criterio_tipificador
 			) AS Contador
 		FROM 
-			mvc_php.criterio_rnn cri
+			criterio_rnn cri
 		   where         cri.Criterio_categoria = 'Costo'");
 			$stm->execute();
 

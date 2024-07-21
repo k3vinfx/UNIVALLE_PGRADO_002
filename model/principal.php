@@ -171,7 +171,7 @@ class principal
 		{
 			
 			$result = array();
-			$stm = $this->pdo->prepare("SELECT Recomendacion_id,Recomendacion_titulo FROM mvc_php.recomendacion WHERE Recomendacion_categoria=?");
+			$stm = $this->pdo->prepare("SELECT Recomendacion_id,Recomendacion_titulo FROM recomendacion WHERE Recomendacion_categoria=?");
 
 		$stm->execute(array($valor));
 		return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -187,7 +187,7 @@ class principal
 	
 		try
 		{
-			$stm = $this->pdo->prepare("SELECT Recomendacion_id, Recomendacion_titulo FROM mvc_php.recomendacion WHERE Recomendacion_titulo = ?");
+			$stm = $this->pdo->prepare("SELECT Recomendacion_id, Recomendacion_titulo FROM recomendacion WHERE Recomendacion_titulo = ?");
 	    	$stm->execute([$valor]);
 			$result = $stm->fetchAll(PDO::FETCH_OBJ);
 			  // Agregando el valor para depuración
