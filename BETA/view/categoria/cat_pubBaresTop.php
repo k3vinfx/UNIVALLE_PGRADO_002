@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h4 class="h4 mb-1 text-gray-700">Pub.. </h4>
+  <h4 class="h4 mb-1 text-gray-700">Gastro.. </h4>
   <input type="hidden" name="correo" id="correo" value="<?php echo trim(htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8')); ?>">
 
   <div class="container-fluid">
@@ -87,7 +87,7 @@
       <?php 
       $contador = 0;
       $index = 0; // Initialize index for zebra striping
-      foreach($this->model->MenuLista_2() as $r): 
+      foreach($this->model->MenuLista_1() as $r): 
         // Determine the background color based on even/odd index
         $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
         $contador++;
