@@ -154,8 +154,7 @@
         <span class="fas fa-key"></span>
         <input type="password" class="form-control" placeholder="clave" name="Contrasena" value="<?php echo $login->Contrasena; ?>">
       </div>
-      <button type="submit" class="btn mt-3">Iniciar</button>
-      <a href="#">Forget password?</a>
+   
     </form>
   </div>
 
