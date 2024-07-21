@@ -87,7 +87,7 @@
       <?php 
       $contador = 0;
       $index = 0; // Initialize index for zebra striping
-      foreach($this->model->MenuLista_1() as $r): 
+      foreach($this->model->MenuLista_2() as $r): 
         // Determine the background color based on even/odd index
         $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
         $contador++;
