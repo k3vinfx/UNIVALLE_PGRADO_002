@@ -1,117 +1,11 @@
 <h1 class="page-header">
     Registro Nueva Alternativa
 </h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
 
-<script>
-        $(document).ready(function () {
-
-            viewProcesar();
-            function viewProcesar() {
-              $('#lb_entrada_1').show();
-              $('#lb_entrada_2').show();
-              $('#lb_entrada_3').hide();
-              $('#lb_entrada_4').hide();
-              $('#lb_entrada_5').hide();
-              $('#lb_entrada_6').hide();
-
-              $('#entrada_1').show();
-              $('#entrada_2').show();
-              $('#entrada_3').hide();
-              $('#entrada_4').hide();
-              $('#entrada_5').hide();
-              $('#entrada_6').hide();
-      
-        
-            }
-
-
-            $("#num_entrada").on("change", function () {
-                var valorSeleccionado = parseInt($(this).val());
-
-                if (valorSeleccionado == 2) {
-                    // El valor seleccionado es 2 o 3, realiza la acción deseada aquí
-                    
-                    $('#entrada_2').show();
-                    $('#entrada_3').hide();
-                    $('#entrada_4').hide();
-                    $('#entrada_5').hide();
-                    $('#entrada_6').hide();
-                    
-                    $('#lb_entrada_2').show();
-                    $('#lb_entrada_3').hide();
-                    $('#lb_entrada_4').hide();
-                    $('#lb_entrada_5').hide();
-                    $('#lb_entrada_6').hide();
-
-                } 
-      
-
-                if (valorSeleccionado == 3) {
-                    // El valor seleccionado es 2 o 3, realiza la acción deseada aquí
-                    $('#entrada_3').show();
-                    $('#entrada_4').hide();
-                    $('#entrada_5').hide();
-                    $('#entrada_6').hide();
-
-                    $('#lb_entrada_3').show();
-                    $('#lb_entrada_4').hide();
-                    $('#lb_entrada_5').hide();
-                    $('#lb_entrada_6').hide();
-
-                } 
-
-                if (valorSeleccionado == 4) {
-                    // El valor seleccionado es 2 o 3, realiza la acción deseada aquí
-                    $('#entrada_4').show();
-                    $('#entrada_5').hide();
-                    $('#entrada_6').hide();
-
-                    $('#lb_entrada_4').show();
-                    $('#lb_entrada_5').hide();
-                    $('#lb_entrada_6').hide();
-                }  
-
-                if (valorSeleccionado == 5) {
-                    // El valor seleccionado es 2 o 3, realiza la acción deseada aquí
-                    $('#entrada_5').show();
-                    $('#entrada_6').hide();
-
-                    $('#lb_entrada_5').show();
-                    $('#lb_entrada_6').hide();
-                } 
-
-                if (valorSeleccionado == 6) {
-                    // El valor seleccionado es 2 o 3, realiza la acción deseada aquí
-                    $('#lb_entrada_6').show();
-                    $('#entrada_6').show();
-                }               
-            });
-
-
-        });
-    </script>
-
- <!-- Load Leaflet from CDN -->
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-
-  <!-- Load Esri Leaflet from CDN -->
-  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
-    integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
-    crossorigin=""></script>
-
-  <!-- Load Esri Leaflet Geocoder from CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
-    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
-    crossorigin="">
-  <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
-    integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
-    crossorigin=""></script>
 
 <div class="container-fluid">
     <!-- Content Row -->
@@ -249,9 +143,27 @@
 
 
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <!-- Load Leaflet from CDN -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+    integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+    crossorigin=""></script>
 
 
 
