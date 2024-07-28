@@ -6,144 +6,162 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
 
-
-<div class="container-fluid">
-    <!-- Content Row -->
+    <div class="container-fluid">
+    <h1 class="page-header text-center">Registro Nueva Alternativa Turística</h1>
     <div class="row">
         <div class="col-lg-12 m-auto">
-            <div class="card-header bg-primary text-white">
-            Alternativa
-            </div>
             <div class="card">
-                <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post"  autocomplete="off"class="card-body p-2" enctype="multipart/form-data">
-                    <?php echo isset($alert) ? $alert : ''; ?>
-                    <div class="form-group">
-                        <label for="nombre">Nombre de la Alternativa</label>
-                        <input type="text" placeholder="Ingrese nombre" name="titulo" id="titulo" class="form-control">
-                    </div>
-                
-                    
-
-
-                    <div class="form-group">
-              
-                    <label id="lb_entrada_1">Categoria de la Alternativa</label>
-                    <select class="custom-select selevt" name="categoria" id="categoria" >
-                    <option  value="0">Seleccion </opcion>
-                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
-                        <option  value="<?php echo $Tipo->Categoria_id; ?>">
-                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
-                        </option>       
-                    <?php endforeach; ?>
-                    </select>                 
-                    </div>             
-
-
-                    <div class="form-group">
-                        <label for="telefono">Precio</label>
-                        <input type="number" step="5" placeholder="Ingrese el Precio de la Alternativa" name="costo" id="costo" class="form-control" min="0" max="1000">
-                    </div>
-                    <div class="form-group">
-                    <label id="lb_entrada_1">Carge Imagenes del Alternativa</label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
-                        Cargar Imagenes
-                        </button>
-                        </div>
-                        <div class="modal" id="myModal1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Imagenes</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <label for="text1">Imagenes1:</label>
-                                <input type="file" class="form-control" id="img1" name="img1" class="form-control mb-2" >  
-                                <div id="file-info1" class="mt-2"></div>
-                                <label for="textx1">Imagenes2:</label>
-                                <input type="file" class="form-control" id="img2" name="img2" class="form-control mb-2" >  
-                                <div id="file-info2" class="mt-2"></div>
-                                <label for="text1">Imagenes3:</label>
-                                <input type="file" class="form-control" id="img3" name="img3" class="form-control mb-2" > 
-                                <div id="file-info3" class="mt-2"></div>
-                                <label for="text1">Imagenes4:</label>
-                                <input type="file" class="form-control" id="img4" name="img4" class="form-control mb-2" > 
-                                <div id="file-info4" class="mt-2"></div> 
-                                <label for="text1">Imagenes5:</label>
-                                <input type="file" class="form-control" id="img5" name="img5" class="form-control mb-2" >  
-                                <div id="file-info5" class="mt-2"></div>
-                                
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                            </div>
-                         
-                        </div>
-                        </div>
-                       
-                    </div>
-
-
-             
-                    <div class="form-group">
-                    <label id="lb_entrada_1">Categoria de la Alternativa</label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Cargar Ubicación Mapa
-                        </button>
-                        </div>
-                        <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Coordenadas</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <label for="text1">Latitud:</label>
-                                <input type="text" id="text1" class="form-control mb-2">
-                                <label for="text2">Longitud:</label>
-                                <input type="text" id="text2" class="form-control mb-2">
-                                <label for="text3">Dirección:</label>
-                                <input type="text" id="text3" class="form-control mb-2">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                            </div>
-                            <div id="map" style="height: 300px;"></div>
-                            </div>
-                        </div>
-                        </div>
+                <div class="card-header bg-primary text-white">
+                    Alternativa
+                </div>
+                <div class="card-body">
+                    <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
                         <div class="form-group">
-                        <label for="contacto">Ubicacion de la Alternativa</label>
-                        <input type="text" placeholder="Ingrese ubicacion de la alternativa" name="ubicacion" id="ubicacion" class="form-control">
-                        <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion">Descripcion</label>
-                        <input type="text" placeholder="Ingrese Direccion" name="descripcion" id="descripcion" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="status" class="control-label">Estado</label>
-                        <select name="estado" id="estado" class="custom-select selevt">
-                        <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Activo</option>
-                        <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
-                        </select>
-                    </div>
-               
-        
+                            <label for="nombre">Nombre de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese nombre" name="titulo" id="titulo" class="form-control">
+                            </div>
+                        </div>
 
-                    <input type="submit" value="Guardar Alternativa" class="btn btn-primary">
-                    <a href="?c=principal" class="btn btn-danger">Regresar</a>
-                </form>
+                        <div class="form-group">
+                            <label for="categoria">Categoría de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-list"></i></span>
+                                </div>
+                                <select class="custom-select" name="categoria" id="categoria">
+                                    <option value="0">Seleccionar</option>
+                                    <!-- Opciones generadas dinámicamente -->
+                                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
+                                        <option  value="<?php echo $Tipo->Categoria_id; ?>">
+                                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
+                                        </option>       
+                                    <?php endforeach; ?>
+                                
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="precio">Precio</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                </div>
+                                <input type="number" step="5" placeholder="Ingrese el Precio de la Alternativa" name="costo" id="costo" class="form-control" min="0" max="1000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagenes">Cargar Imágenes del Alternativa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                                <i class="fas fa-upload"></i> Cargar Imágenes
+                            </button>
+                        </div>
+
+                        <div class="modal" id="myModal1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Imágenes</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="img1">Imagen 1:</label>
+                                        <input type="file" class="form-control mb-2" id="img1" name="img1">
+                                        <label for="img2">Imagen 2:</label>
+                                        <input type="file" class="form-control mb-2" id="img2" name="img2">
+                                        <label for="img3">Imagen 3:</label>
+                                        <input type="file" class="form-control mb-2" id="img3" name="img3">
+                                        <label for="img4">Imagen 4:</label>
+                                        <input type="file" class="form-control mb-2" id="img4" name="img4">
+                                        <label for="img5">Imagen 5:</label>
+                                        <input type="file" class="form-control mb-2" id="img5" name="img5">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mapa">Cargar Ubicación Mapa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
+                            </button>
+                        </div>
+
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Coordenadas</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="text1">Latitud:</label>
+                                        <input type="text" id="text1" class="form-control mb-2">
+                                        <label for="text2">Longitud:</label>
+                                        <input type="text" id="text2" class="form-control mb-2">
+                                        <label for="text3">Dirección:</label>
+                                        <input type="text" id="text3" class="form-control mb-2">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                    <div id="map" style="height: 300px;"></div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicación de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese descripción" name="descripcion" id="descripcion" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-toggle-on"></i></span>
+                                </div>
+                                <select name="estado" id="estado" class="custom-select">
+                                    <option value="1">Activo</option>
+                                    <option value="0">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Alternativa</button>
+                        <a href="?c=principal" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Regresar</a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
-
 </div>
-
  <!-- Load Leaflet from CDN -->
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
