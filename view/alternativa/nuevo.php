@@ -127,7 +127,7 @@
                                         <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                     </div>
-                                    <div id="map" style="height: 400px;"></div>
+                                    <div id="map" style="height: 300px;"></div>
                                   
                                 </div>
                             </div>
@@ -241,6 +241,35 @@
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
         });
+
+        $('#myModal').on('shown.bs.modal', function () {
+                map.invalidateSize();
+            });
+
+            var modal = document.getElementById("myModal");
+
+            // Obtiene el botón que abre el modal
+            var btn = document.getElementById("openModalButton");
+
+            // Obtiene el elemento <span> que cierra el modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // Cuando el usuario hace clic en el botón, abre el modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // Cuando el usuario hace clic en <span> (x), cierra el modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
 
         function actualizarRegistroYUI(inputElement, infoElementId) {
             var files = $(inputElement)[0].files;
