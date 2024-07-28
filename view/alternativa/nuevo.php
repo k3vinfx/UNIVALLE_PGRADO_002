@@ -128,6 +128,8 @@
                                     <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                 </div>
                                 <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control">
+                                <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
+              
                             </div>
                         </div>
 
