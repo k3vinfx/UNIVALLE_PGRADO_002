@@ -123,11 +123,12 @@
                                         <label for="text3">Dirección:</label>
                                         <input type="text" id="text3" class="form-control mb-2">
                                     </div>
-                                    <div id="map" style="height: 300px;"></div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                     </div>
+                                    <div id="map" style="height: 400px;"></div>
+                                  
                                 </div>
                             </div>
                         </div>
