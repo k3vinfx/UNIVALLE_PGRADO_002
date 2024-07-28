@@ -374,20 +374,17 @@
                 map.invalidateSize();
             });
 
-        document.getElementById("saveChangesButton").addEventListener("click", function() {
-            var txt=  document.getElementById("text3").value ;
-            document.getElementById("ubicacion").value = txt;
-           
-            // Aquí puedes agregar el código para modificar el contenido en tu archivo original.
 
-            if (txt && txt.trim() !== "") { // Asegurarse de que txt no sea null, undefined o una cadena vacía
+        $('#saveChangesButton').on('click', function() {
+            var txt = document.getElementById("text3").value;
+            document.getElementById("ubicacion").value = txt;
+
+            if (txt && txt.trim() !== "") {
                 $('#myModal').modal('hide');
                 $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();   
-          }
-
+                $('.modal-backdrop').remove();
+            }
         });
-
         // Obtiene el botón que abre el modal
         var modal = document.getElementById("myModal1");
 
