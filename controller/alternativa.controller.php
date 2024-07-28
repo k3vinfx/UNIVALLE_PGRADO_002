@@ -120,7 +120,7 @@ class AlternativaController{
             $nuevoNombreArchivo = $ultimoIdInsertado . '_01_' .  time() . '.' . $extensionArchivo;
             // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
             // Por ejemplo:
-            $nuevaRuta = "beta/img/" . $nuevoNombreArchivo;
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
             move_uploaded_file($rutaTemporal, $nuevaRuta);
             // Asigna la ruta del archivo a tu objeto o modelo
             $nuevaRuta = "img/" . $nuevoNombreArchivo;
@@ -143,7 +143,7 @@ class AlternativaController{
             $nuevoNombreArchivo = $ultimoIdInsertado . '_02_' .  time() . '.' . $extensionArchivo;
               // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
             // Por ejemplo:
-            $nuevaRuta = "beta/img/" . $nuevoNombreArchivo;
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
             move_uploaded_file($rutaTemporal, $nuevaRuta);
             $nuevaRuta = "img/" . $nuevoNombreArchivo;
             // Asigna la ruta del archivo a tu objeto o modelo
@@ -165,7 +165,7 @@ class AlternativaController{
             $nuevoNombreArchivo = $ultimoIdInsertado . '_03_' .  time() . '.' . $extensionArchivo;
               // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
             // Por ejemplo:
-            $nuevaRuta = "beta/img/" . $nuevoNombreArchivo;
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
             move_uploaded_file($rutaTemporal, $nuevaRuta);
             $nuevaRuta = "img/" . $nuevoNombreArchivo;
             // Asigna la ruta del archivo a tu objeto o modelo
@@ -186,7 +186,7 @@ class AlternativaController{
             $nuevoNombreArchivo = $ultimoIdInsertado . '_04_' .  time() . '.' . $extensionArchivo;
               // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
             // Por ejemplo:
-            $nuevaRuta = "beta/img/" . $nuevoNombreArchivo;
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
             move_uploaded_file($rutaTemporal, $nuevaRuta);
             $nuevaRuta = "img/" . $nuevoNombreArchivo;
             // Asigna la ruta del archivo a tu objeto o modelo
@@ -208,7 +208,7 @@ class AlternativaController{
             $nuevoNombreArchivo = $ultimoIdInsertado . '_05_' .  time() . '.' . $extensionArchivo;
               // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
             // Por ejemplo:
-            $nuevaRuta = "beta/img/" . $nuevoNombreArchivo;
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
             move_uploaded_file($rutaTemporal, $nuevaRuta);
             $nuevaRuta = "img/" . $nuevoNombreArchivo;
             // Asigna la ruta del archivo a tu objeto o modelo
