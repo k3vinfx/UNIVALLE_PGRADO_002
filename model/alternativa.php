@@ -468,8 +468,18 @@ class alternativa
                 )
 			);
 			$_SESSION['ultimoIdInsertado'] = $this->pdo->lastInsertId();
+			?>  
+			    <script>
+					        alert('Ingreso Correcto');
+					</script>
+			<?php
 		} catch (Exception $e)
 		{
+			?>  
+					 <script>
+					        alert('Ingreso Incorrecto');
+					</script>
+					<?php
 			die($e->getMessage());
 		}
 	}
