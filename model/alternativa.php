@@ -433,98 +433,44 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
+
 	public function Registrar(alternativa $data)
 	{
-		// Validar los datos recibidos
-		$errores = [];
-	
-		if (empty($data->titulo)) {
-			$errores[] = "El título es obligatorio.";
-		}
-		if (empty($data->ubicacion)) {
-			$errores[] = "La ubicación es obligatoria.";
-		}
-		if (empty($data->categoria)) {
-			$errores[] = "La categoría es obligatoria.";
-		}
-		if (empty($data->descripcion)) {
-			$errores[] = "La descripción es obligatoria.";
-		}
-		if (empty($data->latlong)) {
-			$errores[] = "La latitud y longitud son obligatorias.";
-		}
-	
-		// Si hay errores, mostrarlos y detener la ejecución
-		if (!empty($errores)) {
-			echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
-			echo "<script>
-					Swal.fire({
-						icon: 'error',
-						title: 'Error en el formulario',
-						html: '".implode("<br>", $errores)."'
-					}).then((result) => {
-						window.history.back();
-					});
-				  </script>";
-			return;
-		}
-	
-		try {
+		try
+		{
 			if (isset($_POST['costo'])) {
 				$entrada_2 = $_POST['costo'];
 			} else {
 				$entrada_2 = "0"; // Asigna null si no se proporciona un valor
 			}
-			
-			$sql = "INSERT INTO recomendacion 
+			    $entrada_3 = "current_timestamp()";
+				$sql = "INSERT INTO recomendacion 
 				(Recomendacion_titulo,
 				Recomendacion_ubicacion_tour,
 				Recomendacion_categoria,
 				Recomendacion_costo,
 				Recomendacion_descripcion,
 				Recomendacion_latlong,
-				Recomendacion_estado)
-				VALUES (?, ?, ?, ?, ?, ?, ?)";
-	
-			$this->pdo->prepare($sql)
-				->execute(
-					array(
-						$data->titulo,
-						$data->ubicacion,
-						$data->categoria,
-						$entrada_2,
-						$data->descripcion,
-						$data->latlong,
-						$data->estado
-					)
-				);
-				
+ 				Recomendacion_estado)
+		        VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		$this->pdo->prepare($sql)
+		     ->execute(
+				array(
+					$data->titulo,
+                    $data->ubicacion,
+                    $data->categoria,
+					$entrada_2,
+					$data->descripcion,
+					$data->latlong,
+					$data->estado
+
+                )
+			);
 			$_SESSION['ultimoIdInsertado'] = $this->pdo->lastInsertId();
-			echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
-			echo "<script>
-					Swal.fire({
-						icon: 'success',
-						title: 'Éxito',
-						text: 'Ingreso Correcto'
-					}).then((result) => {
-						window.location.href = 'index.php?c=alternativa&a=NuevoIN';
-					});
-				  </script>";
-		}
-		catch (Exception $e)
+		} catch (Exception $e)
 		{
-			echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
-			echo "<script>
-					Swal.fire({
-						icon: 'error',
-						title: 'Error',
-						text: 'Ingreso Incorrecto'
-					}).then((result) => {
-						window.location.href = 'index.php?c=alternativa&a=NuevoIN';
-					});
-				  </script>";
 			die($e->getMessage());
 		}
 	}
-
 }

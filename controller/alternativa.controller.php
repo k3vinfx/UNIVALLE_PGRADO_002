@@ -84,7 +84,8 @@ class AlternativaController{
 
 
     public function Guardar(){
-
+        $response = ["status" => "error", "message" => "Error desconocido."];
+        try {
         $pvd = new alternativa();
         $pvd_img = new alternativa();
    
@@ -220,7 +221,14 @@ class AlternativaController{
 
         $this->model->Registrar_img($pvd_img);
 
-        header('Location: index.php?c=alternativa&a=NuevoIN');
+        $response = ["status" => "success", "message" => "Registro exitoso."];
+    } catch (Exception $e) {
+        $response = ["status" => "error", "message" => "Error al registrar: " . $e->getMessage()];
+    }
+
+    echo json_encode($response);
+
+      //  header('Location: index.php?c=alternativa&a=NuevoIN');
         //header() es usado para enviar encabezados HTTP sin formato.
         //"Location:" No solamente envía el encabezado al navegador, sino que
         //también devuelve el código de status (302) REDIRECT al

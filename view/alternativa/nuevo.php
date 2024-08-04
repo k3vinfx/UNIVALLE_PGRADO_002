@@ -30,7 +30,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-list"></i></span>
                                 </div>
-                                <select class="custom-select" name="categoria" id="categoria">
+                                <select class="custom-select" name="categoria" id="categoria" required>
                                     <option value="0">Seleccionar</option>
                                     <!-- Opciones generadas dinámicamente -->
                                     <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
@@ -69,15 +69,15 @@
                                     </div>
                                     <div class="modal-body">
                                         <label for="img1">Imagen 1:</label>
-                                        <input type="file" class="form-control mb-2" id="img1" name="img1">
+                                        <input type="file" class="form-control mb-2" id="img1" name="img1" required>
                                         <label for="img2">Imagen 2:</label>
-                                        <input type="file" class="form-control mb-2" id="img2" name="img2">
+                                        <input type="file" class="form-control mb-2" id="img2" name="img2" required>
                                         <label for="img3">Imagen 3:</label>
-                                        <input type="file" class="form-control mb-2" id="img3" name="img3">
+                                        <input type="file" class="form-control mb-2" id="img3" name="img3" required>
                                         <label for="img4">Imagen 4:</label>
-                                        <input type="file" class="form-control mb-2" id="img4" name="img4">
+                                        <input type="file" class="form-control mb-2" id="img4" name="img4" required>
                                         <label for="img5">Imagen 5:</label>
-                                        <input type="file" class="form-control mb-2" id="img5" name="img5">
+                                        <input type="file" class="form-control mb-2" id="img5" name="img5" required>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
@@ -103,11 +103,11 @@
                                     </div>
                                     <div class="modal-body">
                                         <label for="text1">Latitud:</label>
-                                        <input type="text" id="text1" class="form-control mb-2">
+                                        <input type="text" id="text1" class="form-control mb-2" required>
                                         <label for="text2">Longitud:</label>
-                                        <input type="text" id="text2" class="form-control mb-2">
+                                        <input type="text" id="text2" class="form-control mb-2" required>
                                         <label for="text3">Dirección:</label>
-                                        <input type="text" id="text3" class="form-control mb-2">
+                                        <input type="text" id="text3" class="form-control mb-2" required>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
@@ -125,7 +125,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                 </div>
-                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control">
+                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
                                 <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
               
                             </div>
@@ -137,7 +137,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
                                 </div>
-                                <input type="text" placeholder="Ingrese descripción" name="descripcion" id="descripcion" class="form-control">
+                                <input type="text" placeholder="Ingrese descripción" name="descripcion" id="descripcion" class="form-control" required>
                             </div>
                         </div>
 
@@ -186,6 +186,41 @@
 
 
 <script>
+    document.getElementById('frm-nuevo').addEventListener('submit', function(event) {
+            event.preventDefault(); // Detener el envío del formulario tradicional
+
+            var formData = new FormData(this);
+
+            fetch('?c=alternativa&a=Guardar', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: data.message
+                    }).then(() => {
+                        window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un problema al procesar la solicitud.'
+                });
+            });
+        });
     $(document).ready(function(){
             
         var map = L.map('map').setView([-16.489689,-68.119293], 15);
