@@ -435,52 +435,64 @@ class alternativa
 	}
 
 	public function Registrar(alternativa $data)
-	{
-		try
-		{
-			if (isset($_POST['costo'])) {
-				$entrada_2 = $_POST['costo'];
-			} else {
-				$entrada_2 = "0"; // Asigna null si no se proporciona un valor
-			}
-			    $entrada_3 = "current_timestamp()";
-				$sql = "INSERT INTO recomendacion 
-				(Recomendacion_titulo,
-				Recomendacion_ubicacion_tour,
-				Recomendacion_categoria,
-				Recomendacion_costo,
-				Recomendacion_descripcion,
-				Recomendacion_latlong,
- 				Recomendacion_estado)
-		        VALUES (?, ?, ?, ?, ?, ?, ?)";
+{
+    try
+    {
+        if (isset($_POST['costo'])) {
+            $entrada_2 = $_POST['costo'];
+        } else {
+            $entrada_2 = "0"; // Asigna null si no se proporciona un valor
+        }
+        
+        $sql = "INSERT INTO recomendacion 
+            (Recomendacion_titulo,
+            Recomendacion_ubicacion_tour,
+            Recomendacion_categoria,
+            Recomendacion_costo,
+            Recomendacion_descripcion,
+            Recomendacion_latlong,
+            Recomendacion_estado)
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-					$data->titulo,
+        $this->pdo->prepare($sql)
+            ->execute(
+                array(
+                    $data->titulo,
                     $data->ubicacion,
                     $data->categoria,
-					$entrada_2,
-					$data->descripcion,
-					$data->latlong,
-					$data->estado
-
+                    $entrada_2,
+                    $data->descripcion,
+                    $data->latlong,
+                    $data->estado
                 )
-			);
-			$_SESSION['ultimoIdInsertado'] = $this->pdo->lastInsertId();
-			?>  
-			    <script>
-					        alert('Ingreso Correcto');
-					</script>
-			<?php
-		} catch (Exception $e)
-		{
-			?>  
-					 <script>
-					        alert('Ingreso Incorrecto');
-					</script>
-					<?php
-			die($e->getMessage());
-		}
-	}
+            );
+            
+        $_SESSION['ultimoIdInsertado'] = $this->pdo->lastInsertId();
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: 'Ingreso Correcto'
+                }).then((result) => {
+                    window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+                });
+              </script>";
+    }
+    catch (Exception $e)
+    {
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ingreso Incorrecto'
+                }).then((result) => {
+                    window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+                });
+              </script>";
+        die($e->getMessage());
+    }
+}
+
 }
