@@ -1,5 +1,5 @@
 <h1 class="page-header">
-    Nuevo Registro.
+    Nuevo Registro..
 </h1>
 
 <?php
