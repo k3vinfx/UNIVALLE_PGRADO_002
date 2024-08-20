@@ -33,6 +33,7 @@ body {
 
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body>
   <div class="slider" style="width: auto; margin: auto;">
     <ul class="slides">
