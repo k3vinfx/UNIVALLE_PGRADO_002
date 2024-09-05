@@ -78,8 +78,17 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
             // Mostrar mensaje de error
-            Swal.fire('Usuario o Contraseña', 'Error de contraseña o Email registrado vuelva a intentarlo porfavor ...', 'error');
-        });
+            Swal.fire({
+                  title: 'Usuario o Contraseña',
+                  text: 'Error de contraseña o Email registrado, vuelva a intentarlo por favor.',
+                  icon: 'error',
+                  confirmButtonText: 'OK'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      // Redirigir al home principal después de hacer clic en "OK"
+                      window.location.href = 'https://k3sys.cloud/kevs_pg1/BETA/?c=inicio&a=Login';
+                  }
+    });  });
 
   </script>
 </html>
