@@ -192,9 +192,9 @@ body {
 
   </div>
   </div>
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+  <div class="elfsight-app-67b45c40-7416-4dd2-994c-568cd3f0497a" data-elfsight-app-lazy></div>
 
-  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-  <div class="elfsight-app-dcc4934e-3eb0-4e18-98af-67fd2f034df1"></div>
 
   <?php require "footer.php"; ?>
 </body>
