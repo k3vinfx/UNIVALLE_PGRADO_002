@@ -39,21 +39,23 @@
     <div class="nav-wrapper black" style="box-shadow: 0px 0px 2px white;">
       <a href="index.php"><img src = "./static/logo-negativo.png" alt="logo" id="logo" class="brand-logo glow-image" height="100"/></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="black" id="search-bar">
+        <!-- <li class="black" id="search-bar">
           <form action="product_catalogue.php">
             <div class="white-text row" style="padding-left: 20px;">
               <input type="text" name="query" placeholder="Busca alguna recomendacion turistica..."
                 class="input-field white-text col s10 autocomplete" id="autocomplete-input"
-                value="<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>"
+                value="
+                
                 style="font-size: 14px; z-index: 5050;"
               />
-              <button value='<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>' 
+              <button value='
+          
                 class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px">
                 <i class='material-icons'>search</i>
               </button>
             </div>
           </form>
-        </li>
+        </li> -->
         <?php
           if (isset($_SESSION["Member"]))
           { ?>
