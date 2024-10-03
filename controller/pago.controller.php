@@ -17,7 +17,7 @@ class PagoController{
         // Verificar si el usuario está autenticado
         if (!isset($_SESSION['session_email']) || empty($_SESSION['session_email'])) {
             // Si no está autenticado, redirigir al inicio de sesión
-            header("Location: login.php");
+            header("Location: index.php");
             exit();
         }
     }
