@@ -90,8 +90,8 @@ class PagoController{
         $login = new pago();
 
         //Llamado de las vistas.
-        require_once 'view/inicio/login.php';
-        require_once 'view/inicio/login.php';
+        require_once 'view/inicio/index.php';
+        require_once 'view/inicio/index.php';
     }
 
     //Registrate
