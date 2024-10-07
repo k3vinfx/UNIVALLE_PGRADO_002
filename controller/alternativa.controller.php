@@ -9,16 +9,39 @@ class AlternativaController{
         $this->model = new alternativa();
     }
 
+        // Método privado para verificar la sesión
+    private function verificarSesion(){
+            // Verificar si el usuario está autenticado
+       if (!isset($_SESSION['session_email']) || empty($_SESSION['session_email'])) {
+             // Si no está autenticado, redirigir al inicio de sesión
+            header("Location: index.php");
+            exit();
+        }
+    }
+    
+    // Método privado para evitar el almacenamiento en caché
+    private function evitarCache(){
+        // Evitar que el navegador almacene en caché la página
+        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT"); // Fecha en el pasado
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); // Siempre modificado
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+    }
+
     //Llamado plantilla alternativa
     public function Index(){
-       require_once 'view/header.php';
+       $this->verificarSesion(); // Verificar si el usuario está autenticado
+       $this->evitarCache();     // Evitar el almacenamiento en caché
+
+       require_once 'view/pago/header.php';
        require_once 'view/alternativa/alternativa.php';
        require_once 'view/footerx.php';
     } 
     public function NuevoEntrenamiento(){
         $pvd = new alternativa();
 
-        require_once 'view/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/alternativa/alternativa-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -26,7 +49,7 @@ class AlternativaController{
     public function Entrenar(){
         $pvd = new alternativa();
 
-        require_once 'view/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/alternativa/entrenar.php';
         require_once 'view/footerx.php';
     }
@@ -37,7 +60,7 @@ class AlternativaController{
         if(isset($_REQUEST['Recomendacion_id'])){
             $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
         }
-        require_once 'view/header.php';      
+        require_once 'view/pago/header.php';    
         require_once 'view/alternativa/editar.php';
         require_once 'view/footerx.php';
     }
@@ -48,7 +71,7 @@ class AlternativaController{
         if(isset($_REQUEST['Recomendacion_id'])){
             $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
         }
-        require_once 'view/header.php';      
+        require_once 'view/pago/header.php';     
         require_once 'view/alternativa/alternativa_brain.php';
         require_once 'view/footerx.php';
     }
@@ -59,7 +82,7 @@ class AlternativaController{
         if(isset($_REQUEST['Neurona_Id'])){
             $pvd = $this->model->Obtener($_REQUEST['Neurona_Id']);
         }
-        require_once 'view/header.php';      
+        require_once 'view/pago/header.php';   
         require_once 'view/alternativa/alternativa-editar-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -69,7 +92,7 @@ class AlternativaController{
         $alert = '<div class="alert alert-primary" role="alert">
                          Registrado
                     </div>';
-        require_once 'view/header.php';
+                    require_once 'view/pago/header.php';
         require_once 'view/alternativa/nuevo.php';
         require_once 'view/footerx.php';
     }
@@ -77,7 +100,7 @@ class AlternativaController{
     public function Nuevo(){
         $pvd = new alternativa();
       
-        require_once 'view/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/alternativa/nuevo.php';
         require_once 'view/footerx.php';
     }
