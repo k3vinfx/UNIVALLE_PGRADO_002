@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'model/principal.php';
 
 class PrincipalController{
@@ -10,16 +11,41 @@ class PrincipalController{
 
     }
 
+     // Método privado para verificar la sesión
+     private function verificarSesion(){
+        // Verificar si el usuario está autenticado
+        if (!isset($_SESSION['session_email']) || empty($_SESSION['session_email'])) {
+            // Si no está autenticado, redirigir al inicio de sesión
+            header("Location: index.php");
+            exit();
+        }
+    }
+
+    // Método privado para evitar el almacenamiento en caché
+    private function evitarCache(){
+        // Evitar que el navegador almacene en caché la página
+        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT"); // Fecha en el pasado
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); // Siempre modificado
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+    }
+
+    
     //Llamado plantilla principal
     public function Index(){
-       require_once 'view/principal/header.php';
+
+       $this->verificarSesion(); // Verificar si el usuario está autenticado
+       $this->evitarCache();     // Evitar el almacenamiento en caché
+
+       require_once 'view/pago/header.php';
        require_once 'view/principal/principal.php';
        require_once 'view/footerx.php';
     } 
     public function NuevoEntrenamiento(){
         $pvd = new principal();
 
-        require_once 'view/principal/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/principal/principal-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -29,7 +55,7 @@ class PrincipalController{
     public function Entrenar(){
         $pvd = new principal();
 
-        require_once 'view/principal/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/principal/entrenar.php';
         require_once 'view/footerx.php';
     }
@@ -40,7 +66,7 @@ class PrincipalController{
         if(isset($_REQUEST['Neurona_Id'])){
             $pvd = $this->model->Obtener($_REQUEST['Neurona_Id']);
         }
-        require_once 'view/principal/header.php';      
+        require_once 'view/pago/header.php';      
         require_once 'view/principal/principal-editar.php';
         require_once 'view/footerx.php';
     }
@@ -52,7 +78,7 @@ class PrincipalController{
         if(isset($_REQUEST['Neurona_Id'])){
             $pvd = $this->model->Obtener($_REQUEST['Neurona_Id']);
         }
-        require_once 'view/principal/header.php';      
+        require_once 'view/pago/header.php';      
         require_once 'view/principal/principal-editar-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -63,7 +89,7 @@ class PrincipalController{
         if(isset($_REQUEST['Neurona_Idx'])){
             $pvd = $this->model->MenuTipoRecomendacionGet($_REQUEST['Neurona_Idx']);
         }
-        require_once 'view/principal/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/principal/principal-nuevo.php';
         require_once 'view/footerx.php';
 
@@ -106,7 +132,7 @@ class PrincipalController{
         $alert = '<div class="alert alert-primary" role="alert">
             Registrado Exitosamente
         </div>';
-        require_once 'view/principal/header.php';
+        require_once 'view/pago/header.php';
         require_once 'view/principal/principal-nuevo.php';
         require_once 'view/footerx.php';
     }
@@ -124,7 +150,7 @@ class PrincipalController{
             $pvd = $this->model->Obtener($valor);
         }
     
-        require_once 'view/principal/header.php';      
+        require_once 'view/pago/header.php';      
         require_once 'view/principal/principal-editar-entrenamiento.php';
         require_once 'view/footerx.php';
     }
@@ -143,7 +169,7 @@ class PrincipalController{
             $pvd = $this->model->Obtener($valor);
         }
     
-        require_once 'view/principal/header.php';      
+        require_once 'view/pago/header.php';      
         require_once 'view/principal/principal-editar-entrenamiento.php';
         require_once 'view/footerx.php';
     }
