@@ -34,11 +34,11 @@ class AlternativaController{
 
     //Llamado plantilla alternativa
     public function Index(){
-       // $pvd = new alternativa();
-       //$this->verificarSesion(); // Verificar si el usuario está autenticado
-       //$this->evitarCache();     // Evitar el almacenamiento en caché
+        $pvd = new alternativa();
+       $this->verificarSesion(); // Verificar si el usuario está autenticado
+       $this->evitarCache();     // Evitar el almacenamiento en caché
 
-       require_once 'view/alternativa/header.php';
+       require_once 'view/pago/header.php';
        require_once 'view/alternativa/alternativa.php';
        require_once 'view/footerx.php';
     } 
