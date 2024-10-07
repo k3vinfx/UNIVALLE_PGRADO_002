@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+// Verificar si el usuario está autenticado (opcional, según tus necesidades)
+// Si el index debe ser accesible solo para usuarios autenticados
+if (!isset($_SESSION['session_email']) || empty($_SESSION['session_email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Incluir el archivo de cabecera
+require_once 'view/pago/header.php';
+
 require_once 'model/alternativa.php';
 
 class AlternativaController{
@@ -32,6 +43,7 @@ class AlternativaController{
 
     //Llamado plantilla alternativa
     public function Index(){
+        $pvd = new alternativa();
        $this->verificarSesion(); // Verificar si el usuario está autenticado
        $this->evitarCache();     // Evitar el almacenamiento en caché
 
