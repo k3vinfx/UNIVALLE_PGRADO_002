@@ -14,6 +14,7 @@ include "assets/includes/functions.php";
     <title>ETRAVEL</title>
 
     <!-- CSS -->
+	 
     <!-- Font Awesome CSS -->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
