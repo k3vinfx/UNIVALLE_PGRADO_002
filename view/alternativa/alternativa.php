@@ -70,11 +70,7 @@ input:checked + .slider:before {
 		<h1 class="h3 mb-0 text-gray-800">Alternativa</h1>
 		<a href="?c=alternativa&a=Nuevo" class="btn btn-primary">Nuevo</a>
 	</div>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- ... otros scripts ... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
 	<div class="row">
