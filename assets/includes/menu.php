@@ -41,7 +41,7 @@
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="?c=alternativa&a=Nuevo">Nuevo Alternativa</a>
+				<a class="collapse-item" href="?c=alternativa&a=abrirNuevo">Nuevo Alternativa</a>
 				<a class="collapse-item" href="index.php?c=alternativa">Listado de Alternativas</a>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 		</a>
 		<div id="collapseCategorias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-			<a class="collapse-item" href="?c=categorias&a=abrirNuevo">Nuevo tipo de Categorias</a>
+			<a class="collapse-item" href="?c=categorias&a=Nuevo">Nuevo tipo de Categorias</a>
 			<a class="collapse-item" href="?c=categorias&a=Listar">Listado de Categorias</a>
 		 </div>		
 		</div>
