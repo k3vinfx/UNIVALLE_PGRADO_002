@@ -75,18 +75,17 @@ body {
       </li>
     </ul>
   </div>
-  <div class="container" style="margin-top: 100px; margin-right: 10px; text-align: center;">
-
-  <!-- <div class="container" style="margin-top: 100px; margin-rigth: 10px"> -->
+  
+  <div class="container" style="margin-top: 100px; margin-rigth: 10px">
     <div class="row">
       <div class="row" style="margin-bottom: 20px">
         <h2 class="underline white-text bold center">Información</h2>
     
 
 
-        <div class="col" style="display: inline-block; margin: auto;">
+        <div class="col">
           <a href="ia.php">
-          <div class="selectable-card" style="width: 330px; margin: 10px; text-align: center;">
+            <div class="selectable-card" style="width: 330px; margin: 10px;">
                 <img src="./static/images/ia.jpg"/>
               <h7 class="white-text center bold"> Recomendaciones turisticas optimizadas con Inteligencia Artificial</h7>
             </div>
