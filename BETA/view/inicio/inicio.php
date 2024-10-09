@@ -77,7 +77,7 @@ body {
   </div>
   
   <div class="container" style="margin-top: 100px">
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px; display: flex; justify-content: center; text-align: center;">>
       <div class="row" style="margin-bottom: 20px">
         <h2 class="underline white-text bold center">Información</h2>
     
@@ -85,7 +85,7 @@ body {
 
         <div class="col">
           <a href="ia.php">
-            <div class="selectable-card" style="width: 330px; margin: 10px;">
+            <div class="selectable-card" style="width: 330px">
                 <img src="./static/images/ia.jpg"/>
               <h7 class="white-text center bold"> Recomendaciones turisticas optimizadas con Inteligencia Artificial</h7>
             </div>
@@ -94,7 +94,7 @@ body {
 
         <div class="col">
           <a href="view/inicio/precios.php">
-            <div class="selectable-card" style="width: 330px; margin: 10px;">
+            <div class="selectable-card" style="width: 330px">
                 <img src="./static/images/precios.jpg"/>
               <h5 class="white-text center bold">Precios sobre el servicio, super cool y algo mas para ti...</h5>
             </div>
@@ -102,7 +102,7 @@ body {
         </div>
         <div class="col">
           <a href="lugares.php">
-            <div class="selectable-card" style="width: 330px; margin: 10px;">
+            <div class="selectable-card" style="width: 330px">
                 <img src="./static/images/lugares.jpg"/>
               <h5 class="white-text center bold">Plazas y Lugares de Interes, como donde y porque todo lo que necesitas saber.</h5>
             </div>
