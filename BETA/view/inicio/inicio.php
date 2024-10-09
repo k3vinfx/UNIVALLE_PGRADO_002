@@ -74,7 +74,7 @@ body {
         </div>
       </li>
     </ul>
-    
+
   </div>
   
   <div class="container" style="margin-top: 100px">
@@ -88,7 +88,7 @@ body {
           <a href="ia.php">
             <div class="selectable-card" style="width: 330px">
                 <img src="./static/images/ia.jpg"/>
-              <h7 class="white-text center bold"> Recomendaciones turisticas optimizadas con Inteligencia Artificial</h7>
+              <h5 class="white-text center bold"> Recomendaciones turisticas optimizadas con Inteligencia Artificial</h5>
             </div>
           </a>
         </div>
