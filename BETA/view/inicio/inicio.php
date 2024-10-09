@@ -78,9 +78,9 @@ body {
   </div>
   
   <div class="container" style="margin-top: 100px">
-    <div class="row" style="margin-bottom: 20px; display: flex; justify-content: center; text-align: center;">>
+    <div class="row" style="margin-bottom: 20px; display: flex; justify-content: center; text-align: center;">
       <div class="row" style="margin-bottom: 20px">
-        <h2 class="underline white-text bold center">Información..</h2>
+        <h2 class="underline white-text bold center">Información</h2>
     
 
 
