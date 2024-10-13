@@ -189,25 +189,24 @@
     }
 
 
-    console.log('script cargado');
-    const net = new brain.NeuralNetwork();
-const data = [
-
-    <?php foreach ($this->model->MenuLista3() as $dato): ?>
+    console.log('script cargado....1x');
+  const net = new brain.NeuralNetwork();
+  const data = [
+    <?php foreach ($this->model->MenuListaNeurona() as $dato): ?>
     {
-        input: {
-            persona: <?php echo $dato->peso1; ?>, 
-            comp: <?php echo $dato->peso2; ?>, 
-            horario: <?php echo $dato->peso3; ?>,
-            edad: <?php echo $dato->peso4; ?>,
-            gasto: <?php echo $dato->peso5; ?>,
-            sexo: <?php echo $dato->peso6; ?>,
-            // ... otros valores ...+
-        },
-        output: { resultadoEsperado: <?php echo $dato->peso7; ?> } // Ajustar según tus datos
+      input: {
+          persona: <?php echo $dato->peso1 ?? 0; ?>, // usa 0 si no hay valor
+          comp: <?php echo $dato->peso2 ?? 0; ?>,
+          horario: <?php echo $dato->peso3 ?? 0; ?>,
+          edad: <?php echo $dato->peso4 ?? 0; ?>,
+          gasto: <?php echo $dato->peso5 ?? 0; ?>,
+          sexo: <?php echo $dato->peso6 ?? 0; ?>
+      },
+      output: { resultadoEsperado: <?php echo $dato->peso7 ?? 0; ?> }
     },
     <?php endforeach; ?>
-];
+  ];
+
 
 net.train(data);
 
