@@ -379,7 +379,7 @@ $(document).ready(function() {
           gasto: <?php echo $dato->peso5 ?? 0; ?>,
           sexo: <?php echo $dato->peso6 ?? 0; ?>
       },
-      output: { resultadoEsperado: <?php echo $dato->peso7; ?> }
+      output: { resultadoEsperado: <?php echo $dato->peso7 ?? 0; ?> }
     },
     <?php endforeach; ?>
   ];
