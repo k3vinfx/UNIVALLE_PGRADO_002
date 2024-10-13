@@ -366,7 +366,7 @@ $(document).ready(function() {
   // Inicialmente ocultar los campos si el radio button 'Radios1' está seleccionado
   toggleFields1();
 
-  console.log('script cargado');
+  console.log('script cargado....');
   const net = new brain.NeuralNetwork();
   const data = [
     <?php foreach ($this->model->MenuListaNeurona() as $dato): ?>
