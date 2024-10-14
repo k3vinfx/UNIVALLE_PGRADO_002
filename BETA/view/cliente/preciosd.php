@@ -182,7 +182,7 @@
 <html lang="en">
 <?php
 session_start(); // Asegura que la sesión esté activa
-var_dump($_SESSION); // Depurar la sesión completa
+
 // Asegúrate de que Cliente_Id esté establecido en la sesión antes de intentar usarlo
 if(isset($_SESSION['Cliente_Id'])) {
     $clienteId = $_SESSION['Cliente_Id'];
@@ -204,7 +204,7 @@ if(isset($_SESSION['Cliente_Id'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <script src="view/cliente/estilo.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>
         tailwind.config = {
