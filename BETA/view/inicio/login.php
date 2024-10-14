@@ -195,7 +195,7 @@ canvas{
            SISTEMA RED NEURONA RECURENTE 
         </div>
 </BR>
-        <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
+        <form id="frm-login" action="?c=login&a=Logeo" method="post" enctype="multipart/form-data">
      <?php echo isset($alert) ? $alert : ""; ?>
     
             <div class="form-field d-flex align-items-center">
