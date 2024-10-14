@@ -285,7 +285,7 @@ class InicioController{
                        // header('Location: pagina_principal.php');
                        // exit();
                        echo '<form id="sessionForm" action="index.php?c=inicio&a=Login_Session" method="post">';
-                       echo '<input type="hidden" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
+                       echo '<input type="text" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
                        echo '<input type="hidden" name="Cliente_Edad" value="' . $_SESSION['Cliente_Edad'] . '">';
                        echo '<input type="hidden" name="Cliente_Celular" value="' . $_SESSION['Cliente_Celular'] . '">';
                        echo '<input type="hidden" name="Cliente_Sexo" value="' . $_SESSION['Cliente_Sexo'] . '">';
