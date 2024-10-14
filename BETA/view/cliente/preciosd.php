@@ -182,7 +182,7 @@
 <html lang="en">
 <?php
 session_start(); // Asegura que la sesión esté activa
-
+var_dump($_SESSION); // Depurar la sesión completa
 // Asegúrate de que Cliente_Id esté establecido en la sesión antes de intentar usarlo
 if(isset($_SESSION['Cliente_Id'])) {
     $clienteId = $_SESSION['Cliente_Id'];
