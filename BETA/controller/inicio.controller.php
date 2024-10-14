@@ -308,6 +308,7 @@ class InicioController{
                     
  
                     $_SESSION['Cliente_Id'] = $datosUsuario['Cliente_Id'];
+                    $_SESSION['Cliente_Email'] = $datosUsuario['Cliente_Email'];
 
                     echo '<input type="text" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
                     echo '<input type="text" name="Cliente_Email" value="' . $_SESSION['Cliente_Email'] . '">';
@@ -343,6 +344,17 @@ class InicioController{
 
 
                     }else{
+                        $datosUsuario = $this->model->ObtenerDatosUsuarioPorEmail($email);
+                    
+ 
+                        $_SESSION['Cliente_Id'] = $datosUsuario['Cliente_Id'];
+                        $_SESSION['Cliente_Email'] = $datosUsuario['Cliente_Email'];
+    
+                        echo '<input type="text" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
+                        echo '<input type="text" name="Cliente_Email" value="' . $_SESSION['Cliente_Email'] . '">';
+                   
+    
+
 
                         header('Location: index.php?c=inicio&a=LoginFaltaPagar');
                          // VENCIO SU CUENTA
