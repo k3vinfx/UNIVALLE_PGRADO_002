@@ -318,12 +318,23 @@ class inicio
             
             // Verificar si se encontró un resultado
             if ($resultado) {	
-				
+				echo "<script>
+					sessionStorage.setItem('Cliente_Id', '" . $resultado['Cliente_Id'] . "');
+					sessionStorage.setItem('Cliente_Edad', '" . $resultado['Cliente_Edad'] . "');
+					sessionStorage.setItem('Cliente_Celular', '" . $resultado['Cliente_Celular'] . "');
+					sessionStorage.setItem('Cliente_Sexo', '" . $resultado['Cliente_Sexo'] . "');
+					sessionStorage.setItem('Cliente_Email', '" . $resultado['Cliente_Email'] . "');
+					console.log('Datos guardados en sessionStorage');
+				</script>";
 				echo "<script>console.log(" . json_encode($resultado) . ");</script>";
 
                 // Devolver los datos del usuario como un array asociativo
                 return $resultado;
             } else {
+				echo "<script>
+				
+				console.log(' no hay datos guardados en sessionStorage');
+			</script>";
                 // No se encontró un usuario con ese correo electrónico
                 return false;
             }
