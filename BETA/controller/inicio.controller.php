@@ -85,7 +85,7 @@ class InicioController{
 
     public function LoginFaltaPagar(){
         //require_once 'view/header.php';
-
+        session_start();
   
        // require_once 'view/registro/header.php';
         require_once 'view/cliente/preciosd.php';
@@ -346,17 +346,27 @@ class InicioController{
                     }else{
                         $datosUsuario = $this->model->ObtenerDatosUsuarioPorEmail($email);
                     
- 
-                        $_SESSION['Cliente_Id'] = $datosUsuario['Cliente_Id'];
-                        $_SESSION['Cliente_Email'] = $datosUsuario['Cliente_Email'];
-    
-                        echo '<input type="text" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
-                        echo '<input type="text" name="Cliente_Email" value="' . $_SESSION['Cliente_Email'] . '">';
+                        if ($datosUsuario !== false) {
+                            // Almacenar los datos del usuario en la sesión
+                            $_SESSION['Cliente_Id'] = $datosUsuario['Cliente_Id'];
+                            $_SESSION['Cliente_Edad'] = $datosUsuario['Cliente_Edad'];
+                            $_SESSION['Cliente_Celular'] = $datosUsuario['Cliente_Celular'];
+                            $_SESSION['Cliente_Sexo'] = $datosUsuario['Cliente_Sexo'];
+                            $_SESSION['Cliente_Email'] = $datosUsuario['Cliente_Email'];
+                            echo '<form id="sessionForm" action="index.php?c=inicio&a=LoginFaltaPagar" method="post">';
                    
+                            echo '<input type="text" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
+                            echo '<input type="text" name="Cliente_Email" value="' . $_SESSION['Cliente_Email'] . '">';
+                       
+                        }else {
+
+                        }    
+ 
+                       
     
 
 
-                        header('Location: index.php?c=inicio&a=LoginFaltaPagar');
+                   
                          // VENCIO SU CUENTA
                  
 
