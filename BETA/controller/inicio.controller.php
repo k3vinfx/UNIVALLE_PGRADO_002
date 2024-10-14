@@ -356,7 +356,7 @@ class InicioController{
     
 
 
-                        header('Location: index.php?c=inicio&a=LoginFaltaPagar');
+                      ///  header('Location: index.php?c=inicio&a=LoginFaltaPagar');
                          // VENCIO SU CUENTA
                  
 
