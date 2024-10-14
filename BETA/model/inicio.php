@@ -317,17 +317,20 @@ class inicio
             $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
             
             // Verificar si se encontró un resultado
-            if ($resultado) {
+            if ($resultado) {	
+				
+				echo "<script>console.log(" . json_encode($resultado) . ");</script>";
+
                 // Devolver los datos del usuario como un array asociativo
                 return $resultado;
             } else {
                 // No se encontró un usuario con ese correo electrónico
                 return false;
             }
-        } catch (Exception $e) {
-            // Manejar cualquier excepción que pueda ocurrir durante la consulta
-            die($e->getMessage());
-        }
+		} catch (Exception $e) {
+			echo "Error en la consulta: " . $e->getMessage();
+			die();
+		}
     }
 
     public function ObtenerHashPorEmail($email) {
