@@ -26,7 +26,7 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="?c=categoria&a=Index_1" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <a class="nav-link" href="?c=categoria&a=Index_1">
 	  	 <i class="fas fa-utensils"></i>
             <span>Gastronomicas</span>
 	  </a>
@@ -35,8 +35,8 @@
 
   <!-- Nav Item - Productos Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="?c=categoria&a=Index_2" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-	  <i class="fas fa-map-marker-alt"></i>
+     <a class="nav-link" href="?c=categoria&a=Index_2">  
+		<i class="fas fa-map-marker-alt"></i>
             <span>Lugares</span>
 	  </a>
 	
