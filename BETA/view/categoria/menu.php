@@ -97,7 +97,7 @@
   <li class="nav-item">
 	  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
 	  <i class="fas fa-shopping-bag"></i>
-            <span>Tiendas</span>
+            <span>Tiendas Artesanales</span>
 	  </a>
 	  <div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 		  <div class="bg-white py-2 collapse-inner rounded">

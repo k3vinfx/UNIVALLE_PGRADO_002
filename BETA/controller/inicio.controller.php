@@ -299,23 +299,17 @@ class InicioController{
                     } else {
                         echo "No se pudieron obtener los datos del usuario.";
                     }
-
-
-
                     
                 }else{
                     $datosUsuario = $this->model->ObtenerDatosUsuarioPorEmail($email);
                     
- 
                     $_SESSION['Cliente_Id'] = $datosUsuario['Cliente_Id'];
                     $_SESSION['Cliente_Email'] = $datosUsuario['Cliente_Email'];
 
                     echo '<input type="text" name="Cliente_Id" value="' . $_SESSION['Cliente_Id'] . '">';
                     echo '<input type="text" name="Cliente_Email" value="' . $_SESSION['Cliente_Email'] . '">';
                
-
-     
-                    $verActivoS = $this->model->VerificarActivoPago($email);
+                   $verActivoS = $this->model->VerificarActivoPago($email);
                 
                     if ($verActivoS !== false ) {
                 
@@ -356,16 +350,11 @@ class InicioController{
                                  
                         header('Location: index.php?c=inicio&a=LoginFaltaPagar');
                         }else {
-
+                            header('Location: index.php?c=inicio&a=LoginError');
                         }    
  
-                    
-
-
-
                          // VENCIO SU CUENTA
                  
-
                     }
                     
                 }
