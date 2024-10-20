@@ -30,11 +30,7 @@
 	  	 <i class="fas fa-utensils"></i>
             <span>Gastronomicas</span>
 	  </a>
-	  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-		  <a class="collapse-item" href="?c=principal&a=Nuevo">Los mejores 10 lugares</a>
-		  <a class="collapse-item" href="index.php?c=principal">Lista de lugares</a>	  </div>
-	  </div>
+	 
   </li>
 
   <!-- Nav Item - Productos Collapse Menu -->
@@ -88,8 +84,6 @@
 		  <div class="bg-white py-2 collapse-inner rounded">
 		  <a class="collapse-item" href="?c=entrada&a=Nuevo">Nuevo tipo de Entrada</a>
 		  <a class="collapse-item" href="?c=entrada&a=Listado">Listado de Entradas</a>
-		  <a class="collapse-item" href="?c=categoria&a=Nuevo">Nuevo tipo de Categoria</a>
-		  <a class="collapse-item" href="?c=categoria&a=Listado">Listado de Categoria</a>
 		  </div>		
 	  </div>
   </li>
