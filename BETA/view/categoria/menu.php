@@ -44,7 +44,7 @@
 
   <!-- Nav Item - Clientes Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link" href="#" >
+  <a class="nav-link" href="?c=categoria&a=Index_3">  
 	  <i class="fas fa-hiking"></i>
             <span>Aventura</span>
 	  </a>
@@ -52,28 +52,28 @@
 
   <!-- Nav Item - Clientes Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link" href="#" >
+  <a class="nav-link" href="?c=categoria&a=Index_4">  
 	  <i class="fas fa-university"></i>
             <span>Cultural</span>
 	  </a>
   </li>
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link" href="#" >
+  <a class="nav-link" href="?c=categoria&a=Index_5">  
 	  <i class="fas fa-cocktail"></i>
             <span>Vida Nocturna</span>
 	  </a>
   </li>
 
   <li class="nav-item">
-	  <a class="nav-link" href="#" >
+  <a class="nav-link" href="?c=categoria&a=Index_6">  
 	  <i class="fas fa-shopping-bag"></i>
             <span>Tiendas Artesanales</span>
 	  </a>
   </li>
 
   <li class="nav-item">
-	  <a class="nav-link" href="#">
+  <a class="nav-link" href="?c=categoria&a=Index_7">  
 	  <i class="fas fa-star"></i>
             <span>Reseñas</span>
 	  </a>
