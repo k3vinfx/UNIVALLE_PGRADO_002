@@ -44,7 +44,7 @@
 
   <!-- Nav Item - Clientes Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
+	  <a class="nav-link" href="#" >
 	  <i class="fas fa-hiking"></i>
             <span>Aventura</span>
 	  </a>
@@ -52,59 +52,32 @@
 
   <!-- Nav Item - Clientes Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
+	  <a class="nav-link" href="#" >
 	  <i class="fas fa-university"></i>
             <span>Cultural</span>
 	  </a>
-	  <div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-		  <a class="collapse-item" href="?c=principal&a=Nuevo">Nuevo tipo de RRN</a>
-		  <a class="collapse-item" href="index.php?c=principal">Listado de RNN</a>
-		  </div>
-	  </div>
   </li>
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
+	  <a class="nav-link" href="#" >
 	  <i class="fas fa-cocktail"></i>
             <span>Vida Nocturna</span>
 	  </a>
-	  <div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-		  <a class="collapse-item" href="?c=entrada&a=Nuevo">Nuevo tipo de Entrada</a>
-		  <a class="collapse-item" href="?c=entrada&a=Listado">Listado de Entradas</a>
-		  </div>		
-	  </div>
   </li>
 
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
+	  <a class="nav-link" href="#" >
 	  <i class="fas fa-shopping-bag"></i>
             <span>Tiendas Artesanales</span>
 	  </a>
-	  <div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-		  <a class="collapse-item" href="?c=entrada&a=Nuevo">Nuevo tipo de Entrada</a>
-		  <a class="collapse-item" href="?c=entrada&a=Listado">Listado de Entradas</a>
-		  <a class="collapse-item" href="?c=categoria&a=Nuevo">Nuevo tipo de Categoria</a>
-		  <a class="collapse-item" href="?c=categoria&a=Listado">Listado de Categoria</a>
-		  </div>		
-	  </div>
   </li>
 
   <li class="nav-item">
-	  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
+	  <a class="nav-link" href="#">
 	  <i class="fas fa-star"></i>
             <span>Reseñas</span>
 	  </a>
-	  <div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-		  <a class="collapse-item" href="?c=entrada&a=Nuevo">Nuevo tipo de Entrada</a>
-		  <a class="collapse-item" href="?c=entrada&a=Listado">Listado de Entradas</a>
-		  <a class="collapse-item" href="?c=categoria&a=Nuevo">Nuevo tipo de Categoria</a>
-		  <a class="collapse-item" href="?c=categoria&a=Listado">Listado de Categoria</a>
-		  </div>		
-	  </div>
+	
   </li>
   <?php //if ($_SESSION['rol'] == 1) { ?>
 
