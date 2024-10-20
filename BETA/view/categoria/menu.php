@@ -48,12 +48,6 @@
 	  <i class="fas fa-hiking"></i>
             <span>Aventura</span>
 	  </a>
-	  <div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-		  <a class="collapse-item" href="?c=principal&a=Nuevo">Los mejores 10 lugares</a>
-		  <a class="collapse-item" href="index.php?c=principal">Lista de lugares</a>
-		  </div>
-	  </div>
   </li>
 
   <!-- Nav Item - Clientes Collapse Menu -->
