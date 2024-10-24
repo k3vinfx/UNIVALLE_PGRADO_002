@@ -91,42 +91,65 @@
         // Determine the background color based on even/odd index
         $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
         $contador++;
+
+        // Calcular la cantidad de estrellas según el valor de Peso_7_out_comprimido
+        $stars = 0;
+        if ($r->Peso_7_out_comprimido < 0.20) {
+            $stars = 1; // 1 estrella
+        } elseif ($r->Peso_7_out_comprimido < 0.40) {
+            $stars = 2; // 2 estrellas
+        } elseif ($r->Peso_7_out_comprimido < 0.60) {
+            $stars = 3; // 3 estrellas
+        } elseif ($r->Peso_7_out_comprimido < 0.80) {
+            $stars = 4; // 4 estrellas
+        } else {
+            $stars = 5; // 5 estrellas
+        }
       ?>
-         <div class="container mt-10 mb-8 resultadoFila">
-        <div class="d-flex justify-content-center row">
-          <div class="col-md-12">
-            <div class="row p-2 border rounded mt-2" style="<?php echo $bgColor; ?>">
-              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250"></div>
-              <div class="col-md-6 mt-1">
-                <h5 class="tituloLugar">ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
-                <div class="d-flex flex-row">
-                  <div class="ratings mr-2">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                  <span>Calificación</span>
-                </div>
-                <div class="mt-1 mb-1 spec-1"><span>Descripción</span><span class="dot"></span></div>
-                <p class="text-justify para mb-2">
-                  <?php echo $r->DESCRIPCION; ?><br><br>
-                </p> 
-              </div>
-              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                <div class="d-flex flex-row align-items-center">
-                  <h4 class="mr-1">Bs <?php echo $r->COSTO; ?>.00</h4>
-                </div>
-                <h6 class="text-success">Gastos minimo en el lugar</h6>
-                <div class="d-flex flex-column mt-4">
-                  <button onclick="confirmarAgregarVisita('<?php echo $r->ID; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
-                  <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->ID; ?>" class="btn btn-danger btn-sm mt-2"><i class='fas fa-edit'></i> Ver Mapa y Imagenes</a>         
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="container mt-10 mb-8 resultadoFila">
+                    <div class="d-flex justify-content-center row">
+                        <div class="col-md-12">
+                            <div class="row p-2 border rounded mt-2" style="<?php echo $bgColor; ?>">
+                                <div class="col-md-3 mt-1">
+                                    <img class="img-fluid img-responsive rounded product-image" src="<?php echo $r->CARGA1; ?>" alt="Imagen no disponible" width="250">
+                                </div>
+                                <div class="col-md-6 mt-1">
+                                    <h5 class="tituloLugar">ID: <?php echo $r->ID; ?>/<?php echo $r->TITULO; ?></h5>
+                                    <div class="d-flex flex-row">
+                                        <div class="ratings mr-2">
+                                            <?php 
+                                            // Mostrar estrellas según el valor de $stars
+                                            for ($i = 1; $i <= $stars; $i++) {
+                                                echo '<i class="fa fa-star"></i>';
+                                            }
+                                            // Mostrar estrellas vacías si son menos de 5
+                                            for ($i = $stars + 1; $i <= 5; $i++) {
+                                                echo '<i class="fa fa-star-o"></i>'; // Icono de estrella vacía
+                                            }
+                                            ?>
+                                        </div>
+                                        <span>Calificación: <?php echo $r->Peso_7_out_comprimido; ?></span>
+                                    </div>
+                                    <div class="mt-1 mb-1 spec-1"><span>Descripción</span><span class="dot"></span></div>
+                                    <p class="text-justify para mb-2">
+                                        <?php echo $r->DESCRIPCION; ?><br><br>
+                                    </p> 
+                                </div>
+                                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <h4 class="mr-1">Bs <?php echo $r->COSTO; ?>.00</h4>
+                                    </div>
+                                    <h6 class="text-success">Gastos mínimo en el lugar</h6>
+                                    <div class="d-flex flex-column mt-4">
+                                        <button onclick="confirmarAgregarVisita('<?php echo $r->ID; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
+                                        <a href="?c=categoria&a=Crud_Aux&ver_id=<?php echo $r->ID; ?>" class="btn btn-danger btn-sm mt-2">
+                                            <i class='fas fa-edit'></i> Ver Mapa y Imágenes
+                                        </a>         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
       <?php 
       $index++; // Increment index after each row
       endforeach; ?>
