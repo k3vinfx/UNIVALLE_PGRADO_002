@@ -141,7 +141,7 @@
       <img src="assets/img/etreva_logo.jpg">
     </div>
     <div class="text-center mt-4 name">
-  RED NEURONA RECURRENTE ...
+  RED NEURONAL RECURRENTE
     </div>
     </br>
     <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">

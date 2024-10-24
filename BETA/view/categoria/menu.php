@@ -26,7 +26,7 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-      <a class="nav-link" href="?c=categoria&a=Index_1">
+  <a class="nav-link" href="?c=categoria&a=Index_1">
 	  	 <i class="fas fa-utensils"></i>
             <span>Gastronomicas</span>
 	  </a>
@@ -35,9 +35,9 @@
 
   <!-- Nav Item - Productos Collapse Menu -->
   <li class="nav-item">
-     <a class="nav-link" href="?c=categoria&a=Index_2">  
+  <a class="nav-link" href="?c=categoria&a=Index_2">  
 		<i class="fas fa-map-marker-alt"></i>
-            <span>Lugares</span>
+            <span>Pubs - Bares</span>
 	  </a>
 	
   </li>
@@ -46,7 +46,7 @@
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_3">  
 	  <i class="fas fa-hiking"></i>
-            <span>Aventura</span>
+            <span>Museo - Historia</span>
 	  </a>
   </li>
 
@@ -54,31 +54,45 @@
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_4">  
 	  <i class="fas fa-university"></i>
-            <span>Cultural</span>
+            <span>Aventura</span>
 	  </a>
   </li>
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_5">  
 	  <i class="fas fa-cocktail"></i>
-            <span>Vida Nocturna</span>
+            <span>Diversión</span>
 	  </a>
   </li>
 
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_6">  
 	  <i class="fas fa-shopping-bag"></i>
-            <span>Tiendas Artesanales</span>
+            <span>Plazas y Lugares de Interes</span>
 	  </a>
   </li>
 
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_7">  
 	  <i class="fas fa-star"></i>
-            <span>Reseñas</span>
+            <span>Tiendas Artesanales</span>
 	  </a>
-	
   </li>
+
+  <li class="nav-item">
+  <a class="nav-link" href="?c=categoria&a=Index_8">  
+	  <i class="fas fa-star"></i>
+            <span>Familia o en Compañia</span>
+	  </a>
+  </li>
+
+  <li class="nav-item">
+  <a class="nav-link" href="?c=categoria&a=Index_9">  
+	  <i class="fas fa-star"></i>
+            <span>Fiestas Festivas por Temporada</span>
+	  </a>
+  </li>
+
   <?php //if ($_SESSION['rol'] == 1) { ?>
 
   <?php //} ?>
