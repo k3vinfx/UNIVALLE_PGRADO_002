@@ -173,18 +173,6 @@
     });
   </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  <?php if (isset($_SESSION["login_error"])) : ?>
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: '<?php echo $_SESSION["login_error"]; ?>',
-      confirmButtonText: 'Aceptar'
-    });
-    <?php unset($_SESSION["login_error"]); // Eliminar mensaje después de mostrarlo ?>
-  <?php endif; ?>
-</script>
 
 
 
