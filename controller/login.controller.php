@@ -48,7 +48,7 @@ class LoginController{
         header('Location: index.php?c=principal');
     } else {
         require_once 'view/inicio/login.php';
-        require_once 'view/footerx.php';
+ 
       //  header('Location: index.php?c=inicio&a=LoginError');
 
         
