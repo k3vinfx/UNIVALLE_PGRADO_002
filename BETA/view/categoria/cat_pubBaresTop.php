@@ -106,7 +106,7 @@
                         $stars = 5; // 5 estrellas
                     }
                 ?>
-                <div class="container mt-10 mb-8 resultadoFila">
+                <div class="container mt-12 mb-8 resultadoFila">
                     <div class="d-flex justify-content-center row">
                         <div class="col-md-12">
                             <div class="row p-2 border rounded mt-2" style="<?php echo $bgColor; ?>">
