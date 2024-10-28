@@ -81,32 +81,32 @@
     </div>
   </div>
 
-  <div class="row" name="resultadosCont" id="resultadosCont">
-    <div class="col-lg-12 mx-auto" id="originalResults">
-    <div class="col-lg-12 mx-auto">
-      <?php 
-      $contador = 0;
-      $index = 0; // Initialize index for zebra striping
-      foreach($this->model->MenuLista_2() as $r): 
-        // Determine the background color based on even/odd index
-        $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
-        $contador++;
+      <div class="row" name="resultadosCont" id="resultadosCont">
+        <div class="col-lg-12 mx-auto" id="originalResults">
+            <div class="col-lg-12 mx-auto">
+                <?php 
+                $contador = 0;
+                $index = 0; // Inicializar índice para zebra striping
+                foreach($this->model->MenuLista_2() as $r): 
+                    // Determinar el color de fondo según el índice (par/impar)
+                    $bgColor = $index % 2 === 0 ? 'background-color: #f0f0f0;' : 'background-color: #dcdae8;'; 
+                    $contador++;
 
-        // Calcular la cantidad de estrellas según el valor de Peso_7_out_comprimido
-        $stars = 0;
-        if ($r->Peso_7_out_comprimido < 0.20) {
-            $stars = 1; // 1 estrella
-        } elseif ($r->Peso_7_out_comprimido < 0.40) {
-            $stars = 2; // 2 estrellas
-        } elseif ($r->Peso_7_out_comprimido < 0.60) {
-            $stars = 3; // 3 estrellas
-        } elseif ($r->Peso_7_out_comprimido < 0.80) {
-            $stars = 4; // 4 estrellas
-        } else {
-            $stars = 5; // 5 estrellas
-        }
-      ?>
-        <div class="container mt-10 mb-8 resultadoFila">
+                    // Calcular la cantidad de estrellas según el valor de Peso_7_out_comprimido
+                    $stars = 0;
+                    if ($r->Peso_7_out_comprimido < 0.20) {
+                        $stars = 1; // 1 estrella
+                    } elseif ($r->Peso_7_out_comprimido < 0.40) {
+                        $stars = 2; // 2 estrellas
+                    } elseif ($r->Peso_7_out_comprimido < 0.60) {
+                        $stars = 3; // 3 estrellas
+                    } elseif ($r->Peso_7_out_comprimido < 0.80) {
+                        $stars = 4; // 4 estrellas
+                    } else {
+                        $stars = 5; // 5 estrellas
+                    }
+                ?>
+                <div class="container mt-10 mb-8 resultadoFila">
                     <div class="d-flex justify-content-center row">
                         <div class="col-md-12">
                             <div class="row p-2 border rounded mt-2" style="<?php echo $bgColor; ?>">
@@ -150,12 +150,14 @@
                             </div>
                         </div>
                     </div>
-      <?php 
-      $index++; // Increment index after each row
-      endforeach; ?>
+                </div>
+                <?php 
+                $index++; // Incrementar índice después de cada fila
+                endforeach; ?>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
 
 <!-- /.container-fluid -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -174,14 +176,12 @@ function buscarDatosEnviados() {
     var horario = $('#horario').val();
     var correo = $('#correo').val().trim();
     var aux_D = 0;
-    var aux_cat = 2;
+    var aux_cat = 1;
     console.log("Datos enviados Busqueda>>",
             "\nPrecio:", precio,
             "\nCompañía:", compania,
             "\nHorario:", horario,
-            "\nCorreo:", correo,
-            "\nCategoria:", aux_cat,
-          );
+            "\nCorreo:", correo);
     $.ajax({
       url: '?c=categoria&a=Solicitud_Busqueda_Input',
       type: 'POST',
@@ -391,20 +391,20 @@ $(document).ready(function() {
   // Inicialmente ocultar los campos si el radio button 'Radios1' está seleccionado
   toggleFields1();
 
-  console.log('script cargado');
+  console.log('script cargado....');
   const net = new brain.NeuralNetwork();
   const data = [
     <?php foreach ($this->model->MenuListaNeurona() as $dato): ?>
     {
       input: {
-        persona: <?php echo $dato->peso1; ?>, 
-        comp: <?php echo $dato->peso2; ?>, 
-        horario: <?php echo $dato->peso3; ?>,
-        edad: <?php echo $dato->peso4; ?>,
-        gasto: <?php echo $dato->peso5; ?>,
-        sexo: <?php echo $dato->peso6; ?>
+          persona: <?php echo $dato->peso1 ?? 0; ?>, // usa 0 si no hay valor
+          comp: <?php echo $dato->peso2 ?? 0; ?>,
+          horario: <?php echo $dato->peso3 ?? 0; ?>,
+          edad: <?php echo $dato->peso4 ?? 0; ?>,
+          gasto: <?php echo $dato->peso5 ?? 0; ?>,
+          sexo: <?php echo $dato->peso6 ?? 0; ?>
       },
-      output: { resultadoEsperado: <?php echo $dato->peso7; ?> }
+      output: { resultadoEsperado: <?php echo $dato->peso7 ?? 0; ?> }
     },
     <?php endforeach; ?>
   ];
