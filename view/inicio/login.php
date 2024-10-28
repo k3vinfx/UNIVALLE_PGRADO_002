@@ -159,6 +159,7 @@
     </form>
   </div>
 
+
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     particlesJS.load('particles-js', 'particles.json', function() {
@@ -171,6 +172,21 @@
       });
     });
   </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  <?php if (isset($_SESSION["login_error"])) : ?>
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: '<?php echo $_SESSION["login_error"]; ?>',
+      confirmButtonText: 'Aceptar'
+    });
+    <?php unset($_SESSION["login_error"]); // Eliminar mensaje después de mostrarlo ?>
+  <?php endif; ?>
+</script>
+
+
 
   <!-- particles.js config -->
   <script>

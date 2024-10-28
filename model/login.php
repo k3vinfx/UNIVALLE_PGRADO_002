@@ -19,40 +19,28 @@ private $pdo;
 		}
 	}
 
-    public function Login($CorreoElectronico, $Contrasena)
-	{
-        try
-        {
-            $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE User_Email = ? AND User_Pass = ?");
-            $stm->execute(array($CorreoElectronico,$Contrasena));
-            $usuario = $stm->fetch(PDO::FETCH_OBJ);
-
-           if ($usuario) {
-            // Verifica el tipo de usuario y almacénalo en la sesión
-            
-            $_SESSION["logged_in"] = true;
-            $_SESSION["session_type"] = $usuario->Usuario_Tipo;
-            $_SESSION["session_email"] = $usuario->User_Email;
-      
-            // Llama a la función ObtenerSecion() para realizar cualquier otra acción deseada
-           // $this->ObtenerSecion($CorreoElectronico);
-
-            return $usuario;
-        } else {
-            $_SESSION["logged_in"] = false;
-         
-            return $usuario; // Las credenciales son incorrectas
-        }
-        }
-        catch (Exception $e)
-        {
-            die($e->getMessage());
-        }
-
-
-
-	}
-
+  public function Login($CorreoElectronico, $Contrasena)
+  {
+      try {
+          $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE User_Email = ? AND User_Pass = ?");
+          $stm->execute(array($CorreoElectronico, $Contrasena));
+          $usuario = $stm->fetch(PDO::FETCH_OBJ);
+  
+          if ($usuario) {
+              $_SESSION["logged_in"] = true;
+              $_SESSION["session_type"] = $usuario->Usuario_Tipo;
+              $_SESSION["session_email"] = $usuario->User_Email;
+              return $usuario;
+          } else {
+              $_SESSION["logged_in"] = false;
+              $_SESSION["login_error"] = "Usuario o Contraseña Incorrecta"; // Mensaje de error
+              return false;
+          }
+      } catch (Exception $e) {
+          die($e->getMessage());
+      }
+  }
+  
   public function ObtenerSecion($CorreoElectronico)
 	{
 		try
@@ -74,6 +62,7 @@ private $pdo;
 	}
 	
 }
+
 /*
 $alert = '';
 session_start();
@@ -117,3 +106,18 @@ if (!empty($_SESSION['active'])) {
   }
 }*/
 ?>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  <?php if (isset($_SESSION["login_error"])) : ?>
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: '<?php echo $_SESSION["login_error"]; ?>',
+      confirmButtonText: 'Aceptar'
+    });
+    <?php unset($_SESSION["login_error"]); // Eliminar mensaje después de mostrarlo ?>
+  <?php endif; ?>
+</script>
+
+

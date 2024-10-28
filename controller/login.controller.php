@@ -47,7 +47,8 @@ class LoginController{
         // Redirigir a la página de productos o al procedimiento deseado
         header('Location: index.php?c=principal');
     } else {
-        header('Location: index.php?c=login&a=LoginError');
+        require_once 'view/inicio/login.php';
+        require_once 'view/footerx.php';
       //  header('Location: index.php?c=inicio&a=LoginError');
 
         
