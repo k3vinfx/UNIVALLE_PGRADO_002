@@ -122,7 +122,7 @@ body {
           <a href="?c=categoria&a=Index_7">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/front6.jpg"/>
-              <h5 class="white-text center bold">Tiendas Artesanales</h5>
+              <h5 class="white-text center bold">Tiendas & Artesanias</h5>
             </div>
           </a>
         </div>
