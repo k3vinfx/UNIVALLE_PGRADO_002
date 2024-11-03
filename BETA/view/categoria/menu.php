@@ -57,14 +57,14 @@
             <span>Plazas y Centros Culturales</span>
 	  </a>
   </li>
-  <!-- Nav Item - Utilities Collapse Menu -->
+  <!-- Nav Item - Utilities Collapse Menu --> 
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_5">  
 	  <i class="fas fa-cocktail"></i>
             <span>Tiendas & Artesanias</span>
 	  </a>
   </li>
-s
+
   
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_6">  
