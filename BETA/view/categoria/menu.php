@@ -54,7 +54,7 @@
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_4">  
 	  <i class="fas fa-university"></i>
-            <span>Aventura</span>
+            <span>Aventura.....</span>
 	  </a>
   </li>
   <!-- Nav Item - Utilities Collapse Menu -->
