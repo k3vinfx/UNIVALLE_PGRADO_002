@@ -54,38 +54,18 @@
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_4">  
 	  <i class="fas fa-university"></i>
-            <span>Aventura.....</span>
+            <span>Plazas y Lugares de Interesantes</span>
 	  </a>
   </li>
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_5">  
 	  <i class="fas fa-cocktail"></i>
-            <span>Diversión</span>
+            <span>Tiendas y artesanias</span>
 	  </a>
   </li>
 
-  <li class="nav-item">
-  <a class="nav-link" href="?c=categoria&a=Index_6">  
-	  <i class="fas fa-shopping-bag"></i>
-            <span>Plazas y Lugares de Interes</span>
-	  </a>
-  </li>
-
-  <li class="nav-item">
-  <a class="nav-link" href="?c=categoria&a=Index_7">  
-	  <i class="fas fa-star"></i>
-            <span>Tiendas Artesanales</span>
-	  </a>
-  </li>
-
-  <li class="nav-item">
-  <a class="nav-link" href="?c=categoria&a=Index_8">  
-	  <i class="fas fa-star"></i>
-            <span>Familia o en Compañia</span>
-	  </a>
-  </li>
-
+  
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_9">  
 	  <i class="fas fa-star"></i>
