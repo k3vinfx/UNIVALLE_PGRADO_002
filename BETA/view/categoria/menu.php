@@ -64,10 +64,10 @@
             <span>Tiendas & Artesanias</span>
 	  </a>
   </li>
-
+s
   
   <li class="nav-item">
-  <a class="nav-link" href="?c=categoria&a=Index_9">  
+  <a class="nav-link" href="?c=categoria&a=Index_6">  
 	  <i class="fas fa-star"></i>
             <span>Fiestas Festivas por Temporada</span>
 	  </a>
