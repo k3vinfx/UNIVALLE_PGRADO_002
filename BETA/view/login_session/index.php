@@ -113,7 +113,7 @@ body {
           <a href="?c=categoria&a=Index_6">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/category_3.jpg"/>
-              <h5 class="white-text center bold">Plazas y Lugares de Interes</h5>
+              <h5 class="white-text center bold">Plazas y Centros Culturales</h5>
             </div>
           </a>
         </div>

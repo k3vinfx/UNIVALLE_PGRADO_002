@@ -54,14 +54,14 @@
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_4">  
 	  <i class="fas fa-university"></i>
-            <span>Plazas y Lugares de Interesantes</span>
+            <span>Plazas y Centros Culturales</span>
 	  </a>
   </li>
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
   <a class="nav-link" href="?c=categoria&a=Index_5">  
 	  <i class="fas fa-cocktail"></i>
-            <span>Tiendas y artesanias</span>
+            <span>Tiendas & Artesanias</span>
 	  </a>
   </li>
 
