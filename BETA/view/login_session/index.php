@@ -107,6 +107,8 @@ body {
         </div>
 
 
+    
+
         <div class="col">
           <a href="?c=categoria&a=Index_6">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
@@ -116,8 +118,15 @@ body {
           </a>
         </div>
 
-    
-      
+        <div class="col">
+          <a href="?c=categoria&a=Index_7">
+            <div class="selectable-card" style="width: 300px; margin: 50px;">
+                <img src="./static/images/front6.jpg"/>
+              <h5 class="white-text center bold">Tiendas Artesanales</h5>
+            </div>
+          </a>
+        </div>
+  
       <div class="col">
           <a href="?c=categoria&a=Index_9">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
