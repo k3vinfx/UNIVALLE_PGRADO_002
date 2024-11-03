@@ -108,25 +108,6 @@ body {
 
 
         <div class="col">
-          <a href="?c=categoria&a=Index_4">
-            <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/front4.jpg"/>
-              <h5 class="white-text center bold">Aventura</h5>
-            </div>
-          </a>
-        </div>
-
-        
-        <div class="col">
-          <a href="?c=categoria&a=Index_5">
-            <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/front5.jpg"/>
-              <h5 class="white-text center bold">Diversión</h5>
-            </div>
-          </a>
-        </div>
-
-        <div class="col">
           <a href="?c=categoria&a=Index_6">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
                 <img src="./static/images/category_3.jpg"/>
@@ -135,22 +116,8 @@ body {
           </a>
         </div>
 
-        <div class="col">
-          <a href="?c=categoria&a=Index_7">
-            <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/front6.jpg"/>
-              <h5 class="white-text center bold">Tiendas Artesanales</h5>
-            </div>
-          </a>
-        </div>
-        <div class="col">
-          <a href="?c=categoria&a=Index_8">
-            <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="./static/images/front7.jpg"/>
-              <h5 class="white-text center bold">Pasarlo en Familia o con algun acompañante</h5>
-            </div>
-          </a>
-      </div>
+    
+      
       <div class="col">
           <a href="?c=categoria&a=Index_9">
             <div class="selectable-card" style="width: 300px; margin: 50px;">
