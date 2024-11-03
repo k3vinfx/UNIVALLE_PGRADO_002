@@ -158,7 +158,7 @@ body {
       <h5 class="white-text center">Alternativas Turisticas</h5>
     </div>
     <div class="grid">
-      <h1 class="count red-text text-darken-4 bold center">9</h1>
+      <h1 class="count red-text text-darken-4 bold center">6</h1>
       <h5 class="white-text center">Categorias Novedosas</h5>
     </div>
     <div class="grid">
