@@ -94,7 +94,7 @@ class CategoriaController{
         $clienteEmail = $_SESSION['Cliente_Email'];
    
         require_once 'view/categoria/header.php';
-        require_once 'view/categoria/cat_plazasLugaresInteresTop.php';
+        require_once 'view/categoria/cat_fiestasTemporadaTop.php';
         require_once 'view/categoria/footerx.php';
     }
 
