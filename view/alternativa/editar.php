@@ -173,69 +173,151 @@
         });
     </script>
 
+<div class="container mt-14 lg-14 mb-4">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-12">
+            <div class="row p-5 bg-white border rounded mt-1">
+                <div class="col-md-6 mt-1">
+                    <div id="slider">
+                        <img src="<?php echo $pvd->img1; ?>" alt="">
+                        <img src="<?php echo $pvd->img2; ?>" alt="">
+                        <img src="<?php echo $pvd->img3; ?>" alt="">
+                        <img src="<?php echo $pvd->img4; ?>" alt="">
+                        <img src="<?php echo $pvd->img5; ?>" alt="">
+                    </div>
+                    <div>
+                        <br>
+                        <!-- Botón de Editar -->
+                        <button onclick="window.location.href='?c=categoria&a=EditarImagenes&id=<?php echo $pvd->idFK; ?>'" class="btn btn-primary">
+                            Editar Imágenes
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="align-items-right align-content-left col-md-5 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">Bs <?php echo $pvd->costo; ?>.00</h4>
+                    </div>
+                    <h6 class="text-success">Gastos mínimo en el lugar</h6>
+                    <h5>Lugar: <?php echo $pvd->titulo; ?> </h5>
+                    <div class="d-flex flex-row">
+                        <div class="ratings mr-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span>123</span>
+                    </div>
+                    <p class="text-justify para mb-2">
+                        <?php echo $pvd->descrip; ?>
+                    </p>
+                    <div class="d-flex flex-column mt-4">
+                        <button onclick="confirmarAgregarVisita('<?php echo $pvd->idFK; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
+                        <a href="?c=categoria&a=Index_1" class="btn btn-success btn-sm mt-2"><i class='fas fa-edit'></i> Regresar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
+    <!-- Content Row -->
     <div class="row">
         <div class="col-lg-8 m-auto">
-            <div class="card-header bg-primary text-white">Editar Alternativa..</div>
+            <div class="card-header bg-primary text-white">
+            Alternativa
+            </div>
             <div class="card">
-                <form id="frm-editar" action="?c=alternativa&a=Editar" method="post" enctype="multipart/form-data" class="card-body p-2" autocomplete="off">
+                <form id="frm-editar" action="?c=alternativa&a=Editar" method="post"  autocomplete="off"class="card-body p-2" enctype="multipart/form-data">
                     <?php echo isset($alert) ? $alert : ''; ?>
-                    
+
                     <input type="hidden" name="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
-
-                    <div class="form-group">
-                        <label for="nombre">Nombre de la Alternativa</label>
-                        <input type="text" name="nombre" id="nombre" value="<?php echo $pvd->TITULO; ?>" class="form-control" placeholder="Ingresa el Nombre de la Alternativa">
+                  
+                     <div class="form-group">
+                         <label for="inputEmail4">Nombre de la Alternativa</label>
+                             <input type="text" name="nombre" id="nombre"
+                      value="<?php echo $pvd->TITULO;?>"
+                     class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
                     </div>
 
-                    <!-- Ubicación, Categoría, Precio y Descripción -->
+
                     <div class="form-row">
-                        <!-- Más campos de formulario aquí... -->
+                        <div class="form-group col-md-6">
+                        <label for="direccion">Ubicacion</label>
+                        <input type="text" placeholder="Ingrese Ubicacion"
+                         name="ubicacion" id="ubicacion" class="form-control" 
+                         value="<?php echo $pvd->ubicacion;?>">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label id="lb_entrada_1">Categoria</label>
+                        <select class="custom-select selevt"  name="categoria" id="categoria" >
+                    <option   value="<?php echo $pvd->IDCAT;?>"> <?php echo $pvd->categorias;?> </opcion>
+                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
+                        <option  value="<?php echo $Tipo->Categoria_id ; ?>">
+                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
+                        </option>       
+                    <?php endforeach; ?>
+                    </select>    
+                        </div>
                     </div>
+                    
 
-                    <!-- Mostrar imágenes actuales -->
-                    <div class="form-group">
-                        <label>Imágenes Actuales:</label>
-                        <div class="row">
-                            <?php if (!empty($pvd->archivo1)): ?>
-                                <div class="col-md-4">
-                                    <img src="<?php echo $pvd->archivo1; ?>" alt="Imagen 1" class="img-thumbnail">
-                                    <input type="checkbox" name="eliminar_archivo1" value="1"> Eliminar
-                                </div>
-                            <?php endif; ?>
-                            <?php if (!empty($pvd->archivo2)): ?>
-                                <div class="col-md-4">
-                                    <img src="<?php echo $pvd->archivo2; ?>" alt="Imagen 2" class="img-thumbnail">
-                                    <input type="checkbox" name="eliminar_archivo2" value="1"> Eliminar
-                                </div>
-                            <?php endif; ?>
-                            <!-- Repite el bloque para las demás imágenes -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="telefono">Precio</label>
+                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
+                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="direccion">Descripcion</label>
+                        <input type="text" placeholder="Ingrese Direccion"
+                         name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
+                        </div>
+                    </div>
+                 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="telefono">Latitud</label>
+                        <input type="text" step="1" placeholder="Ingrese su latitud" 
+                        name="Latitud" id="Latitud" class="form-control" value="1">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="telefono">Longitud</label>
+                        <input type="text" step="1" placeholder="Ingrese su longitud" 
+                        name="Longitud" id="Longitud" class="form-control" value="2">
                         </div>
                     </div>
 
-                    <!-- Cargar nuevas imágenes -->
-                    <div class="form-group">
-                        <label for="archivo" class="control-label">Subir Nuevas Imágenes (Opcional)</label>
-                        <input type="file" class="form-control" id="archivo" name="archivo[]" multiple>
-                        <label class="custom-file-label" for="archivo">Escoja un Archivo de Imagen o Varias Imágenes</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                      <label for="status" class="control-label">Estado</label>
+                        <select name="estado" id="estado" class="custom-select selevt">
+                        <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Activo</option>
+                        <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
+                        </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                             <label for="" class="control-label">Images</label>
+                        <div class="custom-file">
+                        <input type="file" class="form-control" id="archivo" name="archivo" multiple>      
+                          <label class="custom-file-label" for="archivo">Escoje un Archivo de Imagen o Varias Imagenes</label>
+                        </div>
                     </div>
 
-                    <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+                x
+        
+
+                    <input type="submit" value="Editar Alternativa" class="btn btn-primary">
                     <a href="?c=alternativa" class="btn btn-danger">Regresar</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-$(document).ready(function(){
-    $("#frm-editar").submit(function(){
-        return $(this).validate();
-    });
-});
-</script>
 
 <br>
 <script>
