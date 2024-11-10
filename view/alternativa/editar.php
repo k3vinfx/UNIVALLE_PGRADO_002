@@ -1,3 +1,65 @@
+ <!-- Load Leaflet from CDN -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+    integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+    crossorigin=""></script>
+
+    <style>
+#slider{
+    margin: 0 auto;
+    width: 310px;
+    height: 300px;
+    overflow:hidden;
+    background-color: black;
+}
+/*Valores de las imagenes*/
+#slider img{
+    margin: 10 auto;
+    -moz-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    opacity: 0;
+}
+/*Para que la primera imagen este activa al inicio*/
+#slider img:nth-child(1){
+    opacity: 1;
+}
+
+table{
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    overflow:hidden;
+    background-color: white;
+    border: 0;
+}
+
+#izquierda{
+    text-align: right;
+}
+#derecha{
+    text-align: left;
+}
+</style>
+
 <h1 class="page-header">
     Editar Alternativa
 </h3>
@@ -194,30 +256,7 @@
                     </div>
                 </div>
                 
-                <!-- Información adicional -->
-                <div class="align-items-right align-content-left col-md-5 border-left mt-1">
-                    <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">Bs <?php echo $pvd->costo; ?>.00</h4>
-                    </div>
-                    <h6 class="text-success">Gastos mínimo en el lugar</h6>
-                    <h5>Lugar: <?php echo $pvd->titulo; ?> </h5>
-                    <div class="d-flex flex-row">
-                        <div class="ratings mr-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <span>123</span>
-                    </div>
-                    <p class="text-justify para mb-2">
-                        <?php echo $pvd->descrip; ?>
-                    </p>
-                    <div class="d-flex flex-column mt-4">
-                        <button onclick="confirmarAgregarVisita('<?php echo $pvd->idFK; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
-                        <a href="?c=categoria&a=Index_1" class="btn btn-success btn-sm mt-2"><i class='fas fa-edit'></i> Regresar</a>
-                    </div>
-                </div>
+ 
             </div>
         </div>
     </div>
