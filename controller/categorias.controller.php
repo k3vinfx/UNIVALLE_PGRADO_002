@@ -95,7 +95,7 @@ class CategoriasController{
         $datosImagenes = $this->model->Obtener($_REQUEST['Recomendacion_id']);
         
         // Combinar los datos generales y las imágenes en un solo objeto
-        $pvd = (object) array_merge((array) $datosGenerales, (array) $datosImagenes);
+        $pvd = (object) array_merge((array) $datosGenerales);
     }
         require_once 'view/pago/header.php';      
         require_once 'view/alternativa/editar.php';
