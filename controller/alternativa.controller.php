@@ -58,16 +58,27 @@ class AlternativaController{
         require_once 'view/footerx.php';
     }
 
-    public function Crud(){
-        $pvd = new alternativa();
 
-        if(isset($_REQUEST['Recomendacion_id'])){
-            $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
-        }
-        require_once 'view/pago/header.php';    
+
+    public function Crud(){
+        $pvd = new categorias();
+
+        // Comprobar si `Recomendacion_id` está en la solicitud
+    if (isset($_REQUEST['Recomendacion_id'])) {
+        // Llamar al método ObtenerX para obtener los datos generales
+        $datosGenerales = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
+        
+        // Llamar al método Obtener para obtener las imágenes y otros datos adicionales
+        $datosImagenes = $this->model->ObtenerImg($_REQUEST['Recomendacion_id']);
+        
+        // Combinar los datos generales y las imágenes en un solo objeto
+        $pvd = (object) array_merge((array) $datosGenerales);
+    }
+        require_once 'view/pago/header.php';      
         require_once 'view/alternativa/editar.php';
         require_once 'view/footerx.php';
     }
+
 
     public function Crud_Brain(){
         $pvd = new alternativa();
