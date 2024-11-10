@@ -474,29 +474,5 @@ class alternativa
 		}
 	}
 
-	public function Obtener($id)
-	{
-	  try
-	  {
-		$stm = $this->pdo->prepare("SELECT a.Recomendacion_FK as idFK,	
-		a.Recomendacion_Img1 as img1,	
-		a.Recomendacion_Img2 as img2,				
-		a.Recomendacion_Img3 as img3,					
-		a.Recomendacion_Img4 as img4,				
-		a.Recomendacion_Img5 as img5,	
-		b.Recomendacion_ubicacion_tour as nombre,
-		b.Recomendacion_titulo as titulo,
-		b.Recomendacion_descripcion as descrip,
-		b.Recomendacion_costo as costo,
-		b.Recomendacion_latlong as latlong
-		FROM recomendacion_img a
-		INNER JOIN recomendacion b ON b.Recomendacion_id = a.Recomendacion_FK
-		WHERE a.Recomendacion_FK =?");
-		$stm->execute(array($id));
-		return $stm->fetch(PDO::FETCH_OBJ);
-	  } catch (Exception $e)
-	  {
-		die($e->getMessage());
-	  }
-	}
+	
 }
