@@ -72,7 +72,7 @@ class AlternativaController{
         $datosImagenes = $this->model->ObtenerImg($_REQUEST['Recomendacion_id']);
         
         // Combinar los datos generales y las imágenes en un solo objeto
-        $pvd = (object) array_merge((array) $datosGenerales);
+        $pvd = (object) array_merge((array) $datosGenerales, (array) $datosImagenes);
     }
         require_once 'view/pago/header.php';      
         require_once 'view/alternativa/editar.php';
