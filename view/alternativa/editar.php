@@ -1,45 +1,3 @@
-
-<style>
-#slider{
-    margin: 0 auto;
-    width: 310px;
-    height: 300px;
-    overflow:hidden;
-    background-color: black;
-}
-/*Valores de las imagenes*/
-#slider img{
-    margin: 10 auto;
-    -moz-transition: opacity 2s;
-    -webkit-transition: opacity 2s;
-    transition: opacity 2s;
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    opacity: 0;
-}
-/*Para que la primera imagen este activa al inicio*/
-#slider img:nth-child(1){
-    opacity: 1;
-}
-
-table{
-    margin: 0 auto;
-    width: 300px;
-    height: auto;
-    overflow:hidden;
-    background-color: white;
-    border: 0;
-}
-
-#izquierda{
-    text-align: right;
-}
-#derecha{
-    text-align: left;
-}
-</style>
-
 <h1 class="page-header">
     Editar Alternativa
 </h3>
@@ -228,38 +186,29 @@ table{
                         <img src="<?php echo $pvd->img5; ?>" alt="">
                     </div>
                     <div>
-                        <br>
-                        <!-- Botón de Editar -->
-                        <button onclick="window.location.href='?c=categoria&a=EditarImagenes&id=<?php echo $pvd->idFK; ?>'" class="btn btn-primary">
+
+                    <table>
+                                <tr>
+                                    <td id="izquierda">
+                                        <input type="button" value="anterior" id="izquierda">
+                                    </td>
+                                    <td id="derecha">
+                                        <input type="button" value="siguiente" id="derecha">
+                                    </td>
+                                    <td>
+                                    <button onclick="window.location.href='?c=categoria&a=EditarImagenes&id=<?php echo $pvd->idFK; ?>'" class="btn btn-primary">
                             Editar Imágenes
                         </button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        <br>
+              
                     </div>
                 </div>
                 
-                <!-- Información adicional -->
-                <div class="align-items-right align-content-left col-md-5 border-left mt-1">
-                    <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">Bs <?php echo $pvd->costo; ?>.00</h4>
-                    </div>
-                    <h6 class="text-success">Gastos mínimo en el lugar</h6>
-                    <h5>Lugar: <?php echo $pvd->titulo; ?> </h5>
-                    <div class="d-flex flex-row">
-                        <div class="ratings mr-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <span>123</span>
-                    </div>
-                    <p class="text-justify para mb-2">
-                        <?php echo $pvd->descrip; ?>
-                    </p>
-                    <div class="d-flex flex-column mt-4">
-                        <button onclick="confirmarAgregarVisita('<?php echo $pvd->idFK; ?>', '<?php echo htmlspecialchars($clienteEmail, ENT_QUOTES, 'UTF-8'); ?>')">Agregar Visita</button>
-                        <a href="?c=categoria&a=Index_1" class="btn btn-success btn-sm mt-2"><i class='fas fa-edit'></i> Regresar</a>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -307,8 +256,31 @@ table{
                     </div>
                     
 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="telefono">Precio</label>
+                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
+                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="direccion">Descripcion</label>
+                        <input type="text" placeholder="Ingrese Direccion"
+                         name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
+                        </div>
+                    </div>
                  
-                
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="telefono">Latitud</label>
+                        <input type="text" step="1" placeholder="Ingrese su latitud" 
+                        name="Latitud" id="Latitud" class="form-control" value="1">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="telefono">Longitud</label>
+                        <input type="text" step="1" placeholder="Ingrese su longitud" 
+                        name="Longitud" id="Longitud" class="form-control" value="2">
+                        </div>
+                    </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
