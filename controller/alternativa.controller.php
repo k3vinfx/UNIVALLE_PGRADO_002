@@ -64,6 +64,10 @@ class AlternativaController{
         if(isset($_REQUEST['Recomendacion_id'])){
             $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
         }
+        
+        if(isset($_REQUEST['Recomendacion_id'])){
+            $pvd = $this->model->Obtener($_REQUEST['Recomendacion_id']);
+        }
         require_once 'view/pago/header.php';    
         require_once 'view/alternativa/editar.php';
         require_once 'view/footerx.php';
