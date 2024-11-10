@@ -1,3 +1,45 @@
+
+<style>
+#slider{
+    margin: 0 auto;
+    width: 310px;
+    height: 300px;
+    overflow:hidden;
+    background-color: black;
+}
+/*Valores de las imagenes*/
+#slider img{
+    margin: 10 auto;
+    -moz-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    opacity: 0;
+}
+/*Para que la primera imagen este activa al inicio*/
+#slider img:nth-child(1){
+    opacity: 1;
+}
+
+table{
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    overflow:hidden;
+    background-color: white;
+    border: 0;
+}
+
+#izquierda{
+    text-align: right;
+}
+#derecha{
+    text-align: left;
+}
+</style>
+
 <h1 class="page-header">
     Editar Alternativa
 </h3>
