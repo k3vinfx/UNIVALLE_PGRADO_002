@@ -249,10 +249,24 @@ table{
                     </div>
                     <div>
                         <br>
-                        <!-- Botón de Editar -->
+                        <table>
+                                <tr>
+                                    <td id="izquierda">
+                                        <input type="button" value="anterior" id="izquierda">
+                                    </td>
+                                    <td id="derecha">
+                                        <input type="button" value="siguiente" id="derecha">
+                                    </td>
+                                    <td>
+                                          <!-- Botón de Editar -->
                         <button onclick="window.location.href='?c=categoria&a=EditarImagenes&id=<?php echo $pvd->idFK; ?>'" class="btn btn-primary">
                             Editar Imágenes
                         </button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                      
                     </div>
                 </div>
                 
