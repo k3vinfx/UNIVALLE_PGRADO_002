@@ -91,8 +91,6 @@ class CategoriasController{
         // Llamar al método ObtenerX para obtener los datos generales
         $datosGenerales = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
         
-        // Llamar al método Obtener para obtener las imágenes y otros datos adicionales
-        $datosImagenes = $this->model->Obtener($_REQUEST['Recomendacion_id']);
         
         // Combinar los datos generales y las imágenes en un solo objeto
         $pvd = (object) array_merge((array) $datosGenerales);
