@@ -175,6 +175,13 @@
 
 
 <div class="container-fluid">
+<div>
+    <img src="<?php echo $pvd->img1; ?>" alt="Imagen 1">
+    <img src="<?php echo $pvd->img2; ?>" alt="Imagen 2">
+    <img src="<?php echo $pvd->img3; ?>" alt="Imagen 3">
+    <img src="<?php echo $pvd->img4; ?>" alt="Imagen 4">
+    <img src="<?php echo $pvd->img5; ?>" alt="Imagen 5">
+</div>
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-8 m-auto">
