@@ -1,3 +1,64 @@
+ <!-- Load Leaflet from CDN -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+    integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+    crossorigin=""></script>
+
+    <style>
+#slider{
+    margin: 0 auto;
+    width: 310px;
+    height: 300px;
+    overflow:hidden;
+    background-color: black;
+}
+/*Valores de las imagenes*/
+#slider img{
+    margin: 10 auto;
+    -moz-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    opacity: 0;
+}
+/*Para que la primera imagen este activa al inicio*/
+#slider img:nth-child(1){
+    opacity: 1;
+}
+
+table{
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    overflow:hidden;
+    background-color: white;
+    border: 0;
+}
+
+#izquierda{
+    text-align: right;
+}
+#derecha{
+    text-align: left;
+}
+</style>
 <h1 class="page-header">
     Editar Alternativa
 </h3>
@@ -177,14 +238,7 @@
 <div class="container-fluid">
     <!-- Content Row -->
 
-    <div>
-    <img src="<?php echo $pvd->img1; ?>" alt="Imagen 1">
-    <img src="<?php echo $pvd->img2; ?>" alt="Imagen 2">
-    <img src="<?php echo $pvd->img3; ?>" alt="Imagen 3">
-    <img src="<?php echo $pvd->img4; ?>" alt="Imagen 4">
-    <img src="<?php echo $pvd->img5; ?>" alt="Imagen 5">
-</div>
-
+    
     <div class="row">
         <div class="col-lg-8 m-auto">
             <div class="card-header bg-primary text-white">
@@ -203,7 +257,34 @@
                      class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
                     </div>
 
+                    <div class="d-flex justify-content-center row">
+                    <div class="col-md-12">
+                        <div class="row p-5 bg-white border rounded mt-1">
+                             <div class="col-md-6 mt-1">
+                                  <div id="slider">
+                                    <img src="<?php echo $pvd->img1; ?>" alt="">
+                                    <img src="<?php echo $pvd->img2; ?>" alt="">
+                                    <img src="<?php echo $pvd->img3; ?>" alt="">
+                                    <img src="<?php echo $pvd->img4; ?>" alt="">
+                                    <img src="<?php echo $pvd->img5; ?>" alt="">
 
+                                  </div>
+                              <div>
+                            <br>
+                            <table>
+                                <tr>
+                                    <td id="izquierda">
+                                        <input type="button" value="anterior" id="izquierda">
+                                    </td>
+                                    <td id="derecha">
+                                        <input type="button" value="siguiente" id="derecha">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>                              
+                    </div>
+
+                </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="direccion">Ubicacion</label>
