@@ -307,31 +307,8 @@ table{
                     </div>
                     
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                        <label for="telefono">Precio</label>
-                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
-                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label for="direccion">Descripcion</label>
-                        <input type="text" placeholder="Ingrese Direccion"
-                         name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
-                        </div>
-                    </div>
                  
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                        <label for="telefono">Latitud</label>
-                        <input type="text" step="1" placeholder="Ingrese su latitud" 
-                        name="Latitud" id="Latitud" class="form-control" value="1">
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label for="telefono">Longitud</label>
-                        <input type="text" step="1" placeholder="Ingrese su longitud" 
-                        name="Longitud" id="Longitud" class="form-control" value="2">
-                        </div>
-                    </div>
+                
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
