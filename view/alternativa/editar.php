@@ -379,4 +379,182 @@ table{
             return $(this).validate();
         });
     })
+
+    $(document).ready(function(){ 
+
+var valorPorDefecto = $('#ubicacion').val();
+
+
+var latLng = valorPorDefecto.split(',');
+var map = L.map('map').setView([parseFloat(latLng[0]), parseFloat(latLng[1])], 15); 
+// -14.256619,-69.707772
+// var map = L.map('map').setView([valorPorDefecto], 15);
+
+var gcs = L.esri.Geocoding.geocodeService();
+
+var marker = L.marker([parseFloat(latLng[0]), parseFloat(latLng[1])]).addTo(map); 
+
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
+
+//https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
+  
+gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
+    if(err) return;
+ 
+  var popupContent = "";
+  var inputContent = "";
+    if (res.address.Match_addr) {
+        popupContent += res.address.Match_addr + "<br>";
+     //   popupContentInfo += res.address.Match_addr ;
+    }
+    if (res.address.Street) {
+        popupContent += "Calle: " + res.address.Street + "<br>";
+        inputContent += "Calle: " + res.address.Street + ", ";
+
+    }
+    if (res.address.Neighborhood) {
+        popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
+   //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
+}
+    // ... (puedes agregar más detalles aquí)
+
+    // Mostrar la información en el popup
+    marker.bindPopup(popupContent).openPopup();
+
+    document.getElementById("text3").value = res.address.Match_addr;
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$('#myModal').on('shown.bs.modal', function () {
+        map.invalidateSize();
+    });
+
+
+
+// Obtiene el botón que abre el modal
+var modal = document.getElementById("myModal1");
+
+// Obtiene el botón que abre el modal
+
+
+
+
+
+
+
+// Función para guardar los cambios
+
+/*Contador inicializado en cero*/
+var contador=0;
+
+
+// var obj=document.getElementById('slider');
+//  var obj2=obj.getElementsByTagName('img');
+
+//  var contador = 0;
+var obj2 = $('#slider img'); // Suponiendo que tienes un div con id="slider" que contiene las imágenes
+
+// Asignar evento de clic al botón con id="derecha"
+$('#derecha').on('click', function() {
+    obj2.eq(contador).css('opacity', 0); // Ocultar la imagen actual
+    if (contador < 6) {
+        contador++;
+    } else {
+        contador = 0;
+    }
+    obj2.eq(contador).css('opacity', 1); // Mostrar la siguiente imagen
+    console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+});
+
+$('#izquierda').on('click', function() {
+       obj2[contador].style.opacity=0;
+        if (contador!=0) 
+        {
+            contador--;
+            obj2[contador].style.opacity=1;
+        }
+        else
+        {
+            contador=obj2.length-1;
+            obj2[contador].style.opacity=1;
+        }
+    });
+
+
+function cambiarManual(sentido)
+{
+    if (sentido=="DER") {
+        obj2[contador].style.opacity=0;
+        if (contador<6) 
+        {
+            contador++;
+            obj2[contador].style.opacity=1;
+            console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+        }
+        else
+        {
+            contador=0;
+            obj2[contador].style.opacity=1;
+            console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+        }
+    }
+    else if (sentido=="IZQ") 
+    {
+        obj2[contador].style.opacity=0;
+        if (contador!=0) 
+        {
+            contador--;
+            obj2[contador].style.opacity=1;
+        }
+        else
+        {
+            contador=obj2.length-1;
+            obj2[contador].style.opacity=1;
+        }
+    }
+}
+
+function cambiarImg(){	        
+
+    if(contador==obj2.length){
+        for(var i=0; i<obj2.length; i++){
+            obj2[i].style.opacity='0';
+            contador--;
+        }
+        obj2[contador].style.opacity='1';
+    }
+    else
+    {
+        obj2[contador].style.opacity='1';
+        contador++;
+    }
+    
+}
+
+
+
+$("#frm-nuevo").submit(function(){
+    return $(this).validate();
+});
+})
+
 </script>
