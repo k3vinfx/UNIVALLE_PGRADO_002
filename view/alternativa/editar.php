@@ -290,7 +290,7 @@ table{
 
                                      <label for="img1">Imagen Nueva:</label>
                                      <input type="file" class="form-control mb-2" id="imgX" name="imgX">
-
+                                     <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
                  
                                 </tr>
                             </table>
