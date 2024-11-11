@@ -364,6 +364,40 @@ table{
 <br>
 <script>
     $(document).ready(function(){
+
+        
+       // var obj=document.getElementById('slider');
+      //  var obj2=obj.getElementsByTagName('img');
+
+      //  var contador = 0;
+       var obj2 = $('#slider img'); // Suponiendo que tienes un div con id="slider" que contiene las imágenes
+
+        // Asignar evento de clic al botón con id="derecha"
+        $('#derecha').on('click', function() {
+            obj2.eq(contador).css('opacity', 0); // Ocultar la imagen actual
+            if (contador < 6) {
+                contador++;
+            } else {
+                contador = 0;
+            }
+            obj2.eq(contador).css('opacity', 1); // Mostrar la siguiente imagen
+            console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
+        });
+
+        $('#izquierda').on('click', function() {
+            obj2[contador].style.opacity=0;
+                if (contador!=0) 
+                {
+                    contador--;
+                    obj2[contador].style.opacity=1;
+                }
+                else
+                {
+                    contador=obj2.length-1;
+                    obj2[contador].style.opacity=1;
+                }
+            });
+
         $("#frm-editar").submit(function(){
             return $(this).validate();
         });

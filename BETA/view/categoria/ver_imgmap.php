@@ -256,15 +256,6 @@ table{
 
 
 
-
-
-
-
-
-
-
-
-
         $('#myModal').on('shown.bs.modal', function () {
                 map.invalidateSize();
             });
@@ -275,13 +266,6 @@ table{
         var modal = document.getElementById("myModal1");
 
         // Obtiene el botón que abre el modal
-
-
-
-
-      
-      
-
         // Función para guardar los cambios
        
        /*Contador inicializado en cero*/
