@@ -290,7 +290,7 @@ table{
 
                                      <label for="img1">Imagen Nueva:</label>
                                      <input type="file" class="form-control mb-2" id="imgX" name="imgX">
-                                     <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
+                                               <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
                  
                                 </tr>
                             </table>
@@ -415,7 +415,6 @@ table{
             return $(this).validate();
         });
 
-
         $('#saveChangesButtonImg').on('click', function(){
         var formData = new FormData();
 
@@ -430,7 +429,7 @@ table{
 
         // Agregar otros datos necesarios
         formData.append('id_recomendacion', $('input[name="id_recomendacion"]').val());
-        formData.append('nombreNuevo', $('#nombreNuevo').val());
+        // Elimina 'nombreNuevo' si no es necesario
 
         // Enviar la solicitud AJAX
         $.ajax({
@@ -455,11 +454,15 @@ table{
                     alert('Ocurrió un error al procesar la respuesta del servidor.');
                 }
             },
-            error: function(){
+            error: function(xhr, status, error){
+                console.error('Estado:', status);
+                console.error('Error:', error);
+                console.error('Respuesta del servidor:', xhr.responseText);
                 alert('Error al enviar la solicitud.');
             }
         });
-      });
+    });
+    
     })
 
     
