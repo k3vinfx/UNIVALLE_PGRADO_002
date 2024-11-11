@@ -119,6 +119,85 @@ class AlternativaController{
     }
 
 
+    public function EditarImagen1(){
+        $response = ["status" => "error", "message" => "Error desconocido."];
+        try {
+        $pvd_img = new alternativa();
+   
+      
+        $archivo1 = $_FILES['img1'];
+       // $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
+
+
+        $pvd_img->valor_1 = $_REQUEST['nombreNuevo'];
+        // Verifica si se subió correctamente el archivo
+        if ($archivo1['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+            $nombreOriginal = pathinfo($archivo1['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo1['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo1['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_01_' .  time() . '.' . $extensionArchivo;
+            // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            $pvd_img->valor_1 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+ 
+
+        $this->model->Registrar_img1($pvd);
+
+        $response = ["status" => "success", "message" => "Registro exitoso."];
+    } catch (Exception $e) {
+        $response = ["status" => "error", "message" => "Error al registrar: " . $e->getMessage()];
+    }
+    echo json_encode($response);      
+    }
+
+    public function EditarImagen2(){
+        $response = ["status" => "error", "message" => "Error desconocido."];
+        try {
+        $pvd_img = new alternativa();
+   
+      
+        $archivo1 = $_FILES['img1'];
+        $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
+        $pvd_img->valor_1 = $_REQUEST['nombreNuevo'];
+        // Verifica si se subió correctamente el archivo
+        if ($archivo1['error'] === UPLOAD_ERR_OK) {
+            // Accede a la información del archivo
+            $ultimoIdInsertado = $_SESSION['ultimoIdInsertado'];
+            $nombreOriginal = pathinfo($archivo1['name'], PATHINFO_FILENAME);
+            $extensionArchivo = pathinfo($archivo1['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $archivo1['tmp_name'];
+            // Genera un nuevo nombre de archivo único usando la fecha y hora
+            $nuevoNombreArchivo = $ultimoIdInsertado . '_02_' .  time() . '.' . $extensionArchivo;
+            // Haz lo que necesites con el archivo, como moverlo a una ubicación deseada
+            $nuevaRuta = "BETA/img/" . $nuevoNombreArchivo;
+            move_uploaded_file($rutaTemporal, $nuevaRuta);
+            // Asigna la ruta del archivo a tu objeto o modelo
+            $nuevaRuta = "img/" . $nuevoNombreArchivo;
+            $pvd_img->archivo1 = $nuevaRuta;
+        } else {
+            // Manejar errores de carga de archivos si es necesario
+            echo "Error al subir el archivo.";
+        }
+ 
+
+        $this->model->Registrar_img2($pvd);
+
+        $response = ["status" => "success", "message" => "Registro exitoso."];
+    } catch (Exception $e) {
+        $response = ["status" => "error", "message" => "Error al registrar: " . $e->getMessage()];
+    }
+    echo json_encode($response);      
+    }
     public function Guardar(){
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
@@ -271,8 +350,6 @@ class AlternativaController{
         //navegador
        
     }
-
-
     public function Editar(){
         $pvd = new alternativa();
         $pvd->valor_id = $_REQUEST['id_recomendacion'];

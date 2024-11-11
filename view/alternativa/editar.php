@@ -414,5 +414,53 @@ table{
         $("#frm-editar").submit(function(){
             return $(this).validate();
         });
+
+
+        $('#saveChangesButtonImg').on('click', function(){
+        var formData = new FormData();
+
+        // Obtener el archivo seleccionado
+        var fileInput = document.getElementById('img1');
+        if(fileInput.files.length > 0){
+            formData.append('img1', fileInput.files[0]);
+        } else {
+            alert('Por favor, seleccione una imagen para subir.');
+            return;
+        }
+
+        // Agregar otros datos necesarios
+        formData.append('id_recomendacion', $('input[name="id_recomendacion"]').val());
+        formData.append('nombreNuevo', $('#nombreNuevo').val());
+
+        // Enviar la solicitud AJAX
+        $.ajax({
+            url: '?c=alternativa&a=EditarImagen1',
+            type: 'POST',
+            data: formData,
+            contentType: false, // Importante para enviar archivos
+            processData: false, // Importante para enviar archivos
+            success: function(response){
+                // Manejar la respuesta del servidor
+                try {
+                    var res = JSON.parse(response);
+                    if(res.status == 'success'){
+                        alert(res.message);
+                        // Opcional: actualizar la imagen en la vista sin recargar la página
+                        location.reload(); // Recargar la página para ver los cambios
+                    } else {
+                        alert(res.message);
+                    }
+                } catch (e) {
+                    console.error(e);
+                    alert('Ocurrió un error al procesar la respuesta del servidor.');
+                }
+            },
+            error: function(){
+                alert('Error al enviar la solicitud.');
+            }
+        });
+      });
     })
+
+    
 </script>

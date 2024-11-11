@@ -434,6 +434,29 @@ class alternativa
 		}
 	}
 
+	public function Registrar_img1(alternativa $data)
+	{
+
+
+		try
+		{
+			$sql = "UPDATE recomendacion_img SET
+			Recomendacion_Img1           = ?,
+			WHERE recomendacion_img.Recomdacion_Img_Id = ?";
+
+			$this->pdo->prepare($sql)
+			     ->execute(
+				    array( 
+                   		$data->valor_1,	
+						$data->valor_id			
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function Registrar(alternativa $data)
 	{
 		try
