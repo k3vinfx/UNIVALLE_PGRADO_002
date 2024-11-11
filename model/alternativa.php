@@ -441,7 +441,7 @@ class alternativa
 		{
 			$sql = "UPDATE recomendacion_img SET
 					Recomendacion_Img1 = ?
-					WHERE recomendacion_img.Recomdacion_Img_Id = ?";
+					WHERE recomendacion_img.Recomendacion_FK = ?";
 
 			$this->pdo->prepare($sql)
 				->execute(
