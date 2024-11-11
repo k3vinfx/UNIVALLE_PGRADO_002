@@ -281,7 +281,7 @@ table{
         // Asignar evento de clic al botón con id="derecha"
         $('#derecha').on('click', function() {
             obj2.eq(contador).css('opacity', 0); // Ocultar la imagen actual
-            if (contador < 6) {
+            if (contador < 5) {
                 contador++;
             } else {
                 contador = 0;
