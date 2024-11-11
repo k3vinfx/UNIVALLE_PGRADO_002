@@ -280,7 +280,8 @@ table{
                                     <td id="derecha">
                                         <input type="button" value="siguiente" id="derecha">
                                     </td>
-
+    </tr>
+                                    <tr>
                                      <!-- Cargar nuevas imágenes -->
                                      <td >
                                         <div class="form-group">
