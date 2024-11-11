@@ -287,11 +287,12 @@ table{
                                     <tr>
                                      <!-- Cargar nuevas imágenes -->
                                      <td >
-                                        <div class="form-group">
-                                 
-                                            <label class="custom-file-label" for="archivo">Escoja un Archivo de Imagen o Varias Imágenes</label>
-                                        </div>
-                                     </tr>
+
+                                     <label for="img1">Imagen Nueva:</label>
+                                     <input type="file" class="form-control mb-2" id="imgX" name="imgX">
+
+                 
+                                </tr>
                             </table>
                         </div>                              
                     </div>
