@@ -256,19 +256,20 @@ table{
                       value="<?php echo $pvd->TITULO;?>"
                      class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
                     </div>
-
+                    <?php
+                    $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
+                    ?>
                     <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
                         <div class="row p-5 bg-white border rounded mt-1">
                              <div class="col-md-6 mt-1">
-                                  <div id="slider">
-                                    <img src="<?php echo $pvd->img1; ?>" alt="">
-                                    <img src="<?php echo $pvd->img2; ?>" alt="">
-                                    <img src="<?php echo $pvd->img3; ?>" alt="">
-                                    <img src="<?php echo $pvd->img4; ?>" alt="">
-                                    <img src="<?php echo $pvd->img5; ?>" alt="">
-
-                                  </div>
+                                   <div id="slider">
+                                        <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
+                                        <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2">
+                                        <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3">
+                                        <img src="<?php echo $base_url . $pvd->img4; ?>" alt="Imagen 4">
+                                        <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5">
+                                    </div>
                               <div>
                             <br>
                             <table>
