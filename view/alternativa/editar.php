@@ -420,9 +420,9 @@ table{
         var formData = new FormData();
 
         // Obtener el archivo seleccionado
-        var fileInput = document.getElementById('img1');
+        var fileInput = document.getElementById('imgX');
         if(fileInput.files.length > 0){
-            formData.append('img1', fileInput.files[0]);
+            formData.append('imgX', fileInput.files[0]);
         } else {
             alert('Por favor, seleccione una imagen para subir.');
             return;
