@@ -248,7 +248,7 @@ table{
                 <form id="frm-editar" action="?c=alternativa&a=Editar" method="post"  autocomplete="off"class="card-body p-2" enctype="multipart/form-data">
                     <?php echo isset($alert) ? $alert : ''; ?>
 
-                    <input type="hidden" name="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
+                    <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
                   
                      <div class="form-group">
                          <label for="inputEmail4">Nombre de la Alternativa</label>
@@ -289,7 +289,7 @@ table{
                                      <td >
 
                                      <label for="img1">Imagen Nueva:</label>
-                                     <input type="file" class="form-control mb-2" id="imgX" name="imgX">
+                                     <input type="file" class="form-control mb-2" id="imgX" name="imgX" multiple>
                                                <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
                  
                                 </tr>
@@ -422,6 +422,7 @@ table{
         var fileInput = document.getElementById('imgX');
         if(fileInput.files.length > 0){
             formData.append('imgX', fileInput.files[0]);
+            alert('imagen para subir.',fileInput);
         } else {
             alert('Por favor, seleccione una imagen para subir.');
             return;
@@ -438,29 +439,33 @@ table{
             data: formData,
             contentType: false, // Importante para enviar archivos
             processData: false, // Importante para enviar archivos
-            success: function(response){
-                // Manejar la respuesta del servidor
-                try {
-                    var res = JSON.parse(response);
-                    if(res.status == 'success'){
-                        alert(res.message);
-                        // Opcional: actualizar la imagen en la vista sin recargar la página
-                        location.reload(); // Recargar la página para ver los cambios
-                    } else {
-                        alert(res.message);
-                    }
-                } catch (e) {
-                    console.error(e);
-                    alert('Ocurrió un error al procesar la respuesta del servidor.');
-                }
-            },
-            error: function(xhr, status, error){
-                console.error('Estado:', status);
-                console.error('Error:', error);
-                console.error('Respuesta del servidor:', xhr.responseText);
-                alert('Error al enviar la solicitud.');
+
+            .then(data => {
+            console.log('Respuesta del servidor:', data);
+            if (data.status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: data.message
+                }).then(() => {
+              });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.message
+                });
             }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema al procesar la solicitud.'
+            });
         });
+       
     });
     
     })
