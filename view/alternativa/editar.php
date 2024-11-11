@@ -368,8 +368,9 @@ table{
         
        // var obj=document.getElementById('slider');
       //  var obj2=obj.getElementsByTagName('img');
+       /*Contador inicializado en cero*/
+       var contador=0;
 
-      //  var contador = 0;
        var obj2 = $('#slider img'); // Suponiendo que tienes un div con id="slider" que contiene las imágenes
 
         // Asignar evento de clic al botón con id="derecha"
