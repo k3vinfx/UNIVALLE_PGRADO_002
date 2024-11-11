@@ -125,7 +125,7 @@ class AlternativaController{
         $pvd_img = new alternativa();
    
       
-        $archivo1 = $_FILES['img1'];
+        $archivo1 = $_FILES['imgX'];
        // $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
 
 
