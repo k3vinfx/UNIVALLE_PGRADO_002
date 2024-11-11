@@ -434,37 +434,53 @@ table{
 
         // Enviar la solicitud AJAX
         $.ajax({
-            url: '?c=alternativa&a=EditarImagen1',
-            type: 'POST',
-            data: formData,
-            contentType: false, // Importante para enviar archivos
-            processData: false, // Importante para enviar archivos
-
-            .then(data => {
+        url: '?c=alternativa&a=EditarImagen1',
+        type: 'POST',
+        data: formData,
+        contentType: false, // Importante para enviar archivos
+        processData: false, // Importante para enviar archivos
+        success: function(data) {
             console.log('Respuesta del servidor:', data);
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Éxito',
-                    text: data.message
-                }).then(() => {
-              });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: data.message
-                });
-            }
-        })
-        .catch(error => {
+        
+        // Intentar parsear la respuesta a JSON en caso de que sea texto
+        try {
+            data = typeof data === 'string' ? JSON.parse(data) : data;
+        } catch (e) {
+            console.error('Error al parsear JSON:', e);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Respuesta no válida del servidor.'
+            });
+            return;
+        }
+
+        if (data.status === 'success') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: data.message
+            }).then(() => {
+                // Redireccionar o realizar otra acción si es necesario
+                window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data.message
+            });
+        }
+        },
+        error: function(xhr, status, error) {
             console.error('Error:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
                 text: 'Hubo un problema al procesar la solicitud.'
             });
-        });
+        }
+    });
        
     });
     
