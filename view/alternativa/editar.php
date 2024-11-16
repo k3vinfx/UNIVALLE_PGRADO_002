@@ -274,6 +274,7 @@ table{
                             <br>
                             <table>
                                 <tr>
+                                <input type="text" name="id_aux" id="id_aux" />
                                     <td id="izquierda">
                                         <input type="button" value="anterior" id="izquierda">
                                     </td>
@@ -382,7 +383,7 @@ table{
       //  var obj2=obj.getElementsByTagName('img');
        /*Contador inicializado en cero*/
        var contador=0;
-
+       $('#id_aux').val(contador);
        var obj2 = $('#slider img'); // Suponiendo que tienes un div con id="slider" que contiene las imágenes
 
         // Asignar evento de clic al botón con id="derecha"
@@ -393,6 +394,7 @@ table{
             } else {
                 contador = 0;
             }
+            $('#id_aux').val(contador);
             obj2.eq(contador).css('opacity', 1); // Mostrar la siguiente imagen
             console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
         });
@@ -409,6 +411,7 @@ table{
                     contador=obj2.length-1;
                     obj2[contador].style.opacity=1;
                 }
+                $('#id_aux').val(contador);
             });
 
         $("#frm-editar").submit(function(){
