@@ -159,7 +159,7 @@ class AlternativaController{
     
             $this->model->Registrar_img1($pvd_img);
     
-            $response = ["status" => "success", "message" => "Registro exitoso."];
+            $response = ["status" => "success", "message" => ""];
         } catch (Exception $e) {
             $response = ["status" => "error", "message" => "Error al registrar: " . $e->getMessage()];
         }

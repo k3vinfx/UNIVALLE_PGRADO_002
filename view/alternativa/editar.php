@@ -427,7 +427,7 @@ table{
         var fileInput = document.getElementById('imgX');
         if(fileInput.files.length > 0){
             formData.append('imgX', fileInput.files[0]);
-            alert('imagen para subir.',fileInput);
+           // alert('imagen para subir.',fileInput);
         } else {
             alert('Por favor, seleccione una imagen para subir.');
             return;
@@ -482,7 +482,7 @@ table{
                 text: data.message
             }).then(() => {
                 // Redireccionar o realizar otra acción si es necesario
-                window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+             //   window.location.href = 'index.php?c=alternativa&a=NuevoIN';
             });
         } else {
             Swal.fire({
