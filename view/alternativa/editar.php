@@ -420,7 +420,9 @@ table{
 
         $('#saveChangesButtonImg').on('click', function(){
         var formData = new FormData();
-
+        var aux_numero = $('#id_aux').val();
+        console.log("aux_numero",aux_numero);
+        
         // Obtener el archivo seleccionado
         var fileInput = document.getElementById('imgX');
         if(fileInput.files.length > 0){
