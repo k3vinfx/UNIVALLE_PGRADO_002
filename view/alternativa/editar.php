@@ -20,6 +20,8 @@
     crossorigin=""></script>
 
     <style>
+
+        
 #slider{
     margin: 0 auto;
     width: 310px;
@@ -66,6 +68,11 @@ table{
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>$(document).ready(function() {
+
+
+
+
+
   // Obtener el valor por defecto del select
   var valorPorDefecto1 = $('#entrada_1').val();
   var valorPorDefecto2 = $('#entrada_2').val();
@@ -241,6 +248,8 @@ table{
     
     <div class="row">
         <div class="col-lg-8 m-auto">
+
+        <div id="map" style="height: 300px;"></div>
             <div class="card-header bg-primary text-white">
             Alternativa
             </div>
@@ -249,7 +258,7 @@ table{
                     <?php echo isset($alert) ? $alert : ''; ?>
 
                     <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
-                  
+                    <input type="text"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                      <div class="form-group">
                          <label for="inputEmail4">Nombre de la Alternativa</label>
                              <input type="text" name="nombre" id="nombre"
@@ -378,7 +387,54 @@ table{
 <script>
     $(document).ready(function(){
 
-        
+        var valorPorDefecto = $('#ubicacion').val();
+
+
+var latLng = valorPorDefecto.split(',');
+ var map = L.map('map').setView([parseFloat(latLng[0]), parseFloat(latLng[1])], 15); 
+// -14.256619,-69.707772
+// var map = L.map('map').setView([valorPorDefecto], 15);
+
+var gcs = L.esri.Geocoding.geocodeService();
+
+var marker = L.marker([parseFloat(latLng[0]), parseFloat(latLng[1])]).addTo(map); 
+
+
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+ attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+ }).addTo(map);
+
+
+
+ //https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
+   
+ gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
+     if(err) return;
+  
+   var popupContent = "";
+   var inputContent = "";
+     if (res.address.Match_addr) {
+         popupContent += res.address.Match_addr + "<br>";
+      //   popupContentInfo += res.address.Match_addr ;
+     }
+     if (res.address.Street) {
+         popupContent += "Calle: " + res.address.Street + "<br>";
+         inputContent += "Calle: " + res.address.Street + ", ";
+
+     }
+     if (res.address.Neighborhood) {
+         popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
+    //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
+}
+     // ... (puedes agregar más detalles aquí)
+
+     // Mostrar la información en el popup
+     marker.bindPopup(popupContent).openPopup();
+
+     document.getElementById("text3").value = res.address.Match_addr;
+
+     });
+
        // var obj=document.getElementById('slider');
       //  var obj2=obj.getElementsByTagName('img');
        /*Contador inicializado en cero*/
