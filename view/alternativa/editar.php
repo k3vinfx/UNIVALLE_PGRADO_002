@@ -440,15 +440,15 @@ table{
         // Enviar la solicitud AJAX
         var x="";
 
-        if(contador=0){x='?c=alternativa&a=EditarImagen1';console.log("Editar 1");}
-        if(contador=1){x='?c=alternativa&a=EditarImagen2';console.log("Editar 2");}
-        if(contador=2){x='?c=alternativa&a=EditarImagen3';console.log("Editar 3");}
-        if(contador=3){x='?c=alternativa&a=EditarImagen4';console.log("Editar 4");}
-        if(contador=4){x='?c=alternativa&a=EditarImagen5';console.log("Editar 5");}
+        if(aux_numero=0){x='?c=alternativa&a=EditarImagen1';console.log("Editar 1");}
+        if(aux_numero=1){x='?c=alternativa&a=EditarImagen2';console.log("Editar 2");}
+        if(aux_numero=2){x='?c=alternativa&a=EditarImagen3';console.log("Editar 3");}
+        if(aux_numero=3){x='?c=alternativa&a=EditarImagen4';console.log("Editar 4");}
+        if(aux_numero=4){x='?c=alternativa&a=EditarImagen5';console.log("Editar 5");}
         
 
         console.log("x:",x);
-        console.log("contador:",contador);
+        console.log("contador:",aux_numero);
         
         
         $.ajax({
