@@ -257,8 +257,8 @@ table{
                 <form id="frm-editar" action="?c=alternativa&a=Editar" method="post"  autocomplete="off" class="card-body p-2" enctype="multipart/form-data">
                     <?php echo isset($alert) ? $alert : ''; ?>
 
-                    <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
-                    <input type="text"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
+                    <input type="hidden" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
+                    <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                      <div class="form-group">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
                              <input type="text" name="nombre" id="nombre"
@@ -281,12 +281,13 @@ table{
                                         <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5" class="img-fluid slider-img">
            
                                     </div>
-                                       <input type="text" name="id_aux" id="id_aux" />
+                                       <input type="hidden" name="id_aux" id="id_aux" />
                                     <div class="d-flex justify-content-center mt-3">
                                         <button type="button" class="btn btn-outline-secondary me-2" id="izquierda">Anterior</button>
                                         <button type="button" class="btn btn-outline-secondary" id="derecha">Siguiente</button>
                                     </div>
-                                    <div >
+                                    </br>
+                                    <div>
                                          <label for="imgX">Imagen Nueva</label>
                                          <input type="file" id="imgX" name="imgX" class="form-control w-150 mx-auto">
                                     </div>
