@@ -289,9 +289,11 @@ table{
                                     <div >
                                          <label for="imgX">Imagen Nueva</label>
                                          <input type="file" id="imgX" name="imgX" >
-                                         <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
+                                       
                                     </div>
-
+                                    <div >
+                                    <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
+                                    </div>
                               <div>
                             <br>
                          </div>                              
