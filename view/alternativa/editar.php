@@ -248,13 +248,11 @@ table{
     
     <div class="row">
         <div class="col-lg-8 m-auto">
-
-        <div id="maps" style="height: 300px;"></div>
-            <div class="card-header bg-primary text-white">
+          <div class="card-header bg-primary text-white">
             Alternativa
             </div>
             <div class="card">
-                <form id="frm-editar" action="?c=alternativa&a=Editar" method="post"  autocomplete="off"class="card-body p-2" enctype="multipart/form-data">
+                <form id="frm-editar" action="?c=alternativa&a=Editar" method="post"  autocomplete="off" class="card-body p-2" enctype="multipart/form-data">
                     <?php echo isset($alert) ? $alert : ''; ?>
 
                     <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
@@ -377,6 +375,8 @@ table{
                                         <div id="map" style="height: 300px;"></div>
                                     </div>
                                 </div>
+                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
@@ -395,7 +395,7 @@ table{
                                     <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                 </div>
                                 <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
-                                <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
+                                <input type="text"  name="latlong" id="latlong" class="form-control"> 
               
                             </div>
                         </div>
