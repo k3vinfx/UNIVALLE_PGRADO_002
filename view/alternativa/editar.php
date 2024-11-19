@@ -20,13 +20,7 @@
     crossorigin=""></script>
 
     <style>
-.image-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+
         
 #slider{
     margin: 0 auto;
@@ -272,10 +266,10 @@ table{
                     <?php
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
                     ?>
-             <div class="d-flex justify-content-center row">
-                    <div class="image-section text-center">
+                    <div class="d-flex justify-content-center row">
+                    <div class="col-md-12">
        
-            
+                       <div class="col-md-6 mt-1 d-flex flex-column align-items-center">
                              <div id="slider" class="m-auto">
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
                                         <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2">
@@ -308,7 +302,7 @@ table{
                  
                                 </tr>
                             </table>
-                                                    
+                        </div>                              
                     </div>
 
                 </div>
