@@ -269,9 +269,9 @@ table{
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
                     ?>
                     <div class="d-flex justify-content-center row">
-                    <div class="col-md">
+                    <div class="col-md-12">
                            <div class="row mb-3">
-                              <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
+                            <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
                                   <div id="slider" class="m-auto">
 
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
@@ -286,17 +286,18 @@ table{
                                         <button type="button" class="btn btn-outline-secondary me-2" id="izquierda">Anterior</button>
                                         <button type="button" class="btn btn-outline-secondary" id="derecha">Siguiente</button>
                                     </div>
-                                    <div class="mt-3">
+                                    <div >
                                          <label for="imgX">Imagen Nueva</label>
                                          <input type="file" id="imgX" name="imgX" class="form-control w-50 mx-auto">
                                          <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
                                     </div>
 
                               <div>
-                          </div>                              
+                            <br>
+                         </div>                              
                     </div>
 
-               
+                </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="direccion">Ubicacion</label>
