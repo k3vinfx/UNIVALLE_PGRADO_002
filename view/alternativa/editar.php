@@ -249,7 +249,7 @@ table{
     <div class="row">
         <div class="col-lg-8 m-auto">
 
-        <div id="map" style="height: 300px;"></div>
+        <div id="mapx" style="height: 300px;"></div>
             <div class="card-header bg-primary text-white">
             Alternativa
             </div>
@@ -435,50 +435,109 @@ table{
         var valorPorDefecto = $('#ubicacion').val();
 
 
-var latLng = valorPorDefecto.split(',');
- var map = L.map('map').setView([parseFloat(latLng[0]), parseFloat(latLng[1])], 15); 
-// -14.256619,-69.707772
-// var map = L.map('map').setView([valorPorDefecto], 15);
+            var latLng = valorPorDefecto.split(',');
+            var mapx = L.map('mapx').setView([parseFloat(latLng[0]), parseFloat(latLng[1])], 15); 
+            // -14.256619,-69.707772
+            // var map = L.map('map').setView([valorPorDefecto], 15);
 
-var gcs = L.esri.Geocoding.geocodeService();
+            var gcs = L.esri.Geocoding.geocodeService();
 
-var marker = L.marker([parseFloat(latLng[0]), parseFloat(latLng[1])]).addTo(map); 
+            var marker = L.marker([parseFloat(latLng[0]), parseFloat(latLng[1])]).addTo(mapx); 
 
 
- L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
- attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
- }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapx);
 
 
 
  //https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
    
- gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
-     if(err) return;
+            gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
+                if(err) return;
   
-   var popupContent = "";
-   var inputContent = "";
-     if (res.address.Match_addr) {
-         popupContent += res.address.Match_addr + "<br>";
-      //   popupContentInfo += res.address.Match_addr ;
-     }
-     if (res.address.Street) {
-         popupContent += "Calle: " + res.address.Street + "<br>";
-         inputContent += "Calle: " + res.address.Street + ", ";
+        var popupContent = "";
+        var inputContent = "";
+            if (res.address.Match_addr) {
+                popupContent += res.address.Match_addr + "<br>";
+            //   popupContentInfo += res.address.Match_addr ;
+            }
+            if (res.address.Street) {
+                popupContent += "Calle: " + res.address.Street + "<br>";
+                inputContent += "Calle: " + res.address.Street + ", ";
 
-     }
-     if (res.address.Neighborhood) {
-         popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
-    //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
-}
-     // ... (puedes agregar más detalles aquí)
+            }
+            if (res.address.Neighborhood) {
+                popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
+            //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
+        }
+            // ... (puedes agregar más detalles aquí)
 
-     // Mostrar la información en el popup
-     marker.bindPopup(popupContent).openPopup();
+            // Mostrar la información en el popup
+            marker.bindPopup(popupContent).openPopup();
 
-     document.getElementById("text3").value = res.address.Match_addr;
+            document.getElementById("text3").value = res.address.Match_addr;
 
-     });
+            });
+
+
+            var map = L.map('map').setView([-16.489689,-68.119293], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var gcs = L.esri.Geocoding.geocodeService();
+            var currentMarker;
+
+            map.on('click', (e)=>{
+            var lat = Number(e.latlng.lat.toFixed(6));
+            var lng = Number(e.latlng.lng.toFixed(6));
+            if (currentMarker) {
+                map.removeLayer(currentMarker);
+            }
+            currentMarker = L.marker(e.latlng).addTo(map);
+
+            gcs.reverse().latlng(e.latlng).run((err, res)=>{
+                if(err) return;
+            //  alert(res.latlng);
+
+            //   document.getElementById("text1").value = lat;
+                document.getElementById("text2").value = lng;
+
+
+                let latLngStr = e.latlng;
+
+            //  let latLngStr = "LatLng(-16.485331, -68.119304)";
+                document.getElementById("text1").value = lat;
+                document.getElementById("latlong").value = lat + "," + lng ;
+            //  currentMarker = L.marker(res.latlng).addTo(map).bindPopup(res.address.Match_addr).openPopup();
+            //  currentMarker.bindPopup(res.address.Match_addr).openPopup();
+            var popupContent = "";
+            var inputContent = "";
+                if (res.address.Match_addr) {
+                    popupContent += res.address.Match_addr + "<br>";
+                //   popupContentInfo += res.address.Match_addr ;
+                }
+                if (res.address.Street) {
+                    popupContent += "Calle: " + res.address.Street + "<br>";
+                    inputContent += "Calle: " + res.address.Street + ", ";
+
+                }
+                if (res.address.Neighborhood) {
+                    popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
+            //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
+            }
+                // ... (puedes agregar más detalles aquí)
+
+                // Mostrar la información en el popup
+                currentMarker.bindPopup(popupContent).openPopup();
+
+                document.getElementById("text3").value = res.address.Match_addr;
+
+                });
+            });
+
 
        // var obj=document.getElementById('slider');
       //  var obj2=obj.getElementsByTagName('img');
