@@ -251,7 +251,7 @@ table{
                     <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
                   
                      <div class="form-group">
-                         <label for="inputEmail4">Nombre de la Alternativa</label>
+                         <label for="inputEmail4">Nombre de la Alternativa...</label>
                              <input type="text" name="nombre" id="nombre"
                       value="<?php echo $pvd->TITULO;?>"
                      class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
@@ -320,18 +320,50 @@ table{
                     
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                         <label for="telefono">Precio</label>
                         <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
                         name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
+                            <label for="mapa">Cargar Ubicación Mapa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
+                            </button>
+                        </div>
+
+                        <div class="form-group col-md-4">
                         <label for="direccion">Descripcion</label>
                         <input type="text" placeholder="Ingrese Direccion"
                          name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
                         </div>
                     </div>
                  
+
+                    <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Coordenadas</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="text1">Latitud:</label>
+                                        <input type="text" id="text1" class="form-control mb-2" required>
+                                        <label for="text2">Longitud:</label>
+                                        <input type="text" id="text2" class="form-control mb-2" required>
+                                        <label for="text3">Dirección:</label>
+                                        <input type="text" id="text3" class="form-control mb-2" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                    <div id="map" style="height: 300px;"></div>
+                                  
+                                </div>
+                            </div>
+                        </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="telefono">Latitud</label>
@@ -344,6 +376,19 @@ table{
                         name="Longitud" id="Longitud" class="form-control" value="2">
                         </div>
                     </div>
+
+                    <div class="form-group">
+                            <label for="ubicacion">Ubicación de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
+                                <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
+              
+                            </div>
+                        </div>
+
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
