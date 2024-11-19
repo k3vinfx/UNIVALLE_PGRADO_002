@@ -249,7 +249,7 @@ table{
     <div class="row">
         <div class="col-lg-8 m-auto">
 
-        <div id="mapx" style="height: 300px;"></div>
+        <div id="maps" style="height: 300px;"></div>
             <div class="card-header bg-primary text-white">
             Alternativa
             </div>
