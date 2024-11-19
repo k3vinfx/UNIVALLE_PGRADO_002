@@ -34,18 +34,16 @@
     background-color: black;
 }
 /*Valores de las imagenes*/
-#slider img{
-    margin: 10 auto;
-    -moz-transition: opacity 2s;
-    -webkit-transition: opacity 2s;
-    transition: opacity 2s;
-    width: 300px;
-    height: 300px;
+.slider-img {
     position: absolute;
+    width: auto;
+    height: 100%;
+    max-height: 300px;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
-/*Para que la primera imagen este activa al inicio*/
-#slider img:nth-child(1){
+
+.slider-img.active {
     opacity: 1;
 }
 
@@ -275,11 +273,13 @@ table{
                         <div class="row p-5 bg-white border rounded mt-1">
                             <div class="col-md-6 mt-1 d-flex flex-column align-items-center">
                                   <div id="slider" class="position-relative">
-                                        <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
-                                        <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2">
-                                        <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3">
-                                        <img src="<?php echo $base_url . $pvd->img4; ?>" alt="Imagen 4">
-                                        <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5">
+
+                                        <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
+                                        <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2" class="img-fluid slider-img">
+                                        <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3" class="img-fluid slider-img">
+                                        <img src="<?php echo $base_url . $pvd->img4; ?>" alt="Imagen 4" class="img-fluid slider-img">
+                                        <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5" class="img-fluid slider-img">
+           
                                     </div>
                               <div>
                             <br>
