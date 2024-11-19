@@ -349,7 +349,6 @@ table{
                         </div>
                     </div>
                     <div class="modal" id="myModal">
-
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -370,12 +369,12 @@ table{
                                 <!-- Contenido de las pestañas -->
                                 <div class="tab-content mt-3">
                                     <!-- Mapa actual -->
-                                    <div class="tab-pane fade show active" id="mapx" role="tabpanel" aria-labelledby="current-map-tab">
-                                        <div id="currentMapContainer" style="height: 300px;"></div>
+                                    <div class="tab-pane fade show active" id="currentMap" role="tabpanel" aria-labelledby="current-map-tab">
+                                        <div id="mapx" style="height: 300px;"></div>
                                     </div>
                                     <!-- Mapa editado -->
-                                    <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="edit-map-tab">
-                                        <div id="editMapContainer" style="height: 300px;"></div>
+                                    <div class="tab-pane fade" id="editMap" role="tabpanel" aria-labelledby="edit-map-tab">
+                                        <div id="map" style="height: 300px;"></div>
                                     </div>
                                 </div>
                             </div>
