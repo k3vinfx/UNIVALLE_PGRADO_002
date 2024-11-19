@@ -243,103 +243,131 @@ table{
         });
     </script>
 
+
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <!-- Header -->
+    <!-- Content Row -->
+
+    
+    <div class="row">
+        <div class="col-lg-8 m-auto">
+          <div class="card-header bg-primary text-white">
+            Alternativa
+            </div>
             <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Editar Alternativa</h5>
-                </div>
-                <div class="card-body">
-                    <!-- Formulario -->
-                    <form id="frm-editar" action="?c=alternativa&a=Editar" method="post" enctype="multipart/form-data" autocomplete="off">
-                        
-                        <!-- Información básica -->
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="nombre">Nombre de la Alternativa</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingresa el Nombre de la Alternativa" value="<?php echo $pvd->TITULO; ?>" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="categoria">Categoría</label>
-                                <select class="form-select" name="categoria" id="categoria">
-                                    <option value="<?php echo $pvd->IDCAT; ?>"><?php echo $pvd->categorias; ?></option>
-                                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
-                                        <option value="<?php echo $Tipo->Categoria_id; ?>"><?php echo $Tipo->Categoria_nombre; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
+                <form id="frm-editar" action="?c=alternativa&a=Editar" method="post"  autocomplete="off" class="card-body p-2" enctype="multipart/form-data">
+                    <?php echo isset($alert) ? $alert : ''; ?>
 
-                        <!-- Slider de imágenes -->
-                        <div class="row mb-3">
-                            <div class="col-12 text-center">
-                                <div id="slider" class="m-auto">
-                                    <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
-                                    <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2" class="img-fluid slider-img">
-                                    <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3" class="img-fluid slider-img">
-                                    <img src="<?php echo $base_url . $pvd->img4; ?>" alt="Imagen 4" class="img-fluid slider-img">
-                                    <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5" class="img-fluid slider-img">
-                                </div>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button type="button" class="btn btn-outline-secondary me-2" id="izquierda">Anterior</button>
-                                    <button type="button" class="btn btn-outline-secondary" id="derecha">Siguiente</button>
-                                </div>
-                                <div class="mt-3">
-                                    <label for="imgX">Imagen Nueva</label>
-                                    <input type="file" id="imgX" name="imgX" class="form-control w-50 mx-auto">
-                                    <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
-                                </div>
-                            </div>
-                        </div>
+                    <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
+                    <input type="text"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
+                     <div class="form-group">
+                         <label for="inputEmail4">Nombre de la Alternativa...</label>
+                             <input type="text" name="nombre" id="nombre"
+                      value="<?php echo $pvd->TITULO;?>"
+                     class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
+                    </div>
+                    <?php
+                    $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
+                    ?>
+                    <div class="d-flex justify-content-center row">
+                    <div class="col-md-12">
+                           <div class="row mb-3">
+                            <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
+                                  <div id="slider" class="m-auto">
 
-                        <!-- Detalles adicionales -->
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label for="costo">Precio</label>
-                                <input type="number" class="form-control" id="costo" name="costo" value="<?php echo $pvd->COSTO; ?>" placeholder="Ingrese el precio">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="descripcion">Descripción</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $pvd->descr; ?>" placeholder="Descripción">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="estado">Estado</label>
-                                <select class="form-select" name="estado" id="estado">
-                                    <option value="1" <?php echo $status == 1 ? 'selected' : ''; ?>>Activo</option>
-                                    <option value="0" <?php echo $status == 0 ? 'selected' : ''; ?>>Inactivo</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Ubicación y mapa -->
-                        <div class="row mb-3">
-                            <div class="col-md-8">
-                                <label for="ubicacion">Ubicación</label>
-                                <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ingrese ubicación de la alternativa" value="<?php echo $pvd->ubicacion; ?>">
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <label>&nbsp;</label>
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Modal del mapa -->
-                        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="mapModalLabel">Seleccionar Ubicación</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
+                                        <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2" class="img-fluid slider-img">
+                                        <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3" class="img-fluid slider-img">
+                                        <img src="<?php echo $base_url . $pvd->img4; ?>" alt="Imagen 4" class="img-fluid slider-img">
+                                        <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5" class="img-fluid slider-img">
+           
                                     </div>
-                                    <div class="modal-body">
+                                       <input type="text" name="id_aux" id="id_aux" />
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <button type="button" class="btn btn-outline-secondary me-2" id="izquierda">Anterior</button>
+                                        <button type="button" class="btn btn-outline-secondary" id="derecha">Siguiente</button>
+                                    </div>
+                                    <div class="mt-3">
+                                         <label for="imgX">Imagen Nueva</label>
+                                         <input type="file" id="imgX" name="imgX" class="form-control w-50 mx-auto">
+                                         <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
+                                    </div>
+
+                              <div>
+                            <br>
+                         </div>                              
+                    </div>
+
+                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="direccion">Ubicacion</label>
+                        <input type="text" placeholder="Ingrese Ubicacion"
+                         name="ubicacion" id="ubicacion" class="form-control" 
+                         value="<?php echo $pvd->ubicacion;?>">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label id="lb_entrada_1">Categoria</label>
+                        <select class="custom-select selevt"  name="categoria" id="categoria" >
+                    <option   value="<?php echo $pvd->IDCAT;?>"> <?php echo $pvd->categorias;?> </opcion>
+                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
+                        <option  value="<?php echo $Tipo->Categoria_id ; ?>">
+                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
+                        </option>       
+                    <?php endforeach; ?>
+                    </select>    
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                        <label for="telefono">Precio</label>
+                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
+                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="mapa">Cargar Ubicación Mapa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
+                            </button>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                        <label for="direccion">Descripcion</label>
+                        <input type="text" placeholder="Ingrese Direccion"
+                         name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
+                        </div>
+                    </div>
+                    <div class="modal" id="myModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Coordenadas</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Navegación de pestañas -->
+                                <ul class="nav nav-tabs" id="mapTabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="current-map-tab" data-toggle="tab" href="#currentMap" role="tab" aria-controls="currentMap" aria-selected="true">Mapa Actual</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="edit-map-tab" data-toggle="tab" href="#editMap" role="tab" aria-controls="editMap" aria-selected="false">Mapa Editado</a>
+                                    </li>
+                                </ul>
+
+                                <!-- Contenido de las pestañas -->
+                                <div class="tab-content mt-3">
+                                    <!-- Mapa actual -->
+                                    <div class="tab-pane fade show active" id="currentMap" role="tabpanel" aria-labelledby="current-map-tab">
                                         <div id="mapx" style="height: 300px;"></div>
                                     </div>
-
-                                    <div class="modal-body">
+                                    <!-- Mapa editado -->
+                                    <div class="tab-pane fade" id="editMap" role="tabpanel" aria-labelledby="edit-map-tab">
+                                        <div id="map" style="height: 300px;"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
                                         <label for="text1">Latitud:</label>
                                         <input type="text" id="text1" class="form-control mb-2" required>
                                         <label for="text2">Longitud:</label>
@@ -347,27 +375,54 @@ table{
                                         <label for="text3">Dirección:</label>
                                         <input type="text" id="text3" class="form-control mb-2" required>
                                     </div>
-                                    
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
-
-                        <!-- Botones de acción -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary w-100">Editar Alternativa</button>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="?c=alternativa" class="btn btn-danger w-100">Regresar</a>
-                            </div>
-                        </div>
-
-                    </form>
+                    </div>
                 </div>
+
+                   
+
+                    <div class="form-group">
+                            <label for="ubicacion">Ubicación de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
+                                <input type="text"  name="latlong" id="latlong" class="form-control"> 
+              
+                            </div>
+                        </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                      <label for="status" class="control-label">Estado</label>
+                        <select name="estado" id="estado" class="custom-select selevt">
+                        <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Activo</option>
+                        <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
+                        </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                             <label for="" class="control-label">Images</label>
+                        <div class="custom-file">
+                        <input type="file" class="form-control" id="archivo" name="archivo" multiple>      
+                          <label class="custom-file-label" for="archivo">Escoje un Archivo de Imagen o Varias Imagenes</label>
+                        </div>
+                    </div>
+
+                
+        
+
+                    <input type="submit" value="Editar Alternativa" class="btn btn-primary">
+                    <a href="?c=alternativa" class="btn btn-danger">Regresar</a>
+                </form>
             </div>
         </div>
     </div>
