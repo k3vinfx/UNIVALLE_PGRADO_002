@@ -288,8 +288,7 @@ table{
                                     </div>
                                     <div >
                                          <label for="imgX">Imagen Nueva</label>
-                                         <input type="file" id="imgX" name="imgX" >
-                                       
+                                         <input type="file" id="imgX" name="imgX" class="form-control w-150 mx-auto">
                                     </div>
                                     <div >
                                     <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
