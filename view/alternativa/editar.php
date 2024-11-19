@@ -27,6 +27,10 @@
     width: 310px;
     height: 300px;
     overflow:hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
 }
 /*Valores de las imagenes*/
@@ -270,7 +274,7 @@ table{
                     <div class="col-md-12">
                         <div class="row p-5 bg-white border rounded mt-1">
                             <div class="col-md-6 mt-1 d-flex flex-column align-items-center">
-                                    <div id="slider">
+                                  <div id="slider" class="position-relative">
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
                                         <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2">
                                         <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3">
