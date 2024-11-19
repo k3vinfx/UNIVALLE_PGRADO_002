@@ -269,9 +269,9 @@ table{
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
                     ?>
                     <div class="d-flex justify-content-center row">
-                    <div class="col-md-12">
+                 
                            <div class="row mb-3">
-                            <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
+                              <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
                                   <div id="slider" class="m-auto">
 
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
@@ -293,11 +293,10 @@ table{
                                     </div>
 
                               <div>
-                            <br>
-                         </div>                              
-                    </div>
+                          </div>                              
+                    
 
-                </div>
+               
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="direccion">Ubicacion</label>
