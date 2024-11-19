@@ -268,9 +268,9 @@ table{
                     ?>
                     <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
-       
-                       <div class="col-md-6 mt-1 d-flex flex-column align-items-center">
-                             <div id="slider" class="m-auto">
+                        <div class="row p-5 bg-white border rounded mt-1">
+                             <div class="col-md-6 mt-1">
+                                   <div id="slider">
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
                                         <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2">
                                         <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3">
@@ -601,7 +601,7 @@ table{
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();
             }
-
+            
         
         });
         $('#saveChangesButtonImg').on('click', function(){
