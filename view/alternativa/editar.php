@@ -268,7 +268,7 @@ table{
                     ?>
                     <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
-                        <div class="row p-5 bg-white border rounded mt-1">
+       
                              <div class="col-md-6 mt-1">
                              <div id="slider" class="m-auto">
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
@@ -302,7 +302,7 @@ table{
                  
                                 </tr>
                             </table>
-                        </div>                              
+                                                    
                     </div>
 
                 </div>
