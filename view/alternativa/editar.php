@@ -281,8 +281,8 @@
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
                     ?>
                     <div class="d-flex justify-content-center row">
-                 
-                
+                    <div class="col-md-12">
+                    
                               <div class="image-section text-center">
                                    <div id="slider" class="m-auto">
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
@@ -305,9 +305,9 @@
                     
                               
       
-                 
+                           
                                               
-                  
+                    </div>
 
                 </div>
                     <div class="form-row">
