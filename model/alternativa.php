@@ -456,6 +456,88 @@ class alternativa
 		}
 	}
 
+	public function Registrar_img2(alternativa $data)
+	{
+		try
+		{
+			$sql = "UPDATE recomendacion_img SET
+					Recomendacion_Img2 = ?
+					WHERE recomendacion_img.Recomendacion_FK = ?";
+
+			$this->pdo->prepare($sql)
+				->execute(
+					array( 
+						$data->valor_1,	
+						$data->valor_id			
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function Registrar_img3(alternativa $data)
+	{
+		try
+		{
+			$sql = "UPDATE recomendacion_img SET
+					Recomendacion_Img3 = ?
+					WHERE recomendacion_img.Recomendacion_FK = ?";
+
+			$this->pdo->prepare($sql)
+				->execute(
+					array( 
+						$data->valor_1,	
+						$data->valor_id			
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function Registrar_img4(alternativa $data)
+	{
+		try
+		{
+			$sql = "UPDATE recomendacion_img SET
+					Recomendacion_Img4 = ?
+					WHERE recomendacion_img.Recomendacion_FK = ?";
+
+			$this->pdo->prepare($sql)
+				->execute(
+					array( 
+						$data->valor_1,	
+						$data->valor_id			
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	public function Registrar_img5(alternativa $data)
+	{
+		try
+		{
+			$sql = "UPDATE recomendacion_img SET
+					Recomendacion_Img5 = ?
+					WHERE recomendacion_img.Recomendacion_FK = ?";
+
+			$this->pdo->prepare($sql)
+				->execute(
+					array( 
+						$data->valor_1,	
+						$data->valor_id			
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function Registrar(alternativa $data)
 	{
 		try

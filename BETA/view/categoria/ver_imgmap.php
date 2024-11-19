@@ -70,7 +70,7 @@ table{
 
   <!-- Tabla de datos -->
 
-  <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
+  <input type="text"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                         </div>
   
  <div class="row">

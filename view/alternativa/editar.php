@@ -20,6 +20,8 @@
     crossorigin=""></script>
 
     <style>
+
+        
 #slider{
     margin: 0 auto;
     width: 310px;
@@ -66,6 +68,11 @@ table{
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>$(document).ready(function() {
+
+
+
+
+
   // Obtener el valor por defecto del select
   var valorPorDefecto1 = $('#entrada_1').val();
   var valorPorDefecto2 = $('#entrada_2').val();
@@ -241,6 +248,8 @@ table{
     
     <div class="row">
         <div class="col-lg-8 m-auto">
+
+        <div id="map" style="height: 300px;"></div>
             <div class="card-header bg-primary text-white">
             Alternativa
             </div>
@@ -249,7 +258,7 @@ table{
                     <?php echo isset($alert) ? $alert : ''; ?>
 
                     <input type="text" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
-                  
+                    <input type="text"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                      <div class="form-group">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
                              <input type="text" name="nombre" id="nombre"
@@ -274,6 +283,7 @@ table{
                             <br>
                             <table>
                                 <tr>
+                                <input type="text" name="id_aux" id="id_aux" />
                                     <td id="izquierda">
                                         <input type="button" value="anterior" id="izquierda">
                                     </td>
@@ -422,12 +432,59 @@ table{
 <script>
     $(document).ready(function(){
 
-        
+        var valorPorDefecto = $('#ubicacion').val();
+
+
+var latLng = valorPorDefecto.split(',');
+ var map = L.map('map').setView([parseFloat(latLng[0]), parseFloat(latLng[1])], 15); 
+// -14.256619,-69.707772
+// var map = L.map('map').setView([valorPorDefecto], 15);
+
+var gcs = L.esri.Geocoding.geocodeService();
+
+var marker = L.marker([parseFloat(latLng[0]), parseFloat(latLng[1])]).addTo(map); 
+
+
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+ attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+ }).addTo(map);
+
+
+
+ //https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
+   
+ gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
+     if(err) return;
+  
+   var popupContent = "";
+   var inputContent = "";
+     if (res.address.Match_addr) {
+         popupContent += res.address.Match_addr + "<br>";
+      //   popupContentInfo += res.address.Match_addr ;
+     }
+     if (res.address.Street) {
+         popupContent += "Calle: " + res.address.Street + "<br>";
+         inputContent += "Calle: " + res.address.Street + ", ";
+
+     }
+     if (res.address.Neighborhood) {
+         popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
+    //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
+}
+     // ... (puedes agregar más detalles aquí)
+
+     // Mostrar la información en el popup
+     marker.bindPopup(popupContent).openPopup();
+
+     document.getElementById("text3").value = res.address.Match_addr;
+
+     });
+
        // var obj=document.getElementById('slider');
       //  var obj2=obj.getElementsByTagName('img');
        /*Contador inicializado en cero*/
        var contador=0;
-
+       $('#id_aux').val(contador);
        var obj2 = $('#slider img'); // Suponiendo que tienes un div con id="slider" que contiene las imágenes
 
         // Asignar evento de clic al botón con id="derecha"
@@ -438,6 +495,7 @@ table{
             } else {
                 contador = 0;
             }
+            $('#id_aux').val(contador);
             obj2.eq(contador).css('opacity', 1); // Mostrar la siguiente imagen
             console.log('Contador vale ' + contador + ' Longitud ' + obj2.length);
         });
@@ -454,6 +512,7 @@ table{
                     contador=obj2.length-1;
                     obj2[contador].style.opacity=1;
                 }
+                $('#id_aux').val(contador);
             });
 
         $("#frm-editar").submit(function(){
@@ -462,12 +521,14 @@ table{
 
         $('#saveChangesButtonImg').on('click', function(){
         var formData = new FormData();
-
+        var aux_numero = $('#id_aux').val();
+        console.log("aux_numero",aux_numero);
+        
         // Obtener el archivo seleccionado
         var fileInput = document.getElementById('imgX');
         if(fileInput.files.length > 0){
             formData.append('imgX', fileInput.files[0]);
-            alert('imagen para subir.',fileInput);
+           // alert('imagen para subir.',fileInput);
         } else {
             alert('Por favor, seleccione una imagen para subir.');
             return;
@@ -478,8 +539,23 @@ table{
         // Elimina 'nombreNuevo' si no es necesario
 
         // Enviar la solicitud AJAX
+        var x="";
+
+        if(aux_numero==0){x='?c=alternativa&a=EditarImagen1';console.log("Editar 1");}
+        if(aux_numero==1){x='?c=alternativa&a=EditarImagen2';console.log("Editar 2");}
+        if(aux_numero==2){x='?c=alternativa&a=EditarImagen3';console.log("Editar 3");}
+        if(aux_numero==3){x='?c=alternativa&a=EditarImagen4';console.log("Editar 4");}
+        if(aux_numero==4){x='?c=alternativa&a=EditarImagen5';console.log("Editar 5");}
+        
+
+        console.log("x:",x);
+        console.log("contador:",aux_numero);
+        
+        
         $.ajax({
-        url: '?c=alternativa&a=EditarImagen1',
+
+       
+        url: x,
         type: 'POST',
         data: formData,
         contentType: false, // Importante para enviar archivos
@@ -507,7 +583,7 @@ table{
                 text: data.message
             }).then(() => {
                 // Redireccionar o realizar otra acción si es necesario
-                window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+             //   window.location.href = 'index.php?c=alternativa&a=NuevoIN';
             });
         } else {
             Swal.fire({
