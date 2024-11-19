@@ -348,44 +348,46 @@ table{
                          name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
                         </div>
                     </div>
-                 
-
                     <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Coordenadas</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Coordenadas</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Navegación de pestañas -->
+                                <ul class="nav nav-tabs" id="mapTabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="current-map-tab" data-toggle="tab" href="#currentMap" role="tab" aria-controls="currentMap" aria-selected="true">Mapa Actual</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="edit-map-tab" data-toggle="tab" href="#editMap" role="tab" aria-controls="editMap" aria-selected="false">Mapa Editado</a>
+                                    </li>
+                                </ul>
+
+                                <!-- Contenido de las pestañas -->
+                                <div class="tab-content mt-3">
+                                    <!-- Mapa actual -->
+                                    <div class="tab-pane fade show active" id="mapx" role="tabpanel" aria-labelledby="current-map-tab">
+                                        <div id="currentMapContainer" style="height: 300px;"></div>
                                     </div>
-                                    <div class="modal-body">
-                                        <label for="text1">Latitud:</label>
-                                        <input type="text" id="text1" class="form-control mb-2" required>
-                                        <label for="text2">Longitud:</label>
-                                        <input type="text" id="text2" class="form-control mb-2" required>
-                                        <label for="text3">Dirección:</label>
-                                        <input type="text" id="text3" class="form-control mb-2" required>
+                                    <!-- Mapa editado -->
+                                    <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="edit-map-tab">
+                                        <div id="editMapContainer" style="height: 300px;"></div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                    <div id="map" style="height: 300px;"></div>
-                                  
                                 </div>
                             </div>
-                        </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                        <label for="telefono">Latitud</label>
-                        <input type="text" step="1" placeholder="Ingrese su latitud" 
-                        name="Latitud" id="Latitud" class="form-control" value="1">
-                        </div>
-                        <div class="form-group col-md-6">
-                        <label for="telefono">Longitud</label>
-                        <input type="text" step="1" placeholder="Ingrese su longitud" 
-                        name="Longitud" id="Longitud" class="form-control" value="2">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                   
 
                     <div class="form-group">
                             <label for="ubicacion">Ubicación de la Alternativa</label>
@@ -451,10 +453,10 @@ table{
 
 
 
- //https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
+        //https://mappinggis.com/2016/08/calculo-de-rutas-en-un-mapa-web-de-leaflet/
    
-            gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
-                if(err) return;
+        gcs.reverse().latlng([parseFloat(latLng[0]), parseFloat(latLng[1])]).run((err, res)=>{
+            if(err) return;
   
         var popupContent = "";
         var inputContent = "";
