@@ -587,11 +587,21 @@ table{
         });
 
         $('#saveChangesButton').on('click', function(){
-            var text1Value = document.getElementById("text1").value;
-            var text2Value = document.getElementById("text2").value;
-
+          
+            var text1Value = $('#text1').val();
+            var text2Value = $('#text2').val();
             // Aquí puedes agregar el código para modificar el contenido en tu archivo original.
             console.log("Text1: " + text1Value + ", Text2: " + text2Value);
+
+            var txt = document.getElementById("text3").value;
+            document.getElementById("ubicacion").value = txt;
+
+            if (txt && txt.trim() !== "") {
+                $('#myModal').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            }
+            
         
         });
         $('#saveChangesButtonImg').on('click', function(){
