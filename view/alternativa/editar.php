@@ -375,7 +375,14 @@ table{
                                         <div id="map" style="height: 300px;"></div>
                                     </div>
                                 </div>
-                                
+                                <div class="modal-body">
+                                        <label for="text1">Latitud:</label>
+                                        <input type="text" id="text1" class="form-control mb-2" required>
+                                        <label for="text2">Longitud:</label>
+                                        <input type="text" id="text2" class="form-control mb-2" required>
+                                        <label for="text3">Dirección:</label>
+                                        <input type="text" id="text3" class="form-control mb-2" required>
+                                    </div>
 
                             </div>
                             <div class="modal-footer">
@@ -579,6 +586,14 @@ table{
             return $(this).validate();
         });
 
+        $('#saveChangesButton').on('click', function(){
+            var text1Value = document.getElementById("text1").value;
+            var text2Value = document.getElementById("text2").value;
+
+            // Aquí puedes agregar el código para modificar el contenido en tu archivo original.
+            console.log("Text1: " + text1Value + ", Text2: " + text2Value);
+        
+        });
         $('#saveChangesButtonImg').on('click', function(){
         var formData = new FormData();
         var aux_numero = $('#id_aux').val();
