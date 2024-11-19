@@ -21,23 +21,17 @@
 
     <style>
 
-.image-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-#slider {
+        
+#slider{
     margin: 0 auto;
     width: 310px;
     height: 300px;
-    overflow: hidden;
+    overflow:hidden;
     background-color: black;
-    position: relative;
 }
-
-#slider img {
+/*Valores de las imagenes*/
+#slider img{
+    margin: 10 auto;
     -moz-transition: opacity 2s;
     -webkit-transition: opacity 2s;
     transition: opacity 2s;
@@ -46,26 +40,18 @@
     position: absolute;
     opacity: 0;
 }
-
-#slider img:nth-child(1) {
+/*Para que la primera imagen este activa al inicio*/
+#slider img:nth-child(1){
     opacity: 1;
 }
 
-.slider-controls {
-    margin-top: 10px;
-}
-
-.image-upload {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.image-upload .form-control {
-    max-width: 300px;
-}
-
-.image-upload button {
-    margin-top: 10px;
+table{
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    overflow:hidden;
+    background-color: white;
+    border: 0;
 }
 
 #izquierda{
@@ -282,9 +268,9 @@
                     ?>
                     <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
-                    
-                              <div class="image-section text-center">
-                                   <div id="slider" class="m-auto">
+                        <div class="row p-5 bg-white border rounded mt-1">
+                             <div class="col-md-6 mt-1">
+                             <div id="slider" class="m-auto">
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1">
                                         <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2">
                                         <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3">
@@ -292,21 +278,31 @@
                                         <img src="<?php echo $base_url . $pvd->img5; ?>" alt="Imagen 5">
                                     </div>
                               <div>
-                              <input type="text" name="id_aux" id="id_aux" />
-                              <div class="slider-controls my-3">
-                                    <input type="button" class="btn btn-outline-secondary mx-2" value="anterior" id="izquierda">
-                                    <input type="button" class="btn btn-outline-secondary mx-2" value="siguiente" id="derecha">
-                                </div>
-                                <div class="image-upload mt-3">
-                                    <label for="imgX" class="form-label">Imagen Nueva:</label>
-                                    <input type="file" class="form-control mb-2 w-50 mx-auto" id="imgX" name="imgX" multiple>
-                                    <button type="button" class="btn btn-success mt-2" id="saveChangesButtonImg">Guardar Cambios</button>
-                                </div>
-                    
-                              
-      
-                           
-                                              
+                            <br>
+                            <table>
+                                <tr>
+                                <input type="text" name="id_aux" id="id_aux" />
+                                    <td id="izquierda">
+                                        <input type="button" value="anterior" id="izquierda">
+                                    </td>
+                                    <td id="derecha">
+                                        <input type="button" value="siguiente" id="derecha">
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <table>
+                                     </br>
+                                    <tr>
+                                     <!-- Cargar nuevas imágenes -->
+                                     <td >
+
+                                     <label for="img1">Imagen Nueva:</label>
+                                     <input type="file" class="form-control mb-2" id="imgX" name="imgX" multiple>
+                                               <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
+                 
+                                </tr>
+                            </table>
+                        </div>                              
                     </div>
 
                 </div>
