@@ -269,7 +269,7 @@ table{
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
                     ?>
                     <div class="d-flex justify-content-center row">
-                 
+                    <div class="col-md">
                            <div class="row mb-3">
                               <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
                                   <div id="slider" class="m-auto">
@@ -294,7 +294,7 @@ table{
 
                               <div>
                           </div>                              
-                    
+                    </div>
 
                
                     <div class="form-row">
