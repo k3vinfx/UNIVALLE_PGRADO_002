@@ -409,9 +409,9 @@ table{
                     </div>
                  </div>
 
-                 <input type="text" name="latlong" id="latlong" />
 
-                 
+                 <input type="text"  name="latlong" id="latlong" class="form-control"   value="<?php echo $pvd->latlong;?>">
+               
 
 
                   <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
