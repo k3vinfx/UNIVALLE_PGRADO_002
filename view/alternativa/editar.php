@@ -339,7 +339,7 @@ table{
                         </div>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-5">
                             <label for="mapa">Marcador del Mapa</label>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                 <i class="fas fa-map-marker-alt"></i> Cargar Marcador de Ubicación Mapa
