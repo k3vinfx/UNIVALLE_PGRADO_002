@@ -343,24 +343,16 @@ table{
                     
 
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                        <label for="telefono">Precio</label>
-                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
-                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
-                        </div>
+    
                       
 
 
-                        <div class="form-group">
+                        <div class="form-group col-md-12">
                             <label for="exampleFormControlTextarea1">Descripcion</label>
                             <textarea class="form-control" id="descripcion" rows="3" ><?php echo $pvd->descr;?></textarea>
                         </div>
 
-                        <div class="form-group col-md-6">
-                        <label for="direccion">Descripcion</label>
-                        <input type="text" placeholder="Ingrese Direccion"
-                         name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
-                        </div>
+                        
                     </div>
                     <div class="modal" id="myModal">
                     <div class="modal-dialog modal-lg">
@@ -422,7 +414,11 @@ table{
                         <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
                         </select>
                         </div>
-
+                        <div class="form-group col-md-4">
+                        <label for="telefono">Precio</label>
+                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
+                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
+                        </div>
              
                     </div>
 
