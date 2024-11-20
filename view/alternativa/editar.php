@@ -353,7 +353,7 @@ table{
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Descripcion</label>
-                            <textarea class="form-control" id="descripcion" rows="3" value="<?php echo $pvd->descr;?>"></textarea>
+                            <textarea class="form-control" id="descripcion" rows="3" ><?php echo $pvd->descr;?></textarea>
                         </div>
 
                         <div class="form-group col-md-6">
