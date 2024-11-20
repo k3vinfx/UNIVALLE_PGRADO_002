@@ -294,7 +294,7 @@ table{
                            <div class="row mb-3">
                             <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
                                   <div id="slider" class="m-auto">
-
+                                  <label for="img-X">Imagen Actual</label>
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
                                         <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2" class="img-fluid slider-img">
                                         <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3" class="img-fluid slider-img">
@@ -413,7 +413,7 @@ table{
                  
 
 
-                    <div class="form-row">
+                <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
                         <div class="form-group col-md-6">
                       <label for="status" class="control-label">Estado</label>
                         <select name="estado" id="estado" class="custom-select selevt">
