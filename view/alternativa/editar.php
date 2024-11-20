@@ -258,7 +258,7 @@ table{
                     <?php echo isset($alert) ? $alert : ''; ?>
 
                     <input type="hidden" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
-                    <input type="hidden"  name="ubicacion1" id="ubicacion1" class="form-control"   value="<?php echo $pvd->latlong;?>">
+                    <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                     <div class="form-row">
                     <div class="form-group col-md-4">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
