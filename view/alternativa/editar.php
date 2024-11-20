@@ -260,7 +260,7 @@ table{
                     <input type="hidden" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
                     <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                     <div class="form-row">
-                      <div class="form-group">
+                    <div class="form-group col-md-6">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
                              <input type="text" name="nombre" id="nombre"
                          value="<?php echo $pvd->TITULO;?>"
@@ -331,6 +331,13 @@ table{
                         </div>
                         </div>
 
+                        <div class="form-group col-md-6">
+                            <label for="mapa">Marcador del Mapa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                <i class="fas fa-map-marker-alt"></i> Cargar Marcador de Ubicación Mapa
+                            </button>
+                        </div>
+
                         
                     </div>
                     
@@ -341,14 +348,9 @@ table{
                         <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
                         name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="mapa">Marcador del Mapa</label>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                <i class="fas fa-map-marker-alt"></i> Cargar Marcador de Ubicación Mapa
-                            </button>
-                        </div>
+                      
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                         <label for="direccion">Descripcion</label>
                         <input type="text" placeholder="Ingrese Direccion"
                          name="descripcion" id="descripcion" class="form-control" value="<?php echo $pvd->descr;?>">
