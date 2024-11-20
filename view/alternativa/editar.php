@@ -399,17 +399,7 @@ table{
 
                    
 
-                    <div class="form-group">
-                            <label for="ubicacion">Ubicación de la Alternativa</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                                </div>
-                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
-                                <input type="text"  name="latlong" id="latlong" class="form-control"> 
-              
-                            </div>
-                        </div>
+                 
 
 
                     <div class="form-row">
