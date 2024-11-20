@@ -435,9 +435,9 @@ table{
             </div>
         </div>
     </div>
-</div>
-</div>
-<br>
+
+
+
 <script>
     $(document).ready(function(){
 
