@@ -414,7 +414,7 @@ table{
 
 
                 <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-5">
                       <label for="status" class="control-label">Estado</label>
                         <select name="estado" id="estado" class="custom-select selevt">
                         <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Activo</option>
@@ -422,7 +422,7 @@ table{
                         </select>
                         </div>
                         <div class="form-group col-md-6">
-                        <input type="submit" value="Editar Alternativa" class="btn btn-primary">
+                        <input type="submit" value="Guardar" class="btn btn-primary">
                         <a href="?c=alternativa" class="btn btn-danger">Regresar</a>
 
                         </div>
