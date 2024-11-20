@@ -350,6 +350,12 @@ table{
                         </div>
                       
 
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Descripcion</label>
+                            <textarea class="form-control" id="descripcion" rows="3" value="<?php echo $pvd->descr;?>"></textarea>
+                        </div>
+
                         <div class="form-group col-md-6">
                         <label for="direccion">Descripcion</label>
                         <input type="text" placeholder="Ingrese Direccion"
