@@ -259,11 +259,25 @@ table{
 
                     <input type="hidden" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
                     <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
-                     <div class="form-group">
+                    <div class="form-row">
+                      <div class="form-group">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
                              <input type="text" name="nombre" id="nombre"
-                      value="<?php echo $pvd->TITULO;?>"
-                     class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
+                         value="<?php echo $pvd->TITULO;?>"
+                        class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
+                      </div>
+
+                      <div class="form-group col-md-6">
+                          <label id="lb_entrada_1">Categoria</label>
+                          <select class="custom-select selevt"  name="categoria" id="categoria" >
+                          <option   value="<?php echo $pvd->IDCAT;?>"> <?php echo $pvd->categorias;?> </opcion>
+                            <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
+                           <option  value="<?php echo $Tipo->Categoria_id ; ?>">
+                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
+                           </option>       
+                          <?php endforeach; ?>
+                            </select>    
+                        </div>
                     </div>
                     <?php
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
@@ -317,17 +331,7 @@ table{
                         </div>
                         </div>
 
-                        <div class="form-group col-md-6">
-                        <label id="lb_entrada_1">Categoria</label>
-                        <select class="custom-select selevt"  name="categoria" id="categoria" >
-                    <option   value="<?php echo $pvd->IDCAT;?>"> <?php echo $pvd->categorias;?> </opcion>
-                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
-                        <option  value="<?php echo $Tipo->Categoria_id ; ?>">
-                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
-                        </option>       
-                    <?php endforeach; ?>
-                    </select>    
-                        </div>
+                        
                     </div>
                     
 
