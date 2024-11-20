@@ -334,7 +334,7 @@ table{
                                 </div>
                       
                         <input type="text" placeholder="Ingrese Ubicacion"
-                         name="ubicacion" id="ubicacion" class="form-control" 
+                         name="ubicacionx" id="ubicacionx" class="form-control" 
                          value="<?php echo $pvd->ubicacion;?>">
                         </div>
                         </div>
