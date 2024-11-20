@@ -421,7 +421,7 @@ table{
                         <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
                         </select>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-5">
                         <input type="submit" value="Guardar" class="btn btn-primary">
                         <a href="?c=alternativa" class="btn btn-danger">Regresar</a>
 
