@@ -293,8 +293,9 @@ table{
                     <div class="col-md-12">
                            <div class="row mb-3">
                             <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
+                            <label>Imagen Actual</label>
                                   <div id="slider" class="m-auto">
-                                  <label for="img-X">Imagen Actual</label>
+                                
                                         <img src="<?php echo $base_url . $pvd->img1; ?>" alt="Imagen 1" class="img-fluid slider-img active">
                                         <img src="<?php echo $base_url . $pvd->img2; ?>" alt="Imagen 2" class="img-fluid slider-img">
                                         <img src="<?php echo $base_url . $pvd->img3; ?>" alt="Imagen 3" class="img-fluid slider-img">
