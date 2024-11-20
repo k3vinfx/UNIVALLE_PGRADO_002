@@ -326,7 +326,7 @@ table{
                 <div class="form-row">
 
                 
-                        <div class="form-group col-md-7">
+                        <div class="form-group col-md-8">
                         <label for="ubicacion">Ubicación de la Alternativa</label>
                         <div class="input-group">
                         <div class="input-group-prepend">
@@ -339,10 +339,10 @@ table{
                         </div>
                         </div>
 
-                        <div class="form-group col-md-5">
+                        <div class="form-group col-md-4">
                             <label for="mapa">Marcador del Mapa</label>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                <i class="fas fa-map-marker-alt"></i> Cargar Marcador de Ubicación Mapa
+                                <i class="fas fa-map-marker-alt"></i> Marcador de Ubicación Mapa
                             </button>
                         </div>
 
