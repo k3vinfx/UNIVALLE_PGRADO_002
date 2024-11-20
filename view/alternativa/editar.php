@@ -300,13 +300,23 @@ table{
                     </div>
 
                 </div>
+
+ 
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                        <label for="direccion">Ubicacion</label>
+                        <label for="ubicacion">Ubicación de la Alternativa</label>
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                      
                         <input type="text" placeholder="Ingrese Ubicacion"
                          name="ubicacion" id="ubicacion" class="form-control" 
                          value="<?php echo $pvd->ubicacion;?>">
                         </div>
+                        </div>
+
                         <div class="form-group col-md-6">
                         <label id="lb_entrada_1">Categoria</label>
                         <select class="custom-select selevt"  name="categoria" id="categoria" >
@@ -328,9 +338,9 @@ table{
                         name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="mapa">Cargar Ubicación Mapa</label>
+                            <label for="mapa">Marcador del Mapa</label>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
+                                <i class="fas fa-map-marker-alt"></i> Cargar Marcador de Ubicación Mapa
                             </button>
                         </div>
 
