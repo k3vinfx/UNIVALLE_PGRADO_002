@@ -411,12 +411,7 @@ table{
                         </select>
                         </div>
 
-                        <div class="form-group col-md-6">
-                             <label for="" class="control-label">Images</label>
-                        <div class="custom-file">
-                        <input type="file" class="form-control" id="archivo" name="archivo" multiple>      
-                          <label class="custom-file-label" for="archivo">Escoje un Archivo de Imagen o Varias Imagenes</label>
-                        </div>
+             
                     </div>
 
                 
