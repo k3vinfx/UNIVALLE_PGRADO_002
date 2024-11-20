@@ -324,7 +324,7 @@ table{
 
  
 
-                    <div class="form-row">
+                    <div class="form-row col-md-12">
                         <div class="form-group col-md-6">
                         <label for="ubicacion">Ubicación de la Alternativa</label>
                         <div class="input-group">
