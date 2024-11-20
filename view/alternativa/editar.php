@@ -260,14 +260,14 @@ table{
                     <input type="hidden" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
                     <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
                     <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
                              <input type="text" name="nombre" id="nombre"
                          value="<?php echo $pvd->TITULO;?>"
                         class="form-control"  placeholder="Ingresa el Nombre de la Neurona">
                       </div>
 
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-4">
                           <label id="lb_entrada_1">Categoria</label>
                           <select class="custom-select selevt"  name="categoria" id="categoria" >
                           <option   value="<?php echo $pvd->IDCAT;?>"> <?php echo $pvd->categorias;?> </opcion>
@@ -278,6 +278,13 @@ table{
                           <?php endforeach; ?>
                             </select>    
                         </div>
+
+                        <div class="form-group col-md-4">
+                        <label for="telefono">Precio</label>
+                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
+                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
+                        </div>
+
                     </div>
                     <?php
                     $base_url = "https://k3sys.cloud/kevs_pg1/BETA/";
@@ -414,11 +421,7 @@ table{
                         <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactivo</option>
                         </select>
                         </div>
-                        <div class="form-group col-md-4">
-                        <label for="telefono">Precio</label>
-                        <input type="number" step="1" placeholder="Ingrese el Precio de la Alternativa" 
-                        name="costo" id="costo" class="form-control" min="0" max="1000" value="<?php echo $pvd->COSTO;?>">
-                        </div>
+               
              
                     </div>
 
