@@ -258,7 +258,7 @@ table{
                     <?php echo isset($alert) ? $alert : ''; ?>
 
                     <input type="hidden" name="id_recomendacion" id="id_recomendacion" value="<?php echo $pvd->ID; ?>" />
-                    <input type="hidden"  name="ubicacion" id="ubicacion" class="form-control"   value="<?php echo $pvd->latlong;?>">
+                    <input type="hidden"  name="ubicacion1" id="ubicacion1" class="form-control"   value="<?php echo $pvd->latlong;?>">
                     <div class="form-row">
                     <div class="form-group col-md-4">
                          <label for="inputEmail4">Nombre de la Alternativa...</label>
@@ -321,9 +321,9 @@ table{
                          </div>                              
                     </div>
 
-                </div>
+                 </div>
 
-                <div class="form-row">
+                 <div class="form-row">
 
                 
                         <div class="form-group col-md-8">
@@ -402,19 +402,19 @@ table{
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
+                                <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Imagen</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                 </div>
 
-                   
+                 <input type="text" name="latlong" id="latlong" />
 
                  
 
 
-                <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
+                  <div class="col-md-12 mt-1 d-flex flex-column align-items-center">
                         <div class="form-group col-md-5">
                       <label for="status" class="control-label">Estado</label>
                         <select name="estado" id="estado" class="custom-select selevt">
