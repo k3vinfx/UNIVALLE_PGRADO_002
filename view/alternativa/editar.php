@@ -393,11 +393,11 @@ table{
                                 </div>
                                 <div class="modal-body">
                                         <label for="text1">Latitud:</label>
-                                        <input type="text" id="text1" class="form-control mb-2" required>
+                                        <input type="text" id="text1" class="form-control mb-2" >
                                         <label for="text2">Longitud:</label>
-                                        <input type="text" id="text2" class="form-control mb-2" required>
+                                        <input type="text" id="text2" class="form-control mb-2" >
                                         <label for="text3">Dirección:</label>
-                                        <input type="text" id="text3" class="form-control mb-2" required>
+                                        <input type="text" id="text3" class="form-control mb-2" >
                                     </div>
 
                             </div>
